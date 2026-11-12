@@ -32,7 +32,7 @@ timeout --signal=TERM --kill-after=10s 1200s python experiments/association/run.
 
 两个种子分别达到 94.31%／94.08% 命中率、72.04／72.15 连续子分及 78.66／78.83 本地估算总分。云端完整计算耗时 701.47 秒（11 分 41 秒），进程正常退出。复用了既有权重，训练步数为每个种子 4000 步。
 
-本地报告在 `runs/b02-association01/report.json`，校准及开发子目录各有逐航迹摘要和计分表。只保留本目录的 `train_015-association.html` 和 `train_123-association.html` 两个查看器，回放这一版的真实逐圈输出。指标表和逐场景列表统一并排显示「基线、上一版、这一版」：最初简单基线、点级过滤版、改进航迹关联版；同一批 30 个开发场景、第一个预设种子 20261112 的本地估算总分分别为 66.67、75.13、78.66。切换当前场景会同步切换三版指标。
+本地报告在 `runs/b02-association01/report.json`，校准及开发子目录各有逐航迹摘要和计分表。该轮最初简单基线、点级过滤版、改进航迹关联版在同一批 30 个开发场景、第一个预设种子 20261112 的本地估算总分分别为 66.67、75.13、78.66。历史回放统计保留，当前 015 和 123 查看器已更新为下文的 8000 步完整开发集对照。
 
 从 `b02-starter` 目录重新生成（将 `train_015` 换成 `train_123` 可生成另一入口）：
 
@@ -98,3 +98,36 @@ python -m b02 visualize /path/to/point-expanded-data.zip --scene train_085 \
   --previous runs/b02-association-steps01/20261112-step4000 \
   --out runs/b02-association-threshold02/train_085-threshold.html --replace
 ```
+
+## 冻结阈值后的完整开发集验证
+
+8000 步固定起始阈值 0.50、维持阈值 0.05、历史三圈和关联点分数权重 0.50，在原划分的全部 30 个开发文件上完成两个种子的 60 次回放。没有追加训练或开发集阈值搜索。原始基线和 4000 步对照复用同批文件的完整统计，先核对数据摘要、4000 步权重逐项相等，并分别重放 015 核对全部非耗时统计。
+
+| 30 文件开发集，两种子均值 | 目标点命中率 | 已知杂点 | 连续跟踪子分 | 本地估算总分 |
+| --- | ---: | ---: | ---: | ---: |
+| 原始简单基线 | 95.135% | 938650 | 60.696 | 66.665 |
+| 4000 步，0.50／0.15 | 94.195% | 48004 | 72.093 | 78.746 |
+| 8000 步，0.50／0.05 | 94.199% | 38784.5 | 72.324 | 78.946 |
+
+平均命中率基本持平，连续子分增加 0.231，平均杂点减少 19.21%。第一个种子的命中率下降 0.258 个百分点、杂点减少 18700；第二个种子的命中率提高 0.266 个百分点、杂点增加 261（约 0.65%）。因此在开发集上未满足两个种子各自杂点均不增加的校准条件。两个种子的连续子分和总分均提高。完整口径、逐种子和逐场景结论见 [DEV_RESULTS.md](DEV_RESULTS.md)。
+
+```bash
+timeout --signal=TERM --kill-after=10s 1200s python experiments/association/evaluate_dev.py \
+  --project . --data /path/to/point-expanded-data.zip \
+  --training-run runs/b02-point-expanded01 --steps-run runs/b02-association-steps01 \
+  --association-run runs/b02-association01 --out runs/association-dev-new
+```
+
+脚本软截止为 1100 秒，本轮完整运行耗时 480.74 秒。实际输入仍是之前的数据包，封存测试文件不在包内，30 个封存测试文件保持未使用。每个场景结束保存摘要，全部完成才将报告标记为完成。
+
+当前查看器为 `runs/b02-association-dev01/train_015-dev.html` 和 `train_123-dev.html`，回放种子 20261112 的真实 GPU 输出。三列依次为原始基线、4000 步、8000 步，完整 30 文件总分为 66.67、78.66、78.85。此处为单个固定种子，与上表两种子均值区分。原 015/123 HTML 入口已清理，历史统计和三版回放数据保留。
+
+```bash
+python -m b02 visualize /path/to/point-expanded-data.zip --scene train_015 \
+  --run runs/b02-association-dev01/20261112-step8000-maintain005 \
+  --baseline runs/b02-point-expanded01/dev/baseline \
+  --previous runs/b02-association01/dev/global_score_20261112 \
+  --out runs/b02-association-dev01/train_015-dev.html --replace
+```
+
+替换场景及输出文件名可生成 123 查看器。`report.json` 和 `comparison.csv` 保存整批两种子均值、逐种子结果及逐场景对照；各种子目录保留 `summary.json`、`scorecard.json/csv`、`results.csv`。查看器三版表另存于 `viewer-comparison.json/csv`，不覆盖实验对照表。Git 仓库只提交代码和结果说明，数据与检查点需沿用实验环境中的本地文件。
