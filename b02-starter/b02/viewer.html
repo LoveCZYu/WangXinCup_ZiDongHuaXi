@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B02 航迹回放</title>
+<style>
+  :root { color-scheme: dark; --bg:#0d1520; --panel:#152130; --line:#2c3d52; --ink:#edf4ff; --muted:#a8bad1; --accent:#8de9e0; }
+  * { box-sizing:border-box }
+  body { margin:0; background:var(--bg); color:var(--ink); font:14px/1.55 system-ui,sans-serif }
+  main { max-width:1500px; margin:auto; padding:26px clamp(14px,3vw,40px) 40px }
+  header { display:flex; justify-content:space-between; align-items:end; gap:16px; margin-bottom:16px; flex-wrap:wrap }
+  h1 { margin:2px 0 0; font-size:clamp(25px,3vw,36px); letter-spacing:-.03em }
+  h2 { font-size:16px; margin:0 }
+  p { margin:0 }
+  .eyebrow { color:var(--accent); font:600 12px/1.4 ui-monospace,monospace; letter-spacing:.12em }
+  .muted { color:var(--muted) }
+  .badge { border:1px solid var(--line); border-radius:6px; padding:5px 10px; color:var(--muted) }
+  .summary { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin:0 0 14px; gap:8px }
+  .summary div { padding:10px 13px; background:var(--panel); border:1px solid var(--line); border-radius:8px }
+  .summary dt { color:var(--muted); font-size:12px }
+  .summary dd { margin:0; font:600 21px/1.45 ui-monospace,monospace }
+  .workspace { display:grid; grid-template-columns:minmax(0,1fr) minmax(250px,310px); gap:14px }
+  .mainstack, aside { display:grid; align-content:start; gap:14px; min-width:0 }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; min-width:0 }
+  .scorecard { margin-bottom:14px }
+  .scorecard summary { cursor:pointer; font-weight:650 }
+  .scorecard summary small { margin-left:10px; font-weight:400 }
+  .score-table { overflow-x:auto; margin-top:8px }
+  .score-table table { width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums }
+  .score-table th, .score-table td { padding:6px 9px; border-bottom:1px solid var(--line); text-align:left }
+  .score-table th { color:var(--muted); font-size:12px }
+  .score-table .value { text-align:right; white-space:nowrap }
+  .bar { display:flex; align-items:center; gap:8px; flex-wrap:wrap }
+  .between { justify-content:space-between }
+  .space { margin-top:10px }
+  .muted small, small.muted { font-size:12px }
+  button,select,input { font:inherit; color:inherit }
+  button,select,input[type=number] { border:1px solid #40546b; background:#1b2b3e; border-radius:5px; padding:5px 8px }
+  button { cursor:pointer }
+  button:hover { background:#28425a }
+  button:disabled { cursor:default; opacity:.45 }
+  :focus-visible { outline:2px solid var(--accent); outline-offset:2px }
+  input[type=range] { width:100%; accent-color:var(--accent); margin:8px 0 2px }
+  input[type=checkbox] { accent-color:var(--accent) }
+  input[type=number] { width:75px; font-variant-numeric:tabular-nums }
+  .controls { display:grid; gap:6px; padding-bottom:10px; border-bottom:1px solid var(--line); margin-bottom:10px }
+  .count { color:var(--accent); font-variant-numeric:tabular-nums }
+  .legend { display:flex; gap:4px 13px; flex-wrap:wrap; font-size:12px }
+  .legend label { display:flex; align-items:center; gap:4px; white-space:nowrap }
+  .key { font-weight:750; color:var(--key) }
+  #plot { width:100%; height:clamp(315px,41vh,475px); display:block; margin:8px 0 2px; border-radius:7px; background:#101b29 }
+  #total-score { font-size:24px; color:var(--accent); font-variant-numeric:tabular-nums }
+  tr[data-metric=weighted_total] { background:#203d48; font-weight:650 }
+  #result-list tr[data-current=true] { background:#203d48 }
+  #point { font-size:12px; min-height:20px; color:var(--muted); overflow-wrap:anywhere }
+  #timeline { width:100%; height:84px; display:block; cursor:crosshair; margin:6px 0 3px }
+  .chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:7px; max-height:88px; overflow:auto }
+  .chips button { font-size:12px; padding:3px 6px }
+  #case-mode { width:100%; margin-top:9px }
+  .cases { display:grid; gap:6px; margin-top:8px }
+  .cases button { text-align:left; padding:7px 9px; display:flex; align-items:center; justify-content:space-between; gap:8px }
+  .cases button[aria-current=true] { border-color:var(--accent); background:#203d48 }
+  .cases button span:last-child { color:var(--muted); font-size:12px; text-align:right }
+  #target { max-width:100% }
+  #scan-stats { font-variant-numeric:tabular-nums }
+  @media(max-width:880px) { .workspace { grid-template-columns:1fr } aside { grid-template-columns:1fr 1fr } }
+  @media(max-width:550px) { .summary { grid-template-columns:repeat(2,minmax(0,1fr)) } aside { grid-template-columns:1fr } .panel { padding:12px } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div><div class="eyebrow">B02 / TRACK REVIEW</div><h1>航迹回放</h1><p class="muted" id="scene"></p></div>
+    <span class="badge">训练数据 · 本地诊断</span>
+  </header>
+  <dl class="summary" id="summary" aria-label="场景统计"></dl>
+  <details class="panel scorecard" id="scorecard">
+    <summary>结果评分表 <small class="muted"><span id="total-scope"></span> · 本地估算总分 <span id="total-score"></span> / 100 · 非官网成绩</small></summary>
+    <div class="bar between space">
+      <p class="muted" id="score-info"></p>
+      <label>统计范围 <select id="score-scope"><option value="overall">整批回放</option><option value="scene">当前场景</option></select></label>
+    </div>
+    <div class="score-table"><table aria-label="回放指标对照">
+      <thead id="score-head"></thead><tbody id="score-rows"></tbody>
+    </table></div>
+    <details class="space"><summary>逐场景结果列表（含加权总分）</summary>
+      <div class="score-table"><table aria-label="逐场景结果列表"><thead id="result-head"></thead><tbody id="result-list"></tbody></table></div>
+    </details>
+    <details class="space"><summary>计算公式与估算假设</summary>
+      <p class="muted space">总分 = 掌握率 × 0.3 + 虚警 × 0.1 + 零碎度 × 0.2 + 及时性 × 0.2 + 连续跟踪 × 0.2。各子分取值为 0–100，指标表标明权重。</p>
+      <ul id="score-policy" class="muted"></ul>
+      <p class="muted">诊断行的首次输出延迟从首个真值点起算，仅统计命中航迹；及时性子分另按上面的第三圈口径计算。</p>
+    </details>
+  </details>
+  <div class="workspace">
+    <div class="mainstack">
+      <section class="panel" aria-labelledby="plot-heading">
+        <div class="controls">
+          <div class="bar between">
+            <h2 id="plot-heading">逐圈点迹 <span class="count" id="circle-label"></span></h2>
+            <div class="bar">
+              <button id="prev" aria-label="上一圈">← 上一圈</button><button id="play">播放</button>
+              <button id="next" aria-label="下一圈">下一圈 →</button>
+              <label>跳到 <input id="jump" type="number" min="0" step="1"></label>
+            </div>
+          </div>
+          <input id="seek" type="range" min="0" step="1" aria-label="选择圈号">
+          <div class="bar between">
+            <small id="scan-stats" class="muted"></small>
+            <div class="bar">
+              <label>横轴 <select id="x" aria-label="横轴"></select></label>
+              <label>纵轴 <select id="y" aria-label="纵轴"></select></label>
+            </div>
+          </div>
+        </div>
+        <div class="legend" id="legend" aria-label="点迹图层"></div>
+        <canvas id="plot" role="img" aria-label="逐圈点迹散点图"></canvas>
+        <p id="point">将鼠标移到点迹上查看详情。点击真值点可选择航迹。</p>
+      </section>
+      <section class="panel" aria-labelledby="timeline-heading">
+        <div class="bar between"><h2 id="timeline-heading">真值航迹时间线</h2><label>真值 ID <select id="target"></select></label></div>
+        <p id="target-stats" class="muted space"></p>
+        <svg id="timeline" viewBox="0 0 760 84" preserveAspectRatio="none" role="img" aria-label="真值航迹各圈命中与输出 ID 时间线"></svg>
+        <small class="muted">彩色为输出 ID，橙色为有真值点但未输出，空白为无真值点。点击时间线跳圈。</small>
+        <div class="chips" id="changes" aria-label="航迹关键事件"></div>
+      </section>
+    </div>
+    <aside>
+      <section class="panel" aria-labelledby="case-heading">
+        <h2 id="case-heading">失败定位</h2>
+        <select id="case-mode" aria-label="失败类型">
+          <option value="clutter">已知杂波输出最多的圈</option>
+          <option value="misses">真值漏点最多的圈</option>
+          <option value="ids">输出 ID 最分散的航迹</option>
+        </select>
+        <div class="cases" id="cases"></div>
+      </section>
+      <section class="panel">
+        <h2>读图说明</h2>
+        <p class="muted space">亮色圆点表示已输出的真值点，颜色对应算法批号。白色空心圆标出当前选中的真值航迹。</p>
+        <p class="muted space">已知杂波与未标注点分开统计。数据来自训练点迹及本地回放，坐标为归一化值。</p>
+        <p class="muted space">使用 ← / → 翻圈。时间线的“变号”指同一真值前后两次命中使用了不同输出 ID。</p>
+      </section>
+    </aside>
+  </div>
+</main>
+<script id="data" type="application/json">__B02_PAYLOAD__</script>
+<script>
+"use strict";
+const data = JSON.parse(document.getElementById("data").textContent);
+const $ = id => document.getElementById(id);
+const scans = data.scans;
+const last = scans.length - 1;
+const number = value => value.toLocaleString("zh-CN");
+const axes = [[2,"方位角"],[3,"俯仰角"],[4,"距离"]];
+const layers = [
+  ["background","·","未输出杂波","#718aa8"], ["miss","×","真值漏点","#ffc17b"],
+  ["hit","●","真值命中（按输出 ID）","#8de9e0"], ["clutter","■","杂波输出","#ff7792"],
+  ["unknown","◆","未标注点","#c5afff"]
+];
+const byTruth = new Map(data.targets.map(target => [target.id,target]));
+const ranked = [...data.targets].sort((a,b) => b.ids.length-a.ids.length || a.id-b.id);
+const rankings = Object.fromEntries(["clutter","misses"].map(key => [key, scans
+  .map((scan,index) => ({index,count:scan[key]})).filter(item => item.count)
+  .sort((a,b) => b.count-a.count || a.index-b.index).slice(0,8)]));
+let targetId = ranked[0]?.id ?? null;
+let current = ranked[0]?.switches[0]?.[0] ?? scans.findIndex(scan => scan.hits > 0);
+current = Math.max(0,current);
+let playing = null;
+let visiblePoints = [];
+const toggles = new Map();
+const canvas = $("plot");
+const ctx = canvas.getContext("2d");
+const idColor = id => `hsl(${(id * 137.508) % 360} 82% 69%)`;
+const category = row => row[5] < 0 ? "unknown" : row[5] > 0 ? (row[6] ? "hit" : "miss") : (row[6] ? "clutter" : "background");
+
+$("scene").textContent = `${data.scene} · ${number(scans.length)} 圈 · ${number(data.totals.points)} 个输入点`;
+document.title = `B02 航迹回放 · ${data.scene}`;
+for (const [label,value] of [
+  ["真值点命中", `${number(data.totals.hits)} / ${number(data.totals.truth)}`],
+  ["已知杂波输出", number(data.totals.clutter)], ["未标注输出", number(data.totals.unknown)],
+  ["真值航迹", number(data.targets.length)], ["对应多个输出 ID", number(ranked.filter(t => t.ids.length > 1).length)]
+]) {
+  const tile = document.createElement("div");
+  const term = document.createElement("dt");
+  const definition = document.createElement("dd");
+  term.textContent = label; definition.textContent = value;
+  tile.append(term,definition); $("summary").append(tile);
+}
+
+function scoreValue(value, unit, delta = false) {
+  if (value === null) return "—";
+  const format = unit === "%" ? {minimumFractionDigits: 1, maximumFractionDigits: 1} : {maximumFractionDigits: 1};
+  const suffix = unit === "%" ? (delta ? " 个百分点" : "%") : ` ${unit}`;
+  return `${delta && value > 0 ? "+" : ""}${value.toLocaleString("zh-CN", format)}${suffix}`;
+}
+
+function renderScorecard() {
+  const card = data.scorecard;
+  const scope = $("score-scope").value === "overall" ? card.overall : card.scenes[data.scene];
+  const comparing = Boolean(scope.baseline);
+  const versions = card.versions;
+  const versionValues = versions?.map(version =>
+    $("score-scope").value === "overall" ? version.overall : version.scenes[data.scene]);
+  $("total-scope").textContent = $("score-scope").value === "overall" ? `整批 ${scope.scene_count} 个场景` : data.scene;
+  $("total-score").textContent = scope.values.weighted_total?.toFixed(2) ?? "—";
+  $("score-info").textContent = versions
+    ? `${versions.map(v => v.label + " " + v.run).join(" · ")}。回放画面显示这一版，三版按相同的 ${scope.scene_count} 个场景、${number(scope.truth_tracks)} 条真值航迹计分。`
+    : `${card.run} · ${scope.scene_count} 个场景 · ${number(scope.truth_tracks)} 条真值航迹`
+      + (comparing ? ` · 对照版本 ${card.baseline_run} 按相同场景汇总` : "");
+  const head = document.createElement("tr");
+  const headers = ["赛题指标", "权重", "本地诊断",
+    ...(versions ? versions.map(v => v.label) : comparing ? ["对照版本", "这一版", "变化"] : ["这一版"])];
+  for (const [index, label] of headers.entries()) {
+    const cell = document.createElement("th");
+    cell.scope = "col"; cell.textContent = label;
+    if (index >= 3) cell.className = "value";
+    head.append(cell);
+  }
+  $("score-head").replaceChildren(head);
+  const rows = [];
+  let group = null;
+  for (const metric of card.metrics) {
+    const newGroup = metric.group !== group;
+    const values = [newGroup ? metric.group : "", newGroup && metric.weight !== null ? `${metric.weight}%` : "", metric.label];
+    if (versions) {
+      values.push(...versionValues.map(value => metric.key === "weighted_total"
+        ? (value[metric.key]?.toFixed(2) ?? "—") : scoreValue(value[metric.key], metric.unit)));
+    } else {
+      if (comparing) values.push(scoreValue(scope.baseline[metric.key], metric.unit));
+      values.push(scoreValue(scope.values[metric.key], metric.unit));
+      if (comparing) values.push(scoreValue(scope.delta[metric.key], metric.unit, true));
+    }
+    const row = document.createElement("tr");
+    row.dataset.metric = metric.key;
+    for (const [index, value] of values.entries()) {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      if (index >= 3) cell.className = "value";
+      row.append(cell);
+    }
+    rows.push(row); group = metric.group;
+  }
+  $("score-rows").replaceChildren(...rows);
+  $("score-policy").replaceChildren(...card.scoring_policy.assumptions.map(text => {
+    const item = document.createElement("li"); item.textContent = text; return item;
+  }));
+  const resultHead = document.createElement("tr");
+  const resultLabels = versions ? ["范围", ...versions.map(v => v.label + "总分")]
+    : ["范围", "这一版总分", "掌握率 × .3", "虚警 × .1", "零碎度 × .2", "及时性 × .2", "连续跟踪 × .2"];
+  for (const label of resultLabels) {
+    const cell = document.createElement("th"); cell.textContent = label; cell.scope = "col"; resultHead.append(cell);
+  }
+  $("result-head").replaceChildren(resultHead);
+  $("result-list").replaceChildren(...[["整批回放",card.overall], ...Object.entries(card.scenes)].map(([name,item]) => {
+    const row = document.createElement("tr"); row.dataset.current = String(name === data.scene);
+    const scores = versions
+      ? versions.map(v => (name === "整批回放" ? v.overall : v.scenes[name]).weighted_total?.toFixed(2) ?? "—")
+      : ["weighted_total", ...Object.keys(card.scoring_policy.weights)].map(key => item.values[key]?.toFixed(2) ?? "—");
+    for (const value of [name, ...scores]) {
+      const cell = document.createElement("td"); cell.textContent = value; row.append(cell);
+    }
+    return row;
+  }));
+}
+
+$("score-scope").addEventListener("change", renderScorecard);
+renderScorecard();
+for (const axis of [$("x"),$("y")]) {
+  for (const [column,label] of axes) axis.add(new Option(label,column));
+  axis.addEventListener("change", renderPlot);
+}
+$("x").value = 2; $("y").value = 4;
+for (const [kind,shape,label,color] of layers) {
+  const wrapper = document.createElement("label");
+  const checkbox = document.createElement("input");
+  const key = document.createElement("span");
+  checkbox.type = "checkbox"; checkbox.checked = true;
+  checkbox.addEventListener("change",renderPlot); toggles.set(kind,checkbox);
+  key.className = "key"; key.style.setProperty("--key",color); key.textContent = shape;
+  wrapper.append(checkbox,key,label); $("legend").append(wrapper);
+}
+for (const target of data.targets) $("target").add(new Option(`${target.id} · ${target.ids.length} 个输出 ID`,target.id));
+$("target").disabled = !data.targets.length;
+$("seek").max = $("jump").max = last;
+
+function mark(x,y,kind,row) {
+  ctx.beginPath();
+  if (kind === "miss") {
+    ctx.strokeStyle = "#ffc17b"; ctx.lineWidth = 1.8;
+    ctx.moveTo(x-3,y-3); ctx.lineTo(x+3,y+3); ctx.moveTo(x+3,y-3); ctx.lineTo(x-3,y+3); ctx.stroke();
+  } else if (kind === "clutter") {
+    ctx.fillStyle = "#ff7792"; ctx.fillRect(x-2.3,y-2.3,4.6,4.6);
+  } else if (kind === "unknown") {
+    ctx.fillStyle = row[6] ? "#c5afff" : "#6d628b";
+    ctx.moveTo(x,y-3); ctx.lineTo(x+3,y); ctx.lineTo(x,y+3); ctx.lineTo(x-3,y); ctx.closePath(); ctx.fill();
+  } else {
+    ctx.fillStyle = kind === "hit" ? idColor(row[6]) : "#5a7594";
+    ctx.arc(x,y,kind === "hit" ? 3.3 : 1.55,0,2*Math.PI); ctx.fill();
+  }
+}
+
+function renderPlot() {
+  const {width,height} = canvas.getBoundingClientRect();
+  const scale = window.devicePixelRatio || 1;
+  canvas.width = Math.round(width*scale); canvas.height = Math.round(height*scale);
+  ctx.scale(scale,scale);
+  const xc = Number($("x").value), yc = Number($("y").value);
+  const left = 52, right = width-20, top = 20, bottom = height-48;
+  const px = value => left + value*(right-left);
+  const py = value => bottom - value*(bottom-top);
+  ctx.font = "11px system-ui"; ctx.strokeStyle = "#2a3b51"; ctx.fillStyle = "#a8bad1";
+  for (let i=0; i<=5; i++) {
+    const t = i/5;
+    ctx.beginPath(); ctx.moveTo(px(t),top); ctx.lineTo(px(t),bottom);
+    ctx.moveTo(left,py(t)); ctx.lineTo(right,py(t)); ctx.stroke();
+    ctx.textAlign = "center"; ctx.fillText(t.toFixed(1),px(t),bottom+17);
+    ctx.textAlign = "right"; ctx.fillText(t.toFixed(1),left-8,py(t)+4);
+  }
+  ctx.textAlign = "center"; ctx.fillText(`${axes.find(axis => axis[0]===xc)[1]}（归一化）`,(left+right)/2,height-8);
+  ctx.save(); ctx.translate(13,(top+bottom)/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText(`${axes.find(axis => axis[0]===yc)[1]}（归一化）`,0,0); ctx.restore();
+
+  visiblePoints = [];
+  const rows = scans[current].rows;
+  ctx.save(); ctx.beginPath(); ctx.rect(left-6,top-6,right-left+12,bottom-top+12); ctx.clip();
+  for (const [kind] of layers) {
+    if (!toggles.get(kind).checked) continue;
+    for (const row of rows) {
+      if (category(row) !== kind) continue;
+      const x = px(row[xc]), y = py(row[yc]);
+      mark(x,y,kind,row); visiblePoints.push({x,y,row});
+    }
+  }
+  for (const {x,y,row} of visiblePoints) {
+    if (row[5] !== targetId) continue;
+    ctx.beginPath(); ctx.strokeStyle = "#fff"; ctx.lineWidth = 1.5;
+    ctx.arc(x,y,6.5,0,2*Math.PI); ctx.stroke();
+  }
+  ctx.restore();
+  if (!rows.length) {
+    ctx.fillStyle = "#c5d4e8"; ctx.font = "14px system-ui";
+    ctx.fillText("本圈无点迹",(left+right)/2,(top+bottom)/2);
+  }
+}
+
+const span = Math.max(1,last);
+const timelineX = circle => 25 + circle/span*710;
+const escapeText = value => String(value).replace(/[&<>]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;"})[char]);
+function svgMark(circle,batch) {
+  const color = batch ? idColor(batch) : "#ffc17b";
+  return `<line x1="${timelineX(circle)}" x2="${timelineX(circle)}" y1="24" y2="43" stroke="${color}" stroke-width="2"><title>${escapeText(`${circle} 圈 · ${batch ? `输出 ${batch}` : "漏点"}`)}</title></line>`;
+}
+function renderTimeline() {
+  const target = byTruth.get(targetId);
+  const chips = $("changes"); chips.replaceChildren();
+  if (!target) {
+    $("target-stats").textContent = "本场景没有正标签航迹。";
+    $("timeline").innerHTML = "";
+    return;
+  }
+  $("target").value = target.id;
+  const first = target.first === null ? "未命中" : `第 ${target.first} 圈（晚 ${target.first-target.observations[0][0]} 圈）`;
+  $("target-stats").textContent = `${target.hits} / ${target.observations.length} 点命中 · ${target.ids.length} 个输出 ID · 首次输出 ${first}`;
+  const ticks = [...new Set([0,Math.round(last/4),Math.round(last/2),Math.round(last*3/4),last])];
+  $("timeline").innerHTML = `<rect x="25" y="24" width="710" height="19" rx="3" fill="#2b3a50"/>`
+    + target.observations.map(([circle,batch]) => svgMark(circle,batch)).join("")
+    + `<line x1="${timelineX(current)}" x2="${timelineX(current)}" y1="15" y2="51" stroke="white" stroke-width="2" pointer-events="none"/>`
+    + ticks.map(tick => `<text x="${timelineX(tick)}" y="68" text-anchor="middle" fill="#a8bad1" font-size="12">${tick}</text>`).join("");
+  const events = [[target.observations[0][0],"首次观测"]];
+  if (target.first !== null) events.push([target.first,"首次输出"]);
+  for (const [circle,batch] of target.switches) events.push([circle,`变号至 ${batch}`]);
+  for (const [circle,label] of events) {
+    const button = document.createElement("button");
+    button.textContent = `${circle} 圈 · ${label}`;
+    button.addEventListener("click",() => seek(circle)); chips.append(button);
+  }
+}
+
+function renderCases() {
+  const mode = $("case-mode").value;
+  const parent = $("cases"); parent.replaceChildren();
+  const list = mode === "ids"
+    ? ranked.filter(target => target.ids.length > 1).slice(0,8).map(target =>
+        [target.switches[0][0], `真值 ${target.id}`, `${target.ids.length} 个输出 ID`, target.id])
+    : rankings[mode].map(item => [item.index, `第 ${scans[item.index].circle} 圈`, `${number(item.count)} 点`, null]);
+  if (!list.length) { parent.textContent = "该场景未出现这类现象。"; return; }
+  for (const [index,label,detail,truth] of list) {
+    const button = document.createElement("button");
+    const name = document.createElement("span"), count = document.createElement("span");
+    name.textContent = label; count.textContent = detail; button.append(name,count);
+    button.setAttribute("aria-current",String(index === current && (truth === null || truth === targetId)));
+    button.addEventListener("click",() => { if (truth !== null) targetId = truth; seek(index); });
+    parent.append(button);
+  }
+}
+
+function stop() {
+  if (playing !== null) clearInterval(playing);
+  playing = null; $("play").textContent = "播放";
+}
+function seek(index) {
+  current = Math.max(0,Math.min(last,Math.round(index)));
+  const scan = scans[current];
+  $("circle-label").textContent = `${scan.circle} / ${last}`;
+  $("seek").value = $("jump").value = current;
+  $("prev").disabled = current === 0; $("next").disabled = current === last;
+  $("scan-stats").textContent = `${number(scan.rows.length)} 点 · 命中 ${scan.hits} · 漏点 ${scan.misses} · 杂波输出 ${scan.clutter} · 未标注输出 ${scan.unknown} · ${scan.ms.toFixed(2)} ms`;
+  $("point").textContent = "将鼠标移到点迹上查看详情。点击真值点可选择航迹。";
+  renderPlot(); renderTimeline(); renderCases();
+  if (current === last) stop();
+}
+
+function nearest(event) {
+  const bounds = canvas.getBoundingClientRect();
+  const x = event.clientX-bounds.left, y = event.clientY-bounds.top;
+  let closest = null, distance = 64;
+  for (const point of visiblePoints) {
+    const d = (point.x-x)**2 + (point.y-y)**2;
+    if (d <= distance) { closest = point; distance = d; }
+  }
+  return closest?.row;
+}
+canvas.addEventListener("pointermove",event => {
+  const row = nearest(event);
+  $("point").textContent = row
+    ? `点 ${row[0]} · ${row[1]} ms · 方位 ${row[2]} · 俯仰 ${row[3]} · 距离 ${row[4]} · ${row[5]>0 ? `真值 ${row[5]}` : row[5]===0 ? "已知杂波" : "未标注"} · ${row[6] ? `输出 ID ${row[6]}` : "未输出"}`
+    : "将鼠标移到点迹上查看详情。点击真值点可选择航迹。";
+});
+canvas.addEventListener("click",event => {
+  const row = nearest(event);
+  if (row && row[5] > 0) { targetId = row[5]; seek(current); }
+});
+$("prev").addEventListener("click",() => seek(current-1));
+$("next").addEventListener("click",() => seek(current+1));
+$("seek").addEventListener("input",event => seek(Number(event.target.value)));
+$("jump").addEventListener("change",event => seek(event.target.valueAsNumber || 0));
+$("target").addEventListener("change",event => { targetId = Number(event.target.value); seek(current); });
+$("case-mode").addEventListener("change",renderCases);
+$("timeline").addEventListener("click",event => {
+  const bounds = $("timeline").getBoundingClientRect();
+  seek(((event.clientX-bounds.left)/bounds.width*760-25)/710*span);
+});
+$("play").addEventListener("click",() => {
+  if (playing !== null) { stop(); return; }
+  if (current === last) seek(0);
+  if (last > 0) { playing = setInterval(() => seek(current+1),250); $("play").textContent = "暂停"; }
+});
+document.addEventListener("keydown",event => {
+  if (/INPUT|SELECT|BUTTON|TEXTAREA/.test(event.target.tagName)) return;
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    event.preventDefault(); seek(current+(event.key === "ArrowLeft" ? -1 : 1));
+  }
+});
+new ResizeObserver(renderPlot).observe(canvas);
+seek(current);
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+.official/
+runs/
+data/
+*.zip
+*.dat
+*.exe
+train_*.csv
+*.pt
+*.pth
+*.ckpt
+.env
