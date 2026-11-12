@@ -78,7 +78,7 @@ timeout --signal=TERM --kill-after=10s 480s python experiments/association/compa
 
 选定阈值相对 4000 步，平均命中率提高 0.045 个百分点、连续子分提高 0.324，杂点减少约 18.0%。两个种子的杂点分别由 13710 降到 9462、由 9922 降到 9909。命中率分别变化 −0.203 和 +0.293 个百分点，连续子分分别提高 0.107 和 0.540。0.35／0.105 在均值上也通过，但第二个种子的杂点达到 11373。阈值是在这 8 个文件上选出的，改善幅度适用内部校准结果。
 
-两轮云端合计用时 312.07 秒。原始报告及计分表保存在 `runs/b02-association-threshold01/` 和 `runs/b02-association-threshold02/`。后者的 `train_085-threshold.html` 回放第一个预设种子的调阈值结果，并列展示 4000 步、8000 步原阈值和 8000 步调阈值三个版本。查看器使用真实 CPU 全链路回放，逐航迹统计与 GPU 校准结果一致。
+两轮云端合计用时 312.07 秒。原始报告及计分表保存在 `runs/b02-association-threshold01/` 和 `runs/b02-association-threshold02/`。后者的 `train_085-threshold.html` 回放第一个预设种子的调阈值结果。三列依次为原始简单跟踪基线、4000 步对照、8000 步调阈值版，按同一批 8 个内部校准文件计算的总分依次为 67.94、79.76、79.93。8000 步原阈值结果见上表及校准报告。查看器使用真实 CPU 全链路回放，逐航迹统计与 GPU 校准结果一致。
 
 ```bash
 timeout --signal=TERM --kill-after=10s 360s python experiments/association/sweep_thresholds.py \
@@ -90,3 +90,11 @@ timeout --signal=TERM --kill-after=10s 200s python experiments/association/sweep
 ```
 
 本地复查某个场景可使用 `replay_checkpoint.py`。8000 步调阈值版本传入 `--enter 0.50 --maintain 0.05`，4000 步对照使用默认阈值。
+
+```bash
+python -m b02 visualize /path/to/point-expanded-data.zip --scene train_085 \
+  --run runs/b02-association-threshold02/20261112-step8000-maintain005 \
+  --baseline runs/b02-point-expanded01/calibration/baseline \
+  --previous runs/b02-association-steps01/20261112-step4000 \
+  --out runs/b02-association-threshold02/train_085-threshold.html --replace
+```
