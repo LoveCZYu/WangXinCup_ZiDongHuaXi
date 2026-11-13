@@ -34,7 +34,19 @@ def main():
     control.state,soft.state=deepcopy(initial),deepcopy(initial)
     assert control([point],[1.])==soft([point],[1.])
     assert control.state['tracks']==soft.state['tracks']
-    print('Passed: equal-evidence reproduces association; stronger evidence wins one-to-one competition; low-score velocity influence decreases; high-score state remains exact.')
+    # With strong prior evidence, the combined arm must still apply soft velocity.
+    combined,soft=Tracker('combined'),Tracker('confidence_velocity')
+    combined.state,soft.state=deepcopy(initial),deepcopy(initial)
+    combined.strong_hits={1:6}
+    assert combined([point],[.1])==soft([point],[.1])
+    assert combined.state['tracks']==soft.state['tracks']
+    # With a strong current observation, only priority can change the state.
+    combined,priority=Tracker('combined'),Tracker('evidence_priority')
+    combined.state,priority.state=deepcopy(initial),deepcopy(initial)
+    assert combined([point],[1.])==priority([point],[1.])
+    assert combined.state['tracks']==priority.state['tracks']
+    assert combined.strong_hits==priority.strong_hits
+    print('Passed: original intervention boundaries; combined applies both priority and soft velocity, without changing either single-arm behavior.')
 
 
 if __name__=='__main__':

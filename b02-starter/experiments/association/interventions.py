@@ -1,4 +1,4 @@
-"""Causal, single-variable tracking interventions with frozen point scores."""
+"""Causal tracking interventions and their fixed combination."""
 from functools import partial
 from heapq import nsmallest
 from itertools import product
@@ -61,9 +61,11 @@ def priority_assign(track_ids, tracks, scan, positions, grid, occupied, config, 
 
 class Tracker:
     def __init__(self, variant):
-        if variant not in ('control','evidence_priority','confidence_velocity'):
+        if variant not in ('control','evidence_priority','confidence_velocity','combined'):
             raise ValueError(variant)
         self.variant = variant
+        self.use_priority = variant in ('evidence_priority','combined')
+        self.use_velocity = variant in ('confidence_velocity','combined')
         self.state = {}
         self.strong_hits = {}
         self.gate = OutputGate(Policy('frozen_050_005',.50,.05,3))
@@ -71,9 +73,9 @@ class Tracker:
     def __call__(self, points, scores):
         old = self.state.get('tracks',{})
         old_ids = set(old)
-        velocities = {batch:t.velocity for batch,t in old.items()} if self.variant=='confidence_velocity' else {}
+        velocities = {batch:t.velocity for batch,t in old.items()} if self.use_velocity else {}
         matches = {}
-        if self.variant=='evidence_priority':
+        if self.use_priority:
             method = partial(priority_assign,scores=scores,strong_hits=self.strong_hits)
         else:
             method = partial(assign,scores=scores,score_weight=.50)
@@ -85,12 +87,12 @@ class Tracker:
 
         raw = process_circle(points,self.state,assignment=assignment)
         tracks = self.state['tracks']
-        if self.variant=='confidence_velocity':
+        if self.use_velocity:
             for batch,index in matches.items():
                 trust = min(1,scores[index]/.50)
                 before = velocities[batch]
                 tracks[batch].velocity = tuple(v+trust*(updated-v) for v,updated in zip(before,tracks[batch].velocity))
-        elif self.variant=='evidence_priority':
+        if self.use_priority:
             self.strong_hits = {batch:count for batch,count in self.strong_hits.items() if batch in tracks}
             for batch,index in matches.items():
                 self.strong_hits[batch] = min(6,self.strong_hits.get(batch,0)+int(scores[index]>=.50))

@@ -1,4 +1,4 @@
-"""Compare two frozen causal interventions on internal calibration only."""
+"""Compare frozen causal interventions on internal calibration only."""
 import argparse
 from collections import Counter, defaultdict, deque
 import json
@@ -30,6 +30,9 @@ def main():
     for name in ('project','data','steps-run','reference','out'):
         parser.add_argument(f'--{name}',type=Path,required=True)
     parser.add_argument('--seconds',type=int,default=660)
+    parser.add_argument('--variants',nargs='+',choices=('control','evidence_priority','confidence_velocity','combined'),
+                        default=['control','evidence_priority','confidence_velocity'])
+    parser.add_argument('--prior-run',type=Path)
     args=parser.parse_args()
     args.project=args.project.resolve()
     sys.path[:0]=[str(args.project),str(args.project/'experiments/point_scorer'),
@@ -51,11 +54,13 @@ def main():
     assert not set(scenes)&set(steps['fit']+split['dev']+split['holdout'])
     assert sha256(args.data)==steps['data_sha256']
     assert sha256(Path(__file__).with_name('assignment.py'))==steps['source_sha256']['assignment.py']
-    variants=('control','evidence_priority','confidence_velocity')
+    variants=tuple(args.variants)
+    assert len(variants)>=2 and variants[0]=='control' and len(set(variants))==len(variants)
     manifest={'scenes':scenes,'seeds':seeds,'step':8000,'output_rule':{'enter':.50,'maintain':.05,'grace':3},
               'score_weight':.50,'variants':variants,'data_sha256':steps['data_sha256'],
               'interventions':{'evidence_priority':'Real-edge penalty 0.15*(1-min(prior strong hits,6)/6); strong >=0.50. Other association rules unchanged.',
-                               'confidence_velocity':'Scale baseline velocity increment by min(1,point_score/0.50); position, hits, birth and output gate unchanged.'},
+                               'confidence_velocity':'Scale baseline velocity increment by min(1,point_score/0.50); position, hits, birth and output gate unchanged.',
+                               'combined':'Apply the two fixed interventions together, with identical constants and no other change.'},
               'selection':'Require each seed recall >= control and clutter <= control; mean continuity and local total both improve. No dev evaluation.',
               'viewer_scenes':['train_032','train_085'],'soft_seconds':args.seconds,
               'source_sha256':{str(p.relative_to(args.project)):sha256(p) for p in
@@ -65,6 +70,17 @@ def main():
               'checkpoint_sha256':{str(seed):sha256(args.steps_run/f'{seed}-step8000.pt') for seed in seeds}}
     save(args.out/'manifest.json',manifest)
     report={'complete':False,'by_seed':{},'control_reproduced':{}}
+    prior=None
+    if args.prior_run:
+        prior=json.loads((args.prior_run/'report.json').read_text())
+        prior_manifest=json.loads((args.prior_run/'manifest.json').read_text())
+        assert prior['complete'] and all(prior['control_reproduced'].values())
+        for key in ('scenes','seeds','step','output_rule','score_weight','data_sha256','checkpoint_sha256'):
+            assert manifest[key]==prior_manifest[key],key
+        manifest['prior_run']={'path':str(args.prior_run),'manifest_sha256':sha256(args.prior_run/'manifest.json'),
+                               'report_sha256':sha256(args.prior_run/'report.json'),
+                               'reused_variants':['evidence_priority','confidence_velocity']}
+        save(args.out/'manifest.json',manifest)
 
     def budget():
         if monotonic()-started>args.seconds:
@@ -126,6 +142,10 @@ def main():
                             for key,value in json.loads(json.dumps(result)).items():
                                 if key not in ('p95_handler_ms','max_handler_ms'):
                                     assert value==expected['scenes'][scene][key],(seed,scene,key)
+                            if prior is not None:
+                                prior_control=load_summary(args.prior_run/f'{seed}-control')['scenes'][scene]
+                                assert all(value==prior_control[key] for key,value in json.loads(json.dumps(result)).items()
+                                           if key not in ('p95_handler_ms','max_handler_ms'))
                         summaries[variant]['scenes'][scene]=result
                         diagnostics[variant][scene]=identity_diagnostics(frames,caches[variant])
                         save(out/'summary.json',summaries[variant])
@@ -160,6 +180,10 @@ def main():
         eligible=[v for v,checks in report['checks'].items() if all(checks.values())]
         report['selected']=max(eligible,key=lambda v:report['means'][v]['metrics']['weighted_total'],default=None)
         report['viewer_variant']=max(variants[1:],key=lambda v:report['means'][v]['metrics']['weighted_total'])
+        if prior is not None:
+            report['factorial_means']={**prior['means'],**report['means']}
+            report['factorial_by_seed']={str(seed):{**prior['by_seed'][str(seed)],**report['by_seed'][seed]} for seed in seeds}
+            report['prior_controls_reproduced']=True
         report['complete']=True
     except TimeoutError as error:
         report['budget_stop']=str(error)
