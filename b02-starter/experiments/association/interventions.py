@@ -8,8 +8,8 @@ from scipy.sparse import coo_matrix
 from scipy.sparse.csgraph import min_weight_full_bipartite_matching
 
 from b02.algorithm import DEFAULT_CONFIG, process_circle
-from assignment import assign
-from policy import OutputGate, Policy
+from experiments.association.assignment import assign
+from experiments.point_scorer_expanded.policy import OutputGate, Policy
 
 
 def priority_assign(track_ids, tracks, scan, positions, grid, occupied, config, *, scores, strong_hits):
@@ -60,7 +60,7 @@ def priority_assign(track_ids, tracks, scan, positions, grid, occupied, config, 
 
 
 class Tracker:
-    def __init__(self, variant):
+    def __init__(self, variant, policy=None):
         if variant not in ('control','evidence_priority','confidence_velocity','combined'):
             raise ValueError(variant)
         self.variant = variant
@@ -68,7 +68,7 @@ class Tracker:
         self.use_velocity = variant in ('confidence_velocity','combined')
         self.state = {}
         self.strong_hits = {}
-        self.gate = OutputGate(Policy('frozen_050_005',.50,.05,3))
+        self.gate = OutputGate(policy or Policy('frozen_050_005',.50,.05,3))
 
     def __call__(self, points, scores):
         old = self.state.get('tracks',{})
@@ -103,5 +103,6 @@ class Tracker:
             assert len(born)==len(new_ids)
             for batch,index in zip(new_ids,born):
                 self.strong_hits[batch] = int(scores[index]>=.50)
+        self.last_raw = raw
         score_map = dict(zip((p['PntID'] for p in points),scores))
         return self.gate.apply(raw,score_map,self.state['scan']-1)

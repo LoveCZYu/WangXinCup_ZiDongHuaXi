@@ -1,3 +1,5 @@
+> 当前推荐和统一入口见 [CURRENT.md](../../CURRENT.md)。下文为实验记录；历史 HTML 路径可用于重新生成，当前结果只从 `runs/current/index.html` 进入。
+
 # 航迹关联对照
 
 固定 8000 步版本的最新瓶颈分析见 [DIAGNOSIS.md](DIAGNOSIS.md)，包含漏点分层、ID 变号归因和只用于诊断的真值对照。

@@ -1,2 +1,6 @@
 *.py text eol=lf
 *.sh text eol=lf
+*.json text eol=lf
+# Frozen runtime profiles retain exact bytes for evaluation SHA-256 provenance.
+profiles/*.json -text whitespace=cr-at-eol
+assets/*.pt binary

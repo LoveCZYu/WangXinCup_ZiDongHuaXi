@@ -38,8 +38,9 @@ def main():
     local.add_argument("data", type=Path, help="训练 ZIP、单个 CSV 或 CSV 目录")
     local.add_argument("--out", required=True, type=Path)
     local.add_argument("--config", type=Path)
-    local.add_argument("--tracker", choices=("baseline", "track-mt3"), default="baseline")
-    local.add_argument("--checkpoint", type=Path, help="B02 第二阶段模型权重")
+    local.add_argument("--tracker", choices=("baseline", "point-scorer", "track-mt3"), default="baseline")
+    local.add_argument("--checkpoint", type=Path, help="配套模型权重，点模型默认使用配置中的文件")
+    local.add_argument("--profile", type=Path, help="点模型配置，默认 profiles/current.json")
     local.add_argument("--upstream", type=Path, help="prepare_upstream.py 生成的三维适配上游目录")
     local.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     selection = local.add_mutually_exclusive_group()
@@ -71,6 +72,10 @@ def main():
     official.add_argument("--port", type=int, default=9902)
     official.add_argument("--config", type=Path)
     official.add_argument("--original", action="store_true", help="运行官方首点示例以排查收发环境")
+    official.add_argument("--tracker", choices=("baseline", "point-scorer"), default="baseline")
+    official.add_argument("--profile", type=Path, help="点模型配置，默认 profiles/current.json")
+    official.add_argument("--checkpoint", type=Path, help="可选的同一份推理权重文件")
+    official.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
 
     args = parser.parse_args()
     try:
@@ -86,23 +91,28 @@ def main():
             return 0
         config = load_config(args.config)
         handler = partial(process_circle, config=config)
+        replay_config = asdict(config)
+        if args.tracker == "point-scorer":
+            if args.config or getattr(args,"upstream",None) or getattr(args,"original",False):
+                parser.error("point-scorer 使用 --profile，不接受基线 --config、--upstream 或 --original")
+            from .point_tracker import load_tracker
+            handler,replay_config=load_tracker(args.profile,args.checkpoint,args.device)
+        elif args.tracker == "track-mt3":
+            if not args.checkpoint or not args.upstream or args.config or args.profile:
+                parser.error("track-mt3 需要 --checkpoint 和 --upstream，且不接受 --config 或 --profile")
+            from .neural import load_tracker
+            handler,replay_config=load_tracker(args.checkpoint,args.upstream,args.device)
+        elif args.checkpoint or args.profile or getattr(args,"upstream",None):
+            parser.error("模型配置和权重参数需要同时指定对应的 --tracker")
         if args.command == "replay":
             scenes = list(dict.fromkeys(args.scene)) if args.scene else None
             if args.split:
                 scenes = json.loads((ROOT / "splits" / "v1.json").read_text(encoding="utf-8"))[args.split]
             if (args.data.is_dir() or args.data.suffix.lower() == ".zip") and not (scenes or args.all):
                 parser.error("训练包请指定 --scene、--split 或 --all")
-            replay_config = asdict(config)
-            if args.tracker == "track-mt3":
-                if not args.checkpoint or not args.upstream or args.config:
-                    parser.error("track-mt3 需要 --checkpoint 和 --upstream，且不接受基线 --config")
-                from .neural import load_tracker
-                handler, replay_config = load_tracker(args.checkpoint, args.upstream, args.device)
-            elif args.checkpoint or args.upstream:
-                parser.error("模型权重参数需要同时指定 --tracker track-mt3")
             replay(args.data, args.out, handler, replay_config, scenes)
         else:
-            run_official(args.demo_dir, args.input_dir, args.out, args.port, handler, asdict(config),
+            run_official(args.demo_dir, args.input_dir, args.out, args.port, handler, replay_config,
                          original=args.original)
         return 0
     except (OSError, RuntimeError, ValueError, TypeError, EOFError, subprocess.TimeoutExpired) as exc:

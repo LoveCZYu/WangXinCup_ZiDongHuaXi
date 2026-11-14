@@ -9,6 +9,7 @@ data/
 *.exe
 train_*.csv
 *.pt
+!assets/point-scorer-8000.pt
 *.pth
 *.ckpt
 .env

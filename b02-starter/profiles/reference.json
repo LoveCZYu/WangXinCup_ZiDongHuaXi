@@ -1,0 +1,19 @@
+{
+  "format": "b02-point-profile-v1",
+  "name": "b02-point-v1-reference",
+  "variant": "control",
+  "seed": 20261112,
+  "step": 8000,
+  "checkpoint": "../assets/point-scorer-8000.pt",
+  "checkpoint_sha256": "43a6d7f28dc7c26b7123e7f7492c06f9b19850c9c328748f7f0d1ce616f12fda",
+  "output_rule": {
+    "enter": 0.5,
+    "maintain": 0.05,
+    "grace": 3
+  },
+  "association": {
+    "score_weight": 0.5,
+    "evidence_penalty": 0.15,
+    "strong_observations": 6
+  }
+}
