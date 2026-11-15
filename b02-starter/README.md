@@ -35,15 +35,15 @@ python -m b02 visualize "你的训练数据.zip" --run runs/train-015-current --
 Windows 使用官方代码样例包准备本地收发程序。
 
 ```text
-python -m b02 prepare-official "官方代码样例及数据收发程序.zip"
-python -m b02 official --tracker point-scorer --out runs/official-current
+python -m b02 prepare-official "11.15更新的官方代码样例及数据收发程序.zip"
+python -m b02 official --tracker point-scorer --input-dir "只含train_005.dat的目录" --out runs/official-current
 ```
 
 该命令在本机通过官方 TCP 收发程序运行，不上传官网。可用 `--input-dir` 指定少量样例目录，用 `--port` 更换端口。Linux 官方 EXE 联调需要 Wine／Xvfb，说明见 [历史开发文档](docs/LEGACY_GUIDE.md)。
 
-## v1 Docker 提交包
+## v1 算法的 v1.1 Docker 提交包
 
-团队编号为 `T000906`。运行 `python tools/build_submission.py --out runs/submission-build`，会生成 ZIP 根目录直接包含 `Dockerfile` 的 `T000906_v1_code.zip` 和配套构建目录。先使用上面的 `prepare-official` 命令准备 `.official`，官方 EXE 与收发源码由本地官方包取得，不上传到 Git。
+团队编号为 `T000906`。运行 `python tools/build_submission.py --out runs/submission-build`，会生成 ZIP 根目录直接包含 `Dockerfile` 的 `T000906_v1.1_code.zip` 和配套构建目录。先使用上面的 `prepare-official` 命令准备 `.official`，官方 EXE 与收发源码由本地官方包取得，不上传到 Git。新版和旧版 ZIP 目录均可识别，已有目录不会被覆盖；更新说明见 [11.15 收发包适配](docs/OFFICIAL_UPDATE_20261115.md)。
 
 构建脚本会拒绝覆盖已有目录，并检查冻结算法、配置和权重，避免将后羿实验或后改源码混入 v1。容器命令与离线验收流程见 [提交模板说明](submission-template/README.md)。`B02当前版本.zip` 继续用于开发共享，正式程序包单独命名；不要把样例联调结果当作正式验证结果上传。
 

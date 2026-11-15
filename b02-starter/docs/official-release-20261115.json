@@ -1,0 +1,165 @@
+{
+  "format": "b02-official-release-comparison-v1",
+  "date": "2026-11-15",
+  "official_release": {
+    "date": "2026-11-15",
+    "archive_sha256": "89e6f59b82784e344a991be4267513f5d41814c58ef40b23c7c8f90002379d0d",
+    "archive_root": "participant_demo",
+    "requires_wine32": true
+  },
+  "old_root": "participant_demo_v2/participant_demo",
+  "changes": [
+    {
+      "file": "README.md",
+      "changed": true,
+      "old_bytes": 27302,
+      "new_bytes": 27272,
+      "new_sha256": "c5801543389ced1d26a10a5427794104f563834737f90cdbe507065dda5537fc"
+    },
+    {
+      "file": "LICENSE",
+      "changed": false,
+      "old_bytes": 11344,
+      "new_bytes": 11344,
+      "new_sha256": "768433af82b7bdb81f4cb922d7585c708ad282c17cb427594c2664cfc32a8e5f"
+    },
+    {
+      "file": ".dockerignore",
+      "changed": false,
+      "old_bytes": 62,
+      "new_bytes": 62,
+      "new_sha256": "ec696e68b607d9aec6ea22d0400748d3685b49bcd5442ead11a76d0820dd3ebd"
+    },
+    {
+      "file": ".gitignore",
+      "changed": false,
+      "old_bytes": 56,
+      "new_bytes": 56,
+      "new_sha256": "2240528c03def4887100f6c58af8082fd8326e7e4f48dba71cbeacd5c7af2f10"
+    },
+    {
+      "file": "Dockerfile",
+      "changed": true,
+      "old_bytes": 721,
+      "new_bytes": 771,
+      "new_sha256": "3d3cead6760eef677bdfc890695f122ad543ac496cf46a8943a9f792b1202092"
+    },
+    {
+      "file": "run.sh",
+      "changed": false,
+      "old_bytes": 1989,
+      "new_bytes": 1989,
+      "new_sha256": "5f033165877886859cf80cd27c8374573e2f9d983b52a457ffaa9c3de8d68cd6"
+    },
+    {
+      "file": "run_client.sh",
+      "changed": false,
+      "old_bytes": 428,
+      "new_bytes": 428,
+      "new_sha256": "1f3ba2465cac483ff0e79dcd76282b25a9574cd99f3f9e029379c44b574ba6ab"
+    },
+    {
+      "file": "requirements.txt",
+      "changed": false,
+      "old_bytes": 154,
+      "new_bytes": 154,
+      "new_sha256": "8544c114e570b92021f480f9693edac380a3b96adfd7129cbf3ddb029119d318"
+    },
+    {
+      "file": "docs/protocol.md",
+      "changed": false,
+      "old_bytes": 2768,
+      "new_bytes": 2768,
+      "new_sha256": "d6b0a7875a1b3f80839e60565dde817f0e6801a69775689dc59aac4c3be3b44c"
+    },
+    {
+      "file": "src/algorithm.py",
+      "changed": false,
+      "old_bytes": 525,
+      "new_bytes": 525,
+      "new_sha256": "0d8f540713c79a6b8e4a535b1a0183304db4624da25fa65a6def68387ed12840"
+    },
+    {
+      "file": "src/client.py",
+      "changed": false,
+      "old_bytes": 6712,
+      "new_bytes": 6712,
+      "new_sha256": "c44f5431f562cabea95b2d895dd23cff1bacc530abef0301dc1ffa025bbe7a5e"
+    },
+    {
+      "file": "src/exe_runtime.py",
+      "changed": false,
+      "old_bytes": 4823,
+      "new_bytes": 4823,
+      "new_sha256": "adfb7be9d05b2c18c730de3090aaf1c3c3c6c47928d2ac1879fbcde4209a3986"
+    },
+    {
+      "file": "src/main.py",
+      "changed": false,
+      "old_bytes": 1505,
+      "new_bytes": 1505,
+      "new_sha256": "2128dd02ad13c8cd66b66e5f340a3752c4a50d8cb49031f76deb35c640aa5d98"
+    },
+    {
+      "file": "src/serve.py",
+      "changed": false,
+      "old_bytes": 8854,
+      "new_bytes": 8854,
+      "new_sha256": "aeb29e986bee401c9903606c05a4b78e2cc8c8df4dd17800cc4b5141c6d65d10"
+    },
+    {
+      "file": "src/windows_job.py",
+      "changed": false,
+      "old_bytes": 4459,
+      "new_bytes": 4459,
+      "new_sha256": "0e6f8f7777d563dd36096c8df236801052333f04537ac1e54c32931c0573c8ab"
+    },
+    {
+      "file": "tests/test_client.py",
+      "changed": false,
+      "old_bytes": 7506,
+      "new_bytes": 7506,
+      "new_sha256": "c3a2cb06b337400d9a21561c33124b7b53f145ecb1236c4339f4bac67182686a"
+    },
+    {
+      "file": "tests/test_processes.py",
+      "changed": false,
+      "old_bytes": 5462,
+      "new_bytes": 5462,
+      "new_sha256": "6d3795bd76de6ba1eb9acddb9f0ce158fa8414eb350fc46d52515df214e47956"
+    },
+    {
+      "file": "data/official/serve.exe",
+      "changed": false,
+      "old_bytes": 11549626,
+      "new_bytes": 11549626,
+      "new_sha256": "48aa6093df02aca85887410fe681e0439c6083bc267cc16c8c61a4ea6618ed87"
+    },
+    {
+      "file": "data/inputs/train_005.dat",
+      "changed": false,
+      "old_bytes": 5810487,
+      "new_bytes": 5810487,
+      "new_sha256": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc"
+    }
+  ],
+  "model_core_files_unchanged": {
+    "b02/__init__.py": "1bb70c916359adf1e64176228000f766b9c6ee3e5dc56c0157f69e770009f6c2",
+    "b02/algorithm.py": "b97a1d5c1376ac7fd05737ceb82be834861ff73dbe694fa76fd7fa563b9e5cc0",
+    "b02/point_tracker.py": "3e93cd9d00c0df09aeb9619e0aa754c4e0fb314129a609772718c74a564d138e",
+    "experiments/association/assignment.py": "498ca18076a1d493d71cac8bee6124f4a54d0e909476939f932f88aeb054cd49",
+    "experiments/association/interventions.py": "f089177999a70a2c88f344a3fa652b08729412f3cf2426479d9c1dee194c165c",
+    "experiments/point_scorer/model.py": "da172c54d00c74e83878db8d5a89c732715c25916301343e6da0c51ca67b97e4",
+    "experiments/point_scorer_expanded/policy.py": "46ede2ebb63505b318932accd73856c66292016aa3418d22e3e7b9ee8bbdab90",
+    "profiles/current.json": "cc6932752546cb9fae6ca233f4b5e6e092e38b3b4e1f28d5e286f3f7c91120fa",
+    "assets/point-scorer-8000.pt": "43a6d7f28dc7c26b7123e7f7492c06f9b19850c9c328748f7f0d1ce616f12fda"
+  },
+  "development_unit_tests_passed": 15,
+  "container_tests_passed": 3,
+  "official_exe_pe_machine": "AMD64 (0x8664)",
+  "loader_probe": {
+    "default_with_wine32": "wineboot failed: socket Function not implemented",
+    "explicit_wine64": "official EXE help and Chinese output passed"
+  },
+  "scope": "Protocol and runtime comparison; full sample acceptance recorded separately"
+}

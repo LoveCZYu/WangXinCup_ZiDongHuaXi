@@ -1,8 +1,16 @@
 {
   "format": "b02-submission-acceptance-v1",
   "team_id": "T000906",
-  "package": "T000906_v1_code.zip",
-  "package_sha256": "57fc8afc28219990f6b40ebe8d9aff8bdf852467b1bfa20c1b0211523fd012e1",
+  "version": "v1.1",
+  "algorithm_version": "v1",
+  "official_release": {
+    "date": "2026-11-15",
+    "archive_sha256": "89e6f59b82784e344a991be4267513f5d41814c58ef40b23c7c8f90002379d0d",
+    "archive_root": "participant_demo",
+    "requires_wine32": true
+  },
+  "package": "T000906_v1.1_code.zip",
+  "package_sha256": "3633b513b6b954f916a31f5f9d662a8a6e5dda8491d74ef4d15ed8cdaa20e1de",
   "repeated_trajectory_bytes_identical": true,
   "timing_files_excluded_from_equality": true,
   "first": {
@@ -10,12 +18,12 @@
     "packages": 2,
     "circles": 1438,
     "tracks": 38664,
-    "wall_seconds": 334.199,
-    "handler_max_ms": 72.3955759999626,
-    "official_max_roundtrip_ms": 405.0,
-    "client_peak_rss_mib": 517.81640625,
-    "container_peak_memory_mib": 1931.69140625,
-    "package_manifest_sha256": "8c2552422ef2867a6053f3a174e00c2722218fc6fb5d3aa8a51ec79c1d26627c",
+    "wall_seconds": 294.732,
+    "handler_max_ms": 162.57577699980175,
+    "official_max_roundtrip_ms": 450.0,
+    "client_peak_rss_mib": 518.90625,
+    "container_peak_memory_mib": 1566.75,
+    "package_manifest_sha256": "bb523afbe3f0c1652b9314d4321f0666c849b3e11e09d8a19d085435c7ee786a",
     "versions": {
       "python": "3.12.16 (main, Nov  5 2026, 07:58:44) [GCC 12.2.0]",
       "numpy": "1.26.4",
@@ -33,12 +41,12 @@
     "packages": 2,
     "circles": 1438,
     "tracks": 38664,
-    "wall_seconds": 333.745,
-    "handler_max_ms": 91.78642999995645,
-    "official_max_roundtrip_ms": 387.0,
-    "client_peak_rss_mib": 517.01953125,
-    "container_peak_memory_mib": 1767.9140625,
-    "package_manifest_sha256": "8c2552422ef2867a6053f3a174e00c2722218fc6fb5d3aa8a51ec79c1d26627c",
+    "wall_seconds": 294.356,
+    "handler_max_ms": 136.81328500024392,
+    "official_max_roundtrip_ms": 452.0,
+    "client_peak_rss_mib": 519.7734375,
+    "container_peak_memory_mib": 1340.74609375,
+    "package_manifest_sha256": "bb523afbe3f0c1652b9314d4321f0666c849b3e11e09d8a19d085435c7ee786a",
     "versions": {
       "python": "3.12.16 (main, Nov  5 2026, 07:58:44) [GCC 12.2.0]",
       "numpy": "1.26.4",
@@ -59,9 +67,9 @@
   "scope": "Official sample only; not official validation set or website acceptance",
   "date": "2026-11-15",
   "image": {
-    "tag": "t000906/b02:v1",
-    "id": "sha256:2a9e2a36f300022eb9ff57a73a059ad38a4787da8210dd77381afdc34a539d6c",
-    "container_image": "sha256:2a9e2a36f300022eb9ff57a73a059ad38a4787da8210dd77381afdc34a539d6c"
+    "tag": "t000906/b02:v1.1",
+    "id": "sha256:30d3356829aa14d56dab77441edb3b293e8bf5455dd7e5454bec6bf74c718bdb",
+    "container_image": "sha256:30d3356829aa14d56dab77441edb3b293e8bf5455dd7e5454bec6bf74c718bdb"
   },
   "resource_limits": {
     "cpu": 4,
@@ -70,12 +78,19 @@
     "input_read_only": true
   },
   "failure_checks": {
-    "missing_input_exit": 2,
-    "existing_output_preserved": true,
     "nonempty_output_exit": 2,
-    "help_exit": 0
+    "help_exit": 0,
+    "missing_input_exit": 2,
+    "existing_output_preserved": true
   },
   "windows_v1_reference_sha256": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30",
   "duplicate_packet_state_isolation_verified": true,
+  "algorithm_files_identical_to_v1": true,
+  "development_unit_tests_passed": 15,
+  "container_tests_passed": 3,
+  "wine_packages": {
+    "wine64": "8.0~repack-4",
+    "wine32:i386": "8.0~repack-4"
+  },
   "source_rebuild_zip_identical": true
 }

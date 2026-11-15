@@ -16,11 +16,13 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def build(output, team_id='T000906', official=None):
+def build(output, team_id='T000906', official=None, version='v1.1'):
     if not re.fullmatch(r'T\d{6}', team_id):
         raise ValueError('team_id must have form T000906')
     if team_id != 'T000906':
         raise ValueError('This frozen template is assigned to T000906')
+    if not re.fullmatch(r'v\d+(?:\.\d+)*', version):
+        raise ValueError('version must have form v1.1')
     official = Path(official or ROOT / '.official')
     frozen = json.loads((TEMPLATE / 'frozen-v1.json').read_text(encoding='utf-8'))
     # Validate all prerequisites before creating output.
@@ -37,7 +39,7 @@ def build(output, team_id='T000906', official=None):
         if digest(sources[name]) != expected:
             raise ValueError(f'Official runtime differs from frozen sample: {name}')
     output = Path(output).resolve()
-    stage = output / f'{team_id}_v1_code'
+    stage = output / f'{team_id}_{version}_code'
     archive = output / f'{stage.name}.zip'
     if stage.exists() or archive.exists():
         raise FileExistsError(f'Refusing to overwrite existing build: {stage}')
@@ -76,7 +78,8 @@ done
 '''
     run = run.replace('session_dir=$(mktemp -d)', hook + '\nsession_dir=$(mktemp -d)', 1)
     (stage / 'run.sh').write_text(run, encoding='utf-8', newline='\n')
-    manifest = {'format': 'b02-submission-v1', 'team_id': team_id, 'version': 'v1',
+    manifest = {'format': 'b02-submission-v1', 'team_id': team_id, 'version': version,
+                'algorithm_version': 'v1', 'official_release': frozen['official_release'],
                 'algorithm_source_commit': '6cd6bdb', 'inference_device': 'cpu',
                 'official_original_sha256': {k: digest(v) for k, v in sources.items()},
                 'files': {str(p.relative_to(stage)).replace('\\', '/'): digest(p)
@@ -101,5 +104,6 @@ if __name__ == '__main__':
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--team-id', default='T000906')
     parser.add_argument('--official', type=Path)
+    parser.add_argument('--version', default='v1.1')
     args = parser.parse_args()
-    build(args.out, args.team_id, args.official)
+    build(args.out, args.team_id, args.official, args.version)

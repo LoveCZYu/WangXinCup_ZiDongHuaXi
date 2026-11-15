@@ -51,11 +51,12 @@ def main(argv=None):
     args = parser.parse_args(argv)
     if not 1 <= args.port <= 65535 or args.expected_packages is None or args.expected_packages < 1:
         parser.error('Use run.sh, or supply a valid port and positive expected-packages')
-    report = {'status': 'failed', 'team_id': 'T000906', 'version': 'v1', 'device': 'cpu'}
+    report = {'status': 'failed', 'team_id': 'T000906', 'algorithm_version': 'v1', 'device': 'cpu'}
     measured = None
     started = time.perf_counter()
     try:
         manifest = verify_package()
+        report['version'] = manifest['version']
         report['package_manifest_sha256'] = hashlib.sha256((ROOT / 'PACKAGE.json').read_bytes()).hexdigest()
         import numpy
         import scipy

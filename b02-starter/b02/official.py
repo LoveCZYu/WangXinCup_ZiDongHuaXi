@@ -11,28 +11,36 @@ from tempfile import TemporaryDirectory
 from time import monotonic, sleep
 from zipfile import ZipFile
 
-ROOT_IN_ZIP = ("participant_demo_v2", "participant_demo")
+ROOTS_IN_ZIP = (("participant_demo",), ("participant_demo_v2", "participant_demo"))
 SOURCE_FILES = ("algorithm.py", "client.py", "exe_runtime.py", "main.py", "serve.py", "windows_job.py")
 
 
 def prepare(archive_path, demo_dir):
     required = {("src", name) for name in SOURCE_FILES} | {("data", "official", "serve.exe")}
+    metadata = {("LICENSE",), ("README.md",), ("Dockerfile",), ("run.sh",), ("docs", "protocol.md")}
     with ZipFile(archive_path) as archive:
+        names = set(archive.namelist())
+        roots = [root for root in ROOTS_IN_ZIP
+                 if all('/'.join(root + local) in names for local in required)]
+        if len(roots) != 1:
+            raise ValueError("官方 ZIP 需要且只能包含一套完整的 participant_demo 程序；支持新版与旧版目录")
+        root = roots[0]
         selected = {}
         for member in archive.namelist():
             parts = PurePosixPath(member).parts
-            if parts[:2] != ROOT_IN_ZIP:
+            if parts[:len(root)] != root:
                 continue
-            local = parts[2:]
+            local = parts[len(root):]
             is_sample = (len(local) == 3 and local[:2] == ("data", "inputs")
                          and local[2].startswith("train_") and local[2][6:-4].isdigit()
                          and local[2].endswith(".dat"))
-            if local in required or is_sample:
+            if local in required or local in metadata or is_sample:
                 if local in selected:
                     raise ValueError(f"官方 ZIP 包含重复文件：{member}")
                 selected[local] = member
-        if not required.issubset(selected) or len(selected) == len(required):
-            raise ValueError("ZIP 缺少官方 participant_demo_v2 的程序或样例数据")
+        samples = [local for local in selected if local[:2] == ("data", "inputs")]
+        if not required.issubset(selected) or not samples:
+            raise ValueError("ZIP 缺少官方 participant_demo 程序或样例数据")
         if demo_dir.exists():
             raise ValueError(f"官方程序目录已存在，请选一个新目录：{demo_dir}")
         demo_dir.mkdir(parents=True)
@@ -41,7 +49,7 @@ def prepare(archive_path, demo_dir):
             target.parent.mkdir(parents=True, exist_ok=True)
             with archive.open(member) as source, target.open("xb") as destination:
                 copyfileobj(source, destination)
-    print(f"已准备 {len(selected) - len(required)} 个官方样例包：{demo_dir.resolve()}")
+    print(f"已准备 {len(samples)} 个官方样例包：{demo_dir.resolve()}（目录：{'/'.join(root)}）")
 
 
 def _load_source(demo_dir, module):

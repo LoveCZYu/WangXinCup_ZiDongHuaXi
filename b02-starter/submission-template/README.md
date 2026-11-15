@@ -1,16 +1,20 @@
-# T000906 v1 程序包
+# T000906 v1.1 程序包
 
 本包对应已冻结的 `b02-point-v1-combined-e525-m050`：8000 步权重、起始阈值 0.525、维持阈值 0.05、固定组合关联策略。包内保留算法源文件的原始字节与 SHA-256，不含任何训练、开发、封存或正式验证输入。`PACKAGE.json` 记录本包文件校验值，参赛端每次启动均检查。
+
+v1.1 仅更新官方收发包兼容与镜像环境，算法仍为冻结 v1。支持新版 `participant_demo/` 与旧版双层 ZIP 目录；官方协议、EXE 和四个收发源码均与旧版相同。官方来源及 SHA-256 记录在 `frozen-v1.json`，Apache-2.0 许可原文附于 `OFFICIAL_LICENSE`。
+
+官方 `serve.exe` 为 64 位程序。镜像保留新增的 Wine32，但通过 `runtime/wine64-loader.sh` 为 `wine` 和 `wine-stable` 固定使用 Wine64，避免 Debian 在两者并存时优先进入 32 位加载路径。无需额外容器权限；保留标准安全策略。构建测试会核实 Wine32 已安装，再实际启动原版 EXE。
 
 ## 构建
 
 在本目录（Dockerfile 所在目录）运行：
 
 ```bash
-docker build -t t000906/b02:v1 .
+docker build -t t000906/b02:v1.1 .
 ```
 
-构建需要联网安装依赖；运行不需要联网。基础镜像固定为 Python 3.12 slim-bookworm 的内容摘要，使用 PyTorch 2.8.0 + CUDA 12.8 运行库、NumPy 1.26.4、SciPy 1.15.3。镜像按官方样例安装 Wine/Xvfb，以执行原版 `serve.exe`。本版本固定 **CPU 推理、4 个线程**，无需 `--gpus`，不会初始化 CUDA 设备。此选择针对 9153 参数的小模型，未宣称符合所有“基础模型架构”审核口径。
+构建需要联网安装依赖；运行不需要联网。基础镜像固定为 Python 3.12 slim-bookworm 的内容摘要，使用 PyTorch 2.8.0 + CUDA 12.8 运行库、NumPy 1.26.4、SciPy 1.15.3。镜像按 11.15 更新的官方样例安装 Wine64、Wine32（i386）和 Xvfb，以执行原版 `serve.exe`。本版本固定 **CPU 推理、4 个线程**，无需 `--gpus`，不会初始化 CUDA 设备。此选择针对 9153 参数的小模型，未宣称符合所有“基础模型架构”审核口径。
 
 Debian 软件包默认从清华公开镜像下载，保留 Debian 签名验证。海外环境可加 `--build-arg DEBIAN_MIRROR=https://deb.debian.org` 使用 Debian 官方源。不要关闭签名或 TLS 校验。
 
@@ -24,7 +28,7 @@ Debian 软件包默认从清华公开镜像下载，保留 Debian 签名验证�
 docker run --rm --network none --cpus 4 --memory 6g \
   --mount type=bind,source=/absolute/input,target=/input,readonly \
   --mount type=bind,source=/absolute/empty-output,target=/output \
-  t000906/b02:v1 --task all --test --out-dir /output
+  t000906/b02:v1.1 --task all --test --out-dir /output
 ```
 
 Windows PowerShell 示例（修改实际输入和输出目录）：
@@ -35,7 +39,7 @@ $b02Output = (Resolve-Path 'C:\path\empty-output').Path
 docker --context desktop-linux run --rm --network none --cpus 4 --memory 6g `
   --mount "type=bind,source=$b02Input,target=/input,readonly" `
   --mount "type=bind,source=$b02Output,target=/output" `
-  t000906/b02:v1 --task all --test --out-dir /output
+  t000906/b02:v1.1 --task all --test --out-dir /output
 ```
 
 `--test` 与官方模板一致，仅为兼容参数，会处理全部输入，并不缩短运行。每次使用空输出目录。输入目录不得与输出目录相同；将输入挂载为只读。可以通过 `--input-dir /input`、`--out-dir /output`、`--port 9902` 显式指定官方服务参数。不要通过 TCP 连接检查端口健康状态，原始服务只接受一次参赛端连接。
@@ -51,7 +55,7 @@ docker --context desktop-linux run --rm --network none --cpus 4 --memory 6g `
 同一镜像重复运行，应比较航迹 DAT 的 SHA-256。`*_rt.dat` 和日志记录实际时间，重复运行无需相同，不能人工修改。正式验证结果包须完整保留官方输出，具体压缩结构按官网要求操作。
 
 ```bash
-docker run --rm --network none --entrypoint python t000906/b02:v1 \
+docker run --rm --network none --entrypoint python t000906/b02:v1.1 \
   -m unittest discover -s tests -v
 ```
 

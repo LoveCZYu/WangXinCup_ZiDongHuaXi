@@ -72,6 +72,8 @@ def verify(archive, first, second, report, sample_input):
     if a['trajectory_sha256'] != b['trajectory_sha256']:
         raise ValueError('Repeated runs produced different trajectories')
     value = {'format': 'b02-submission-acceptance-v1', 'team_id': manifest['team_id'],
+             'version': manifest['version'], 'algorithm_version': manifest.get('algorithm_version', 'v1'),
+             'official_release': manifest.get('official_release'),
              'package': archive.name, 'package_sha256': sha(archive),
              'repeated_trajectory_bytes_identical': True,
              'timing_files_excluded_from_equality': True, 'first': a, 'second': b,

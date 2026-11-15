@@ -1,5 +1,11 @@
 {
   "source_commit": "6cd6bdb",
+  "official_release": {
+    "date": "2026-11-15",
+    "archive_sha256": "89e6f59b82784e344a991be4267513f5d41814c58ef40b23c7c8f90002379d0d",
+    "archive_root": "participant_demo",
+    "requires_wine32": true
+  },
   "official_files": {
     "src/client.py": "c44f5431f562cabea95b2d895dd23cff1bacc530abef0301dc1ffa025bbe7a5e",
     "src/serve.py": "aeb29e986bee401c9903606c05a4b78e2cc8c8df4dd17800cc4b5141c6d65d10",
