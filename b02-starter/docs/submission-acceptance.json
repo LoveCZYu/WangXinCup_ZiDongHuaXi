@@ -1,0 +1,81 @@
+{
+  "format": "b02-submission-acceptance-v1",
+  "team_id": "T000906",
+  "package": "T000906_v1_code.zip",
+  "package_sha256": "57fc8afc28219990f6b40ebe8d9aff8bdf852467b1bfa20c1b0211523fd012e1",
+  "repeated_trajectory_bytes_identical": true,
+  "timing_files_excluded_from_equality": true,
+  "first": {
+    "status": "success",
+    "packages": 2,
+    "circles": 1438,
+    "tracks": 38664,
+    "wall_seconds": 334.199,
+    "handler_max_ms": 72.3955759999626,
+    "official_max_roundtrip_ms": 405.0,
+    "client_peak_rss_mib": 517.81640625,
+    "container_peak_memory_mib": 1931.69140625,
+    "package_manifest_sha256": "8c2552422ef2867a6053f3a174e00c2722218fc6fb5d3aa8a51ec79c1d26627c",
+    "versions": {
+      "python": "3.12.16 (main, Nov  5 2026, 07:58:44) [GCC 12.2.0]",
+      "numpy": "1.26.4",
+      "scipy": "1.15.3",
+      "torch": "2.8.0+cu128",
+      "cuda_runtime": "12.8"
+    },
+    "trajectory_sha256": {
+      "reset_probe.dat": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30",
+      "train_005.dat": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30"
+    }
+  },
+  "second": {
+    "status": "success",
+    "packages": 2,
+    "circles": 1438,
+    "tracks": 38664,
+    "wall_seconds": 333.745,
+    "handler_max_ms": 91.78642999995645,
+    "official_max_roundtrip_ms": 387.0,
+    "client_peak_rss_mib": 517.01953125,
+    "container_peak_memory_mib": 1767.9140625,
+    "package_manifest_sha256": "8c2552422ef2867a6053f3a174e00c2722218fc6fb5d3aa8a51ec79c1d26627c",
+    "versions": {
+      "python": "3.12.16 (main, Nov  5 2026, 07:58:44) [GCC 12.2.0]",
+      "numpy": "1.26.4",
+      "scipy": "1.15.3",
+      "torch": "2.8.0+cu128",
+      "cuda_runtime": "12.8"
+    },
+    "trajectory_sha256": {
+      "reset_probe.dat": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30",
+      "train_005.dat": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30"
+    }
+  },
+  "input_sha256": {
+    "reset_probe.dat": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc",
+    "train_005.dat": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc"
+  },
+  "sealed_holdout_used": false,
+  "scope": "Official sample only; not official validation set or website acceptance",
+  "date": "2026-11-15",
+  "image": {
+    "tag": "t000906/b02:v1",
+    "id": "sha256:2a9e2a36f300022eb9ff57a73a059ad38a4787da8210dd77381afdc34a539d6c",
+    "container_image": "sha256:2a9e2a36f300022eb9ff57a73a059ad38a4787da8210dd77381afdc34a539d6c"
+  },
+  "resource_limits": {
+    "cpu": 4,
+    "memory_bytes": 3221225472,
+    "network": "none",
+    "input_read_only": true
+  },
+  "failure_checks": {
+    "missing_input_exit": 2,
+    "existing_output_preserved": true,
+    "nonempty_output_exit": 2,
+    "help_exit": 0
+  },
+  "windows_v1_reference_sha256": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30",
+  "duplicate_packet_state_isolation_verified": true,
+  "source_rebuild_zip_identical": true
+}

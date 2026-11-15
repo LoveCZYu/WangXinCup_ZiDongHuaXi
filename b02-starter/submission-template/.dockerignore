@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.zip
+data/inputs/
+data/outputs/
+output/
+.git/

@@ -1,0 +1,21 @@
+{
+  "source_commit": "6cd6bdb",
+  "official_files": {
+    "src/client.py": "c44f5431f562cabea95b2d895dd23cff1bacc530abef0301dc1ffa025bbe7a5e",
+    "src/serve.py": "aeb29e986bee401c9903606c05a4b78e2cc8c8df4dd17800cc4b5141c6d65d10",
+    "src/exe_runtime.py": "adfb7be9d05b2c18c730de3090aaf1c3c3c6c47928d2ac1879fbcde4209a3986",
+    "src/windows_job.py": "0e6f8f7777d563dd36096c8df236801052333f04537ac1e54c32931c0573c8ab",
+    "data/official/serve.exe": "48aa6093df02aca85887410fe681e0439c6083bc267cc16c8c61a4ea6618ed87"
+  },
+  "solution_files": {
+    "b02/__init__.py": "1bb70c916359adf1e64176228000f766b9c6ee3e5dc56c0157f69e770009f6c2",
+    "b02/algorithm.py": "b97a1d5c1376ac7fd05737ceb82be834861ff73dbe694fa76fd7fa563b9e5cc0",
+    "b02/point_tracker.py": "3e93cd9d00c0df09aeb9619e0aa754c4e0fb314129a609772718c74a564d138e",
+    "experiments/association/assignment.py": "498ca18076a1d493d71cac8bee6124f4a54d0e909476939f932f88aeb054cd49",
+    "experiments/association/interventions.py": "f089177999a70a2c88f344a3fa652b08729412f3cf2426479d9c1dee194c165c",
+    "experiments/point_scorer/model.py": "da172c54d00c74e83878db8d5a89c732715c25916301343e6da0c51ca67b97e4",
+    "experiments/point_scorer_expanded/policy.py": "46ede2ebb63505b318932accd73856c66292016aa3418d22e3e7b9ee8bbdab90",
+    "profiles/current.json": "cc6932752546cb9fae6ca233f4b5e6e092e38b3b4e1f28d5e286f3f7c91120fa",
+    "assets/point-scorer-8000.pt": "43a6d7f28dc7c26b7123e7f7492c06f9b19850c9c328748f7f0d1ce616f12fda"
+  }
+}

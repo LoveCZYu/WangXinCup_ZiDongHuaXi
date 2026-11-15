@@ -41,6 +41,14 @@ python -m b02 official --tracker point-scorer --out runs/official-current
 
 该命令在本机通过官方 TCP 收发程序运行，不上传官网。可用 `--input-dir` 指定少量样例目录，用 `--port` 更换端口。Linux 官方 EXE 联调需要 Wine／Xvfb，说明见 [历史开发文档](docs/LEGACY_GUIDE.md)。
 
+## v1 Docker 提交包
+
+团队编号为 `T000906`。运行 `python tools/build_submission.py --out runs/submission-build`，会生成 ZIP 根目录直接包含 `Dockerfile` 的 `T000906_v1_code.zip` 和配套构建目录。先使用上面的 `prepare-official` 命令准备 `.official`，官方 EXE 与收发源码由本地官方包取得，不上传到 Git。
+
+构建脚本会拒绝覆盖已有目录，并检查冻结算法、配置和权重，避免将后羿实验或后改源码混入 v1。容器命令与离线验收流程见 [提交模板说明](submission-template/README.md)。`B02当前版本.zip` 继续用于开发共享，正式程序包单独命名；不要把样例联调结果当作正式验证结果上传。
+
+已通过的官方样例双跑、内存和耗时记录见 [交付验收报告](docs/SUBMISSION_ACCEPTANCE.md)。正式验证集和官网接收仍待实际验证。
+
 ## 团队约定
 
 - 常规运行统一使用 `python -m b02`，当前模型显式指定 `--tracker point-scorer`。

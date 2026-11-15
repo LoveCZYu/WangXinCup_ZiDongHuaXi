@@ -2,6 +2,8 @@
 
 > 2026-11-15 规则更新：A/B 榜、提交次数、至少一次程序适配提交及最终结果复现要求已变化，见 [提交状态](SUBMISSION.md)。v1 算法、权重和已有开发结果保持冻结。
 
+同日已完成团队 `T000906` 的 v1 Docker 程序包与官方样例离线双跑，见 [交付验收报告](docs/SUBMISSION_ACCEPTANCE.md)。这不代表正式验证集或官网已验收。
+
 阶段整理日期：2026-11-14。共享代码位于 GitHub 的 `b02-association-calibration` 分支。
 
 当前推荐为 **8000 步点模型＋航迹证据优先＋低分速度更新，输出阈值 0.525／0.05**。统一入口是 `python -m b02`，主配置是 `profiles/current.json`，推理权重是 `assets/point-scorer-8000.pt`。日常命令见 [README.md](README.md)。

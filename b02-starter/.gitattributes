@@ -4,3 +4,4 @@
 # Frozen runtime profiles retain exact bytes for evaluation SHA-256 provenance.
 profiles/*.json -text whitespace=cr-at-eol
 assets/*.pt binary
+submission-template/** text eol=lf
