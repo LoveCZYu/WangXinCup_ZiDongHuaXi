@@ -1,0 +1,13 @@
+{
+  "control": "prebirth.short_wide; calibration fragmentation 69.88699377588267, continuous 86.53413959271974, total 85.24376524596559",
+  "geometry_factorial": {"narrow_shadow": [1.0, 1.0], "gate_only": [1.75, 1.0], "score_only": [1.0, 1.75], "wide_shadow": [1.75, 1.75], "axes": ["candidate admission and motion eligibility", "scoring feature and ranking distance normalization"]},
+  "training": {"source": "frozen wide-control causal rollouts on fit64 only", "fit_files": 48, "validation_files": 16, "validation_rule": "fit64[::4]", "seeds": [20261116, 20261117], "max_steps_per_seed": 1600, "label": "current known point agrees with at least 80% pure past known emitted identity; unknown-only histories masked", "features": "old/new edge evidence, three-observation prefix and relative competitor evidence; no IDs, absolute timestamps or truth", "checkpoint": "minimum fit-validation objective", "threshold": "fit-validation group-winner precision >= .97, maximize recall; conservative counterpart targets .99"},
+  "calibration": ["train_032", "train_033", "train_050", "train_051", "train_085", "train_144", "train_145", "train_178"],
+  "acceptance": {"fragmentation_goal": 70, "point_recall_drop_pp_max": 0.1, "track_recall_drop_pp_max": 0.1, "continuous_drop_max": 0.3, "timeliness_drop_max": 0.3, "clutter_ratio_max": 1.02, "total_must_not_drop": true, "mixed_minority_must_improve_from_3800": true, "mixed_minority_desired_max": 3295},
+  "confirmation16_used": false,
+  "development30_used": false,
+  "sealed_test_used": false,
+  "official_submission_unchanged": true,
+  "existing_id_memory_ablation": {"base": "frozen wide control", "guard": "affinity >= .90 before trusted-memory update for emitted IDs with >=4 trusted entries", "current_point_filtering": false, "purpose": "separate mid-track memory contamination from first-output continuation"},
+  "followup_score_correction": {"reason": "high-precision stand-alone head has low fit-validation recall and first full calibration regresses to fragmentation 65.84", "extra_gpu_training": false, "blend_amounts": [0, 0.25, 0.5, 0.75, 1], "thresholds": [0.7, 0.8, 0.9, 0.95], "selection": "fit-validation16 only; maximize correct - 5*wrong, no lower precision or utility than frozen proxy; keep candidate geometry and distance penalty", "conditional_memory_combination": "only if both fusion seeds pass original overall guards and reduce identity cost"}
+}

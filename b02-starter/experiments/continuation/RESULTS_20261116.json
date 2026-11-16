@@ -1,0 +1,1761 @@
+{
+  "format": "b02-v2-continuation-calibration-v1",
+  "best_calibration_candidate": "fusion_memory-20261116",
+  "promoted_to_v3": false,
+  "official_submission_changed": false,
+  "sealed_test_used": false,
+  "confirmation16_used": false,
+  "development30_used": false,
+  "training_max_steps": 1600,
+  "training_seeds": [
+    20261116,
+    20261117
+  ],
+  "sample_counts": {
+    "groups": 2944,
+    "positive_edges": 2146,
+    "negative_edges": 1581
+  },
+  "checkpoints": {
+    "20261116": {
+      "seed": 20261116,
+      "step": 200,
+      "thresholds": {
+        "learned": 0.99,
+        "learned_safe": 0.99
+      },
+      "threshold_selection": {
+        "learned": {
+          "threshold": 0.99,
+          "selected": 25,
+          "correct": 25,
+          "precision": 1.0,
+          "recall": 0.05219206680584551,
+          "feasible": true,
+          "target_precision": 0.97
+        },
+        "learned_safe": {
+          "threshold": 0.99,
+          "selected": 25,
+          "correct": 25,
+          "precision": 1.0,
+          "recall": 0.05219206680584551,
+          "feasible": true,
+          "target_precision": 0.99
+        }
+      },
+      "prior_sha256": "8ebbf73233ba5b2143395a985f2ffb804237d478e5b0ddf6e94780a73e90b32e",
+      "affinity_sha256": "8f43e044ac848a0aedc75d91f7208f34f016352f69bd4f5794f3f11333ecdc1d",
+      "tracker_sha256": "0f5c2f48b90d9924721e7b6abd7d53c1d5a5350ca4cce13556334c6c450f1a56",
+      "learner_sha256": "564923b52bb4fb3559051ce31eae3b281adbfecb6db6cf4bcba0d9f42a53a593",
+      "sha256": "755a0088bdca07ed4053ec1ab1e1143850a4530a959db144dab1481a4a648348"
+    },
+    "20261117": {
+      "seed": 20261117,
+      "step": 200,
+      "thresholds": {
+        "learned": 0.999999,
+        "learned_safe": 0.999999
+      },
+      "threshold_selection": {
+        "learned": {
+          "threshold": 0.999999,
+          "feasible": false,
+          "target_precision": 0.97
+        },
+        "learned_safe": {
+          "threshold": 0.999999,
+          "feasible": false,
+          "target_precision": 0.99
+        }
+      },
+      "prior_sha256": "8ebbf73233ba5b2143395a985f2ffb804237d478e5b0ddf6e94780a73e90b32e",
+      "affinity_sha256": "8f43e044ac848a0aedc75d91f7208f34f016352f69bd4f5794f3f11333ecdc1d",
+      "tracker_sha256": "0f5c2f48b90d9924721e7b6abd7d53c1d5a5350ca4cce13556334c6c450f1a56",
+      "learner_sha256": "564923b52bb4fb3559051ce31eae3b281adbfecb6db6cf4bcba0d9f42a53a593",
+      "sha256": "bc3c0670085d241936c6e4936f3ec6be42f46516adc90f269f2fbc289297c58c"
+    }
+  },
+  "comparison": {
+    "wide_shadow": {
+      "name": "冻结宽容差对照",
+      "metrics": {
+        "point_recall": 94.48456702366285,
+        "track_recall": 91.79417258356591,
+        "clutter_outputs": 8858,
+        "clutter_score": 94.40305816194358,
+        "split_tracks": 539,
+        "fragmentation_score": 69.88699377588267,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.42364117053603,
+        "continuous_score": 86.53413959271974,
+        "unknown_outputs": 6328,
+        "weighted_total": 85.24376524596559
+      },
+      "identity": {
+        "internal_matches": 438648,
+        "clutter_internal_matches": 248541,
+        "clutter_filtered_after_update": 239683,
+        "anchor_present_rows": 152663,
+        "inside_geometry": 146259,
+        "inside_cost_gate": 146043,
+        "inside_topk": 146043,
+        "assigned_same_identity": 144256,
+        "switches": 2188,
+        "switch_old_id_alive_before": 2065,
+        "truth_carrying_ids": 1326,
+        "mixed_ids": 440,
+        "mixed_minority_truth_points": 3800
+      },
+      "plans": {
+        "active_accepted": 344,
+        "active_known_clutter": 2,
+        "active_visible": 344,
+        "continuation_live_accepted": 226,
+        "continuation_live_same_prior_truth": 202,
+        "continuation_live_visible": 226,
+        "active_rival_also_supported_truth": 197,
+        "active_other_truth": 111,
+        "active_same_prior_truth": 225,
+        "retired_accepted": 89,
+        "retired_same_prior_truth": 79,
+        "retired_visible": 89,
+        "continuation_retired_accepted": 41,
+        "continuation_retired_same_prior_truth": 30,
+        "continuation_retired_visible": 41,
+        "continuation_retired_known_clutter": 2,
+        "active_unknown_or_no_prior_truth": 6,
+        "continuation_live_known_clutter": 1,
+        "retired_known_clutter": 4,
+        "retired_other_truth": 3,
+        "first_output_candidates": 1766,
+        "archived": 2020,
+        "prebirth_proposals": 493,
+        "prebirth_eligible": 268,
+        "short_archived": 596,
+        "active_proposals": 3979,
+        "retired_proposals": 268,
+        "continuation_retired_other_truth": 3,
+        "continuation_retired_unknown_or_no_prior_truth": 6,
+        "continuation_live_other_truth": 4,
+        "continuation_live_unknown_or_no_prior_truth": 19,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost_reduced": false,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "4+": 422,
+        "2": 99,
+        "1": 200,
+        "3": 81
+      },
+      "extra_ids_1or2": 299,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "narrow_shadow": {
+      "name": "窄准入＋窄评分",
+      "metrics": {
+        "point_recall": 94.48456702366285,
+        "track_recall": 91.78480158039198,
+        "clutter_outputs": 8866,
+        "clutter_score": 94.3980033488137,
+        "split_tracks": 581,
+        "fragmentation_score": 65.71444521636093,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 81.51599866560724,
+        "continuous_score": 83.58398133834683,
+        "unknown_outputs": 6327,
+        "weighted_total": 83.8159071009215
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153096,
+        "inside_geometry": 146468,
+        "inside_cost_gate": 146251,
+        "inside_topk": 146251,
+        "assigned_same_identity": 144371,
+        "switches": 2455,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1566,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "continuation_retired_accepted": 4,
+        "continuation_retired_known_clutter": 1,
+        "continuation_retired_visible": 4,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2190,
+        "short_archived": 658,
+        "active_proposals": 4201,
+        "retired_proposals": 286,
+        "prebirth_proposals": 39,
+        "prebirth_eligible": 4,
+        "retired_unknown_or_no_prior_truth": 3,
+        "continuation_retired_same_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 258,
+        "4+": 595,
+        "3": 86,
+        "2": 119
+      },
+      "extra_ids_1or2": 377,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "gate_only": {
+      "name": "只扩大准入",
+      "metrics": {
+        "point_recall": 94.48709443022778,
+        "track_recall": 91.79227072447237,
+        "clutter_outputs": 8865,
+        "clutter_score": 94.39863520045493,
+        "split_tracks": 578,
+        "fragmentation_score": 66.44164783053672,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 82.1074187630109,
+        "continuous_score": 84.18932974193449,
+        "unknown_outputs": 6327,
+        "weighted_total": 84.08472123286242
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248563,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153015,
+        "inside_geometry": 146424,
+        "inside_cost_gate": 146206,
+        "inside_topk": 146206,
+        "assigned_same_identity": 144351,
+        "switches": 2391,
+        "switch_old_id_alive_before": 2255,
+        "truth_carrying_ids": 1509,
+        "mixed_ids": 451,
+        "mixed_minority_truth_points": 3381
+      },
+      "plans": {
+        "active_accepted": 386,
+        "active_known_clutter": 2,
+        "active_visible": 386,
+        "continuation_live_accepted": 48,
+        "continuation_live_same_prior_truth": 46,
+        "continuation_live_visible": 48,
+        "active_rival_also_supported_truth": 229,
+        "active_other_truth": 111,
+        "active_same_prior_truth": 261,
+        "retired_accepted": 91,
+        "retired_same_prior_truth": 80,
+        "retired_visible": 91,
+        "continuation_retired_accepted": 15,
+        "continuation_retired_same_prior_truth": 11,
+        "continuation_retired_visible": 15,
+        "continuation_retired_known_clutter": 2,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 3,
+        "first_output_candidates": 1768,
+        "archived": 2157,
+        "prebirth_proposals": 505,
+        "prebirth_eligible": 63,
+        "short_archived": 639,
+        "active_proposals": 4111,
+        "retired_proposals": 274,
+        "continuation_live_other_truth": 1,
+        "continuation_retired_unknown_or_no_prior_truth": 1,
+        "retired_unknown_or_no_prior_truth": 3,
+        "continuation_live_unknown_or_no_prior_truth": 1,
+        "continuation_retired_other_truth": 1
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 235,
+        "2": 111,
+        "4+": 561,
+        "3": 87
+      },
+      "extra_ids_1or2": 346,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "score_only": {
+      "name": "只放宽评分归一化",
+      "metrics": {
+        "point_recall": 94.48456702366285,
+        "track_recall": 91.78480158039198,
+        "clutter_outputs": 8866,
+        "clutter_score": 94.3980033488137,
+        "split_tracks": 578,
+        "fragmentation_score": 65.8679320365144,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 81.6306693320576,
+        "continuous_score": 83.69927912711869,
+        "unknown_outputs": 6326,
+        "weighted_total": 83.86966402270659
+      },
+      "identity": {
+        "internal_matches": 438675,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153090,
+        "inside_geometry": 146462,
+        "inside_cost_gate": 146245,
+        "inside_topk": 146245,
+        "assigned_same_identity": 144361,
+        "switches": 2449,
+        "switch_old_id_alive_before": 2309,
+        "truth_carrying_ids": 1561,
+        "mixed_ids": 461,
+        "mixed_minority_truth_points": 3508
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "continuation_retired_accepted": 8,
+        "continuation_retired_known_clutter": 1,
+        "continuation_retired_visible": 8,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "continuation_live_accepted": 2,
+        "continuation_live_same_prior_truth": 1,
+        "continuation_live_visible": 2,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2191,
+        "short_archived": 657,
+        "active_proposals": 4182,
+        "retired_proposals": 287,
+        "prebirth_proposals": 39,
+        "prebirth_eligible": 10,
+        "retired_unknown_or_no_prior_truth": 3,
+        "continuation_retired_same_prior_truth": 6,
+        "continuation_live_unknown_or_no_prior_truth": 1,
+        "continuation_retired_other_truth": 1
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 258,
+        "4+": 591,
+        "3": 86,
+        "2": 119
+      },
+      "extra_ids_1or2": 377,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "memory_guard": {
+      "name": "长期记忆更新检查",
+      "metrics": {
+        "point_recall": 94.47508924904433,
+        "track_recall": 91.78091417536476,
+        "clutter_outputs": 8854,
+        "clutter_score": 94.40558556850851,
+        "split_tracks": 533,
+        "fragmentation_score": 70.13319235541458,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.34374844296704,
+        "continuous_score": 86.45113679617515,
+        "unknown_outputs": 6328,
+        "weighted_total": 85.2726796207592
+      },
+      "identity": {
+        "internal_matches": 438608,
+        "clutter_internal_matches": 248500,
+        "clutter_filtered_after_update": 239646,
+        "anchor_present_rows": 152675,
+        "inside_geometry": 146255,
+        "inside_cost_gate": 146039,
+        "inside_topk": 146039,
+        "assigned_same_identity": 144239,
+        "switches": 2192,
+        "switch_old_id_alive_before": 2068,
+        "truth_carrying_ids": 1332,
+        "mixed_ids": 437,
+        "mixed_minority_truth_points": 3528
+      },
+      "plans": {
+        "memory_blocked_other_or_unlabelled": 2012,
+        "memory_blocked_same_prior_truth": 2623,
+        "active_accepted": 360,
+        "active_known_clutter": 3,
+        "active_visible": 360,
+        "continuation_live_accepted": 227,
+        "continuation_live_same_prior_truth": 202,
+        "continuation_live_visible": 227,
+        "active_rival_also_supported_truth": 206,
+        "active_other_truth": 114,
+        "active_same_prior_truth": 237,
+        "retired_accepted": 85,
+        "retired_same_prior_truth": 79,
+        "retired_visible": 85,
+        "continuation_retired_accepted": 43,
+        "continuation_retired_same_prior_truth": 30,
+        "continuation_retired_visible": 43,
+        "continuation_retired_known_clutter": 2,
+        "active_unknown_or_no_prior_truth": 6,
+        "continuation_live_known_clutter": 1,
+        "retired_known_clutter": 3,
+        "continuation_retired_other_truth": 5,
+        "first_output_candidates": 1773,
+        "memory_updates_blocked": 4635,
+        "archived": 2033,
+        "prebirth_proposals": 499,
+        "prebirth_eligible": 272,
+        "short_archived": 595,
+        "memory_updates_considered": 140684,
+        "active_proposals": 4034,
+        "retired_proposals": 280,
+        "continuation_retired_unknown_or_no_prior_truth": 6,
+        "continuation_live_other_truth": 4,
+        "continuation_live_unknown_or_no_prior_truth": 20,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost_reduced": true,
+        "target70": true
+      },
+      "extra_id_lengths": {
+        "4+": 431,
+        "2": 104,
+        "1": 196,
+        "3": 72
+      },
+      "extra_ids_1or2": 300,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "learned-20261116": {
+      "name": "接续模型 · 种子 20261116",
+      "metrics": {
+        "point_recall": 94.4839351720216,
+        "track_recall": 91.78461517424654,
+        "clutter_outputs": 8866,
+        "clutter_score": 94.3980033488137,
+        "split_tracks": 581,
+        "fragmentation_score": 65.84350534542105,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 81.73443900473575,
+        "continuous_score": 83.80585890870933,
+        "unknown_outputs": 6327,
+        "weighted_total": 83.8860387189624
+      },
+      "identity": {
+        "internal_matches": 438677,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153088,
+        "inside_geometry": 146471,
+        "inside_cost_gate": 146254,
+        "inside_topk": 146254,
+        "assigned_same_identity": 144383,
+        "switches": 2442,
+        "switch_old_id_alive_before": 2297,
+        "truth_carrying_ids": 1555,
+        "mixed_ids": 459,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 403,
+        "active_known_clutter": 2,
+        "active_visible": 403,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 241,
+        "active_same_prior_truth": 278,
+        "retired_accepted": 91,
+        "retired_same_prior_truth": 81,
+        "retired_visible": 91,
+        "retired_known_clutter": 5,
+        "continuation_live_accepted": 16,
+        "continuation_live_same_prior_truth": 14,
+        "continuation_live_visible": 16,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2174,
+        "prebirth_proposals": 507,
+        "prebirth_eligible": 16,
+        "short_archived": 657,
+        "active_proposals": 4197,
+        "retired_proposals": 285,
+        "continuation_live_unknown_or_no_prior_truth": 2,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 257,
+        "4+": 583,
+        "3": 86,
+        "2": 120
+      },
+      "extra_ids_1or2": 377,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "learned_safe-20261116": {
+      "name": "高精度接续模型 · 种子 20261116",
+      "metrics": {
+        "point_recall": 94.4839351720216,
+        "track_recall": 91.78461517424654,
+        "clutter_outputs": 8866,
+        "clutter_score": 94.3980033488137,
+        "split_tracks": 581,
+        "fragmentation_score": 65.84350534542105,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 81.73443900473575,
+        "continuous_score": 83.80585890870933,
+        "unknown_outputs": 6327,
+        "weighted_total": 83.8860387189624
+      },
+      "identity": {
+        "internal_matches": 438677,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153088,
+        "inside_geometry": 146471,
+        "inside_cost_gate": 146254,
+        "inside_topk": 146254,
+        "assigned_same_identity": 144383,
+        "switches": 2442,
+        "switch_old_id_alive_before": 2297,
+        "truth_carrying_ids": 1555,
+        "mixed_ids": 459,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 403,
+        "active_known_clutter": 2,
+        "active_visible": 403,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 241,
+        "active_same_prior_truth": 278,
+        "retired_accepted": 91,
+        "retired_same_prior_truth": 81,
+        "retired_visible": 91,
+        "retired_known_clutter": 5,
+        "continuation_live_accepted": 16,
+        "continuation_live_same_prior_truth": 14,
+        "continuation_live_visible": 16,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2174,
+        "prebirth_proposals": 507,
+        "prebirth_eligible": 16,
+        "short_archived": 657,
+        "active_proposals": 4197,
+        "retired_proposals": 285,
+        "continuation_live_unknown_or_no_prior_truth": 2,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 257,
+        "4+": 583,
+        "3": 86,
+        "2": 120
+      },
+      "extra_ids_1or2": 377,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "learned-20261117": {
+      "name": "接续模型 · 种子 20261117",
+      "metrics": {
+        "point_recall": 94.48456702366285,
+        "track_recall": 91.78480158039198,
+        "clutter_outputs": 8866,
+        "clutter_score": 94.3980033488137,
+        "split_tracks": 582,
+        "fragmentation_score": 65.6586318272142,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 81.51409694136997,
+        "continuous_score": 83.58206361055366,
+        "unknown_outputs": 6327,
+        "weighted_total": 83.80436087753353
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2189,
+        "prebirth_proposals": 507,
+        "short_archived": 659,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 258,
+        "4+": 595,
+        "3": 86,
+        "2": 122
+      },
+      "extra_ids_1or2": 380,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "learned_safe-20261117": {
+      "name": "高精度接续模型 · 种子 20261117",
+      "metrics": {
+        "point_recall": 94.48456702366285,
+        "track_recall": 91.78480158039198,
+        "clutter_outputs": 8866,
+        "clutter_score": 94.3980033488137,
+        "split_tracks": 582,
+        "fragmentation_score": 65.6586318272142,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 81.51409694136997,
+        "continuous_score": 83.58206361055366,
+        "unknown_outputs": 6327,
+        "weighted_total": 83.80436087753353
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2189,
+        "prebirth_proposals": 507,
+        "short_archived": 659,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": false,
+        "timeliness": true,
+        "clutter": true,
+        "total": false,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "1": 258,
+        "4+": 595,
+        "3": 86,
+        "2": 122
+      },
+      "extra_ids_1or2": 380,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "fusion-20261116": {
+      "name": "评分纠偏 · 种子 20261116",
+      "metrics": {
+        "point_recall": 94.48646257858655,
+        "track_recall": 91.78958488280398,
+        "clutter_outputs": 8861,
+        "clutter_score": 94.40116260701987,
+        "split_tracks": 539,
+        "fragmentation_score": 69.86611870669842,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.5215363588518,
+        "continuous_score": 86.6287976494451,
+        "unknown_outputs": 6329,
+        "weighted_total": 85.25695597775288
+      },
+      "identity": {
+        "internal_matches": 438647,
+        "clutter_internal_matches": 248534,
+        "clutter_filtered_after_update": 239673,
+        "anchor_present_rows": 152646,
+        "inside_geometry": 146287,
+        "inside_cost_gate": 146071,
+        "inside_topk": 146071,
+        "assigned_same_identity": 144289,
+        "switches": 2191,
+        "switch_old_id_alive_before": 2065,
+        "truth_carrying_ids": 1333,
+        "mixed_ids": 439,
+        "mixed_minority_truth_points": 3650
+      },
+      "plans": {
+        "active_accepted": 345,
+        "active_known_clutter": 2,
+        "active_visible": 345,
+        "fusion_live_accepted": 224,
+        "fusion_live_same_prior_truth": 202,
+        "fusion_live_visible": 224,
+        "active_rival_also_supported_truth": 198,
+        "active_other_truth": 111,
+        "active_same_prior_truth": 226,
+        "retired_accepted": 90,
+        "retired_same_prior_truth": 79,
+        "retired_visible": 90,
+        "fusion_retired_accepted": 31,
+        "fusion_retired_same_prior_truth": 25,
+        "fusion_retired_visible": 31,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 6,
+        "fusion_retired_unknown_or_no_prior_truth": 5,
+        "retired_other_truth": 3,
+        "first_output_candidates": 1766,
+        "archived": 2010,
+        "prebirth_proposals": 498,
+        "prebirth_eligible": 256,
+        "short_archived": 610,
+        "active_proposals": 4013,
+        "retired_proposals": 267,
+        "fusion_live_other_truth": 4,
+        "fusion_live_unknown_or_no_prior_truth": 18,
+        "retired_unknown_or_no_prior_truth": 3,
+        "fusion_retired_other_truth": 1
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "4+": 412,
+        "2": 110,
+        "1": 203,
+        "3": 81
+      },
+      "extra_ids_1or2": 313,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "fusion-20261117": {
+      "name": "评分纠偏 · 种子 20261117",
+      "metrics": {
+        "point_recall": 94.48898998515149,
+        "track_recall": 91.79771998437892,
+        "clutter_outputs": 8860,
+        "clutter_score": 94.4017944586611,
+        "split_tracks": 538,
+        "fragmentation_score": 69.9829021568152,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.70364641564859,
+        "continuous_score": 86.8178018459132,
+        "unknown_outputs": 6328,
+        "weighted_total": 85.32061722270645
+      },
+      "identity": {
+        "internal_matches": 438647,
+        "clutter_internal_matches": 248534,
+        "clutter_filtered_after_update": 239674,
+        "anchor_present_rows": 152636,
+        "inside_geometry": 146285,
+        "inside_cost_gate": 146070,
+        "inside_topk": 146070,
+        "assigned_same_identity": 144297,
+        "switches": 2189,
+        "switch_old_id_alive_before": 2062,
+        "truth_carrying_ids": 1325,
+        "mixed_ids": 441,
+        "mixed_minority_truth_points": 3548
+      },
+      "plans": {
+        "active_accepted": 348,
+        "active_known_clutter": 2,
+        "active_visible": 348,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 201,
+        "active_same_prior_truth": 229,
+        "retired_accepted": 90,
+        "retired_same_prior_truth": 80,
+        "retired_visible": 90,
+        "fusion_live_accepted": 234,
+        "fusion_live_same_prior_truth": 213,
+        "fusion_live_visible": 234,
+        "fusion_retired_accepted": 28,
+        "fusion_retired_same_prior_truth": 23,
+        "fusion_retired_visible": 28,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 6,
+        "fusion_live_known_clutter": 1,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1765,
+        "archived": 2006,
+        "prebirth_proposals": 498,
+        "prebirth_eligible": 262,
+        "short_archived": 605,
+        "active_proposals": 4062,
+        "retired_proposals": 271,
+        "fusion_retired_unknown_or_no_prior_truth": 4,
+        "fusion_live_unknown_or_no_prior_truth": 18,
+        "retired_unknown_or_no_prior_truth": 3,
+        "fusion_live_other_truth": 2,
+        "fusion_retired_other_truth": 1
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost_reduced": true,
+        "target70": false
+      },
+      "extra_id_lengths": {
+        "4+": 405,
+        "2": 109,
+        "1": 201,
+        "3": 84
+      },
+      "extra_ids_1or2": 310,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    },
+    "fusion_memory-20261116": {
+      "name": "评分纠偏＋记忆更新检查",
+      "metrics": {
+        "point_recall": 94.4782485072505,
+        "track_recall": 91.78347648175283,
+        "clutter_outputs": 8857,
+        "clutter_score": 94.40369001358481,
+        "split_tracks": 534,
+        "fragmentation_score": 70.06393557118194,
+        "timeliness_score": 84.90490490490491,
+        "delay_median": 2,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.47060599244142,
+        "continuous_score": 86.57765277622279,
+        "unknown_outputs": 6329,
+        "weighted_total": 85.28471059634627
+      },
+      "identity": {
+        "internal_matches": 438609,
+        "clutter_internal_matches": 248494,
+        "clutter_filtered_after_update": 239637,
+        "anchor_present_rows": 152647,
+        "inside_geometry": 146275,
+        "inside_cost_gate": 146059,
+        "inside_topk": 146059,
+        "assigned_same_identity": 144264,
+        "switches": 2197,
+        "switch_old_id_alive_before": 2069,
+        "truth_carrying_ids": 1339,
+        "mixed_ids": 436,
+        "mixed_minority_truth_points": 3223
+      },
+      "plans": {
+        "memory_blocked_other_or_unlabelled": 1971,
+        "memory_blocked_same_prior_truth": 2638,
+        "active_accepted": 361,
+        "active_known_clutter": 3,
+        "active_visible": 361,
+        "fusion_live_accepted": 224,
+        "fusion_live_same_prior_truth": 202,
+        "fusion_live_visible": 224,
+        "active_rival_also_supported_truth": 208,
+        "active_other_truth": 115,
+        "active_same_prior_truth": 237,
+        "retired_accepted": 86,
+        "retired_same_prior_truth": 79,
+        "retired_visible": 86,
+        "fusion_retired_accepted": 32,
+        "fusion_retired_same_prior_truth": 25,
+        "fusion_retired_visible": 32,
+        "retired_known_clutter": 4,
+        "active_unknown_or_no_prior_truth": 6,
+        "fusion_retired_unknown_or_no_prior_truth": 5,
+        "first_output_candidates": 1772,
+        "memory_updates_blocked": 4609,
+        "archived": 2022,
+        "prebirth_proposals": 504,
+        "prebirth_eligible": 257,
+        "short_archived": 610,
+        "memory_updates_considered": 140699,
+        "active_proposals": 4067,
+        "retired_proposals": 279,
+        "fusion_live_other_truth": 4,
+        "fusion_retired_other_truth": 2,
+        "fusion_live_unknown_or_no_prior_truth": 18,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "checks": {
+        "point_recall": true,
+        "track_recall": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost_reduced": true,
+        "target70": true
+      },
+      "extra_id_lengths": {
+        "4+": 421,
+        "2": 116,
+        "1": 197,
+        "3": 73
+      },
+      "extra_ids_1or2": 313,
+      "first_hit_changes": {
+        "later": 0,
+        "later_over_one": 0,
+        "earlier": 0,
+        "lost": 0
+      },
+      "scenes_first_hit_changes": {
+        "train_032": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_085": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_033": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_144": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_050": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_145": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_051": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        },
+        "train_178": {
+          "later": 0,
+          "later_over_one": 0,
+          "earlier": 0,
+          "lost": 0
+        }
+      }
+    }
+  },
+  "combination_decision": {
+    "run": true,
+    "checks": {
+      "20261116": {
+        "point": true,
+        "track": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost": true
+      },
+      "20261117": {
+        "point": true,
+        "track": true,
+        "continuous": true,
+        "timeliness": true,
+        "clutter": true,
+        "total": true,
+        "identity_cost": true
+      }
+    },
+    "default_seed": 20261116
+  },
+  "source_snapshots_sha256": {
+    "source01.zip": "7551105fcc808d43a1b1876991bdaafc9eaa0b3ff2095b903978260240ae1a21",
+    "source02.zip": "3eaa672e121fa6c5357a5313bce28e1f98fef28976ce027a917dd980fedabbe2",
+    "source03.zip": "1b4edae4d3b45ae8886c7ef3aef79b936f48d65a338f86a9cfefee63b8bfaae8",
+    "source04.zip": "c9fa6e3d4087f1dde32e5e706081a53d2a252413a43fe866b10f617ed90d7718"
+  },
+  "validation": {
+    "frozen_v1_files": 9,
+    "v2_runtime_integrity": true,
+    "model_metadata_and_source_hashes": true,
+    "wide_shadow_exact_8_scenes": true,
+    "narrow_shadow_exact_8_scenes": true,
+    "workspace_unit_tests_passed": 67,
+    "new_continuation_tests": 9,
+    "viewer_scans_per_scene": 719,
+    "viewer_score_abs_tolerance": 1e-10
+  }
+}
