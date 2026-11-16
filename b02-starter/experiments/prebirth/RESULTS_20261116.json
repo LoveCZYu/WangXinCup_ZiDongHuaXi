@@ -1,0 +1,2371 @@
+{
+  "format": "b02-v2-prebirth-calibration-v1",
+  "control": "id_recovery.combined",
+  "best_calibration_variant": "short_wide",
+  "promoted_to_v3": false,
+  "official_submission_changed": false,
+  "sealed_test_used": false,
+  "confirmation16_used": false,
+  "training_steps": 0,
+  "compute": "CPU cached-score replay, four workers with two threads each",
+  "source_snapshots_sha256": {
+    "source01.zip": "340e2b3ba54976b10cf53ce5f2ba5985e0e8c341ff2c301630f76a91c7e2f071",
+    "source02.zip": "fe1d2ae2d16910562b5d1e479aee14c39cbebb8369fdd0654a3431715e078a98",
+    "source03.zip": "0f2df8fd4542120fc3c8d1a5cc1db57f1c8a32d7a1f0390594c47c4bece16329",
+    "source04.zip": "2d0a6717d0596856ca4d6a1d693baead8926002baf185f85de7cdfd53ccf26ce",
+    "source05.zip": "581481efe367c731a379098c55b3d48a25fe471429a75c3a8a8a8d07a28c1bbd",
+    "source06.zip": "9719d440697c034217dc0d3ea65382fb8e66944b71f6097e264a4ae64a1f5084"
+  },
+  "frozen_v1_and_v2_integrity_verified": true,
+  "comparison": {
+    "control": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "control": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 582,
+            "fragmentation_score": 65.6586318272142,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51409694136997,
+            "continuous_score": 83.58206361055366,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.80436087753353
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": 0,
+            "fragmentation_score": 0.0,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0,
+            "continuous_score": 0.0,
+            "unknown_outputs": 0,
+            "weighted_total": 0.0
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "archived": 2189,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 122
+        },
+        "extra_ids_1or2": 380,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 14,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 11,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "live": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "live": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 582,
+            "fragmentation_score": 65.6586318272142,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51409694136997,
+            "continuous_score": 83.58206361055366,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.80436087753353
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": 0,
+            "fragmentation_score": 0.0,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0,
+            "continuous_score": 0.0,
+            "unknown_outputs": 0,
+            "weighted_total": 0.0
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2189,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 122
+        },
+        "extra_ids_1or2": 380,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 14,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 11,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "both": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "both": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 582,
+            "fragmentation_score": 65.6586318272142,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51409694136997,
+            "continuous_score": 83.58206361055366,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.80436087753353
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": 0,
+            "fragmentation_score": 0.0,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0,
+            "continuous_score": 0.0,
+            "unknown_outputs": 0,
+            "weighted_total": 0.0
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2189,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 122
+        },
+        "extra_ids_1or2": 380,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 14,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 11,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "both_relaxed": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "both_relaxed": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 582,
+            "fragmentation_score": 65.6586318272142,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51409694136997,
+            "continuous_score": 83.58206361055366,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.80436087753353
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": 0,
+            "fragmentation_score": 0.0,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0,
+            "continuous_score": 0.0,
+            "unknown_outputs": 0,
+            "weighted_total": 0.0
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "prebirth_retired_accepted": 1,
+        "prebirth_retired_known_clutter": 1,
+        "prebirth_retired_visible": 1,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2190,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 122
+        },
+        "extra_ids_1or2": 380,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 14,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 11,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "short_live": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "short_live": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 582,
+            "fragmentation_score": 65.6586318272142,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51409694136997,
+            "continuous_score": 83.58206361055366,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.80436087753353
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": 0,
+            "fragmentation_score": 0.0,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0,
+            "continuous_score": 0.0,
+            "unknown_outputs": 0,
+            "weighted_total": 0.0
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153101,
+        "inside_geometry": 146472,
+        "inside_cost_gate": 146255,
+        "inside_topk": 146255,
+        "assigned_same_identity": 144376,
+        "switches": 2457,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1569,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2189,
+        "short_archived": 659,
+        "active_proposals": 4202,
+        "retired_proposals": 286,
+        "prebirth_proposals": 6,
+        "retired_unknown_or_no_prior_truth": 3
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 122
+        },
+        "extra_ids_1or2": 380,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 14,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 11,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "short_both": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "short_both": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 581,
+            "fragmentation_score": 65.70944021135591,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51562092938045,
+            "continuous_score": 83.583602171301,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.81483026651134
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": -1,
+            "fragmentation_score": 0.05080838414171751,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0015239880104758186,
+            "continuous_score": 0.0015385607473348273,
+            "unknown_outputs": 0,
+            "weighted_total": 0.010469388977810468
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153096,
+        "inside_geometry": 146468,
+        "inside_cost_gate": 146251,
+        "inside_topk": 146251,
+        "assigned_same_identity": 144372,
+        "switches": 2456,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1567,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2189,
+        "short_archived": 659,
+        "active_proposals": 4201,
+        "retired_proposals": 286,
+        "prebirth_proposals": 39,
+        "retired_unknown_or_no_prior_truth": 3,
+        "prebirth_short_retired_accepted": 2,
+        "prebirth_short_retired_same_prior_truth": 2,
+        "prebirth_short_retired_visible": 2,
+        "prebirth_eligible": 2
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 120
+        },
+        "extra_ids_1or2": 378,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 12,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 11,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "short_relaxed": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "short_relaxed": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.78480158039198,
+            "clutter_outputs": 8866,
+            "clutter_score": 94.3980033488137,
+            "split_tracks": 581,
+            "fragmentation_score": 65.71444521636093,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 81.51599866560724,
+            "continuous_score": 83.58398133834683,
+            "unknown_outputs": 6327,
+            "weighted_total": 83.8159071009215
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.0,
+            "clutter_outputs": 0,
+            "clutter_score": 0.0,
+            "split_tracks": -1,
+            "fragmentation_score": 0.05581338914673495,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 0.0019017242372711962,
+            "continuous_score": 0.001917727793170343,
+            "unknown_outputs": 0,
+            "weighted_total": 0.011546223387981058
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": false
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438678,
+        "clutter_internal_matches": 248564,
+        "clutter_filtered_after_update": 239698,
+        "anchor_present_rows": 153096,
+        "inside_geometry": 146468,
+        "inside_cost_gate": 146251,
+        "inside_topk": 146251,
+        "assigned_same_identity": 144371,
+        "switches": 2455,
+        "switch_old_id_alive_before": 2312,
+        "truth_carrying_ids": 1566,
+        "mixed_ids": 460,
+        "mixed_minority_truth_points": 3295
+      },
+      "plans": {
+        "active_accepted": 406,
+        "active_known_clutter": 2,
+        "active_visible": 406,
+        "active_other_truth": 111,
+        "active_rival_also_supported_truth": 243,
+        "active_same_prior_truth": 281,
+        "retired_accepted": 92,
+        "retired_same_prior_truth": 82,
+        "retired_visible": 92,
+        "prebirth_retired_accepted": 1,
+        "prebirth_retired_known_clutter": 1,
+        "prebirth_retired_visible": 1,
+        "retired_known_clutter": 5,
+        "active_unknown_or_no_prior_truth": 12,
+        "retired_other_truth": 2,
+        "first_output_candidates": 1770,
+        "archived": 2190,
+        "short_archived": 658,
+        "active_proposals": 4201,
+        "retired_proposals": 286,
+        "prebirth_proposals": 39,
+        "prebirth_eligible": 4,
+        "retired_unknown_or_no_prior_truth": 3,
+        "prebirth_short_retired_accepted": 3,
+        "prebirth_short_retired_same_prior_truth": 3,
+        "prebirth_short_retired_visible": 3
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "1": 258,
+          "4+": 595,
+          "3": 86,
+          "2": 119
+        },
+        "extra_ids_1or2": 377,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "1": 35,
+              "4+": 104,
+              "3": 13,
+              "2": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 57,
+              "4+": 97,
+              "3": 16,
+              "2": 16
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 77,
+              "1": 38,
+              "2": 15,
+              "3": 11
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 40,
+              "1": 16,
+              "2": 12,
+              "3": 8
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "4+": 89,
+              "3": 11,
+              "1": 31,
+              "2": 21
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "3": 12,
+              "1": 38,
+              "2": 17
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 43,
+              "1": 19,
+              "3": 6,
+              "2": 9
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 10,
+              "4+": 70,
+              "3": 9,
+              "1": 24
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "short_wide": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "short_wide": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.79417258356591,
+            "clutter_outputs": 8858,
+            "clutter_score": 94.40305816194358,
+            "split_tracks": 539,
+            "fragmentation_score": 69.88699377588267,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 84.42364117053603,
+            "continuous_score": 86.53413959271974,
+            "unknown_outputs": 6328,
+            "weighted_total": 85.24376524596559
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.009371003173924919,
+            "clutter_outputs": -8,
+            "clutter_score": 0.005054813129873992,
+            "split_tracks": -43,
+            "fragmentation_score": 4.2283619486684785,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 2.909544229166059,
+            "continuous_score": 2.952075982166079,
+            "unknown_outputs": 1,
+            "weighted_total": 1.439404368432065
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": true
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438648,
+        "clutter_internal_matches": 248541,
+        "clutter_filtered_after_update": 239683,
+        "anchor_present_rows": 152663,
+        "inside_geometry": 146259,
+        "inside_cost_gate": 146043,
+        "inside_topk": 146043,
+        "assigned_same_identity": 144256,
+        "switches": 2188,
+        "switch_old_id_alive_before": 2065,
+        "truth_carrying_ids": 1326,
+        "mixed_ids": 440,
+        "mixed_minority_truth_points": 3800
+      },
+      "plans": {
+        "active_accepted": 344,
+        "active_known_clutter": 2,
+        "active_visible": 344,
+        "prebirth_short_live_accepted": 14,
+        "prebirth_short_live_same_prior_truth": 14,
+        "prebirth_short_live_visible": 14,
+        "active_rival_also_supported_truth": 197,
+        "active_other_truth": 111,
+        "active_same_prior_truth": 225,
+        "retired_accepted": 89,
+        "retired_same_prior_truth": 79,
+        "retired_visible": 89,
+        "prebirth_live_accepted": 212,
+        "prebirth_live_same_prior_truth": 188,
+        "prebirth_live_visible": 212,
+        "prebirth_retired_accepted": 34,
+        "prebirth_retired_same_prior_truth": 26,
+        "prebirth_retired_visible": 34,
+        "prebirth_retired_known_clutter": 1,
+        "active_unknown_or_no_prior_truth": 6,
+        "prebirth_live_known_clutter": 1,
+        "retired_known_clutter": 4,
+        "retired_other_truth": 3,
+        "first_output_candidates": 1766,
+        "archived": 2020,
+        "prebirth_proposals": 493,
+        "prebirth_eligible": 268,
+        "short_archived": 596,
+        "active_proposals": 3979,
+        "retired_proposals": 268,
+        "prebirth_retired_other_truth": 3,
+        "prebirth_retired_unknown_or_no_prior_truth": 4,
+        "prebirth_live_other_truth": 4,
+        "prebirth_live_unknown_or_no_prior_truth": 19,
+        "retired_unknown_or_no_prior_truth": 3,
+        "prebirth_short_retired_accepted": 7,
+        "prebirth_short_retired_same_prior_truth": 4,
+        "prebirth_short_retired_visible": 7,
+        "prebirth_short_retired_known_clutter": 1,
+        "prebirth_short_retired_unknown_or_no_prior_truth": 2
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "4+": 422,
+          "2": 99,
+          "1": 200,
+          "3": 81
+        },
+        "extra_ids_1or2": 299,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "2": 14,
+              "1": 25,
+              "3": 10
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 48,
+              "4+": 84,
+              "3": 15,
+              "2": 12
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 56,
+              "2": 11,
+              "3": 10,
+              "1": 31
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 29,
+              "1": 15,
+              "2": 12,
+              "3": 6
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "3": 14,
+              "4+": 45,
+              "1": 16,
+              "2": 18
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 52,
+              "2": 17,
+              "1": 32,
+              "3": 12
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 35,
+              "1": 14,
+              "3": 5,
+              "2": 6
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 9,
+              "4+": 46,
+              "3": 9,
+              "1": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    },
+    "wide_confident": {
+      "scenes": [
+        "train_032",
+        "train_033",
+        "train_050",
+        "train_051",
+        "train_085",
+        "train_144",
+        "train_145",
+        "train_178"
+      ],
+      "variants": {
+        "wide_confident": {
+          "metrics": {
+            "point_recall": 94.48456702366285,
+            "track_recall": 91.79417140699735,
+            "clutter_outputs": 8858,
+            "clutter_score": 94.40305816194358,
+            "split_tracks": 547,
+            "fragmentation_score": 69.3581315803538,
+            "timeliness_score": 84.90490490490491,
+            "delay_median": 2,
+            "delay_p90": 8,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 84.07708162394214,
+            "continuous_score": 86.18421067055878,
+            "unknown_outputs": 6328,
+            "weighted_total": 85.06800666945706
+          },
+          "delta": {
+            "point_recall": 0.0,
+            "track_recall": 0.009369826605365006,
+            "clutter_outputs": -8,
+            "clutter_score": 0.005054813129873992,
+            "split_tracks": -35,
+            "fragmentation_score": 3.699499753139605,
+            "timeliness_score": 0.0,
+            "delay_median": 0,
+            "delay_p90": 0,
+            "unmatched_tracks": 0,
+            "dominant_id_coverage": 2.5629846825721643,
+            "continuous_score": 2.602147060005123,
+            "unknown_outputs": 1,
+            "weighted_total": 1.2636457919235369
+          },
+          "checks": {
+            "point_recall": true,
+            "track_recall": true,
+            "continuous": true,
+            "timeliness": true,
+            "clutter": true,
+            "weighted_total": true,
+            "fragmentation_major_gain": true
+          }
+        }
+      },
+      "identity": {
+        "internal_matches": 438648,
+        "clutter_internal_matches": 248541,
+        "clutter_filtered_after_update": 239683,
+        "anchor_present_rows": 152674,
+        "inside_geometry": 146264,
+        "inside_cost_gate": 146048,
+        "inside_topk": 146048,
+        "assigned_same_identity": 144272,
+        "switches": 2204,
+        "switch_old_id_alive_before": 2074,
+        "truth_carrying_ids": 1344,
+        "mixed_ids": 440,
+        "mixed_minority_truth_points": 3587
+      },
+      "plans": {
+        "active_accepted": 345,
+        "active_known_clutter": 2,
+        "active_visible": 345,
+        "prebirth_short_live_accepted": 13,
+        "prebirth_short_live_same_prior_truth": 13,
+        "prebirth_short_live_visible": 13,
+        "active_rival_also_supported_truth": 198,
+        "active_other_truth": 111,
+        "active_same_prior_truth": 226,
+        "retired_accepted": 89,
+        "retired_same_prior_truth": 79,
+        "retired_visible": 89,
+        "prebirth_live_accepted": 203,
+        "prebirth_live_same_prior_truth": 180,
+        "prebirth_live_visible": 203,
+        "prebirth_retired_accepted": 25,
+        "prebirth_retired_same_prior_truth": 19,
+        "prebirth_retired_visible": 25,
+        "prebirth_retired_known_clutter": 1,
+        "active_unknown_or_no_prior_truth": 6,
+        "prebirth_live_known_clutter": 1,
+        "retired_known_clutter": 4,
+        "retired_other_truth": 3,
+        "first_output_candidates": 1766,
+        "archived": 2029,
+        "prebirth_proposals": 494,
+        "prebirth_eligible": 249,
+        "short_archived": 597,
+        "active_proposals": 3980,
+        "retired_proposals": 268,
+        "prebirth_retired_other_truth": 1,
+        "prebirth_retired_unknown_or_no_prior_truth": 4,
+        "prebirth_live_other_truth": 4,
+        "prebirth_live_unknown_or_no_prior_truth": 18,
+        "retired_unknown_or_no_prior_truth": 3,
+        "prebirth_short_retired_accepted": 7,
+        "prebirth_short_retired_same_prior_truth": 4,
+        "prebirth_short_retired_visible": 7,
+        "prebirth_short_retired_known_clutter": 1,
+        "prebirth_short_retired_unknown_or_no_prior_truth": 2
+      },
+      "holdout_used": false,
+      "birth_audit": {
+        "extra_id_lengths": {
+          "4+": 437,
+          "2": 100,
+          "1": 201,
+          "3": 82
+        },
+        "extra_ids_1or2": 301,
+        "new_target_delays": {
+          "later": 0,
+          "later_over_one_scan": 0,
+          "earlier": 0,
+          "lost": 0,
+          "max_extra_delay": 0
+        },
+        "scenes": {
+          "train_032": {
+            "extra_id_lengths": {
+              "4+": 75,
+              "2": 14,
+              "1": 25,
+              "3": 10
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_085": {
+            "extra_id_lengths": {
+              "1": 48,
+              "4+": 86,
+              "3": 15,
+              "2": 13
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_033": {
+            "extra_id_lengths": {
+              "4+": 58,
+              "2": 11,
+              "3": 11,
+              "1": 32
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_144": {
+            "extra_id_lengths": {
+              "4+": 29,
+              "1": 15,
+              "2": 12,
+              "3": 6
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_050": {
+            "extra_id_lengths": {
+              "3": 14,
+              "4+": 47,
+              "1": 16,
+              "2": 18
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_145": {
+            "extra_id_lengths": {
+              "4+": 57,
+              "2": 17,
+              "1": 32,
+              "3": 12
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_051": {
+            "extra_id_lengths": {
+              "4+": 37,
+              "1": 14,
+              "3": 5,
+              "2": 6
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          },
+          "train_178": {
+            "extra_id_lengths": {
+              "2": 9,
+              "4+": 48,
+              "3": 9,
+              "1": 19
+            },
+            "new_target_delays": {
+              "later": 0,
+              "later_over_one_scan": 0,
+              "earlier": 0,
+              "lost": 0,
+              "max_extra_delay": 0
+            }
+          }
+        }
+      },
+      "target70_reached": false
+    }
+  },
+  "diagnosis": {
+    "scope": "calibration8 only; retrospective truth-assisted diagnostics, not deployable models",
+    "short2_first_events": {
+      "already_published_outside_gate_near_unmatched": 12,
+      "already_published_old_id_absent_unmatched": 25,
+      "already_published_surviving_candidate_unmatched": 193,
+      "fresh_outside_gate_near_other_truth": 2,
+      "fresh_first_detection_None": 27,
+      "fresh_outside_gate_far_clutter_or_unknown": 2,
+      "already_published_retired_unmatched": 9,
+      "fresh_old_id_absent_unmatched": 24,
+      "fresh_surviving_candidate_clutter_or_unknown": 4,
+      "already_published_surviving_candidate_other_truth": 32,
+      "already_published_outside_gate_near_clutter_or_unknown": 1,
+      "fresh_retired_unmatched": 6,
+      "fresh_outside_gate_near_unmatched": 31,
+      "already_published_outside_gate_far_unmatched": 2,
+      "fresh_outside_gate_near_clutter_or_unknown": 1,
+      "already_published_surviving_candidate_clutter_or_unknown": 3,
+      "already_published_first_detection_None": 1,
+      "fresh_surviving_candidate_unmatched": 2,
+      "fresh_outside_gate_far_other_truth": 1,
+      "fresh_outside_gate_far_unmatched": 1,
+      "already_published_cost_gate_excluded_other_truth": 1
+    },
+    "facts": {
+      "short2_total": 380,
+      "first_published": 101,
+      "previously_published": 279,
+      "fresh_with_prior_same_truth": 74,
+      "fresh_all_lengths": 582,
+      "previously_published_other_true_target": 272,
+      "previously_published_no_other_true_target": 7
+    },
+    "prebirth_proposals": {
+      "proposal_other_truth": 17,
+      "eligible_other_truth": 1,
+      "proposal_same_truth": 9,
+      "first_output_candidates": 1770,
+      "prebirth_proposals": 26,
+      "prebirth_eligible": 1
+    },
+    "hindsight_repairs": {
+      "all_short2": {
+        "scene_count": 8,
+        "truth_points": 158265,
+        "truth_tracks": 999,
+        "values": {
+          "point_recall": 94.48456702366285,
+          "track_recall": 91.78480158039198,
+          "clutter_outputs": 8866,
+          "clutter_score": 94.3980033488137,
+          "split_tracks": 428,
+          "fragmentation_score": 75.11905123016234,
+          "timeliness_score": 84.90490490490491,
+          "delay_median": 2,
+          "delay_p90": 8,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 81.98298578149549,
+          "continuous_score": 84.06447831822146,
+          "unknown_outputs": 6327,
+          "weighted_total": 85.79292769965672
+        },
+        "baseline": {
+          "point_recall": 94.48456702366285,
+          "track_recall": 91.78480158039198,
+          "clutter_outputs": 8866,
+          "clutter_score": 94.3980033488137,
+          "split_tracks": 582,
+          "fragmentation_score": 65.6586318272142,
+          "timeliness_score": 84.90490490490491,
+          "delay_median": 2,
+          "delay_p90": 8,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 81.51409694136997,
+          "continuous_score": 83.58206361055366,
+          "unknown_outputs": 6327,
+          "weighted_total": 83.80436087753353
+        },
+        "delta": {
+          "point_recall": 0.0,
+          "track_recall": 0.0,
+          "clutter_outputs": 0,
+          "clutter_score": 0.0,
+          "split_tracks": -154,
+          "fragmentation_score": 9.460419402948148,
+          "timeliness_score": 0.0,
+          "delay_median": 0,
+          "delay_p90": 0,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 0.46888884012551557,
+          "continuous_score": 0.48241470766780026,
+          "unknown_outputs": 0,
+          "weighted_total": 1.9885668221231896
+        }
+      },
+      "fresh_short2": {
+        "scene_count": 8,
+        "truth_points": 158265,
+        "truth_tracks": 999,
+        "values": {
+          "point_recall": 94.48456702366285,
+          "track_recall": 91.78480158039198,
+          "clutter_outputs": 8866,
+          "clutter_score": 94.3980033488137,
+          "split_tracks": 564,
+          "fragmentation_score": 67.10204793538126,
+          "timeliness_score": 84.90490490490491,
+          "delay_median": 2,
+          "delay_p90": 8,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 81.61016532398915,
+          "continuous_score": 83.68130505477592,
+          "unknown_outputs": 6327,
+          "weighted_total": 84.1128923880114
+        },
+        "baseline": {
+          "point_recall": 94.48456702366285,
+          "track_recall": 91.78480158039198,
+          "clutter_outputs": 8866,
+          "clutter_score": 94.3980033488137,
+          "split_tracks": 582,
+          "fragmentation_score": 65.6586318272142,
+          "timeliness_score": 84.90490490490491,
+          "delay_median": 2,
+          "delay_p90": 8,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 81.51409694136997,
+          "continuous_score": 83.58206361055366,
+          "unknown_outputs": 6327,
+          "weighted_total": 83.80436087753353
+        },
+        "delta": {
+          "point_recall": 0.0,
+          "track_recall": 0.0,
+          "clutter_outputs": 0,
+          "clutter_score": 0.0,
+          "split_tracks": -18,
+          "fragmentation_score": 1.4434161081670709,
+          "timeliness_score": 0.0,
+          "delay_median": 0,
+          "delay_p90": 0,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 0.09606838261917972,
+          "continuous_score": 0.09924144422225822,
+          "unknown_outputs": 0,
+          "weighted_total": 0.3085315104778772
+        }
+      },
+      "fresh_all_lengths": {
+        "scene_count": 8,
+        "truth_points": 158265,
+        "truth_tracks": 999,
+        "values": {
+          "point_recall": 94.48456702366285,
+          "track_recall": 91.78480158039198,
+          "clutter_outputs": 8866,
+          "clutter_score": 94.3980033488137,
+          "split_tracks": 421,
+          "fragmentation_score": 77.58258258258259,
+          "timeliness_score": 84.90490490490491,
+          "delay_median": 2,
+          "delay_p90": 8,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 90.09410869010503,
+          "continuous_score": 92.29874322225335,
+          "unknown_outputs": 6327,
+          "weighted_total": 87.93248695094714
+        },
+        "baseline": {
+          "point_recall": 94.48456702366285,
+          "track_recall": 91.78480158039198,
+          "clutter_outputs": 8866,
+          "clutter_score": 94.3980033488137,
+          "split_tracks": 582,
+          "fragmentation_score": 65.6586318272142,
+          "timeliness_score": 84.90490490490491,
+          "delay_median": 2,
+          "delay_p90": 8,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 81.51409694136997,
+          "continuous_score": 83.58206361055366,
+          "unknown_outputs": 6327,
+          "weighted_total": 83.80436087753353
+        },
+        "delta": {
+          "point_recall": 0.0,
+          "track_recall": 0.0,
+          "clutter_outputs": 0,
+          "clutter_score": 0.0,
+          "split_tracks": -161,
+          "fragmentation_score": 11.923950755368395,
+          "timeliness_score": 0.0,
+          "delay_median": 0,
+          "delay_p90": 0,
+          "unmatched_tracks": 0,
+          "dominant_id_coverage": 8.58001174873506,
+          "continuous_score": 8.71667961169969,
+          "unknown_outputs": 0,
+          "weighted_total": 4.128126073413611
+        }
+      }
+    },
+    "sealed_test_used": false
+  }
+}

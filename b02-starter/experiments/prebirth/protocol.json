@@ -1,0 +1,14 @@
+{
+  "control": "id_recovery.combined: active=.95, margin=.75, retired=.88, retention=14",
+  "scenes": ["train_032", "train_033", "train_050", "train_051", "train_085", "train_144", "train_145", "train_178"],
+  "target_fragmentation_score": 70,
+  "guards": {"point_recall_drop_pp_max": 0.2, "track_recall_drop_pp_max": 0.2, "continuous_score_drop_max": 0.3, "timeliness_score_drop_max": 0.5, "clutter_ratio_max": 1.05, "weighted_total_must_not_drop": true},
+  "unchanged": ["point classifier", "long-memory ranking model", "existing combined recovery rules", "output enter .525, maintain .05", "confirmation hit count 3"],
+  "new_model_training": false,
+  "test_or_confirmation_used": false,
+  "truth_usage": "external diagnostics and scorecards only",
+  "registered_modes": ["control", "live", "both", "both_relaxed"],
+  "followup_short_id_ablation": {"reason": "old IDs with only one or two emissions were excluded by the initial recovery eligibility", "modes": ["short_live", "short_both", "short_relaxed"], "same_guards_and_target": true},
+  "followup_wider_geometry": {"reason": "31 fresh short fragments start near but outside the original geometry gate", "mode": "short_wide", "motion_radius_multiplier": 1.75, "same_guards_and_target": true},
+  "followup_identity_quality": {"reason": "wide replay improves aggregate metrics but mixed minority truth points rise from 3295 to 3800", "mode": "wide_confident", "only_change_from_short_wide": "affinity threshold .80 to .95", "same_guards_and_target": true}
+}
