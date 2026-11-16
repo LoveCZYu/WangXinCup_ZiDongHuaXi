@@ -4,6 +4,10 @@
 
 当前 v1.1 的五包双跑与输出校验已完成，见 [交付记录](A_BOARD_RUN.md)。代理未替用户上传；用户现已提交结果并反馈官网总分 75.24，详细记录见交付报告。
 
+## 数据身份注意事项
+
+晚间审计已确认：这五包 DAT 的点数与训练 ZIP 内的同名 CSV 全部不同。文件名不是训练场景身份的证明，不能直接用同名 CSV 的标签评价 A 榜输出。实际场景／目标是否重合仍未知，见 [分数差距审计](SCORE_GAP_AUDIT.md)。
+
 ## 对应文件
 
 输入取自 11.15 更新的官方 ZIP 的 `participant_demo/data/inputs/`：`train_001.dat` 至 `train_005.dat`。官方来源及每份输入的 SHA-256 见 [A 榜数据角色登记](../splits/a_board.json)。输入文件只交给官方收发服务；模型仍仅通过 TCP 接收本圈点迹。
@@ -36,6 +40,6 @@ python tools/build_results.py --code-zip ../T000906_v1.1_code.zip --input-dir .o
 
 ## 内部封存范围调整
 
-官方公开五包与历史训练池及封存划分有重合。`train_003` 原在内部 30 场景封存清单中，按此次官方口径参与冻结 A 榜推理后，不再标为完全未处理的独立测试场景。本轮不读取该场景的 CSV 真值、不计算其本地指标、不训练或调参。
+此前根据同名认定 DAT 与 CSV 场景重合的说法撤回；实际身份映射未知。晚间审计为诊断数据与计分差异，读取了训练 ZIP 中 train_001 至 train_005 的 CSV 标签，其中 train_003 原在内部封存 30 场景中。因此它现因标签诊断被排除，不是因为已经证实它与 A 榜同一场景。
 
-`splits/v1.json` 保留历史分组，`--split holdout` 仍表示原 30 场景，以便复现历史记录。当前独立保留的 29 场景登记在 `splits/a_board.json` 的 `remaining_independent_holdout`，未来获准评估时使用 `--split holdout_unseen`。本轮不运行它们。公开榜分数与独立泛化评估应分开解释。
+`splits/v1.json` 保留历史分组，`--split holdout` 仍为原 30 场景。其余独立 29 场景登记在 `splits/a_board.json` 的 `remaining_independent_holdout`，未来获准检查时使用 `--split holdout_unseen`；本次未运行它们。诊断没有改权重、阈值或已提交航迹。

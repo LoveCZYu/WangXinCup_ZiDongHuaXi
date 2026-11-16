@@ -39,9 +39,7 @@
     "train_004.dat",
     "train_005.dat"
   ],
-  "historical_holdout_overlap": [
-    "train_003"
-  ],
+  "historical_holdout_overlap": null,
   "remaining_independent_holdout": [
     "train_013",
     "train_023",
@@ -74,5 +72,104 @@
     "train_196"
   ],
   "csv_truth_scoring_performed": false,
-  "training_or_tuning_performed": false
+  "training_or_tuning_performed": false,
+  "scene_namespace": "official_DAT_packet_stem; not a verified training_CSV_scene_id",
+  "unverified_same_name_training_csv_candidates": [
+    "train_001",
+    "train_002",
+    "train_003",
+    "train_004",
+    "train_005"
+  ],
+  "actual_training_or_holdout_overlap_verified": false,
+  "same_name_csv_input_comparison": [
+    {
+      "scene_name": "train_001",
+      "training_csv_points": 136425,
+      "official_dat_tcp_points": 219111,
+      "training_csv_frames": 719,
+      "official_dat_frames": 720,
+      "csv_outputs": 23743,
+      "submitted_outputs": 18913,
+      "csv_label_counts": {
+        "0": 105782,
+        "-1": 7094,
+        "target": 23549
+      },
+      "same_input_sequence": false
+    },
+    {
+      "scene_name": "train_002",
+      "training_csv_points": 207360,
+      "official_dat_tcp_points": 170826,
+      "training_csv_frames": 718,
+      "official_dat_frames": 719,
+      "csv_outputs": 20069,
+      "submitted_outputs": 14857,
+      "csv_label_counts": {
+        "0": 186015,
+        "-1": 2212,
+        "target": 19133
+      },
+      "same_input_sequence": false
+    },
+    {
+      "scene_name": "train_003",
+      "training_csv_points": 83620,
+      "official_dat_tcp_points": 177088,
+      "training_csv_frames": 720,
+      "official_dat_frames": 719,
+      "csv_outputs": 15587,
+      "submitted_outputs": 23541,
+      "csv_label_counts": {
+        "0": 60644,
+        "target": 14529,
+        "-1": 8447
+      },
+      "same_input_sequence": false
+    },
+    {
+      "scene_name": "train_004",
+      "training_csv_points": 184986,
+      "official_dat_tcp_points": 180209,
+      "training_csv_frames": 719,
+      "official_dat_frames": 719,
+      "csv_outputs": 17778,
+      "submitted_outputs": 21375,
+      "csv_label_counts": {
+        "0": 165820,
+        "target": 17145,
+        "-1": 2021
+      },
+      "same_input_sequence": false
+    },
+    {
+      "scene_name": "train_005",
+      "training_csv_points": 120061,
+      "official_dat_tcp_points": 161402,
+      "training_csv_frames": 708,
+      "official_dat_frames": 719,
+      "csv_outputs": 19889,
+      "submitted_outputs": 19332,
+      "csv_label_counts": {
+        "0": 96479,
+        "-1": 3567,
+        "target": 20015
+      },
+      "same_input_sequence": false
+    }
+  ],
+  "labelled_training_csvs_used_in_score_audit": [
+    "train_001",
+    "train_002",
+    "train_003",
+    "train_004",
+    "train_005"
+  ],
+  "independent_holdout_exclusion_reasons": {
+    "train_003": "Labelled training CSV read during the 2026-11-16 score-gap audit; its identity with official DAT train_003 is NOT established."
+  },
+  "training_csv_truth_scored_for_gap_audit": true,
+  "actual_a_board_truth_labels_available": false,
+  "bookkeeping_correction": "Earlier overlap inference based only on matching filenames is withdrawn. Keep 29 independently held-out CSV scenes because CSV train_003 has now been examined in this audit."
 }

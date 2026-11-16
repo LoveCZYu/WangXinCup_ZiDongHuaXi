@@ -131,9 +131,7 @@
   },
   "all_trajectories_reproduced_exactly": true,
   "timing_files_and_logs_excluded_from_upload": true,
-  "historical_holdout_overlap": [
-    "train_003"
-  ],
+  "historical_holdout_overlap": null,
   "remaining_independent_holdout_count": 29,
   "csv_truth_scoring_performed": false,
   "training_or_tuning_performed": false,
@@ -163,5 +161,19 @@
     "rank": null
   },
   "website_upload_actor": "user",
-  "agent_performed_website_upload": false
+  "agent_performed_website_upload": false,
+  "same_name_training_csv_candidate_overlap": [
+    "train_003"
+  ],
+  "data_identity_correction": "Matching CSV/DAT filenames do not identify the same point sequence; all five point counts differ. Previous direct overlap assumption withdrawn.",
+  "later_score_gap_audit": {
+    "same_named_training_csv_diagnostics_performed": true,
+    "csv_truth_read": [
+      "train_003"
+    ],
+    "purpose": "read-only score discrepancy audit; no production changes",
+    "other_29_holdout_used": false,
+    "real_A_truth_not_available": true,
+    "report": "score-gap-audit-20261116.json"
+  }
 }

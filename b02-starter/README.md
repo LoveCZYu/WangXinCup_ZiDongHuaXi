@@ -2,6 +2,8 @@
 
 > 当前代码包用于开发与联调。11.15 新版正式提交要求及当前缺项见 [SUBMISSION.md](SUBMISSION.md)，不要将开发 ZIP 直接作为已验收的最终提交包。
 
+> 11.16 分数审计补充：官方 DAT 与训练 ZIP 的同名 CSV 点数均不一致，不能按文件名直接映射。75.24 与本地 79.46 属于不同数据与口径，详见 [差距核对报告](docs/SCORE_GAP_AUDIT.md)。
+
 > 11.16 主办方口径已由用户确认：A 榜输入是官方收发程序附带的五包，结果 ZIP 只上传五个航迹 DAT。代码包和结果包分别上传，详见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。
 
 从这里运行当前点模型。权重、参数配置及本地回放／官方联调使用同一套加载逻辑。当前推荐、完整开发集结果与限制统一记录在 [CURRENT.md](CURRENT.md)。
@@ -30,7 +32,7 @@ python -m b02 visualize "你的训练数据.zip" --run runs/train-015-current --
 
 设备默认 `auto`，有 CUDA 时使用 GPU，也可指定 `--device cpu` 或 `--device cuda`。冻结对照使用云端环境；CPU 可用于联调和查看，浮点结果可能有细微差异。
 
-完整开发集使用 `--split dev`。`--split holdout` 保留历史 30 场景；其中 `train_003` 已成为公开 A 榜输入，当前独立保留的 29 场景对应 `--split holdout_unseen`，本轮不运行。
+完整开发集使用 `--split dev`。`--split holdout` 保留历史 30 场景；其中训练 CSV `train_003` 已在分数审计中读取标签，不能据此认定与同名 A 榜 DAT 为同一场景。当前独立保留的 29 场景对应 `--split holdout_unseen`，本轮不运行。
 
 ## 官方收发联调
 
