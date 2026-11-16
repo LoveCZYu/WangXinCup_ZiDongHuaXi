@@ -1,0 +1,155 @@
+{
+  "format": "b02-a-board-delivery-v1",
+  "date": "2026-11-16",
+  "team_id": "T000906",
+  "version": "v1.1",
+  "code_zip": "T000906_v1.1_code.zip",
+  "code_zip_sha256": "3633b513b6b954f916a31f5f9d662a8a6e5dda8491d74ef4d15ed8cdaa20e1de",
+  "package_manifest_sha256": "bb523afbe3f0c1652b9314d4321f0666c849b3e11e09d8a19d085435c7ee786a",
+  "result_zip": "T000906_v1.1_result.zip",
+  "result_zip_sha256": "d2b51c03d43dd7b24671fd7e7c0dbcd7016c20bdeae344cbfa962e9f17cd74d8",
+  "result_zip_bytes": 2745966,
+  "result_files": [
+    "train_001.dat",
+    "train_002.dat",
+    "train_003.dat",
+    "train_004.dat",
+    "train_005.dat"
+  ],
+  "input_sha256": {
+    "train_001.dat": "5365fafb70228e96251e387c57b57ec9ea516b1b3cbbcf70ebfcdba7bdfacfc2",
+    "train_002.dat": "69b1639c7364b604592d533df61747b458f8a2c50ce1b7234914af714b131110",
+    "train_003.dat": "edfd407c374e81d0cbb0a7cb3ef5957f2b7a0d15b01dab9d972eb3240aa97469",
+    "train_004.dat": "b744290142485403644d18f52cc333485e986e1cb6fb9a80efad51092f7602bb",
+    "train_005.dat": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc"
+  },
+  "first": {
+    "status": "success",
+    "packages": 5,
+    "circles": 3596,
+    "tracks": 98018,
+    "wall_seconds": 848.952,
+    "handler_max_ms": 124.04434000001174,
+    "official_max_roundtrip_ms": 474.0,
+    "client_peak_rss_mib": 519.70703125,
+    "container_peak_memory_mib": 1977.3125,
+    "package_manifest_sha256": "bb523afbe3f0c1652b9314d4321f0666c849b3e11e09d8a19d085435c7ee786a",
+    "versions": {
+      "python": "3.12.16 (main, Nov  5 2026, 07:58:44) [GCC 12.2.0]",
+      "numpy": "1.26.4",
+      "scipy": "1.15.3",
+      "torch": "2.8.0+cu128",
+      "cuda_runtime": "12.8"
+    },
+    "trajectory_sha256": {
+      "train_001.dat": "a759cca1e39720eb357e6373c3262f6f4caa1c61f954b8a962107ee7d8107623",
+      "train_002.dat": "3d2ebf5a0fafbbd6543ed8392207d97d20827967db593f82915374e671e2e69a",
+      "train_003.dat": "5b7da3c40cf8823a6830a3608879171db3f2b1bf28b1edfba68fb0567eeb6f33",
+      "train_004.dat": "697040b36d69b282839ea987a61a398899e784828915f96f8abaa609d0420c88",
+      "train_005.dat": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30"
+    },
+    "per_package": [
+      {
+        "name": "train_001.dat",
+        "circles": 720,
+        "tracks": 18913
+      },
+      {
+        "name": "train_002.dat",
+        "circles": 719,
+        "tracks": 14857
+      },
+      {
+        "name": "train_003.dat",
+        "circles": 719,
+        "tracks": 23541
+      },
+      {
+        "name": "train_004.dat",
+        "circles": 719,
+        "tracks": 21375
+      },
+      {
+        "name": "train_005.dat",
+        "circles": 719,
+        "tracks": 19332
+      }
+    ]
+  },
+  "repeat": {
+    "status": "success",
+    "packages": 5,
+    "circles": 3596,
+    "tracks": 98018,
+    "wall_seconds": 833.134,
+    "handler_max_ms": 75.61378099998706,
+    "official_max_roundtrip_ms": 472.0,
+    "client_peak_rss_mib": 518.90625,
+    "container_peak_memory_mib": 1856.84375,
+    "package_manifest_sha256": "bb523afbe3f0c1652b9314d4321f0666c849b3e11e09d8a19d085435c7ee786a",
+    "versions": {
+      "python": "3.12.16 (main, Nov  5 2026, 07:58:44) [GCC 12.2.0]",
+      "numpy": "1.26.4",
+      "scipy": "1.15.3",
+      "torch": "2.8.0+cu128",
+      "cuda_runtime": "12.8"
+    },
+    "trajectory_sha256": {
+      "train_001.dat": "a759cca1e39720eb357e6373c3262f6f4caa1c61f954b8a962107ee7d8107623",
+      "train_002.dat": "3d2ebf5a0fafbbd6543ed8392207d97d20827967db593f82915374e671e2e69a",
+      "train_003.dat": "5b7da3c40cf8823a6830a3608879171db3f2b1bf28b1edfba68fb0567eeb6f33",
+      "train_004.dat": "697040b36d69b282839ea987a61a398899e784828915f96f8abaa609d0420c88",
+      "train_005.dat": "85537622c16e80db14f2d7666f6b33f23b0b52eedac2631285ba188625147e30"
+    },
+    "per_package": [
+      {
+        "name": "train_001.dat",
+        "circles": 720,
+        "tracks": 18913
+      },
+      {
+        "name": "train_002.dat",
+        "circles": 719,
+        "tracks": 14857
+      },
+      {
+        "name": "train_003.dat",
+        "circles": 719,
+        "tracks": 23541
+      },
+      {
+        "name": "train_004.dat",
+        "circles": 719,
+        "tracks": 21375
+      },
+      {
+        "name": "train_005.dat",
+        "circles": 719,
+        "tracks": 19332
+      }
+    ]
+  },
+  "all_trajectories_reproduced_exactly": true,
+  "timing_files_and_logs_excluded_from_upload": true,
+  "historical_holdout_overlap": [
+    "train_003"
+  ],
+  "remaining_independent_holdout_count": 29,
+  "csv_truth_scoring_performed": false,
+  "training_or_tuning_performed": false,
+  "website_uploaded": false,
+  "official_score": null,
+  "organizer_clarification": "User relayed organizer clarification: A-board inputs are the five DAT files shipped with the official receiver; upload trajectories only.",
+  "image": {
+    "id": "sha256:30d3356829aa14d56dab77441edb3b293e8bf5455dd7e5454bec6bf74c718bdb",
+    "tag": "t000906/b02:v1.1"
+  },
+  "resource_limits": {
+    "cpus": 4,
+    "memory_bytes": 3221225472,
+    "network": "none",
+    "input_read_only": true
+  },
+  "unit_tests_passed": 23,
+  "snapshot_date": "2026-11-16"
+}

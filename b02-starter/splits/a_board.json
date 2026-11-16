@@ -1,0 +1,78 @@
+{
+  "format": "b02-public-a-board-v1",
+  "date": "2026-11-16",
+  "authority": "User relayed organizer clarification: A-board inputs are the five DAT files shipped with the official receiver; upload trajectories only.",
+  "input_archive_sha256": "89e6f59b82784e344a991be4267513f5d41814c58ef40b23c7c8f90002379d0d",
+  "inputs": {
+    "train_001.dat": {
+      "sha256": "5365fafb70228e96251e387c57b57ec9ea516b1b3cbbcf70ebfcdba7bdfacfc2",
+      "bytes": 7888011
+    },
+    "train_002.dat": {
+      "sha256": "69b1639c7364b604592d533df61747b458f8a2c50ce1b7234914af714b131110",
+      "bytes": 6149751
+    },
+    "train_003.dat": {
+      "sha256": "edfd407c374e81d0cbb0a7cb3ef5957f2b7a0d15b01dab9d972eb3240aa97469",
+      "bytes": 6375183
+    },
+    "train_004.dat": {
+      "sha256": "b744290142485403644d18f52cc333485e986e1cb6fb9a80efad51092f7602bb",
+      "bytes": 6487539
+    },
+    "train_005.dat": {
+      "sha256": "1c16d3c38520f7edaaa1afe6e5196a8e348eb519c7f0d9688467eed2d6b22acc",
+      "bytes": 5810487
+    }
+  },
+  "scenes": [
+    "train_001",
+    "train_002",
+    "train_003",
+    "train_004",
+    "train_005"
+  ],
+  "result_zip_files": [
+    "train_001.dat",
+    "train_002.dat",
+    "train_003.dat",
+    "train_004.dat",
+    "train_005.dat"
+  ],
+  "historical_holdout_overlap": [
+    "train_003"
+  ],
+  "remaining_independent_holdout": [
+    "train_013",
+    "train_023",
+    "train_025",
+    "train_036",
+    "train_042",
+    "train_047",
+    "train_048",
+    "train_049",
+    "train_053",
+    "train_055",
+    "train_056",
+    "train_075",
+    "train_078",
+    "train_082",
+    "train_095",
+    "train_096",
+    "train_103",
+    "train_108",
+    "train_109",
+    "train_120",
+    "train_126",
+    "train_127",
+    "train_149",
+    "train_159",
+    "train_167",
+    "train_184",
+    "train_193",
+    "train_194",
+    "train_196"
+  ],
+  "csv_truth_scoring_performed": false,
+  "training_or_tuning_performed": false
+}

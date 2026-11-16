@@ -2,6 +2,8 @@
 
 > 当前代码包用于开发与联调。11.15 新版正式提交要求及当前缺项见 [SUBMISSION.md](SUBMISSION.md)，不要将开发 ZIP 直接作为已验收的最终提交包。
 
+> 11.16 主办方口径已由用户确认：A 榜输入是官方收发程序附带的五包，结果 ZIP 只上传五个航迹 DAT。代码包和结果包分别上传，详见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。
+
 从这里运行当前点模型。权重、参数配置及本地回放／官方联调使用同一套加载逻辑。当前推荐、完整开发集结果与限制统一记录在 [CURRENT.md](CURRENT.md)。
 
 ## 队友首次运行
@@ -28,7 +30,7 @@ python -m b02 visualize "你的训练数据.zip" --run runs/train-015-current --
 
 设备默认 `auto`，有 CUDA 时使用 GPU，也可指定 `--device cpu` 或 `--device cuda`。冻结对照使用云端环境；CPU 可用于联调和查看，浮点结果可能有细微差异。
 
-完整开发集使用 `--split dev`。封存测试集清单仍保留，当前阶段不使用 `--split holdout`。
+完整开发集使用 `--split dev`。`--split holdout` 保留历史 30 场景；其中 `train_003` 已成为公开 A 榜输入，当前独立保留的 29 场景对应 `--split holdout_unseen`，本轮不运行。
 
 ## 官方收发联调
 
@@ -45,9 +47,9 @@ python -m b02 official --tracker point-scorer --input-dir "只含train_005.dat�
 
 团队编号为 `T000906`。运行 `python tools/build_submission.py --out runs/submission-build`，会生成 ZIP 根目录直接包含 `Dockerfile` 的 `T000906_v1.1_code.zip` 和配套构建目录。先使用上面的 `prepare-official` 命令准备 `.official`，官方 EXE 与收发源码由本地官方包取得，不上传到 Git。新版和旧版 ZIP 目录均可识别，已有目录不会被覆盖；更新说明见 [11.15 收发包适配](docs/OFFICIAL_UPDATE_20261115.md)。
 
-构建脚本会拒绝覆盖已有目录，并检查冻结算法、配置和权重，避免将后羿实验或后改源码混入 v1。容器命令与离线验收流程见 [提交模板说明](submission-template/README.md)。`B02当前版本.zip` 继续用于开发共享，正式程序包单独命名；不要把样例联调结果当作正式验证结果上传。
+构建脚本会拒绝覆盖已有目录，并检查冻结算法、配置和权重，避免将后羿实验或后改源码混入 v1。容器命令与离线验收流程见 [提交模板说明](submission-template/README.md)。`B02当前版本.zip` 用于开发共享；正式代码上传 `T000906_v1.1_code.zip`，A 榜上传覆盖完整五包的 `T000906_v1.1_result.zip`。此前仅跑 `train_005` 的联调结果不能替代完整五包。
 
-已通过的官方样例双跑、内存和耗时记录见 [交付验收报告](docs/SUBMISSION_ACCEPTANCE.md)。正式验证集和官网接收仍待实际验证。
+此前 `train_005` 子集双跑记录见 [程序验收报告](docs/SUBMISSION_ACCEPTANCE.md)；A 榜五包口径与结果打包方法见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。五包完整运行与结果校验见 [A 榜交付记录](docs/A_BOARD_RUN.md)。官网接收与官方分数以实际上传后反馈为准。
 
 ## 团队约定
 

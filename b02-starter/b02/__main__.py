@@ -16,6 +16,13 @@ from .visualize import export_viewer
 ROOT = Path(__file__).resolve().parent.parent
 
 
+def load_split(name):
+    if name == 'holdout_unseen':
+        policy=json.loads((ROOT/'splits/a_board.json').read_text(encoding='utf-8'))
+        return policy['remaining_independent_holdout']
+    return json.loads((ROOT/'splits/v1.json').read_text(encoding='utf-8'))[name]
+
+
 def load_config(path):
     if path is None:
         return Config()
@@ -45,7 +52,8 @@ def main():
     local.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     selection = local.add_mutually_exclusive_group()
     selection.add_argument("--scene", action="append", help="场景名，不带 .csv。可多次传入")
-    selection.add_argument("--split", choices=("train", "dev", "holdout"))
+    selection.add_argument("--split", choices=("train", "dev", "holdout", "holdout_unseen"),
+                           help="holdout 是历史 30 场景；holdout_unseen 排除公开 A 榜数据后为 29 场景")
     selection.add_argument("--all", action="store_true", help="明确回放数据源中的所有场景")
 
     viewer = commands.add_parser("visualize", help="导出可直接打开的离线场景查看器")
@@ -107,7 +115,7 @@ def main():
         if args.command == "replay":
             scenes = list(dict.fromkeys(args.scene)) if args.scene else None
             if args.split:
-                scenes = json.loads((ROOT / "splits" / "v1.json").read_text(encoding="utf-8"))[args.split]
+                scenes = load_split(args.split)
             if (args.data.is_dir() or args.data.suffix.lower() == ".zip") and not (scenes or args.all):
                 parser.error("训练包请指定 --scene、--split 或 --all")
             replay(args.data, args.out, handler, replay_config, scenes)
