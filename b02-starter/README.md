@@ -49,7 +49,7 @@ python -m b02 official --tracker point-scorer --input-dir "只含train_005.dat�
 
 构建脚本会拒绝覆盖已有目录，并检查冻结算法、配置和权重，避免将后羿实验或后改源码混入 v1。容器命令与离线验收流程见 [提交模板说明](submission-template/README.md)。`B02当前版本.zip` 用于开发共享；正式代码上传 `T000906_v1.1_code.zip`，A 榜上传覆盖完整五包的 `T000906_v1.1_result.zip`。此前仅跑 `train_005` 的联调结果不能替代完整五包。
 
-此前 `train_005` 子集双跑记录见 [程序验收报告](docs/SUBMISSION_ACCEPTANCE.md)；A 榜五包口径与结果打包方法见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。五包完整运行与结果校验见 [A 榜交付记录](docs/A_BOARD_RUN.md)。官网接收与官方分数以实际上传后反馈为准。
+此前 `train_005` 子集双跑记录见 [程序验收报告](docs/SUBMISSION_ACCEPTANCE.md)；A 榜五包口径与结果打包方法见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。五包完整运行与结果校验见 [A 榜交付记录](docs/A_BOARD_RUN.md)。用户已提交当前结果并反馈官网总分 **75.24**；分项、排名及代码复核状态尚未提供。开发集本地估算仍单独保留。
 
 ## 团队约定
 

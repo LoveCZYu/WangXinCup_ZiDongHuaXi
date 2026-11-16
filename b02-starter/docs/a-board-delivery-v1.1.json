@@ -137,8 +137,8 @@
   "remaining_independent_holdout_count": 29,
   "csv_truth_scoring_performed": false,
   "training_or_tuning_performed": false,
-  "website_uploaded": false,
-  "official_score": null,
+  "website_uploaded": true,
+  "official_score": 75.24,
   "organizer_clarification": "User relayed organizer clarification: A-board inputs are the five DAT files shipped with the official receiver; upload trajectories only.",
   "image": {
     "id": "sha256:30d3356829aa14d56dab77441edb3b293e8bf5455dd7e5454bec6bf74c718bdb",
@@ -151,5 +151,17 @@
     "input_read_only": true
   },
   "unit_tests_passed": 23,
-  "snapshot_date": "2026-11-16"
+  "snapshot_date": "2026-11-16",
+  "website_result_uploaded": true,
+  "website_code_uploaded": null,
+  "official_score_evidence": {
+    "source": "user reported score displayed on competition website",
+    "reported_date": "2026-11-16",
+    "total": 75.24,
+    "submission_id": null,
+    "category_scores": null,
+    "rank": null
+  },
+  "website_upload_actor": "user",
+  "agent_performed_website_upload": false
 }
