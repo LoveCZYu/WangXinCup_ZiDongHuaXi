@@ -1,0 +1,89 @@
+{
+  "format": "b02-v3-tracking-protocol-v1",
+  "frozen_baseline": "v2 context head seed 20261116 step1000, rank_only scale1",
+  "point_model_and_gate": "unchanged frozen v1 point model and output policy",
+  "seeds": [
+    20261116,
+    20261117
+  ],
+  "output_seed": 20261116,
+  "training_steps": 8000,
+  "checkpoints": [
+    0,
+    250,
+    1000,
+    3000,
+    8000
+  ],
+  "checkpoint_selection": "minimum calibration row loss; independent causal rollout required",
+  "initial_fit_scenes": 64,
+  "supervised_frames_per_scene": 64,
+  "calibration": "fixed existing 8 scenes; screen032/050; full8 required before freeze",
+  "data_regimes": [
+    {
+      "name": "expanded",
+      "prefix": "v1",
+      "memory": false,
+      "labels": "pure"
+    },
+    {
+      "name": "onpolicy",
+      "prefix": "v2",
+      "memory": false,
+      "labels": "pure"
+    },
+    {
+      "name": "memory",
+      "prefix": "v2",
+      "memory": true,
+      "labels": "pure"
+    },
+    {
+      "name": "anchor_control",
+      "prefix": "v2",
+      "memory": false,
+      "labels": "anchor"
+    },
+    {
+      "name": "anchor_memory",
+      "prefix": "v2",
+      "memory": true,
+      "labels": "anchor"
+    }
+  ],
+  "identity_ablation": "separate causal identity assignment over exactly the same selected original points, versus existing physical track IDs; require identity purity constraints",
+  "memory": {
+    "trusted_entries": 16,
+    "minimum_pair_margin": 0.1,
+    "maximum_normalized_innovation_squared": 0.5,
+    "minimum_point_score": 0.5,
+    "minimum_hits": 3
+  },
+  "confirmation": "16 association-training-pool scenes reserved before new results; read once after one complete candidate fixed",
+  "development": "previously read 30 files only for regression, not new independent evidence",
+  "sealed_holdout": "29 files remain unused; train_003 CSV truth also excluded",
+  "promotion": "no official upload or replacement of v1/v2 without full causal and resource verification",
+  "identity_variants": [
+    {
+      "name": "geo4",
+      "scorer": "none",
+      "max_missed": 4
+    },
+    {
+      "name": "learned4",
+      "scorer": "same as upstream",
+      "max_missed": 4
+    },
+    {
+      "name": "learned8",
+      "scorer": "same as upstream",
+      "max_missed": 8
+    }
+  ],
+  "identity_constraints": {
+    "current_original_point_set": "exactly unchanged",
+    "one_current_point_per_logical_id": true,
+    "future_or_retroactive_updates": false,
+    "mixed_minority_ratio_max": 1.05
+  }
+}

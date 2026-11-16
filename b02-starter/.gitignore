@@ -12,6 +12,7 @@ train_*.csv
 *.pt
 !assets/point-scorer-8000.pt
 !assets/v2-association-candidate.pt
+!assets/v3-tracking-candidate.pt
 *.pth
 *.ckpt
 .env

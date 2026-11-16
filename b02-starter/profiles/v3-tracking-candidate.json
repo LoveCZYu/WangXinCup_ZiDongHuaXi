@@ -1,0 +1,13 @@
+{
+  "format": "b02-v3-candidate-profile-v1",
+  "seed": 20261116,
+  "step": 1000,
+  "identity": "physical",
+  "checkpoint": "../assets/v3-tracking-candidate.pt",
+  "checkpoint_sha256": "fdbcbeb544bbb27260de7fd800000d3301a58dc9d81074b653db2acb913ce39d",
+  "confirmation_sha256": "bbc5cd1422be2b9ad7e23037ab7afb42611ccc6bfa4c929198e39e208c737c23",
+  "point_profile": "current.json",
+  "point_profile_sha256": "cc6932752546cb9fae6ca233f4b5e6e092e38b3b4e1f28d5e286f3f7c91120fa",
+  "point_weights_sha256": "43a6d7f28dc7c26b7123e7f7492c06f9b19850c9c328748f7f0d1ce616f12fda",
+  "official_submission_ready": false
+}
