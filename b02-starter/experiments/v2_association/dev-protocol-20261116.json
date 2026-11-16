@@ -1,0 +1,26 @@
+{
+  "format": "b02-v2-dev-protocol-v1",
+  "registered_at_local": "2026-11-16T16:03:48 Asia/Shanghai; before reading full-eight candidate results",
+  "seeds": [
+    20261116,
+    20261117
+  ],
+  "production_seed_if_validated": 20261116,
+  "checkpoint_selection": "minimum calibration row loss among 0,1000,3000,8000; actual rollout must pass independently",
+  "strategy": "rank_only",
+  "scale": 1.0,
+  "feasible_per_seed": {
+    "recall_max_drop_pp": 0.3,
+    "clutter_ratio_max": 1.05,
+    "continuous_min_gain": 0.0,
+    "switch_ratio_max": 0.95,
+    "weighted_total_min_gain": 0.25
+  },
+  "major_stage_target_per_seed": {
+    "continuous_min_gain": 3.0,
+    "switch_ratio_max": 0.75
+  },
+  "dev_policy": "freeze both checkpoints, features, strategy and scale before reading 30 development files; no tuning from development results",
+  "holdout_policy": "29 holdout_unseen files remain sealed; train_003 is public A input only",
+  "promotion": "no automatic replacement or official submission; complete protocol and resource checks remain required"
+}

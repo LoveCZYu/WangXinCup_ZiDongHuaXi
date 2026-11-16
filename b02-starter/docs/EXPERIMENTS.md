@@ -4,6 +4,7 @@
 
 | 阶段 | 状态与用途 | 资料 |
 | --- | --- | --- |
+| v2 群体关系关联 | 实验候选；冻结后 30 文件本地 79.4033→81.2450，尚未官网验收 | [首轮结果与运行命令](../experiments/v2_association/RESULTS_20261116.md)、[对照入口](../experiments/v2_association/README.md) |
 | 原始简单基线 | 稳定参考及协议排查 | [历史开发说明](LEGACY_GUIDE.md) |
 | Track-MT3 模拟复现与 B02 适配 | 历史研究，当前入口不依赖上游模型 | [模拟阶段](../experiments/track_mt3_stage1/README.md)、[B02 适配](../experiments/track_mt3_stage2/README.md) |
 | 点级分类器与扩大训练 | 当前轻量推理权重的来源 | [扩大训练](../experiments/point_scorer_expanded/README.md) |

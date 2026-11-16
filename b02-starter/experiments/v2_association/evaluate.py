@@ -18,7 +18,7 @@ def evaluate(model,data,pairs,out,scenes,*,scale=1.,strategy='residual',referenc
     from b02.scorecard import build_scorecard,write_scorecard
     from experiments.v2_association.model import Scorer
     from experiments.v2_association.tracker import Tracker
-    manifest=json.loads((pairs/'manifest.json').read_text())
+    manifest=json.loads((pairs/'manifest.json').read_text(encoding='utf-8'))
     assert scenes and set(scenes)<=set(manifest['calibration'])
     assert not set(scenes)&set(manifest['fit'])
     assert manifest['data_sha256']==sha(data)
@@ -76,14 +76,14 @@ def main():
     a=p.parse_args()
     import torch
     from experiments.v2_association.model import AssociationModel
-    manifest=json.loads((a.pairs/'manifest.json').read_text())
+    manifest=json.loads((a.pairs/'manifest.json').read_text(encoding='utf-8'))
     model=AssociationModel(manifest['track_dim'],manifest['edge_dim'])
     if a.checkpoint:
         checkpoint=torch.load(a.checkpoint,map_location='cpu')
         assert checkpoint['metadata']['feature_version']==manifest['feature_version']
         assert checkpoint['metadata']['pairs_manifest_sha256']==sha(a.pairs/'manifest.json')
         model.load_state_dict(checkpoint['model'])
-    reference=json.loads(a.reference.read_text()) if a.reference else None
+    reference=json.loads(a.reference.read_text(encoding='utf-8')) if a.reference else None
     result=evaluate(model,a.data,a.pairs,a.out,a.scenes or manifest['calibration'],
                     scale=a.scale,strategy=a.strategy,reference=reference,preview=a.preview)
     print(json.dumps(result),flush=True)

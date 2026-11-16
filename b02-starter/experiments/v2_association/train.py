@@ -44,10 +44,10 @@ def main():
     from experiments.v2_association.run_stage1 import save,sha
     torch.manual_seed(a.seed);np.random.seed(a.seed)
     start=monotonic();a.out.mkdir(parents=True,exist_ok=False)
-    manifest=json.loads((a.pairs/'manifest.json').read_text())
+    manifest=json.loads((a.pairs/'manifest.json').read_text(encoding='utf-8'))
     assert manifest['feature_version'] in (FEATURE_VERSION,'b02-association-context-v2')
     assert not set(manifest['fit'])&set(manifest['calibration'])
-    report=json.loads((a.pairs/'report.json').read_text());assert report['complete']
+    report=json.loads((a.pairs/'report.json').read_text(encoding='utf-8'));assert report['complete']
     fit=select_objective(load_groups(a.pairs/'fit',manifest['fit']),a.objective)
     cal=select_objective(load_groups(a.pairs/'calibration',manifest['calibration']),a.objective)
     assert len(fit['track']) and len(cal['track'])
@@ -99,7 +99,7 @@ def main():
                 losses=[]
                 torch.save({'model':{k:v.detach().cpu() for k,v in model.state_dict().items()},
                             'step':step,'metadata':metadata},a.out/f'step-{step:05d}.pt')
-                with (a.out/'history.jsonl').open('a') as file:file.write(json.dumps(row)+'\n')
+                with (a.out/'history.jsonl').open('a',encoding='utf-8') as file:file.write(json.dumps(row)+'\n')
                 print(json.dumps(row),flush=True)
             if step==a.steps:completed=True;break
             model.train();n=a.batch//2

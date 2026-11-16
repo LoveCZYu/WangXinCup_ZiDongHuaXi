@@ -38,7 +38,7 @@ def main():
     assert not set(cal)&set(public['scenes'])
     handler,profile=load_tracker(device='cpu')
     if a.score_cache:
-        prior=json.loads((a.score_cache/'manifest.json').read_text())
+        prior=json.loads((a.score_cache/'manifest.json').read_text(encoding='utf-8'))
         assert prior['fit']==fit and prior['calibration']==cal and prior['data_sha256']==sha(a.data)
     manifest={'format':'b02-edge-dataset-v1','feature_version':FEATURE_VERSION,
               'fit':fit,'calibration':cal,'dev':[],'holdout':[],
