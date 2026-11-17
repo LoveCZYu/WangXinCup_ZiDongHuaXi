@@ -1,0 +1,85 @@
+{
+  "format": "b02-column-competition-protocol-v1",
+  "created_at_utc": "2026-11-17T04:24:08.111385+00:00",
+  "parent_commit": "d482bb0",
+  "frozen_protocol_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "sources": {
+    "experiments/identity_competition/scoring.py": "c43de2973a160b55b4c9ace8e3a2287a36ea4a032beba4d3eb2c9829f74173b6",
+    "experiments/identity_competition/motion.py": "7f04df6a394c68ffa82b4e73e9952fafddd9835784aa376bf484964ab1f22abf",
+    "experiments/identity_competition/experiment.py": "431081172c8e8c6a0c06b8741a2cbf363f5bfef9802da33762852bf3ef9918a0"
+  },
+  "fitting": [
+    "train_093",
+    "train_177",
+    "train_148",
+    "train_090",
+    "train_106",
+    "train_198",
+    "train_017",
+    "train_094"
+  ],
+  "calibration": [
+    "train_032",
+    "train_033",
+    "train_050",
+    "train_051",
+    "train_085",
+    "train_144",
+    "train_145",
+    "train_178"
+  ],
+  "modes": [
+    "baseline",
+    "identity",
+    "volume",
+    "identity_volume"
+  ],
+  "primary": "identity_volume minus baseline; single modes are mechanistic controls, not post-hoc promotion candidates",
+  "fixed_parameters": {
+    "mature_emissions_min": 3,
+    "point_score_min": 0.525,
+    "penalty_scale_in_parent_solver": 0.25,
+    "affinity_difference_clip": 4,
+    "volume": "3*log(radius), minus the smallest in the contested column",
+    "radius": "min(1+.2*(age-1),1.6)"
+  },
+  "hypotheses": [
+    "Row-wise ranking suppresses cross-ID evidence when each row has one candidate; column affinity may restore it",
+    "Gate widening discounts distance without a volume penalty; a fixed volume cost may counter stale-ID preference",
+    "Combined effects may repair different onsets, but could harm real occlusion recovery; full replay guards are required"
+  ],
+  "budget": {
+    "workers": 4,
+    "threads_each": 1,
+    "timeout_seconds_per_worker": 1800,
+    "training": false
+  },
+  "fitting_gate_to_calibration": {
+    "fragmentation_gain_min": 1.0,
+    "weighted_gain_min": 0.2,
+    "point_drop_pp_max": 0.1,
+    "track_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "mixed_points_ratio_max": 1.0
+  },
+  "calibration_success": {
+    "fragmentation_gain_min": 2.0,
+    "weighted_gain_min": 0.5,
+    "point_drop_pp_max": 0.1,
+    "track_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "mixed_points_ratio_max": 1.0
+  },
+  "stopping": "One four-way fitting replay; only primary pass permits one unchanged calibration replay. No threshold search, new validation, confirmation or sealed test.",
+  "preliminary_evidence": "Two train_093 onsets and a one-point/two-ID minimization; not independent proof",
+  "negative_controls_retained": [
+    "absolute old row scores fix only first onset and are not cross-row calibrated",
+    "trusted-memory straight-line penalties fail the first onset; no full replay selected for this mode"
+  ],
+  "interpretation": "Gate volume is a fixed heuristic, not a calibrated covariance likelihood; fitting/calibration are already exposed data"
+}
