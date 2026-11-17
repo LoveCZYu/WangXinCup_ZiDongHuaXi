@@ -1,0 +1,145 @@
+{
+  "research_only": true,
+  "new_training": false,
+  "threshold_search": false,
+  "original_gate_overridden": false,
+  "independent_validation": false,
+  "diagnostic_protocol_sha256": "c45ac71e6350f70e0a6e2e12f54438de2217a29b0b4f9be90811214c7665359d",
+  "target_feasibility": {
+    "supervised_positive_rows": 142443,
+    "maximum_simultaneous_correct_rows": 142389,
+    "minimum_positive_rows_unsatisfied_by_one_to_one": 54,
+    "positive_rows_without_any_preferred_column_edge": 55,
+    "positive_edges": 142443,
+    "semantic_positive_not_column_preferred_edges": 55,
+    "columns_with_multiple_semantic_positive_rows": 54,
+    "scope": "Frozen, disjoint recorded assignment stages, reliable anchored rows with all candidate labels known. Not whole-system achievable score."
+  },
+  "seeds": {
+    "20261118": {
+      "variants": {
+        "independent": {
+          "positive_match_recall": 0.9841761265909873,
+          "absent_false_accept_rate": 0.44696969696969696,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 405,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141881,
+          "wrong_top_even_before_rejection": 562,
+          "correct_accepted": 140189,
+          "wrong_accepted": 2647
+        },
+        "context_edges_only": {
+          "positive_match_recall": 0.9830528702709154,
+          "absent_false_accept_rate": 0.40749601275917063,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 411,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141884,
+          "wrong_top_even_before_rejection": 559,
+          "correct_accepted": 140029,
+          "wrong_accepted": 2455
+        },
+        "context_null_only": {
+          "positive_match_recall": 0.9857416650870875,
+          "absent_false_accept_rate": 0.47627591706539074,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 452,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141881,
+          "wrong_top_even_before_rejection": 562,
+          "correct_accepted": 140412,
+          "wrong_accepted": 2841
+        },
+        "context": {
+          "positive_match_recall": 0.984421838911003,
+          "absent_false_accept_rate": 0.4350079744816587,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 458,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141884,
+          "wrong_top_even_before_rejection": 559,
+          "correct_accepted": 140224,
+          "wrong_accepted": 2640
+        }
+      },
+      "paired_transitions": {
+        "wrong_to_correct_top": 24,
+        "correct_to_wrong_top": 21,
+        "new_correct_accepts": 343,
+        "lost_correct_accepts": 308,
+        "new_wrong_accepts": 276,
+        "removed_wrong_accepts": 283
+      },
+      "prior_local_correct_accepts": 140202,
+      "prior_local_correct_accepts_above_max_joint_capacity": 0
+    },
+    "20261119": {
+      "variants": {
+        "independent": {
+          "positive_match_recall": 0.9834460099829405,
+          "absent_false_accept_rate": 0.4154704944178628,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 411,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141886,
+          "wrong_top_even_before_rejection": 557,
+          "correct_accepted": 140085,
+          "wrong_accepted": 2495
+        },
+        "context_edges_only": {
+          "positive_match_recall": 0.9843867371510008,
+          "absent_false_accept_rate": 0.4399920255183413,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 411,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141895,
+          "wrong_top_even_before_rejection": 548,
+          "correct_accepted": 140219,
+          "wrong_accepted": 2618
+        },
+        "context_null_only": {
+          "positive_match_recall": 0.9828563004149028,
+          "absent_false_accept_rate": 0.3975279106858054,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 445,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141886,
+          "wrong_top_even_before_rejection": 557,
+          "correct_accepted": 140001,
+          "wrong_accepted": 2439
+        },
+        "context": {
+          "positive_match_recall": 0.9839093532149702,
+          "absent_false_accept_rate": 0.41746411483253587,
+          "positive_rows": 142443,
+          "absent_rows": 5016,
+          "wrong_target_on_present_rows": 443,
+          "excluded_unknown_rows": 689,
+          "correct_top_even_before_rejection": 141895,
+          "wrong_top_even_before_rejection": 548,
+          "correct_accepted": 140151,
+          "wrong_accepted": 2537
+        }
+      },
+      "paired_transitions": {
+        "wrong_to_correct_top": 37,
+        "correct_to_wrong_top": 28,
+        "new_correct_accepts": 301,
+        "lost_correct_accepts": 235,
+        "new_wrong_accepts": 254,
+        "removed_wrong_accepts": 212
+      },
+      "prior_local_correct_accepts": 140034,
+      "prior_local_correct_accepts_above_max_joint_capacity": 0
+    }
+  },
+  "hybrid_caveat": "Swap already trained edge and null functions incl their existing training offsets; no recalibration. Numerical attribution only, not deployment candidates or a causal identification of the underlying data process."
+}

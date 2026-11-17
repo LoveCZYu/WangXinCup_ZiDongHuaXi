@@ -1,0 +1,781 @@
+{
+  "complete": true,
+  "models": {
+    "independent-20261118": {
+      "selected": {
+        "step": 600,
+        "seconds": 5.968483589589596,
+        "criterion": 0.2612482160329819,
+        "balanced_row_loss": 0.273662805557251,
+        "binary_loss": 0.07297565042972565,
+        "row_loss": 0.20316118001937866,
+        "column_loss": 0.10288232564926147,
+        "joint_loss": 0.22599740326404572,
+        "positive_row_match_recall": 0.9436304350868354,
+        "absent_row_false_accept_rate": 0.13975279106858055,
+        "positive_rows": 142914,
+        "absent_rows": 5016,
+        "fixed_coverage_column": {
+          "groups": 65950,
+          "selected": 64417,
+          "correct": 63189,
+          "wrong": 1228,
+          "reference": "old affinity score>=0; identical selected count for all models",
+          "positive_possible_groups": 65148
+        }
+      },
+      "history": [
+        {
+          "step": 0,
+          "seconds": 0.7555187344551086,
+          "criterion": 0.4683031849563122,
+          "balanced_row_loss": 0.7198145389556885,
+          "binary_loss": 0.06578607857227325,
+          "row_loss": 0.08953876048326492,
+          "column_loss": 0.08521967381238937,
+          "joint_loss": 0.1531652957201004,
+          "positive_row_match_recall": 0.983395608547798,
+          "absent_row_false_accept_rate": 0.5299043062200957,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63141,
+            "wrong": 1276,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 200,
+          "seconds": 3.053032886236906,
+          "criterion": 0.26804187521338463,
+          "balanced_row_loss": 0.2826942205429077,
+          "binary_loss": 0.07405771315097809,
+          "row_loss": 0.2088221162557602,
+          "column_loss": 0.10527410358190536,
+          "joint_loss": 0.23110582306981087,
+          "positive_row_match_recall": 0.9407335880319633,
+          "absent_row_false_accept_rate": 0.14114832535885166,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63172,
+            "wrong": 1245,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 600,
+          "seconds": 5.968483589589596,
+          "criterion": 0.2612482160329819,
+          "balanced_row_loss": 0.273662805557251,
+          "binary_loss": 0.07297565042972565,
+          "row_loss": 0.20316118001937866,
+          "column_loss": 0.10288232564926147,
+          "joint_loss": 0.22599740326404572,
+          "positive_row_match_recall": 0.9436304350868354,
+          "absent_row_false_accept_rate": 0.13975279106858055,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63189,
+            "wrong": 1228,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 1200,
+          "seconds": 10.078403364866972,
+          "criterion": 0.2678513936698437,
+          "balanced_row_loss": 0.27400535345077515,
+          "binary_loss": 0.07666700333356857,
+          "row_loss": 0.2041194885969162,
+          "column_loss": 0.10836342722177505,
+          "joint_loss": 0.2329084612429142,
+          "positive_row_match_recall": 0.9441132429293141,
+          "absent_row_false_accept_rate": 0.1377591706539075,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63184,
+            "wrong": 1233,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 2000,
+          "seconds": 15.11631814390421,
+          "criterion": 0.2714778184890747,
+          "balanced_row_loss": 0.28590476512908936,
+          "binary_loss": 0.0754878893494606,
+          "row_loss": 0.18755540251731873,
+          "column_loss": 0.10607509315013885,
+          "joint_loss": 0.2223031371831894,
+          "positive_row_match_recall": 0.9488433603425837,
+          "absent_row_false_accept_rate": 0.14393939393939395,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63202,
+            "wrong": 1215,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        }
+      ],
+      "offset_training_only": -3.278027057647705,
+      "training_raw": {
+        "positive_match_recall": 0.9483068736382703,
+        "absent_false_accept_rate": 0.06476945244956772,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 208,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_raw": {
+        "positive_match_recall": 0.9450657455964842,
+        "absent_false_accept_rate": 0.13975279106858055,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 94,
+        "excluded_unknown_rows": 689
+      },
+      "training_calibrated": {
+        "positive_match_recall": 0.9855812196120753,
+        "absent_false_accept_rate": 0.39798270893371757,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 1249,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_calibrated": {
+        "positive_match_recall": 0.9841761265909873,
+        "absent_false_accept_rate": 0.44696969696969696,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 405,
+        "excluded_unknown_rows": 689
+      },
+      "weights_sha256": "1f05a2b0435f59cf6673ef48bdf8dfad2b07cbc93972bb6002ca9219f02bd4dc",
+      "elapsed_seconds": 15.286350581794977,
+      "trainable_parameters": 18978
+    },
+    "context-20261118": {
+      "selected": {
+        "step": 600,
+        "seconds": 6.831984397023916,
+        "criterion": 0.25829970836639404,
+        "balanced_row_loss": 0.2670259177684784,
+        "binary_loss": 0.0732034370303154,
+        "row_loss": 0.19818063080310822,
+        "column_loss": 0.1031666249036789,
+        "joint_loss": 0.22387706488370895,
+        "positive_row_match_recall": 0.9456806191135928,
+        "absent_row_false_accept_rate": 0.13616427432216907,
+        "positive_rows": 142914,
+        "absent_rows": 5016,
+        "fixed_coverage_column": {
+          "groups": 65950,
+          "selected": 64417,
+          "correct": 63202,
+          "wrong": 1215,
+          "reference": "old affinity score>=0; identical selected count for all models",
+          "positive_possible_groups": 65148
+        }
+      },
+      "history": [
+        {
+          "step": 0,
+          "seconds": 0.7501178570091724,
+          "criterion": 0.4683031849563122,
+          "balanced_row_loss": 0.7198145389556885,
+          "binary_loss": 0.06578607857227325,
+          "row_loss": 0.08953876048326492,
+          "column_loss": 0.08521967381238937,
+          "joint_loss": 0.1531652957201004,
+          "positive_row_match_recall": 0.983395608547798,
+          "absent_row_false_accept_rate": 0.5299043062200957,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63141,
+            "wrong": 1276,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 200,
+          "seconds": 2.9904954619705677,
+          "criterion": 0.25834083929657936,
+          "balanced_row_loss": 0.2714211344718933,
+          "binary_loss": 0.0718267410993576,
+          "row_loss": 0.2058185189962387,
+          "column_loss": 0.1016070619225502,
+          "joint_loss": 0.22553953155875206,
+          "positive_row_match_recall": 0.9437983682494367,
+          "absent_row_false_accept_rate": 0.14334130781499202,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63184,
+            "wrong": 1233,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 600,
+          "seconds": 6.831984397023916,
+          "criterion": 0.25829970836639404,
+          "balanced_row_loss": 0.2670259177684784,
+          "binary_loss": 0.0732034370303154,
+          "row_loss": 0.19818063080310822,
+          "column_loss": 0.1031666249036789,
+          "joint_loss": 0.22387706488370895,
+          "positive_row_match_recall": 0.9456806191135928,
+          "absent_row_false_accept_rate": 0.13616427432216907,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63202,
+            "wrong": 1215,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 1200,
+          "seconds": 12.54233480244875,
+          "criterion": 0.27321917191147804,
+          "balanced_row_loss": 0.28811532258987427,
+          "binary_loss": 0.07559707760810852,
+          "row_loss": 0.1940384954214096,
+          "column_loss": 0.10712886601686478,
+          "joint_loss": 0.2261807583272457,
+          "positive_row_match_recall": 0.9466042515078998,
+          "absent_row_false_accept_rate": 0.13915470494417864,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63185,
+            "wrong": 1232,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 2000,
+          "seconds": 19.924923837184906,
+          "criterion": 0.2894483171403408,
+          "balanced_row_loss": 0.31805384159088135,
+          "binary_loss": 0.07641718536615372,
+          "row_loss": 0.17730669677257538,
+          "column_loss": 0.10800842195749283,
+          "joint_loss": 0.21907474473118782,
+          "positive_row_match_recall": 0.9530206977622906,
+          "absent_row_false_accept_rate": 0.14892344497607657,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63204,
+            "wrong": 1213,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        }
+      ],
+      "offset_training_only": -3.3824212551116943,
+      "training_raw": {
+        "positive_match_recall": 0.9513227585052252,
+        "absent_false_accept_rate": 0.06390489913544668,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 338,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_raw": {
+        "positive_match_recall": 0.9469120981726024,
+        "absent_false_accept_rate": 0.13616427432216907,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 137,
+        "excluded_unknown_rows": 689
+      },
+      "training_calibrated": {
+        "positive_match_recall": 0.9855812196120753,
+        "absent_false_accept_rate": 0.3893371757925072,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 1363,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_calibrated": {
+        "positive_match_recall": 0.984421838911003,
+        "absent_false_accept_rate": 0.4350079744816587,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 458,
+        "excluded_unknown_rows": 689
+      },
+      "weights_sha256": "3e75b82dbd4c4483ad88e1c1d75b5d8a997c3c1fb0930305df7e58562df2c126",
+      "elapsed_seconds": 20.111494712531567,
+      "trainable_parameters": 18978
+    },
+    "independent-20261119": {
+      "selected": {
+        "step": 600,
+        "seconds": 5.500960148870945,
+        "criterion": 0.26004450023174286,
+        "balanced_row_loss": 0.27322888374328613,
+        "binary_loss": 0.07254038006067276,
+        "row_loss": 0.19414132833480835,
+        "column_loss": 0.10177935659885406,
+        "joint_loss": 0.22050072252750397,
+        "positive_row_match_recall": 0.9469051317575605,
+        "absent_row_false_accept_rate": 0.14094896331738438,
+        "positive_rows": 142914,
+        "absent_rows": 5016,
+        "fixed_coverage_column": {
+          "groups": 65950,
+          "selected": 64417,
+          "correct": 63207,
+          "wrong": 1210,
+          "reference": "old affinity score>=0; identical selected count for all models",
+          "positive_possible_groups": 65148
+        }
+      },
+      "history": [
+        {
+          "step": 0,
+          "seconds": 0.7426070421934128,
+          "criterion": 0.4662568271160126,
+          "balanced_row_loss": 0.7148929238319397,
+          "binary_loss": 0.06550627201795578,
+          "row_loss": 0.09119554609060287,
+          "column_loss": 0.08660818636417389,
+          "joint_loss": 0.15440813824534416,
+          "positive_row_match_recall": 0.9822060819793722,
+          "absent_row_false_accept_rate": 0.49521531100478466,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63118,
+            "wrong": 1299,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 200,
+          "seconds": 2.5641712062060833,
+          "criterion": 0.26804883033037186,
+          "balanced_row_loss": 0.2755945026874542,
+          "binary_loss": 0.07589917629957199,
+          "row_loss": 0.22483742237091064,
+          "column_loss": 0.10870480537414551,
+          "joint_loss": 0.24267029017210007,
+          "positive_row_match_recall": 0.9373119498439622,
+          "absent_row_false_accept_rate": 0.13516746411483255,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63192,
+            "wrong": 1225,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 600,
+          "seconds": 5.500960148870945,
+          "criterion": 0.26004450023174286,
+          "balanced_row_loss": 0.27322888374328613,
+          "binary_loss": 0.07254038006067276,
+          "row_loss": 0.19414132833480835,
+          "column_loss": 0.10177935659885406,
+          "joint_loss": 0.22050072252750397,
+          "positive_row_match_recall": 0.9469051317575605,
+          "absent_row_false_accept_rate": 0.14094896331738438,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63207,
+            "wrong": 1210,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 1200,
+          "seconds": 9.53942308947444,
+          "criterion": 0.26066263020038605,
+          "balanced_row_loss": 0.2793213129043579,
+          "binary_loss": 0.0713820680975914,
+          "row_loss": 0.18152298033237457,
+          "column_loss": 0.09923981130123138,
+          "joint_loss": 0.21176346391439438,
+          "positive_row_match_recall": 0.948668429964874,
+          "absent_row_false_accept_rate": 0.14114832535885166,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63188,
+            "wrong": 1229,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 2000,
+          "seconds": 14.331686701625586,
+          "criterion": 0.273087814450264,
+          "balanced_row_loss": 0.29742586612701416,
+          "binary_loss": 0.07339068502187729,
+          "row_loss": 0.18321681022644043,
+          "column_loss": 0.10196839272975922,
+          "joint_loss": 0.2159832864999771,
+          "positive_row_match_recall": 0.949193221098003,
+          "absent_row_false_accept_rate": 0.14613237639553428,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63182,
+            "wrong": 1235,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        }
+      ],
+      "offset_training_only": -3.208387851715088,
+      "training_raw": {
+        "positive_match_recall": 0.9518182414653625,
+        "absent_false_accept_rate": 0.06412103746397695,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 284,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_raw": {
+        "positive_match_recall": 0.94828106681269,
+        "absent_false_accept_rate": 0.14094896331738438,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 117,
+        "excluded_unknown_rows": 689
+      },
+      "training_calibrated": {
+        "positive_match_recall": 0.9845359541893197,
+        "absent_false_accept_rate": 0.3521613832853026,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 1221,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_calibrated": {
+        "positive_match_recall": 0.9834460099829405,
+        "absent_false_accept_rate": 0.4154704944178628,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 411,
+        "excluded_unknown_rows": 689
+      },
+      "weights_sha256": "73635649f90f2668ce8d78daff4b800bae81b99e3e742e361468cc6a94befcc4",
+      "elapsed_seconds": 14.512193832546473,
+      "trainable_parameters": 18978
+    },
+    "context-20261119": {
+      "selected": {
+        "step": 600,
+        "seconds": 6.671990443021059,
+        "criterion": 0.25551603734493256,
+        "balanced_row_loss": 0.26573601365089417,
+        "binary_loss": 0.07194774597883224,
+        "row_loss": 0.20568051934242249,
+        "column_loss": 0.10140056908130646,
+        "joint_loss": 0.22548829019069672,
+        "positive_row_match_recall": 0.944092251283989,
+        "absent_row_false_accept_rate": 0.13078149920255183,
+        "positive_rows": 142914,
+        "absent_rows": 5016,
+        "fixed_coverage_column": {
+          "groups": 65950,
+          "selected": 64417,
+          "correct": 63216,
+          "wrong": 1201,
+          "reference": "old affinity score>=0; identical selected count for all models",
+          "positive_possible_groups": 65148
+        }
+      },
+      "history": [
+        {
+          "step": 0,
+          "seconds": 0.7532976940274239,
+          "criterion": 0.4662568271160126,
+          "balanced_row_loss": 0.7148929238319397,
+          "binary_loss": 0.06550627201795578,
+          "row_loss": 0.09119554609060287,
+          "column_loss": 0.08660818636417389,
+          "joint_loss": 0.15440813824534416,
+          "positive_row_match_recall": 0.9822060819793722,
+          "absent_row_false_accept_rate": 0.49521531100478466,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63118,
+            "wrong": 1299,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 200,
+          "seconds": 2.9738954417407513,
+          "criterion": 0.2629248909652233,
+          "balanced_row_loss": 0.27743077278137207,
+          "binary_loss": 0.07259101420640945,
+          "row_loss": 0.21156910061836243,
+          "column_loss": 0.10323698073625565,
+          "joint_loss": 0.2299940548837185,
+          "positive_row_match_recall": 0.9419371090306058,
+          "absent_row_false_accept_rate": 0.14214513556618819,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63203,
+            "wrong": 1214,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 600,
+          "seconds": 6.671990443021059,
+          "criterion": 0.25551603734493256,
+          "balanced_row_loss": 0.26573601365089417,
+          "binary_loss": 0.07194774597883224,
+          "row_loss": 0.20568051934242249,
+          "column_loss": 0.10140056908130646,
+          "joint_loss": 0.22548829019069672,
+          "positive_row_match_recall": 0.944092251283989,
+          "absent_row_false_accept_rate": 0.13078149920255183,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63216,
+            "wrong": 1201,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 1200,
+          "seconds": 11.832374554127455,
+          "criterion": 0.27088385075330734,
+          "balanced_row_loss": 0.30535614490509033,
+          "binary_loss": 0.06968878209590912,
+          "row_loss": 0.16247500479221344,
+          "column_loss": 0.09703399240970612,
+          "joint_loss": 0.1994432806968689,
+          "positive_row_match_recall": 0.9552318177365409,
+          "absent_row_false_accept_rate": 0.14832535885167464,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63235,
+            "wrong": 1182,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        },
+        {
+          "step": 2000,
+          "seconds": 18.678622107952833,
+          "criterion": 0.2912787012755871,
+          "balanced_row_loss": 0.33489295840263367,
+          "binary_loss": 0.07302682846784592,
+          "row_loss": 0.16965767741203308,
+          "column_loss": 0.10161078721284866,
+          "joint_loss": 0.2086610607802868,
+          "positive_row_match_recall": 0.9551898344458906,
+          "absent_row_false_accept_rate": 0.14952153110047847,
+          "positive_rows": 142914,
+          "absent_rows": 5016,
+          "fixed_coverage_column": {
+            "groups": 65950,
+            "selected": 64417,
+            "correct": 63190,
+            "wrong": 1227,
+            "reference": "old affinity score>=0; identical selected count for all models",
+            "positive_possible_groups": 65148
+          }
+        }
+      ],
+      "offset_training_only": -3.294922113418579,
+      "training_raw": {
+        "positive_match_recall": 0.9488860683313989,
+        "absent_false_accept_rate": 0.05886167146974063,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 341,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_raw": {
+        "positive_match_recall": 0.9453395393245018,
+        "absent_false_accept_rate": 0.13078149920255183,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 132,
+        "excluded_unknown_rows": 689
+      },
+      "training_calibrated": {
+        "positive_match_recall": 0.9845359541893197,
+        "absent_false_accept_rate": 0.35028818443804033,
+        "positive_rows": 441993,
+        "absent_rows": 13880,
+        "wrong_target_on_present_rows": 1269,
+        "excluded_unknown_rows": 1878
+      },
+      "validation_calibrated": {
+        "positive_match_recall": 0.9839093532149702,
+        "absent_false_accept_rate": 0.41746411483253587,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 443,
+        "excluded_unknown_rows": 689
+      },
+      "weights_sha256": "d69588f3825d38e33fabb7f298f5d0118f87427133966369992a4097a890e3f7",
+      "elapsed_seconds": 18.856773164123297,
+      "trainable_parameters": 18978
+    }
+  },
+  "prior": {
+    "20261118": {
+      "validation": {
+        "positive_match_recall": 0.9842673911669931,
+        "absent_false_accept_rate": 0.5299043062200957,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 303,
+        "excluded_unknown_rows": 689
+      },
+      "edges": {
+        "binary_loss": 0.06578607857227325,
+        "row_loss": 0.08953876048326492,
+        "column_loss": 0.08521967381238937,
+        "joint_loss": 0.1531652957201004,
+        "positive_row_match_recall": 0.983395608547798,
+        "absent_row_false_accept_rate": 0.5299043062200957,
+        "positive_rows": 142914,
+        "absent_rows": 5016,
+        "fixed_coverage_column": {
+          "groups": 65950,
+          "selected": 64417,
+          "correct": 63141,
+          "wrong": 1276,
+          "reference": "old affinity score>=0; identical selected count for all models",
+          "positive_possible_groups": 65148
+        }
+      }
+    },
+    "20261119": {
+      "validation": {
+        "positive_match_recall": 0.9830879720309176,
+        "absent_false_accept_rate": 0.49521531100478466,
+        "positive_rows": 142443,
+        "absent_rows": 5016,
+        "wrong_target_on_present_rows": 279,
+        "excluded_unknown_rows": 689
+      },
+      "edges": {
+        "binary_loss": 0.06550627201795578,
+        "row_loss": 0.09119554609060287,
+        "column_loss": 0.08660818636417389,
+        "joint_loss": 0.15440813824534416,
+        "positive_row_match_recall": 0.9822060819793722,
+        "absent_row_false_accept_rate": 0.49521531100478466,
+        "positive_rows": 142914,
+        "absent_rows": 5016,
+        "fixed_coverage_column": {
+          "groups": 65950,
+          "selected": 64417,
+          "correct": 63118,
+          "wrong": 1299,
+          "reference": "old affinity score>=0; identical selected count for all models",
+          "positive_possible_groups": 65148
+        }
+      }
+    }
+  },
+  "comparisons": {
+    "20261118": {
+      "calibration_feasible": true,
+      "column_wrong": false,
+      "row_recall": true,
+      "absent_accept": false,
+      "present_wrong": false,
+      "total_wrong": false
+    },
+    "20261119": {
+      "calibration_feasible": true,
+      "column_wrong": false,
+      "row_recall": true,
+      "absent_accept": false,
+      "present_wrong": false,
+      "total_wrong": false
+    }
+  },
+  "offline_passed": false,
+  "sources": {
+    "experiments/graph_association/__init__.py": "d4e894a0632727b795de97a814e8f57aa2b2a2d0f1d16c5b63b25476a9c01254",
+    "experiments/graph_association/data.py": "ca5b129a841cd3bef9c955111b81064dcacb2cc778cad68576e4942d7ce162a5",
+    "experiments/graph_association/model.py": "1d2b4a0f4b4f8d0682034482ca892256e6d5baddb16c447db2ce193dc0bae77b",
+    "experiments/graph_association/runtime.py": "d355f36397a353e5d32d84d07b0eb51fa4bc5cb85a781f44ea4a6cf9ee7d8cf7",
+    "experiments/graph_association/train.py": "3cd18bb704420ef74d0de6a5033d15ea14218441627fe19fd70b476ccaf2a9a2"
+  },
+  "protocol_sha256": "d24b5bc8de39b1f6a741b6c634621841d0d5d71cd4c9974f0fb6cbfe71e7ad9d",
+  "elapsed_seconds": 71.02104642614722,
+  "peak_cuda_bytes": 3039108608,
+  "data_role": "same parent fit64 head development24/8; repeatedly exposed; not independent whole-system validation"
+}

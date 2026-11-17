@@ -1,0 +1,25 @@
+{
+  "kind": "post-training-frozen-row-attribution-and-target-feasibility",
+  "created_at_utc": "2026-11-17T08:28:29.241497+00:00",
+  "training_protocol_sha256": "d24b5bc8de39b1f6a741b6c634621841d0d5d71cd4c9974f0fb6cbfe71e7ad9d",
+  "training_report_sha256": "399570ed061f4c2fd49ca7fa882a00e1067ee7e052216473bb7bcce54956c047",
+  "source_sha256": "b410cc0c0c3cb432ef8a6111e6f10f73bdea8b4f30e104b3a51b30e3ef7d90db",
+  "validation8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "new_training": false,
+  "threshold_search": false,
+  "new_data": false,
+  "original_gate_overridden": false,
+  "question": "Is remaining harm due to row ranking or rejection? Are all semantic-positive row continuation targets jointly feasible under one-to-one matching?",
+  "procedure": "Full fixed two-seed edge/null swaps at their existing training-fitted offsets, no hybrid recalibration; maximum cardinality matching on known semantic-positive edges of disjoint recorded stages.",
+  "budget_seconds": 180,
+  "limitations": "Post-hoc numerical diagnostics, not deployable candidates, not independent validation or causal proof."
+}

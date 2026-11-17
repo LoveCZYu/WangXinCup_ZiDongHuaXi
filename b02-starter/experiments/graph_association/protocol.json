@@ -1,0 +1,158 @@
+{
+  "format": "b02-onehop-graph-association-v1",
+  "created_at_utc": "2026-11-17T08:16:30.624417+00:00",
+  "parent_commit": "a85aee8",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "sample_protocol_sha256": "2ace27cf4e1dfb4e91fe0891627c8e489ac53cb041c311d55d0c68ae5521111c",
+  "prior_report_sha256": "d44a1ba3178128b0c7e248b648b8b49e443c18e6e91375678947c7571e86f1fa",
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "training24": [
+    "train_098",
+    "train_076",
+    "train_158",
+    "train_090",
+    "train_099",
+    "train_148",
+    "train_094",
+    "train_031",
+    "train_161",
+    "train_191",
+    "train_087",
+    "train_106",
+    "train_002",
+    "train_097",
+    "train_125",
+    "train_110",
+    "train_138",
+    "train_190",
+    "train_177",
+    "train_017",
+    "train_143",
+    "train_102",
+    "train_091",
+    "train_154"
+  ],
+  "validation8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "seeds": [
+    20261118,
+    20261119
+  ],
+  "default_seed": 20261118,
+  "steps": 2000,
+  "checkpoints": [
+    0,
+    200,
+    600,
+    1200,
+    2000
+  ],
+  "new_sources": {
+    "experiments/graph_association/__init__.py": "d4e894a0632727b795de97a814e8f57aa2b2a2d0f1d16c5b63b25476a9c01254",
+    "experiments/graph_association/data.py": "ca5b129a841cd3bef9c955111b81064dcacb2cc778cad68576e4942d7ce162a5",
+    "experiments/graph_association/model.py": "1d2b4a0f4b4f8d0682034482ca892256e6d5baddb16c447db2ce193dc0bae77b",
+    "experiments/graph_association/runtime.py": "d355f36397a353e5d32d84d07b0eb51fa4bc5cb85a781f44ea4a6cf9ee7d8cf7",
+    "experiments/graph_association/train.py": "3cd18bb704420ef74d0de6a5033d15ea14218441627fe19fd70b476ccaf2a9a2"
+  },
+  "reused_sources": {
+    "experiments/competition_learning/model.py": "25bca4b72261612cd215face5078e0f490c52a087af8e20958df7104150f16be",
+    "experiments/competition_learning/features.py": "ff3e99a2c02270f8ae185e96abab932f8fdeacf4f00d619cad9babfde45245e1",
+    "experiments/competition_learning/samples.py": "4036656e78827a4cf7a946bc70ef64e22a0caa96ae74d653010e4fd355b5ac35",
+    "experiments/competition_learning/metrics.py": "7c2092920cdc46b8979918b8627767cbdcefd8f987aeb703d749e8a81792ea8f",
+    "experiments/competition_learning/pilot.py": "c3fef1eedb5b9e76d523e4265b60fc88cf3dbd1b6036722fd348228472f10963",
+    "experiments/competition_learning/reject_calibration.py": "4bbd1ee5583fd816f0c7a84bcab83f2d33658f963daefec34887f0760c37e17e",
+    "experiments/set_association/model.py": "166efa73bddae137a911494037935f33eb8b7d7b66d0111a6606fd3b92bf7b32",
+    "experiments/set_association/train.py": "98797ce4655bf32269bc41487040558b7bd2be1c8179cd46f9117807d4bb5d6c",
+    "experiments/id_recovery/affinity.py": "8dc6ed2025692a11b4329405291756dedb8668dca2fe7fbefc10c1efa3de5313"
+  },
+  "question": "Can one-hop row/column context jointly improve identity ordering and rejection beyond an equally trained independent residual head?",
+  "inspiration": {
+    "MPNTrack": "https://arxiv.org/abs/1912.07515",
+    "SuperGlue": "https://arxiv.org/abs/1911.11763",
+    "implementation": "Independent small radar-feature implementation; no upstream code/weights copied; no full paper reproduction."
+  },
+  "arms": [
+    "independent",
+    "context"
+  ],
+  "initialization": "Frozen seed-specific binary96 prior + zero-output new edge residual and null. Both arms identical initial function and architecture. Reset RNG after initialization for identical sample IDs.",
+  "network": "Shared edge96 encoder32; one-hop mean/max/count65 over candidate edges per row and per column; residual162→64→1; null(history101+rowpool65)→32→1. Independent arm sets context to zero; same decoder dimensions, fewer effective input parameters.",
+  "features": "Only causal pair96,row101 and geometric group membership. IDs are not numerical features; no future or labels in pooling. Feature neighborhoods include unknown edges.",
+  "loss": "BCE over known flat512+balanced row256x12+column128x32, plus .5 balanced row setCE including learned null, plus .5 column setCE including zero unassigned. Column preference prior-dominant canonical ID; BCE semantic same-identity.",
+  "supervision": "Same reliable past-output anchors as cached source. Null rows require all geometric edges labeled; columns require all edges labeled. No silent degree truncation.",
+  "optimizer": {
+    "kind": "AdamW",
+    "lr": 0.001,
+    "weight_decay": 0.001,
+    "clip_norm": 5.0
+  },
+  "checkpoint_rule": "minimum validation BCE+.5 balanced known-only rowCE+.5 columnCE over fixed checkpoints; no whole-scene or behavior-based checkpoint selection",
+  "calibration": "Fit one null offset using training24 only to retain each frozen binary prior correct positive count. If reranking loses too many possible correct matches, calibration is infeasible and gate fails. Validation never fits offset.",
+  "primary": "context vs independent of same seed, both required; no arm/seed replacement after results",
+  "offline_gate": {
+    "column_wrong_ratio_max": 0.95,
+    "recall_drop_max": 0.003,
+    "false_accept_ratio_max": 0.95,
+    "present_wrong_ratio_max": 1.05,
+    "total_wrong_ratio_max": 0.95,
+    "both_seeds": true,
+    "column_coverage": "64417 strong competing columns accepted by old affinity>=0; same accepted count all models"
+  },
+  "budget": {
+    "gpu_training_runs": 4,
+    "seconds_per_model": 240,
+    "total_timeout_seconds": 1200,
+    "collection": false,
+    "point_training": false
+  },
+  "rollout": {
+    "condition": "Only if both-seed offline gate passes. Otherwise stop rollout and preserve all failures.",
+    "data": "same head validation8 only",
+    "modes": [
+      "baseline",
+      "binary_column",
+      "independent_joint",
+      "context_joint"
+    ],
+    "primary": "default-seed context_joint vs frozen baseline; independent_joint isolates context; binary_column is prior exploratory reference",
+    "integration": "Mature published IDs>=3 only; fixed original .25 residual scale, real costs=-.25 logits, null costs=-.25(null+trainingoffset); same candidate geometry, point policy .525/.05, no threshold search",
+    "budget": {
+      "workers": 4,
+      "threads_each": 1,
+      "seconds_per_worker": 1800
+    },
+    "guards": {
+      "fragmentation_gain_min": 2.0,
+      "weighted_gain_min": 0.5,
+      "point_recall_drop_pp_max": 0.1,
+      "track_recall_drop_pp_max": 0.1,
+      "continuous_drop_max": 0.3,
+      "timeliness_drop_max": 0.3,
+      "clutter_ratio_max": 1.02,
+      "mixed_ratio_max": 1.0,
+      "one_to_one_drop_pp_max": 0.1
+    }
+  },
+  "limitations": [
+    "Parent fit64 upstream-seen and repeatedly exposed validation8; not independent whole-system validation.",
+    "Cached graph omits ambiguous/pure-clutter historical anchors; runtime mature-ID graph has broader support.",
+    "Graph neighborhoods improve relational context but cannot retrieve a correct point absent from physical candidates.",
+    "Original calibration8, new work16, confirmation set and sealed29 stay untouched; no v3 or official score claim in this component phase."
+  ],
+  "engineering_revisions": [
+    {
+      "previous_protocol_sha256": "95230ffe34fb257a9373aabe6ef3f30e38d7a8096a440aa633fae824d9149a9c",
+      "revised_at_utc": "2026-11-17T08:19:24.149361+00:00",
+      "reason": "Actual cached group indices are int32; CUDA scatter_reduce requires int64. Cast at graph pooling boundary and add regression test. No hypothesis, feature, optimizer, budget, seed, checkpoint, threshold or decision rule changed.",
+      "previous_attempt": "source01/models partial independent seed18 preserved; context failed at step0 before training; full restart source02/models02"
+    }
+  ]
+}
