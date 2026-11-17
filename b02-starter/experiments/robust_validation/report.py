@@ -59,6 +59,8 @@ th,td{padding:9px;border-bottom:1px solid #34465d;text-align:right;white-space:n
     html += '<section><h2>旧八文件校准：真值辅助诊断</h2><p class="verdict">以下修复使用真实身份及事后信息，不是可提交模型，不与上面的新场景成绩混排，也不是架构上限。</p><table><tr><th>诊断</th><th>总分</th><th>零碎度</th><th>连续</th></tr>' + ''.join(diagnostic_rows) + '</table>'
     html += '<p>保持实际输出点不变，以事后主 ID 在当前候选边内重分配身份，仍受到原始状态前缀与同圈 ID 唯一性约束。扩大候选仅增加有限诊断收益，支持进一步研究已有 ID 的身份竞争，但不能证明学习器能实现这些诊断分数。</p></section>'
     html += '<section><h2>证据与数据角色</h2><nav><a href="validation-report.json">完整验证 JSON</a><a href="validation-comparison.csv">三方案 CSV</a><a href="diagnostic-report.json">旧校准诊断 JSON</a><a href="../../experiments/robust_validation/RESULTS_20261117.md">结论与后续假设</a></nav><p>正式封存 29 文件未读取。新增 16 文件现在是已评估工作验证，后续不能再称盲测；另 36 个候选只做过无标签输入前缀筛查。筛查未证明模拟轨迹同源关系。后羿不属于当前权重谱系，其另一条路线的使用情况未知，不阻断本轮。</p></section></main></html>'
+    if (root.parent / 'identity-preflight/index.html').is_file():
+        html = html.replace('</main>', '<p><a href="../identity-preflight/index.html">后续前置诊断：原拟合池的候选覆盖、身份串用与拒绝</a></p></main>')
     (root / 'index.html').write_text(html, encoding='utf-8')
 
 

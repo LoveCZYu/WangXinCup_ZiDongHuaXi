@@ -1,0 +1,42 @@
+{
+  "format": "b02-identity-competition-preflight-v1",
+  "frozen_at_utc": "2026-11-17T01:18:53.712896+00:00",
+  "parent_commit": "29e96ff",
+  "fit_preflight8": [
+    "train_093",
+    "train_177",
+    "train_148",
+    "train_090",
+    "train_106",
+    "train_198",
+    "train_017",
+    "train_094"
+  ],
+  "selection": "first 8 SHA256(b02-identity-preflight-20261117:scene) within existing fit64",
+  "data_role": "previously used fitting pool, not independent validation",
+  "source_sha256": "e581305583e861f91c4e805e5ed1dde1ef05d16e1bf109829111a1875420725c",
+  "frozen_protocol_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "budget": {
+    "workers": 4,
+    "threads_per_worker": 1,
+    "timeout_seconds_per_worker": 900,
+    "scenes": 8,
+    "gpu_training": false
+  },
+  "question": "Are historical dominant IDs excluded from actual candidates, losing competition, or accepting points that should be rejected?",
+  "canonical_identity": "most prior published matches per truth, at least 3; ties choose smaller ID; no future labels",
+  "row_anchor": "most prior known output labels, at least 3 target hits, purity >=0.8 including known clutter; unknown -1 excluded",
+  "hypothesis_before_results": "Both competition among existing IDs and rejection of low-quality state updates matter; whether current candidate coverage is adequate remains unknown.",
+  "actions_before_training": {
+    "candidate_exclusion": "Inspect motion, retention, stage priority, gates and top-k; learned ranking cannot recover absent edges",
+    "in_candidate_errors": "Train on actual conflicts and null choices; preserve whole-scene comparisons",
+    "too_few_cases": "If fewer than 100 anchored wrong-target assignments, expand fitting-only audit before model design"
+  },
+  "stop": "One read-only pass, no training, no thresholds, no calibration, no new work16, no confirmation or sealed files",
+  "limitations": [
+    "Prefix canonical IDs are diagnostic references, not guaranteed true identity ownership",
+    "Recorded candidate graph is stage-dependent; bank presence without an edge does not prove a geometry failure",
+    "No global-optimum ceiling or achievable score will be derived from counts"
+  ]
+}
