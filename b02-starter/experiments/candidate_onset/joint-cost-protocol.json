@@ -1,0 +1,58 @@
+{
+  "development": {
+    "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+    "scenes": [
+      "train_152",
+      "train_022",
+      "train_001",
+      "train_139",
+      "train_019",
+      "train_172",
+      "train_093",
+      "train_155"
+    ]
+  },
+  "work": {
+    "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+    "scenes": [
+      "train_010",
+      "train_072",
+      "train_006",
+      "train_064",
+      "train_011",
+      "train_088",
+      "train_014",
+      "train_187",
+      "train_067",
+      "train_074",
+      "train_058",
+      "train_012",
+      "train_157",
+      "train_080",
+      "train_029",
+      "train_034"
+    ]
+  },
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "guards": {
+    "mixed_reduction_fraction": 0.2,
+    "point_recall_drop_pp": 0.1,
+    "fragmentation_drop": 0.3,
+    "continuous_drop": 0.3,
+    "weighted_drop": 0.0
+  },
+  "false_flag_budget_per_10000": 2.5,
+  "format": "two-row-joint-cost-live-v1",
+  "diagnostic_protocol_sha256": "8a9ffeedaf4f70b5bd4f51c27a2a140e4434d93760617d620ba1e8c48a327acc",
+  "previous_census_sha256": "36542debc9fe1230516a5136d0343f6e62f832f409f0adb74c72867cfaf71d9f",
+  "sources": {
+    "experiments/candidate_onset/joint_cost_replay.py": "881fbbaea302b42d96be2c23fc211f7694743e0e1b32ab70c8398ccf44d8beca",
+    "experiments/candidate_onset/dual_hypothesis.py": "3e47b0fc260d2e2722e8d55ef2b514bcbc6ae2787821921f7f15c1d41908248b",
+    "experiments/candidate_onset/update_stream.py": "42efb0cc4217b462e12a3f0a657d57eec097cede1ada7395d0ef52b50abe66ca"
+  },
+  "timing": "Use the original confirmed-stage solver rows after standard recovery. Keep backup-specific rows outside comparison. Reassign before state update without future scans or labels.",
+  "rule": "Reuse joint onset gain. Choose best candidate rival, enforce disjoint pairs by descending gain and keep all original point reservations.",
+  "threshold": "Strict greater than cutoff. Development-only audit of normal publications each proposed reassignment would displace on either ID. Use the most conservative threshold across eight development scenes and the original frozen correct-update denominator.",
+  "primary": "Full paired replay against the frozen combined control on the same work16. No post-hoc selection or threshold adjustment.",
+  "scope": "Previously exposed internal scenes only. Formal sealed set excluded."
+}

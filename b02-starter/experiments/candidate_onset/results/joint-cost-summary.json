@@ -1,0 +1,823 @@
+{
+  "protocol_sha256": "bdfacfa3c3f7f7f39d663a445aaf5b5fe83a20b3424d731bc050e18ed4b06d80",
+  "calibration_sha256": "36355095538f14a05de4b6fe8f0ee0569a8f5db8e1d833a3d01b32f373e08a7f",
+  "cutoff": -0.2690056950782984,
+  "scenes": [
+    "train_010",
+    "train_072",
+    "train_006",
+    "train_064",
+    "train_011",
+    "train_088",
+    "train_014",
+    "train_187",
+    "train_067",
+    "train_074",
+    "train_058",
+    "train_012",
+    "train_157",
+    "train_080",
+    "train_029",
+    "train_034"
+  ],
+  "baseline": {
+    "metrics": {
+      "point_recall": 94.55321925707216,
+      "track_recall": 91.77019175112979,
+      "clutter_outputs": 16250,
+      "clutter_score": 94.75059681676191,
+      "split_tracks": 1057,
+      "fragmentation_score": 69.5530525669124,
+      "timeliness_score": 82.71824359644538,
+      "delay_median": 2.0,
+      "delay_p90": 9,
+      "unmatched_tracks": 1,
+      "dominant_id_coverage": 85.49587268352954,
+      "continuous_score": 87.59121334741913,
+      "unknown_outputs": 10857,
+      "weighted_total": 84.97861910917051
+    },
+    "delta": {
+      "point_recall": 0.0,
+      "track_recall": 0.0,
+      "clutter_outputs": 0,
+      "clutter_score": 0.0,
+      "split_tracks": 0,
+      "fragmentation_score": 0.0,
+      "timeliness_score": 0.0,
+      "delay_median": 0.0,
+      "delay_p90": 0,
+      "unmatched_tracks": 0,
+      "dominant_id_coverage": 0.0,
+      "continuous_score": 0.0,
+      "unknown_outputs": 0,
+      "weighted_total": 0.0
+    },
+    "operations": {
+      "eligible_correct": 254177,
+      "eligible_unresolved": 25178,
+      "eligible_clutter": 147,
+      "eligible_other_target": 165
+    },
+    "mixed": 5417,
+    "clutter": 16250,
+    "checks": {
+      "mixed": false,
+      "point_recall": true,
+      "fragmentation": true,
+      "continuity": true,
+      "weighted": true
+    },
+    "scenes": {
+      "train_010": {
+        "operations": {
+          "eligible_correct": 20936,
+          "eligible_unresolved": 2174,
+          "eligible_clutter": 14,
+          "eligible_other_target": 11
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 964,
+        "clutter": 642
+      },
+      "train_072": {
+        "operations": {
+          "eligible_correct": 22432,
+          "eligible_clutter": 18,
+          "eligible_unresolved": 2140,
+          "eligible_other_target": 18
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 552,
+        "clutter": 1523
+      },
+      "train_006": {
+        "operations": {
+          "eligible_correct": 18193,
+          "eligible_other_target": 9,
+          "eligible_unresolved": 1990,
+          "eligible_clutter": 8
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 717,
+        "clutter": 818
+      },
+      "train_064": {
+        "operations": {
+          "eligible_correct": 17902,
+          "eligible_other_target": 17,
+          "eligible_unresolved": 1688,
+          "eligible_clutter": 16
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 324,
+        "clutter": 890
+      },
+      "train_011": {
+        "operations": {
+          "eligible_unresolved": 1199,
+          "eligible_correct": 12688,
+          "eligible_other_target": 5,
+          "eligible_clutter": 3
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 250,
+        "clutter": 1304
+      },
+      "train_088": {
+        "operations": {
+          "eligible_correct": 14746,
+          "eligible_unresolved": 1422,
+          "eligible_other_target": 10,
+          "eligible_clutter": 12
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 180,
+        "clutter": 1030
+      },
+      "train_014": {
+        "operations": {
+          "eligible_correct": 16356,
+          "eligible_unresolved": 1679,
+          "eligible_other_target": 13,
+          "eligible_clutter": 4
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 243,
+        "clutter": 662
+      },
+      "train_187": {
+        "operations": {
+          "eligible_correct": 15179,
+          "eligible_unresolved": 1230,
+          "eligible_clutter": 10,
+          "eligible_other_target": 10
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 280,
+        "clutter": 913
+      },
+      "train_067": {
+        "operations": {
+          "eligible_correct": 16169,
+          "eligible_unresolved": 1381,
+          "eligible_other_target": 16,
+          "eligible_clutter": 9
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 198,
+        "clutter": 1226
+      },
+      "train_074": {
+        "operations": {
+          "eligible_correct": 14633,
+          "eligible_unresolved": 1634,
+          "eligible_other_target": 11,
+          "eligible_clutter": 7
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 316,
+        "clutter": 1162
+      },
+      "train_058": {
+        "operations": {
+          "eligible_unresolved": 1588,
+          "eligible_correct": 16905,
+          "eligible_other_target": 9,
+          "eligible_clutter": 6
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 292,
+        "clutter": 1011
+      },
+      "train_012": {
+        "operations": {
+          "eligible_unresolved": 961,
+          "eligible_correct": 13063,
+          "eligible_clutter": 3,
+          "eligible_other_target": 7
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 148,
+        "clutter": 1055
+      },
+      "train_157": {
+        "operations": {
+          "eligible_correct": 13605,
+          "eligible_unresolved": 1555,
+          "eligible_clutter": 6,
+          "eligible_other_target": 7
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 211,
+        "clutter": 1090
+      },
+      "train_080": {
+        "operations": {
+          "eligible_correct": 15120,
+          "eligible_unresolved": 1178,
+          "eligible_clutter": 15,
+          "eligible_other_target": 8
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 366,
+        "clutter": 884
+      },
+      "train_029": {
+        "operations": {
+          "eligible_correct": 11250,
+          "eligible_unresolved": 1420,
+          "eligible_other_target": 5,
+          "eligible_clutter": 5
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 158,
+        "clutter": 604
+      },
+      "train_034": {
+        "operations": {
+          "eligible_correct": 15000,
+          "eligible_unresolved": 1939,
+          "eligible_other_target": 9,
+          "eligible_clutter": 11
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 218,
+        "clutter": 1436
+      }
+    },
+    "short_extra_ids": 588
+  },
+  "changed": {
+    "metrics": {
+      "point_recall": 94.55386533746395,
+      "track_recall": 91.76932832584669,
+      "clutter_outputs": 16252,
+      "clutter_score": 94.74995073637012,
+      "split_tracks": 1061,
+      "fragmentation_score": 69.45417828916783,
+      "timeliness_score": 82.71824359644538,
+      "delay_median": 2.0,
+      "delay_p90": 9,
+      "unmatched_tracks": 1,
+      "dominant_id_coverage": 85.49070108873781,
+      "continuous_score": 87.58579173327077,
+      "unknown_outputs": 10857,
+      "weighted_total": 84.95743629516782
+    },
+    "delta": {
+      "point_recall": 0.000646080391788928,
+      "track_recall": -0.0008634252831001277,
+      "clutter_outputs": 2,
+      "clutter_score": -0.000646080391788928,
+      "split_tracks": 4,
+      "fragmentation_score": -0.0988742777445708,
+      "timeliness_score": 0.0,
+      "delay_median": 0.0,
+      "delay_p90": 0,
+      "unmatched_tracks": 0,
+      "dominant_id_coverage": -0.005171594791733014,
+      "continuous_score": -0.005421614148360732,
+      "unknown_outputs": 0,
+      "weighted_total": -0.02118281400268529
+    },
+    "operations": {
+      "proposals": 137349,
+      "eligible_1": 253579,
+      "eligible_0": 25101,
+      "eligible_3": 145,
+      "eligible_2": 166,
+      "reassignments": 64,
+      "transfers": 63,
+      "displaced_correct": 26,
+      "primary_unresolved": 28,
+      "label_confirmed_corrections": 9,
+      "published_reassignments": 64,
+      "primary_correct": 25,
+      "primary_other_target": 10,
+      "primary_clutter": 1,
+      "swaps": 1
+    },
+    "mixed": 5442,
+    "clutter": 16252,
+    "checks": {
+      "mixed": false,
+      "point_recall": true,
+      "fragmentation": true,
+      "continuity": true,
+      "weighted": false,
+      "false_budget": true
+    },
+    "scenes": {
+      "train_010": {
+        "operations": {
+          "proposals": 13513,
+          "eligible_1": 20898,
+          "eligible_0": 2151,
+          "eligible_3": 14,
+          "eligible_2": 12,
+          "reassignments": 7,
+          "transfers": 7,
+          "displaced_correct": 1,
+          "primary_unresolved": 4,
+          "label_confirmed_corrections": 2,
+          "published_reassignments": 7,
+          "primary_correct": 1,
+          "primary_other_target": 2
+        },
+        "delta": {
+          "weighted_total": -0.03222750964462762,
+          "point_recall": 0.023529411764712904,
+          "fragmentation_score": -0.2657004830917913,
+          "continuous_score": 0.093220779859152
+        },
+        "mixed": 953,
+        "clutter": 642,
+        "correct_update_denominator": 20936,
+        "displaced_correct_budget": 5,
+        "false_budget_passed": true
+      },
+      "train_072": {
+        "operations": {
+          "proposals": 10875,
+          "eligible_1": 22356,
+          "eligible_3": 18,
+          "eligible_0": 2134,
+          "reassignments": 7,
+          "transfers": 7,
+          "displaced_correct": 3,
+          "primary_unresolved": 4,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 7,
+          "eligible_2": 18,
+          "primary_correct": 3
+        },
+        "delta": {
+          "weighted_total": 0.02442506694674762,
+          "point_recall": -0.003670937190264567,
+          "fragmentation_score": 0.1089324618736498,
+          "continuous_score": 0.01699684069527052
+        },
+        "mixed": 550,
+        "clutter": 1524,
+        "correct_update_denominator": 22432,
+        "displaced_correct_budget": 5,
+        "false_budget_passed": true
+      },
+      "train_006": {
+        "operations": {
+          "proposals": 10840,
+          "eligible_1": 18163,
+          "eligible_2": 9,
+          "eligible_0": 1971,
+          "eligible_3": 8,
+          "reassignments": 2,
+          "transfers": 2,
+          "displaced_correct": 2,
+          "primary_correct": 2,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 2
+        },
+        "delta": {
+          "weighted_total": 0.052318052318057084,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.02849002849004023,
+          "continuous_score": 0.23310023310023098
+        },
+        "mixed": 719,
+        "clutter": 818,
+        "correct_update_denominator": 18193,
+        "displaced_correct_budget": 4,
+        "false_budget_passed": true
+      },
+      "train_064": {
+        "operations": {
+          "proposals": 9390,
+          "eligible_1": 17861,
+          "eligible_2": 17,
+          "eligible_0": 1679,
+          "eligible_3": 16,
+          "reassignments": 5,
+          "transfers": 5,
+          "displaced_correct": 2,
+          "primary_other_target": 1,
+          "label_confirmed_corrections": 1,
+          "published_reassignments": 5,
+          "primary_correct": 2,
+          "primary_unresolved": 2
+        },
+        "delta": {
+          "weighted_total": -0.004183589216097516,
+          "point_recall": -0.004597701149421596,
+          "fragmentation_score": -0.027322404371588505,
+          "continuous_score": 0.00871991628879698
+        },
+        "mixed": 325,
+        "clutter": 890,
+        "correct_update_denominator": 17902,
+        "displaced_correct_budget": 4,
+        "false_budget_passed": true
+      },
+      "train_011": {
+        "operations": {
+          "proposals": 5968,
+          "eligible_0": 1202,
+          "eligible_1": 12649,
+          "eligible_2": 5,
+          "eligible_3": 3,
+          "reassignments": 5,
+          "transfers": 5,
+          "displaced_correct": 1,
+          "primary_unresolved": 4,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 5,
+          "primary_correct": 1
+        },
+        "delta": {
+          "weighted_total": 0.06084249694173138,
+          "point_recall": 0.006586313640255526,
+          "fragmentation_score": 0.15723270440250303,
+          "continuous_score": 0.14357811122052055
+        },
+        "mixed": 246,
+        "clutter": 1304,
+        "correct_update_denominator": 12688,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": true
+      },
+      "train_088": {
+        "operations": {
+          "proposals": 8244,
+          "eligible_1": 14706,
+          "eligible_0": 1437,
+          "eligible_2": 10,
+          "reassignments": 5,
+          "transfers": 5,
+          "displaced_correct": 4,
+          "primary_correct": 4,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 5,
+          "eligible_3": 12,
+          "primary_unresolved": 1
+        },
+        "delta": {
+          "weighted_total": -0.10718460613497882,
+          "point_recall": -0.005569169079961966,
+          "fragmentation_score": -0.45871559633026493,
+          "continuous_score": -0.074540483203279
+        },
+        "mixed": 180,
+        "clutter": 1030,
+        "correct_update_denominator": 14746,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": false
+      },
+      "train_014": {
+        "operations": {
+          "proposals": 10795,
+          "eligible_1": 16315,
+          "eligible_0": 1694,
+          "eligible_2": 12,
+          "reassignments": 7,
+          "transfers": 7,
+          "displaced_correct": 3,
+          "primary_unresolved": 4,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 7,
+          "primary_correct": 3,
+          "eligible_3": 4
+        },
+        "delta": {
+          "weighted_total": -0.028638087920413113,
+          "point_recall": 0.0,
+          "fragmentation_score": -0.12626262626261564,
+          "continuous_score": -0.016927813339449926
+        },
+        "mixed": 245,
+        "clutter": 662,
+        "correct_update_denominator": 16356,
+        "displaced_correct_budget": 4,
+        "false_budget_passed": true
+      },
+      "train_187": {
+        "operations": {
+          "proposals": 6910,
+          "eligible_1": 15155,
+          "eligible_0": 1214,
+          "eligible_3": 10,
+          "eligible_2": 10,
+          "reassignments": 2,
+          "transfers": 2,
+          "displaced_correct": 0,
+          "primary_other_target": 1,
+          "label_confirmed_corrections": 1,
+          "published_reassignments": 2,
+          "primary_unresolved": 1
+        },
+        "delta": {
+          "weighted_total": 0.08453488768451223,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.39370078740157055,
+          "continuous_score": 0.028973651020905322
+        },
+        "mixed": 278,
+        "clutter": 913,
+        "correct_update_denominator": 15179,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": true
+      },
+      "train_067": {
+        "operations": {
+          "proposals": 9785,
+          "eligible_1": 16144,
+          "eligible_0": 1375,
+          "eligible_2": 17,
+          "eligible_3": 9,
+          "reassignments": 3,
+          "transfers": 3,
+          "displaced_correct": 1,
+          "primary_clutter": 1,
+          "label_confirmed_corrections": 1,
+          "published_reassignments": 3,
+          "primary_correct": 1,
+          "primary_other_target": 1
+        },
+        "delta": {
+          "weighted_total": -0.0826433816866512,
+          "point_recall": 0.0,
+          "fragmentation_score": -0.41322314049585884,
+          "continuous_score": 6.232062560229679e-06
+        },
+        "mixed": 199,
+        "clutter": 1226,
+        "correct_update_denominator": 16169,
+        "displaced_correct_budget": 4,
+        "false_budget_passed": true
+      },
+      "train_074": {
+        "operations": {
+          "proposals": 9180,
+          "eligible_1": 14586,
+          "eligible_0": 1626,
+          "eligible_2": 11,
+          "eligible_3": 7,
+          "reassignments": 3,
+          "transfers": 3,
+          "displaced_correct": 0,
+          "primary_other_target": 1,
+          "label_confirmed_corrections": 1,
+          "published_reassignments": 3,
+          "primary_unresolved": 2
+        },
+        "delta": {
+          "weighted_total": -0.10870732349731327,
+          "point_recall": -0.005410962610255865,
+          "fragmentation_score": -0.14619883040936088,
+          "continuous_score": -0.3846562441208192
+        },
+        "mixed": 315,
+        "clutter": 1162,
+        "correct_update_denominator": 14633,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": true
+      },
+      "train_058": {
+        "operations": {
+          "proposals": 10361,
+          "eligible_0": 1566,
+          "eligible_1": 16861,
+          "eligible_2": 9,
+          "eligible_3": 6
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 292,
+        "clutter": 1011,
+        "correct_update_denominator": 16905,
+        "displaced_correct_budget": 4,
+        "false_budget_passed": true
+      },
+      "train_012": {
+        "operations": {
+          "proposals": 7128,
+          "eligible_0": 978,
+          "eligible_1": 13020,
+          "eligible_3": 3,
+          "eligible_2": 7,
+          "reassignments": 3,
+          "transfers": 2,
+          "displaced_correct": 3,
+          "primary_correct": 2,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 3,
+          "primary_unresolved": 1,
+          "swaps": 1
+        },
+        "delta": {
+          "weighted_total": -0.19886911172835653,
+          "point_recall": 0.0,
+          "fragmentation_score": -0.961538461538467,
+          "continuous_score": -0.03280709710334406
+        },
+        "mixed": 151,
+        "clutter": 1055,
+        "correct_update_denominator": 13063,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": true
+      },
+      "train_157": {
+        "operations": {
+          "proposals": 4986,
+          "eligible_1": 13583,
+          "eligible_0": 1555,
+          "eligible_3": 6,
+          "eligible_2": 6,
+          "reassignments": 5,
+          "transfers": 5,
+          "displaced_correct": 4,
+          "primary_other_target": 1,
+          "label_confirmed_corrections": 1,
+          "published_reassignments": 5,
+          "primary_correct": 4
+        },
+        "delta": {
+          "weighted_total": 0.050137115137118826,
+          "point_recall": 0.0,
+          "fragmentation_score": -0.022893772893780806,
+          "continuous_score": 0.2735793485793607
+        },
+        "mixed": 170,
+        "clutter": 1090,
+        "correct_update_denominator": 13605,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": false
+      },
+      "train_080": {
+        "operations": {
+          "proposals": 5943,
+          "eligible_1": 15091,
+          "eligible_0": 1170,
+          "eligible_3": 15,
+          "eligible_2": 8
+        },
+        "delta": {
+          "weighted_total": 0.0,
+          "point_recall": 0.0,
+          "fragmentation_score": 0.0,
+          "continuous_score": 0.0
+        },
+        "mixed": 366,
+        "clutter": 884,
+        "correct_update_denominator": 15120,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": true
+      },
+      "train_029": {
+        "operations": {
+          "proposals": 4858,
+          "eligible_1": 11208,
+          "eligible_0": 1428,
+          "eligible_2": 5,
+          "eligible_3": 5,
+          "reassignments": 3,
+          "transfers": 3,
+          "displaced_correct": 2,
+          "primary_correct": 2,
+          "label_confirmed_corrections": 0,
+          "published_reassignments": 3,
+          "primary_unresolved": 1
+        },
+        "delta": {
+          "weighted_total": -0.10163612091480445,
+          "point_recall": 0.0,
+          "fragmentation_score": -0.505050505050491,
+          "continuous_score": -0.0031300995236023255
+        },
+        "mixed": 159,
+        "clutter": 604,
+        "correct_update_denominator": 11250,
+        "displaced_correct_budget": 2,
+        "false_budget_passed": true
+      },
+      "train_034": {
+        "operations": {
+          "proposals": 8573,
+          "eligible_1": 14983,
+          "eligible_0": 1921,
+          "eligible_2": 10,
+          "reassignments": 7,
+          "transfers": 7,
+          "displaced_correct": 0,
+          "primary_unresolved": 4,
+          "label_confirmed_corrections": 2,
+          "published_reassignments": 7,
+          "eligible_3": 9,
+          "primary_other_target": 3
+        },
+        "delta": {
+          "weighted_total": 0.006487083946439043,
+          "point_recall": -0.005272315073540312,
+          "fragmentation_score": 0.3759398496240749,
+          "continuous_score": -0.3253210086734839
+        },
+        "mixed": 294,
+        "clutter": 1437,
+        "correct_update_denominator": 15000,
+        "displaced_correct_budget": 3,
+        "false_budget_passed": true
+      }
+    },
+    "short_extra_ids": 593
+  },
+  "budget": {
+    "denominator": 254177,
+    "allowed": 63,
+    "displaced_correct": 26,
+    "per_10000": 1.022909232542677
+  },
+  "passed": false
+}

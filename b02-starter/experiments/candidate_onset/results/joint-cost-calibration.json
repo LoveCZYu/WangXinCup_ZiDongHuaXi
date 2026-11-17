@@ -1,0 +1,64 @@
+{
+  "protocol_sha256": "bdfacfa3c3f7f7f39d663a445aaf5b5fe83a20b3424d731bc050e18ed4b06d80",
+  "scenes": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "cutoff": -0.2690056950782984,
+  "details": {
+    "train_152": {
+      "eligible_correct": 15353,
+      "budget": 3,
+      "cutoff": -0.6419637553508017,
+      "displaced_correct_bound": 0
+    },
+    "train_022": {
+      "eligible_correct": 15662,
+      "budget": 3,
+      "cutoff": -0.2690056950782984,
+      "displaced_correct_bound": 3
+    },
+    "train_001": {
+      "eligible_correct": 19529,
+      "budget": 4,
+      "cutoff": -0.37652978083746313,
+      "displaced_correct_bound": 1
+    },
+    "train_139": {
+      "eligible_correct": 17630,
+      "budget": 4,
+      "cutoff": -0.29235061505229654,
+      "displaced_correct_bound": 2
+    },
+    "train_019": {
+      "eligible_correct": 15131,
+      "budget": 3,
+      "cutoff": -0.342955141328919,
+      "displaced_correct_bound": 3
+    },
+    "train_172": {
+      "eligible_correct": 16765,
+      "budget": 4,
+      "cutoff": -0.5930689397465096,
+      "displaced_correct_bound": 1
+    },
+    "train_093": {
+      "eligible_correct": 14669,
+      "budget": 3,
+      "cutoff": -0.5046893528649432,
+      "displaced_correct_bound": 1
+    },
+    "train_155": {
+      "eligible_correct": 16574,
+      "budget": 4,
+      "cutoff": -0.5266555814533498,
+      "displaced_correct_bound": 1
+    }
+  }
+}
