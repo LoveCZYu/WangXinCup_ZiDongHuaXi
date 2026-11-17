@@ -1,0 +1,96 @@
+{
+  "fit": {
+    "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+    "scenes": [
+      "train_017",
+      "train_002",
+      "train_004",
+      "train_071",
+      "train_190",
+      "train_176",
+      "train_188",
+      "train_084",
+      "train_076",
+      "train_079",
+      "train_143",
+      "train_180",
+      "train_102",
+      "train_057",
+      "train_007",
+      "train_133",
+      "train_098",
+      "train_124",
+      "train_028",
+      "train_073",
+      "train_138",
+      "train_099",
+      "train_192",
+      "train_177"
+    ]
+  },
+  "validation": {
+    "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+    "scenes": [
+      "train_152",
+      "train_022",
+      "train_001",
+      "train_139",
+      "train_019",
+      "train_172",
+      "train_093",
+      "train_155"
+    ]
+  },
+  "work": {
+    "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+    "scenes": [
+      "train_010",
+      "train_072",
+      "train_006",
+      "train_064",
+      "train_011",
+      "train_088",
+      "train_014",
+      "train_187",
+      "train_067",
+      "train_074",
+      "train_058",
+      "train_012",
+      "train_157",
+      "train_080",
+      "train_029",
+      "train_034"
+    ]
+  },
+  "freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "source_selection": "First 24 of existing fit64 by SHA256 salt b02-harmful-update-fit-v1; exclude development and sealed names.",
+  "sources": {
+    "experiments/candidate_onset/harmful_update.py": "a16f825c70ea98535bceb6c1cd58271e15df763636bdac7061b214978c6527bb",
+    "experiments/candidate_onset/visible_onset_hold.py": "5af7dc0b33fab7b5adef74c615c11b935f12e6736c4040f516eba5a72f081e14",
+    "experiments/candidate_onset/mix_attribution.py": "19ed6ad5010f930c61abd81909716d5a3279a9aab0d15334792f4f1dd847e000",
+    "experiments/candidate_onset/joint_event.py": "5ea087fbaf9b883ecd77d5aa791de3b3ab55a73646c7e3804b6bd00d2febdbe2",
+    "experiments/candidate_onset/propagation.py": "b1f04619f9fb8944006ed1f2f5552110da62b6dda91183d0483438f85f4c5638",
+    "experiments/candidate_onset/propagation_work.py": "71d7cd7d41c95961356b03444cd292d30e39f9d8a4d4051b37073a08d6b84a65"
+  },
+  "horizon": 8,
+  "cases_per_kind": 12,
+  "census_sha256": "36542debc9fe1230516a5136d0343f6e62f832f409f0adb74c72867cfaf71d9f",
+  "mix_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+  "previous_auto_sha256": "65316fa74b3eea7ff3e600af2d624c491ed07a12bb22a877feb6fe53915e9bd9",
+  "objective": "In true paired replay preserve the current output and hold the write once. Positive when it removes at least two other-target outputs over eight scans without losing correct outputs. Use near candidates with current correct match as hard controls.",
+  "model": "Class-balanced L2 logistic on causal features; fit24 only, threshold frozen on development8 with the same protection budget. Negative samples with measurable degradation are weighted twice.",
+  "subset_excludes": [
+    "train_010",
+    "train_006"
+  ],
+  "false_budget_per_10000": 2.5,
+  "l2": 0.05,
+  "guards": {
+    "mixed_reduction_fraction": 0.2,
+    "point_recall_drop_pp": 0.1,
+    "fragmentation_drop": 0.3,
+    "continuous_drop": 0.3,
+    "weighted_drop": 0.0
+  },
+  "scope": "Validation on the known work16 and the subset excluding the two prior dominant scenes. No official DAT or sealed CSV in training or validation."
+}

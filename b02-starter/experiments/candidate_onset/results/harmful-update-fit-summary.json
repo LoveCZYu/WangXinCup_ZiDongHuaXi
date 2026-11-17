@@ -1,0 +1,37 @@
+{
+  "protocol_sha256": "7200843e02a3ef14cc8b711bb94a32a673265ff5fd2cd3d28b066b6fdb3114b2",
+  "policy_sha256": "a4d070b08bd8d919bdba0958da1098822e8b567474647355fdd02ae6d8cf877a",
+  "training": {
+    "samples": 106,
+    "positive": 9,
+    "harmful": 7,
+    "kinds": {
+      "visible_wrong": 53,
+      "correct": 53
+    },
+    "scenes_with_positive": 9
+  },
+  "validation": {
+    "samples": 44,
+    "positive": 6,
+    "harmful": 5,
+    "kinds": {
+      "visible_wrong": 22,
+      "correct": 22
+    },
+    "scenes_with_positive": 4,
+    "flagged": 4,
+    "flagged_positive": 2,
+    "flagged_harmful": 1
+  },
+  "scene_cutoffs": {
+    "train_152": -0.04658780090696535,
+    "train_022": 0.26769892091588976,
+    "train_001": -0.21684094285236355,
+    "train_139": 0.4108585192273253,
+    "train_019": -0.05529665980645748,
+    "train_172": -0.1960735842649437,
+    "train_093": -0.34174190155460044,
+    "train_155": 0.4622238640263405
+  }
+}
