@@ -1,0 +1,242 @@
+{
+  "format": "b02-score-gap-audit-v1",
+  "date": "2026-11-16",
+  "rules_source": {
+    "file": "智能体应用赛题B02--目标检测跟踪--赛题任务详细描述文档（11.15更新）.pdf",
+    "sha256": "2ef8a9603f0544be83a4727aad26049bffc18a0d241e6e3c8d885e1cba7d9970",
+    "pages_visually_reviewed": [
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  "interface_source": {
+    "official_zip_sha256": "89e6f59b82784e344a991be4267513f5d41814c58ef40b23c7c8f90002379d0d",
+    "reviewed": [
+      "README.md",
+      "docs/protocol.md",
+      "src/client.py",
+      "src/serve.py"
+    ]
+  },
+  "frozen_code_zip_sha256": "3633b513b6b954f916a31f5f9d662a8a6e5dda8491d74ef4d15ed8cdaa20e1de",
+  "submitted_results_sha256": "d2b51c03d43dd7b24671fd7e7c0dbcd7016c20bdeae344cbfa962e9f17cd74d8",
+  "frozen_container_id": "sha256:30d3356829aa14d56dab77441edb3b293e8bf5455dd7e5454bec6bf74c718bdb",
+  "main_finding": "All five official DAT/TCP input sequences differ in point counts from the same-named training CSVs; no direct identity or ground-truth mapping can be assumed.",
+  "same_name_is_not_identity": true,
+  "true_A_board_local_rescore_possible": false,
+  "comparison": {
+    "scope": "Sensitivity diagnostics on five same-named TRAINING CSVs; these are NOT the A-board inputs.",
+    "input_identity_comparison": [
+      {
+        "scene_name": "train_001",
+        "training_csv_points": 136425,
+        "official_dat_tcp_points": 219111,
+        "training_csv_frames": 719,
+        "official_dat_frames": 720,
+        "csv_outputs": 23743,
+        "submitted_outputs": 18913,
+        "csv_label_counts": {
+          "0": 105782,
+          "-1": 7094,
+          "target": 23549
+        },
+        "same_input_sequence": false
+      },
+      {
+        "scene_name": "train_002",
+        "training_csv_points": 207360,
+        "official_dat_tcp_points": 170826,
+        "training_csv_frames": 718,
+        "official_dat_frames": 719,
+        "csv_outputs": 20069,
+        "submitted_outputs": 14857,
+        "csv_label_counts": {
+          "0": 186015,
+          "-1": 2212,
+          "target": 19133
+        },
+        "same_input_sequence": false
+      },
+      {
+        "scene_name": "train_003",
+        "training_csv_points": 83620,
+        "official_dat_tcp_points": 177088,
+        "training_csv_frames": 720,
+        "official_dat_frames": 719,
+        "csv_outputs": 15587,
+        "submitted_outputs": 23541,
+        "csv_label_counts": {
+          "0": 60644,
+          "target": 14529,
+          "-1": 8447
+        },
+        "same_input_sequence": false
+      },
+      {
+        "scene_name": "train_004",
+        "training_csv_points": 184986,
+        "official_dat_tcp_points": 180209,
+        "training_csv_frames": 719,
+        "official_dat_frames": 719,
+        "csv_outputs": 17778,
+        "submitted_outputs": 21375,
+        "csv_label_counts": {
+          "0": 165820,
+          "target": 17145,
+          "-1": 2021
+        },
+        "same_input_sequence": false
+      },
+      {
+        "scene_name": "train_005",
+        "training_csv_points": 120061,
+        "official_dat_tcp_points": 161402,
+        "training_csv_frames": 708,
+        "official_dat_frames": 719,
+        "csv_outputs": 19889,
+        "submitted_outputs": 19332,
+        "csv_label_counts": {
+          "0": 96479,
+          "-1": 3567,
+          "target": 20015
+        },
+        "same_input_sequence": false
+      }
+    ],
+    "official_reported_score": 75.24,
+    "original_dev30_two_seed_mean": 79.45625413624128,
+    "original_dev30_submitted_seed": 79.40325639337746,
+    "same_name_csv_local_total": 80.01691655196136,
+    "same_name_csv_subscores": {
+      "point_recall": 93.67284441194859,
+      "track_recall": 91.02452485268796,
+      "clutter_outputs": 5257,
+      "clutter_score": 94.42943277066048,
+      "split_tracks": 379,
+      "fragmentation_score": 58.85356905348118,
+      "timeliness_score": 83.79613356766257,
+      "delay_median": 2,
+      "delay_p90": 7,
+      "unmatched_tracks": 0,
+      "dominant_id_coverage": 71.80138161508826,
+      "continuous_score": 73.68337647430087,
+      "unknown_outputs": 3409,
+      "weighted_total": 80.01691655196136
+    },
+    "truth_track_count": 569,
+    "short_truth_tracks_le_two": 0,
+    "truth_tracks_with_fewer_than_3_matched_points": 0,
+    "output_ids_matching_multiple_truth_ids": 387,
+    "same_name_csv_equal_scene_mean": 79.91064666182926,
+    "unknown_all_as_false_sensitivity": {
+      "unknown_outputs": 3409,
+      "false_score": 90.81709423445761,
+      "weighted_total_delta": -0.36123385362028704
+    },
+    "timeliness_sensitivity": {
+      "first_hit_vs_first_time_plus_10s": {
+        "timeliness_score": 83.77250615114235,
+        "weighted_total_delta": -0.004725483304042655
+      },
+      "track_start_vs_first_time_plus_10s": {
+        "timeliness_score": 85.28093848857645,
+        "weighted_total_delta": 0.29696098418277755
+      },
+      "first_hit_vs_third_observation": {
+        "timeliness_score": 84.94227768014059,
+        "weighted_total_delta": 0.2292288224956053
+      },
+      "track_start_vs_third_observation": {
+        "timeliness_score": 86.27573637961336,
+        "weighted_total_delta": 0.49592056239015964
+      }
+    },
+    "exclude_first_two_observations_from_continuous_numerator": {
+      "first_two_hits": 27,
+      "continuous_score": 73.66685493470932,
+      "weighted_total_delta": -0.003304307918310201
+    },
+    "dev30_unknown_all_as_false_weighted_delta": -0.4062242259148876,
+    "no_model_or_submission_changes": true,
+    "remaining_29_holdout_untouched": true
+  },
+  "training_source_provenance": {
+    "comparison": [
+      {
+        "name": "train_001",
+        "same_bytes": true,
+        "prepared_path": "train_001.csv",
+        "original_sha256": "34950d638d72b02c1338602deb0f02f2ed51f37536cc62974991d61b00c0635f",
+        "prepared_sha256": "34950d638d72b02c1338602deb0f02f2ed51f37536cc62974991d61b00c0635f"
+      },
+      {
+        "name": "train_002",
+        "same_bytes": true,
+        "prepared_path": "train_002.csv",
+        "original_sha256": "0e467d94a47729cda2c432ed5d310f559e58a303f6c4f91be1a5f538386a9de1",
+        "prepared_sha256": "0e467d94a47729cda2c432ed5d310f559e58a303f6c4f91be1a5f538386a9de1"
+      },
+      {
+        "name": "train_003",
+        "not_in_prepared_archive": true
+      },
+      {
+        "name": "train_004",
+        "same_bytes": true,
+        "prepared_path": "train_004.csv",
+        "original_sha256": "3d1fb00f7eaaa112c1a669840b30836543a8c7639a1e66b2cf79f9eac9def2e1",
+        "prepared_sha256": "3d1fb00f7eaaa112c1a669840b30836543a8c7639a1e66b2cf79f9eac9def2e1"
+      },
+      {
+        "name": "train_005",
+        "same_bytes": true,
+        "prepared_path": "train_005.csv",
+        "original_sha256": "cdbe492df0a27f706401b7e2a36112bf550987ad81eb66a81a5a6422dec72c42",
+        "prepared_sha256": "cdbe492df0a27f706401b7e2a36112bf550987ad81eb66a81a5a6422dec72c42"
+      }
+    ],
+    "prepared_archive_sha256": "a2bbf6cee329365960a589901b155958a1cdaa7c2f0a09d063a57add4adc4271",
+    "full_archive_sha256": "9df7698ae1dcdb155d836ea7f27eaaa95ba0ae20d85c4edce0574f1bea5a5c3b",
+    "original_training_calibration_dev_csvs_compared": 70,
+    "all_70_identical": true,
+    "historical_holdout_csvs_opened_in_this_source_check": [],
+    "explanation": "Historical data SHA refers to a 70-scene subset ZIP; shared scene contents are identical, not an observed dataset version change."
+  },
+  "remaining_unknowns": [
+    "actual A-board ground truth and mapping",
+    "official track-matching and success criteria",
+    "five-scene aggregation policy",
+    "official per-metric results"
+  ],
+  "known_noncauses": [
+    "incorrect metric weights not found",
+    "min cap already implemented",
+    "no missing packets or 30s timeouts in recorded A runs",
+    "frozen model and submitted artifact hashes unchanged"
+  ],
+  "audit_label_access": {
+    "training_csvs": [
+      "train_001",
+      "train_002",
+      "train_003",
+      "train_004",
+      "train_005"
+    ],
+    "historical_holdout_csvs": [
+      "train_003"
+    ],
+    "other_29_holdout_used": false,
+    "purpose": "diagnosis after user requested score-gap audit; no tuning"
+  },
+  "production_scorer_changed": false,
+  "weights_changed": false,
+  "submitted_artifacts_changed": false,
+  "website_submission_performed": false,
+  "public_web_check": {
+    "date": "2026-11-16",
+    "site": "https://wangxinbei.taiji.com.cn/",
+    "limit": "Public homepage checked; detailed dynamic B02 page could not be read by web tool. No claim to have obtained a newer evaluator."
+  }
+}

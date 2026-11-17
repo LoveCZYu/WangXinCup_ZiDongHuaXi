@@ -53,7 +53,7 @@ def main():
     selection = local.add_mutually_exclusive_group()
     selection.add_argument("--scene", action="append", help="场景名，不带 .csv。可多次传入")
     selection.add_argument("--split", choices=("train", "dev", "holdout", "holdout_unseen"),
-                           help="holdout 是历史 30 场景；holdout_unseen 排除公开 A 榜数据后为 29 场景")
+                           help="holdout 是历史 30 场景；holdout_unseen 排除已做标签诊断的 CSV train_003 后为 29 场景")
     selection.add_argument("--all", action="store_true", help="明确回放数据源中的所有场景")
 
     viewer = commands.add_parser("visualize", help="导出可直接打开的离线场景查看器")

@@ -4,5 +4,7 @@
 # Frozen runtime profiles retain exact bytes for evaluation SHA-256 provenance.
 profiles/*.json -text whitespace=cr-at-eol
 experiments/v2_association/dev-protocol-20261116.json -text whitespace=cr-at-eol
+experiments/robust_validation/freeze.json -text whitespace=cr-at-eol
+experiments/robust_validation/data-audit.json -text whitespace=cr-at-eol
 assets/*.pt binary
 submission-template/** text eol=lf

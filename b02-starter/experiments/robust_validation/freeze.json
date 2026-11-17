@@ -1,0 +1,91 @@
+{
+  "format": "b02-frozen-work-validation-v1",
+  "frozen_at_utc": "2026-11-16T15:58:41.472682+00:00",
+  "source_commit": "bfeaed6",
+  "modes": [
+    "wide",
+    "memory",
+    "candidate"
+  ],
+  "primary_comparison": "candidate minus wide",
+  "secondary": "memory as a fixed conservative comparison; no post-validation winner selection",
+  "artifacts": {
+    "point": "43a6d7f28dc7c26b7123e7f7492c06f9b19850c9c328748f7f0d1ce616f12fda",
+    "prior": "8ebbf73233ba5b2143395a985f2ffb804237d478e5b0ddf6e94780a73e90b32e",
+    "affinity": "8f43e044ac848a0aedc75d91f7208f34f016352f69bd4f5794f3f11333ecdc1d",
+    "head": "755a0088bdca07ed4053ec1ab1e1143850a4530a959db144dab1481a4a648348",
+    "fusion": "ad5b05e94e1efbcca21c228b0a883480f3c7a506bf87765716234c6738460b65"
+  },
+  "sources": {
+    "b02/algorithm.py": "b97a1d5c1376ac7fd05737ceb82be834861ff73dbe694fa76fd7fa563b9e5cc0",
+    "b02/point_tracker.py": "3e93cd9d00c0df09aeb9619e0aa754c4e0fb314129a609772718c74a564d138e",
+    "experiments/point_scorer/model.py": "da172c54d00c74e83878db8d5a89c732715c25916301343e6da0c51ca67b97e4",
+    "experiments/point_scorer_expanded/policy.py": "46ede2ebb63505b318932accd73856c66292016aa3418d22e3e7b9ee8bbdab90",
+    "experiments/association/interventions.py": "f089177999a70a2c88f344a3fa652b08729412f3cf2426479d9c1dee194c165c",
+    "experiments/association/assignment.py": "498ca18076a1d493d71cac8bee6124f4a54d0e909476939f932f88aeb054cd49",
+    "experiments/v2_association/features.py": "8d798d665b0c34e510ff25a0a9d28ceccec738bdddf1ca9a18f30ea7bf91b5f4",
+    "experiments/v2_association/context.py": "b81957a2c153b304b67a7de8bd0333f43d2e877b9cf670f07461741c5b7a1d9a",
+    "experiments/v2_association/model.py": "b577682953e027d2596683e8412d6ed7af2fc72baa52ccd58acb897bda2e1af6",
+    "experiments/v2_association/tracker.py": "c97179c28e729a21d44d1fa38d435a1a880952856f5bc68e3cbc1143dbb1fc4e",
+    "experiments/v3_tracking/memory.py": "4133d88c90771b013dc9050efe86b91f91b6eb9cbca47d77ccff5174e51d7512",
+    "experiments/v3_tracking/tracker.py": "5314c9842981b2acb045e5a0536c698066dcdd2b55b817b3e07ea78355979331",
+    "experiments/v3_tracking/runtime.py": "e8fe273e6417b5deb6f176507899e497231528fc52e5dd358d366f5cba05b4f6",
+    "experiments/id_recovery/affinity.py": "8dc6ed2025692a11b4329405291756dedb8668dca2fe7fbefc10c1efa3de5313",
+    "experiments/id_recovery/tracker.py": "7666940ce01c3ba5536447b1207f7d57447880b1020b86d62759b5dd7997718e",
+    "experiments/prebirth/tracker.py": "c9f562160baf3d0d4dc04c2107bfabd8463a8f8c57d1beeedf8e2bb9f437a976",
+    "experiments/continuation/tracker.py": "0f5c2f48b90d9924721e7b6abd7d53c1d5a5350ca4cce13556334c6c450f1a56",
+    "experiments/continuation/learn.py": "564923b52bb4fb3559051ce31eae3b281adbfecb6db6cf4bcba0d9f42a53a593",
+    "experiments/continuation/fusion.py": "438c0121d496e74525445b66c935cfec78b25d581efff9b3cb332fa0796b980b",
+    "experiments/continuation/memory_guard.py": "d9987eae57797d83203188829a85033644ad10e362b03136e80e45512ba6fb2c",
+    "profiles/current.json": "cc6932752546cb9fae6ca233f4b5e6e092e38b3b4e1f28d5e286f3f7c91120fa",
+    "b02/scorecard.py": "c4a019612cffefdbc0a245fef894e7767bcd56c34b1f34c19c3f41ac697eceba"
+  },
+  "calibration_reference": {
+    "wide": "v2-continuation/wide_shadow",
+    "memory": "v2-continuation/memory_guard",
+    "candidate": "v2-continuation/fusion_memory-20261116"
+  },
+  "work_validation16": [
+    "train_011",
+    "train_088",
+    "train_014",
+    "train_010",
+    "train_006",
+    "train_187",
+    "train_067",
+    "train_072",
+    "train_074",
+    "train_058",
+    "train_012",
+    "train_157",
+    "train_080",
+    "train_029",
+    "train_064",
+    "train_034"
+  ],
+  "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "data_audit_sha256": "77e1727a247234a5cc19cf529dfa8546eae847af764fda922bd72a56dcaaf8b2",
+  "bootstrap": {
+    "unit": "paired scenes",
+    "resamples": 10000,
+    "seed": 20261116,
+    "interval": "percentile 95%; scene-independence assumption not guaranteed"
+  },
+  "adoption": {
+    "mixed_rate_ratio_max": 0.95,
+    "mixed_rate_difference_ci_upper_max": 0.0,
+    "weighted_delta_ci_lower_min": -0.15,
+    "point_recall_drop_pp_max": 0.1,
+    "track_recall_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "any_scene_total_drop_max": 1.0,
+    "any_scene_point_drop_pp_max": 1.0
+  },
+  "decision_rule": "support if all adoption conditions pass; regression if an aggregate guard or worst-scene guard fails, or CI establishes worse identity/score; otherwise insufficient evidence",
+  "after_results": "Mark these 16 as exposed work validation. No threshold or checkpoint changes in this stage.",
+  "sealed_test_used": false,
+  "confirmation16_used": false,
+  "new_training": false
+}

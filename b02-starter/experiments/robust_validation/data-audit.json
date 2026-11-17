@@ -1,0 +1,1784 @@
+{
+  "format": "b02-work-validation-data-audit-v1",
+  "scope": "current model lineage and available local/cloud experiment metadata",
+  "source_archive_sha256": "9df7698ae1dcdb155d836ea7f27eaaa95ba0ae20d85c4edce0574f1bea5a5c3b",
+  "pool52": [
+    "train_006",
+    "train_009",
+    "train_010",
+    "train_011",
+    "train_012",
+    "train_014",
+    "train_018",
+    "train_020",
+    "train_024",
+    "train_029",
+    "train_030",
+    "train_034",
+    "train_037",
+    "train_040",
+    "train_043",
+    "train_044",
+    "train_045",
+    "train_058",
+    "train_060",
+    "train_062",
+    "train_064",
+    "train_067",
+    "train_072",
+    "train_074",
+    "train_080",
+    "train_083",
+    "train_088",
+    "train_089",
+    "train_107",
+    "train_115",
+    "train_118",
+    "train_121",
+    "train_135",
+    "train_140",
+    "train_147",
+    "train_150",
+    "train_153",
+    "train_157",
+    "train_160",
+    "train_162",
+    "train_163",
+    "train_165",
+    "train_166",
+    "train_168",
+    "train_169",
+    "train_174",
+    "train_179",
+    "train_185",
+    "train_186",
+    "train_187",
+    "train_197",
+    "train_199"
+  ],
+  "previously_observed_in_pool": [],
+  "metadata_evidence": {
+    "usage-local.json": {
+      "metadata_files": 957,
+      "scene_names": [
+        "train_001",
+        "train_002",
+        "train_004",
+        "train_005",
+        "train_007",
+        "train_008",
+        "train_015",
+        "train_016",
+        "train_017",
+        "train_019",
+        "train_021",
+        "train_022",
+        "train_026",
+        "train_027",
+        "train_028",
+        "train_031",
+        "train_032",
+        "train_033",
+        "train_035",
+        "train_038",
+        "train_039",
+        "train_041",
+        "train_046",
+        "train_050",
+        "train_051",
+        "train_052",
+        "train_054",
+        "train_057",
+        "train_059",
+        "train_061",
+        "train_063",
+        "train_065",
+        "train_066",
+        "train_068",
+        "train_069",
+        "train_070",
+        "train_071",
+        "train_073",
+        "train_076",
+        "train_077",
+        "train_079",
+        "train_081",
+        "train_084",
+        "train_085",
+        "train_086",
+        "train_087",
+        "train_090",
+        "train_091",
+        "train_092",
+        "train_093",
+        "train_094",
+        "train_097",
+        "train_098",
+        "train_099",
+        "train_100",
+        "train_101",
+        "train_102",
+        "train_104",
+        "train_105",
+        "train_106",
+        "train_110",
+        "train_111",
+        "train_112",
+        "train_113",
+        "train_114",
+        "train_116",
+        "train_117",
+        "train_119",
+        "train_122",
+        "train_123",
+        "train_124",
+        "train_125",
+        "train_128",
+        "train_129",
+        "train_130",
+        "train_131",
+        "train_132",
+        "train_133",
+        "train_134",
+        "train_136",
+        "train_137",
+        "train_138",
+        "train_139",
+        "train_141",
+        "train_142",
+        "train_143",
+        "train_144",
+        "train_145",
+        "train_146",
+        "train_148",
+        "train_151",
+        "train_152",
+        "train_154",
+        "train_155",
+        "train_156",
+        "train_158",
+        "train_161",
+        "train_164",
+        "train_170",
+        "train_171",
+        "train_172",
+        "train_173",
+        "train_175",
+        "train_176",
+        "train_177",
+        "train_178",
+        "train_180",
+        "train_181",
+        "train_182",
+        "train_183",
+        "train_188",
+        "train_189",
+        "train_190",
+        "train_191",
+        "train_192",
+        "train_195",
+        "train_198",
+        "train_200"
+      ]
+    },
+    "usage-cloud.json": {
+      "metadata_files": 1130,
+      "scene_names": [
+        "train_001",
+        "train_002",
+        "train_004",
+        "train_005",
+        "train_007",
+        "train_008",
+        "train_015",
+        "train_016",
+        "train_017",
+        "train_019",
+        "train_021",
+        "train_022",
+        "train_026",
+        "train_027",
+        "train_028",
+        "train_031",
+        "train_032",
+        "train_033",
+        "train_035",
+        "train_038",
+        "train_039",
+        "train_041",
+        "train_046",
+        "train_050",
+        "train_051",
+        "train_052",
+        "train_054",
+        "train_057",
+        "train_059",
+        "train_061",
+        "train_063",
+        "train_065",
+        "train_066",
+        "train_068",
+        "train_069",
+        "train_070",
+        "train_071",
+        "train_073",
+        "train_076",
+        "train_077",
+        "train_079",
+        "train_081",
+        "train_084",
+        "train_085",
+        "train_086",
+        "train_087",
+        "train_090",
+        "train_091",
+        "train_092",
+        "train_093",
+        "train_094",
+        "train_097",
+        "train_098",
+        "train_099",
+        "train_100",
+        "train_101",
+        "train_102",
+        "train_104",
+        "train_105",
+        "train_106",
+        "train_110",
+        "train_111",
+        "train_112",
+        "train_113",
+        "train_114",
+        "train_116",
+        "train_117",
+        "train_119",
+        "train_122",
+        "train_123",
+        "train_124",
+        "train_125",
+        "train_128",
+        "train_129",
+        "train_130",
+        "train_131",
+        "train_132",
+        "train_133",
+        "train_134",
+        "train_136",
+        "train_137",
+        "train_138",
+        "train_139",
+        "train_141",
+        "train_142",
+        "train_143",
+        "train_144",
+        "train_145",
+        "train_146",
+        "train_148",
+        "train_151",
+        "train_152",
+        "train_154",
+        "train_155",
+        "train_156",
+        "train_158",
+        "train_161",
+        "train_164",
+        "train_170",
+        "train_171",
+        "train_172",
+        "train_173",
+        "train_175",
+        "train_176",
+        "train_177",
+        "train_178",
+        "train_180",
+        "train_181",
+        "train_182",
+        "train_183",
+        "train_188",
+        "train_189",
+        "train_190",
+        "train_191",
+        "train_192",
+        "train_195",
+        "train_198",
+        "train_200"
+      ]
+    }
+  },
+  "selection_rule": "SHA256(b02-work-validation-20261116:scene), first 16 after exclusions and unlabelled screening",
+  "work_validation16": [
+    "train_011",
+    "train_088",
+    "train_014",
+    "train_010",
+    "train_006",
+    "train_187",
+    "train_067",
+    "train_072",
+    "train_074",
+    "train_058",
+    "train_012",
+    "train_157",
+    "train_080",
+    "train_029",
+    "train_064",
+    "train_034"
+  ],
+  "remaining_candidates": [
+    "train_083",
+    "train_045",
+    "train_062",
+    "train_199",
+    "train_153",
+    "train_140",
+    "train_166",
+    "train_060",
+    "train_169",
+    "train_044",
+    "train_030",
+    "train_197",
+    "train_162",
+    "train_174",
+    "train_160",
+    "train_135",
+    "train_168",
+    "train_009",
+    "train_165",
+    "train_115",
+    "train_107",
+    "train_018",
+    "train_043",
+    "train_163",
+    "train_185",
+    "train_121",
+    "train_040",
+    "train_150",
+    "train_020",
+    "train_118",
+    "train_147",
+    "train_179",
+    "train_186",
+    "train_089",
+    "train_024",
+    "train_037"
+  ],
+  "blocked": {},
+  "unlabelled_screen": {
+    "circles": 64,
+    "geometry_quantization": 0.0001,
+    "overlap_reject": 0.8,
+    "labels_used": false,
+    "limitations": "High input-prefix overlap screening only; cannot rule out shared simulated target trajectories or common generators",
+    "metadata": {
+      "train_001": {
+        "prefix_circles": 64,
+        "quantized_points": 12704,
+        "prefix_sha256": "2db2f94d4b71800c1df756db230e8827ad55b4fd729ae52bb1be36abfb2f2718",
+        "zip_crc32": 2385249699,
+        "csv_bytes": 11728204
+      },
+      "train_002": {
+        "prefix_circles": 64,
+        "quantized_points": 19952,
+        "prefix_sha256": "f91f6eeab556cd6f3d8fee0eeaa2042348527296eb91bfe486bd544bd885d6ed",
+        "zip_crc32": 3686157969,
+        "csv_bytes": 18143414
+      },
+      "train_004": {
+        "prefix_circles": 64,
+        "quantized_points": 18159,
+        "prefix_sha256": "202f85c65962b5e85377b96aad34328196e5241e43acb2e0ae574725e88bee3c",
+        "zip_crc32": 2241992307,
+        "csv_bytes": 16115151
+      },
+      "train_005": {
+        "prefix_circles": 64,
+        "quantized_points": 12304,
+        "prefix_sha256": "12b1a62ecda5a5b26088a1b62a6e137de02035c0305627b3f57a3d238988cbb8",
+        "zip_crc32": 4041607795,
+        "csv_bytes": 10413516
+      },
+      "train_006": {
+        "prefix_circles": 64,
+        "quantized_points": 15738,
+        "prefix_sha256": "c4b27013b89b66c4017f66d2e3b86a25007b8f77dbed326528a57dbd07ff4bb9",
+        "zip_crc32": 2531040637,
+        "csv_bytes": 13697733
+      },
+      "train_007": {
+        "prefix_circles": 64,
+        "quantized_points": 11201,
+        "prefix_sha256": "fdac95cf7e2a5c83e235b9181eb7d84d158823c296187cf97d945b0bde6ef6d0",
+        "zip_crc32": 3847871990,
+        "csv_bytes": 7801153
+      },
+      "train_008": {
+        "prefix_circles": 64,
+        "quantized_points": 12224,
+        "prefix_sha256": "a933d0b50703265d4e5732d2435163bca911fc867fe9d3482e5860bcc9c5ad5f",
+        "zip_crc32": 1464313883,
+        "csv_bytes": 13372186
+      },
+      "train_009": {
+        "prefix_circles": 64,
+        "quantized_points": 13763,
+        "prefix_sha256": "aec320810196d351dd6fe577a6a3badf144d798368eb959cf703cbbb7ebec6db",
+        "zip_crc32": 4039557823,
+        "csv_bytes": 9437902
+      },
+      "train_010": {
+        "prefix_circles": 64,
+        "quantized_points": 12116,
+        "prefix_sha256": "037bcc9f37c415bfc74e3f3ea50f245ccff0a4cf414bb3b6509454db8904683a",
+        "zip_crc32": 2429441915,
+        "csv_bytes": 11650048
+      },
+      "train_011": {
+        "prefix_circles": 64,
+        "quantized_points": 11586,
+        "prefix_sha256": "0f843548bf1f55626bdb6f3baa2621b95ce69e97dbfa798703e5fc83333be436",
+        "zip_crc32": 483286184,
+        "csv_bytes": 8118487
+      },
+      "train_012": {
+        "prefix_circles": 64,
+        "quantized_points": 8887,
+        "prefix_sha256": "18c59d840ab0c8f456eb4df09977089426ed619644382eb00a83025daf5c744f",
+        "zip_crc32": 2980661595,
+        "csv_bytes": 6411024
+      },
+      "train_014": {
+        "prefix_circles": 64,
+        "quantized_points": 16060,
+        "prefix_sha256": "cdae95860cd6f00e1b3f00339e3baa51c6e20588862826cf218589178de7e988",
+        "zip_crc32": 1291434083,
+        "csv_bytes": 13895230
+      },
+      "train_015": {
+        "prefix_circles": 64,
+        "quantized_points": 19410,
+        "prefix_sha256": "ebd791f23e4cd89dfecd8e422f4b866a029832a43084deef8c753e2a85d76601",
+        "zip_crc32": 2019453031,
+        "csv_bytes": 17542988
+      },
+      "train_016": {
+        "prefix_circles": 64,
+        "quantized_points": 13857,
+        "prefix_sha256": "2eba0e43aadf59fec71bba9b1add04b3059784129682316d597a330ed2c980e4",
+        "zip_crc32": 1753353973,
+        "csv_bytes": 12581348
+      },
+      "train_017": {
+        "prefix_circles": 64,
+        "quantized_points": 18431,
+        "prefix_sha256": "b1d3709f09a7708e94f388d401ecb82a283b006e3e1920f8d624dab7a311de4e",
+        "zip_crc32": 1837978414,
+        "csv_bytes": 16727083
+      },
+      "train_018": {
+        "prefix_circles": 64,
+        "quantized_points": 13033,
+        "prefix_sha256": "186a43474e2b95ddb099626d78ad07f486b5b4790b2a88c29734a2ba596e39ea",
+        "zip_crc32": 860543203,
+        "csv_bytes": 9604600
+      },
+      "train_019": {
+        "prefix_circles": 64,
+        "quantized_points": 14140,
+        "prefix_sha256": "d8d3874ef5960efbb118f3680c82d41cd9aad662b65b23036bd86feffd9b24f9",
+        "zip_crc32": 1637156284,
+        "csv_bytes": 8887289
+      },
+      "train_020": {
+        "prefix_circles": 64,
+        "quantized_points": 13148,
+        "prefix_sha256": "8faba85c4b23c98d07621eef55a59bdca417819523603e1f400648ff3ab2b315",
+        "zip_crc32": 3621918714,
+        "csv_bytes": 11465121
+      },
+      "train_021": {
+        "prefix_circles": 64,
+        "quantized_points": 12918,
+        "prefix_sha256": "6d87ea5ede349e6338db3728c9ee32ad9d6ccf0123b7e7e6d064a25f0cef4e9b",
+        "zip_crc32": 2171088913,
+        "csv_bytes": 8720948
+      },
+      "train_022": {
+        "prefix_circles": 64,
+        "quantized_points": 11422,
+        "prefix_sha256": "1df58cc5578e305beaacd672bdd687ca45d6c0d221a1fb2984c8d2902bef6ede",
+        "zip_crc32": 2151447217,
+        "csv_bytes": 8607494
+      },
+      "train_024": {
+        "prefix_circles": 64,
+        "quantized_points": 17344,
+        "prefix_sha256": "f0d14c9a8d35d6251deec0329f266a10a1ad17d9010b803000b1b26e86fe7124",
+        "zip_crc32": 1083446139,
+        "csv_bytes": 16228336
+      },
+      "train_026": {
+        "prefix_circles": 64,
+        "quantized_points": 12646,
+        "prefix_sha256": "08997beaf1eaabb36c89df6318b687c1b2e740a7c9ad12a56cce919abfd16997",
+        "zip_crc32": 1452397444,
+        "csv_bytes": 9301652
+      },
+      "train_027": {
+        "prefix_circles": 64,
+        "quantized_points": 14282,
+        "prefix_sha256": "78e8315b50fdab66fb2de5e97e2395f378a571508397c84c5e4c1b830757dbde",
+        "zip_crc32": 1438465946,
+        "csv_bytes": 11717492
+      },
+      "train_028": {
+        "prefix_circles": 64,
+        "quantized_points": 12319,
+        "prefix_sha256": "024203d4cac9d9202be67e9f32d3a10fae1f41a220874b455c3f514a7279a7f8",
+        "zip_crc32": 943955415,
+        "csv_bytes": 13677896
+      },
+      "train_029": {
+        "prefix_circles": 64,
+        "quantized_points": 15454,
+        "prefix_sha256": "67ed97c91fc0caf5de779d4fe18541b89fc4e69b83883b5a7321ccd06a9bfb54",
+        "zip_crc32": 2412033852,
+        "csv_bytes": 11091257
+      },
+      "train_030": {
+        "prefix_circles": 64,
+        "quantized_points": 13496,
+        "prefix_sha256": "a7c80f56d2e61b6455b2b62c79f7c3fdc5c4ea6f636a1a6c9bdd55d08702e3c2",
+        "zip_crc32": 2940443696,
+        "csv_bytes": 10770369
+      },
+      "train_031": {
+        "prefix_circles": 64,
+        "quantized_points": 9784,
+        "prefix_sha256": "db88232eb8171b3db2748a098b5753cc0304e48696f79560dfc801609dafa211",
+        "zip_crc32": 1585398901,
+        "csv_bytes": 9163906
+      },
+      "train_032": {
+        "prefix_circles": 64,
+        "quantized_points": 12006,
+        "prefix_sha256": "3dfd957a7f745f2f2fdc206b6f59d65916d52b932066b74f8476680e31c08990",
+        "zip_crc32": 849407794,
+        "csv_bytes": 12574838
+      },
+      "train_033": {
+        "prefix_circles": 64,
+        "quantized_points": 14410,
+        "prefix_sha256": "d9d69fe9e90dbc6fd8e28c6b7ed8739f790fe1d31bc089308dd310f9c6f01b93",
+        "zip_crc32": 2361096029,
+        "csv_bytes": 11436178
+      },
+      "train_034": {
+        "prefix_circles": 64,
+        "quantized_points": 13135,
+        "prefix_sha256": "23b2af80b9d548a1ff5af7f557f1c8194b70bbd33565ed2ee2462065dad1d68a",
+        "zip_crc32": 2308964635,
+        "csv_bytes": 12076709
+      },
+      "train_035": {
+        "prefix_circles": 64,
+        "quantized_points": 14475,
+        "prefix_sha256": "0ed4228e864639233a3ebec44bb08eee40d5edc8a7fa8221dfc7f63bd5e0a5c5",
+        "zip_crc32": 233959881,
+        "csv_bytes": 11955451
+      },
+      "train_037": {
+        "prefix_circles": 64,
+        "quantized_points": 16026,
+        "prefix_sha256": "b27d7ce1a39d7bb7714e47ef4819230781ffc85b5acbd42db9a989eb818211a4",
+        "zip_crc32": 4067201955,
+        "csv_bytes": 16056865
+      },
+      "train_038": {
+        "prefix_circles": 64,
+        "quantized_points": 20065,
+        "prefix_sha256": "275b8f47620d10ba650426431dfa57c381d12f71c757b2e235853f7ab1e9b4b7",
+        "zip_crc32": 342847220,
+        "csv_bytes": 13966181
+      },
+      "train_039": {
+        "prefix_circles": 64,
+        "quantized_points": 11489,
+        "prefix_sha256": "8b9a1f317512a8d92e037d6096ef8767c6fec90bb88c7da5c81cf29a0d45977d",
+        "zip_crc32": 3766627115,
+        "csv_bytes": 10951815
+      },
+      "train_040": {
+        "prefix_circles": 64,
+        "quantized_points": 12589,
+        "prefix_sha256": "1cb74ecc9369cf7a7a5f99208380396815c3604cfc751cd748daa9c64222f4c2",
+        "zip_crc32": 1874141170,
+        "csv_bytes": 12111829
+      },
+      "train_041": {
+        "prefix_circles": 64,
+        "quantized_points": 13496,
+        "prefix_sha256": "df3a894b317db7d59bc6e1f5b7b0d3c157e0a46d088e707300983376f3d4d77f",
+        "zip_crc32": 370992272,
+        "csv_bytes": 13211855
+      },
+      "train_043": {
+        "prefix_circles": 64,
+        "quantized_points": 20417,
+        "prefix_sha256": "84c2e8a56f53a320680bf1742ad2dd62520e451b845e3d6fbc28cdb48fd60fe5",
+        "zip_crc32": 2668873135,
+        "csv_bytes": 19829882
+      },
+      "train_044": {
+        "prefix_circles": 64,
+        "quantized_points": 16995,
+        "prefix_sha256": "6ece5141a5cfddd28bb32c514da81d0afbe4a2ee6d851550849f060ae46d853c",
+        "zip_crc32": 3104740563,
+        "csv_bytes": 15337964
+      },
+      "train_045": {
+        "prefix_circles": 64,
+        "quantized_points": 13830,
+        "prefix_sha256": "54b9d59b1639a25b0956d462c43cd5d6e8e0d934447f44a47af62125c0c4080d",
+        "zip_crc32": 845274926,
+        "csv_bytes": 12566464
+      },
+      "train_046": {
+        "prefix_circles": 64,
+        "quantized_points": 17518,
+        "prefix_sha256": "09f980eabaa91cf95d629fc96f9716ee0871208b0ebb98f248f844a42e50edb2",
+        "zip_crc32": 2559373202,
+        "csv_bytes": 14541080
+      },
+      "train_050": {
+        "prefix_circles": 64,
+        "quantized_points": 11297,
+        "prefix_sha256": "8375715d223514a8fbac154196179221245a591e8f8f6f9b01d55f732e1bc41f",
+        "zip_crc32": 1519184322,
+        "csv_bytes": 12202766
+      },
+      "train_051": {
+        "prefix_circles": 64,
+        "quantized_points": 11233,
+        "prefix_sha256": "2c966d5c212fd2d359c306e36a43df240bda4280ad2681ac5f744adcd76d375d",
+        "zip_crc32": 2364848906,
+        "csv_bytes": 9138270
+      },
+      "train_052": {
+        "prefix_circles": 64,
+        "quantized_points": 16909,
+        "prefix_sha256": "68d56e3f972d7ace349c729023100e06217088ff9d848f1e0576fb4bce4f9ae2",
+        "zip_crc32": 618663588,
+        "csv_bytes": 17154361
+      },
+      "train_054": {
+        "prefix_circles": 64,
+        "quantized_points": 11543,
+        "prefix_sha256": "2871f585d07ec8e1096d8c80c91a1a2f677981e6262af74953f0b3e7ca76f758",
+        "zip_crc32": 2950010215,
+        "csv_bytes": 10876561
+      },
+      "train_057": {
+        "prefix_circles": 64,
+        "quantized_points": 12835,
+        "prefix_sha256": "cb81e649e8b8c21435ad3fb6350145b2654c580c5c6e5fc87699fdfea16a7ecc",
+        "zip_crc32": 3000932613,
+        "csv_bytes": 13241153
+      },
+      "train_058": {
+        "prefix_circles": 64,
+        "quantized_points": 16651,
+        "prefix_sha256": "906ef1862a0fa0b978dac13ad811a8376e636ba169454fa28a849b7d8e7865fa",
+        "zip_crc32": 4002666452,
+        "csv_bytes": 13942093
+      },
+      "train_059": {
+        "prefix_circles": 64,
+        "quantized_points": 14219,
+        "prefix_sha256": "4b0ce21b511173475cc9f50df626a5d5ec583c25215a9d9bc51e43487ade3187",
+        "zip_crc32": 2962053593,
+        "csv_bytes": 11558416
+      },
+      "train_060": {
+        "prefix_circles": 64,
+        "quantized_points": 15565,
+        "prefix_sha256": "391d28ef66c4cbe600ee8568eb3ce494b3534a8d5c2aaa824f5ee4ac1ef30ede",
+        "zip_crc32": 473399399,
+        "csv_bytes": 15890349
+      },
+      "train_061": {
+        "prefix_circles": 64,
+        "quantized_points": 14449,
+        "prefix_sha256": "43e4528248916a1b45a7fd3effe2f85a3e6843da8d9ba7740a80dbd1f5dbffe9",
+        "zip_crc32": 1814852000,
+        "csv_bytes": 11443818
+      },
+      "train_062": {
+        "prefix_circles": 64,
+        "quantized_points": 14306,
+        "prefix_sha256": "ac460e7adc41385cef83354aa653ec481eb5d8771949d9235010409c67b6da41",
+        "zip_crc32": 996811944,
+        "csv_bytes": 9962751
+      },
+      "train_063": {
+        "prefix_circles": 64,
+        "quantized_points": 12938,
+        "prefix_sha256": "e3ba03f3456244140b766a4aecc62746548fc6930a21073f356fe4731189098c",
+        "zip_crc32": 1035448805,
+        "csv_bytes": 12497852
+      },
+      "train_064": {
+        "prefix_circles": 64,
+        "quantized_points": 12332,
+        "prefix_sha256": "773551f9d4ae967faceedecd52ac37d4aed7a3b895366a984bb64a24a8b8caa3",
+        "zip_crc32": 3031804471,
+        "csv_bytes": 13557623
+      },
+      "train_065": {
+        "prefix_circles": 64,
+        "quantized_points": 12899,
+        "prefix_sha256": "b84d5e5a7940268cd5732990df5fe5c52dd023a906ef4f5d0391e412640d27dc",
+        "zip_crc32": 826604515,
+        "csv_bytes": 10138206
+      },
+      "train_066": {
+        "prefix_circles": 64,
+        "quantized_points": 15865,
+        "prefix_sha256": "686de7fb3c900651282308058811ce66fa6af8d744978d5f386847e4f885e736",
+        "zip_crc32": 2713127707,
+        "csv_bytes": 13207367
+      },
+      "train_067": {
+        "prefix_circles": 64,
+        "quantized_points": 12724,
+        "prefix_sha256": "ae9df3c23b63a3d4ef71313730cc503a120305648e495724cf9967fd345d68f4",
+        "zip_crc32": 2062006163,
+        "csv_bytes": 10564816
+      },
+      "train_068": {
+        "prefix_circles": 64,
+        "quantized_points": 11042,
+        "prefix_sha256": "ecb111a864ec8af997701713c10c1b8652e716b77107a25c094b0c8041f73b2d",
+        "zip_crc32": 2583978145,
+        "csv_bytes": 6885694
+      },
+      "train_069": {
+        "prefix_circles": 64,
+        "quantized_points": 13811,
+        "prefix_sha256": "eb693794f2145e241a119f00b9806cbc0a0a6004c75b391c84da88ab31805caf",
+        "zip_crc32": 1647077905,
+        "csv_bytes": 13808435
+      },
+      "train_070": {
+        "prefix_circles": 64,
+        "quantized_points": 12197,
+        "prefix_sha256": "5cb806e27a615010bab4e2ab7d7152116c40248e78cf991d10aff4687dec999d",
+        "zip_crc32": 992519260,
+        "csv_bytes": 11566191
+      },
+      "train_071": {
+        "prefix_circles": 64,
+        "quantized_points": 11030,
+        "prefix_sha256": "9f2a5a488b7b61f42710c8d54737c1bfebef7c0d37eebb75104b3b2eb835f4ff",
+        "zip_crc32": 260973428,
+        "csv_bytes": 7621376
+      },
+      "train_072": {
+        "prefix_circles": 64,
+        "quantized_points": 16066,
+        "prefix_sha256": "81a58205a4cdd018b2d2eecf365f72370115f92c2fae365e650222baf4d10b87",
+        "zip_crc32": 2718080623,
+        "csv_bytes": 14785566
+      },
+      "train_073": {
+        "prefix_circles": 64,
+        "quantized_points": 12927,
+        "prefix_sha256": "680513d4566a930f314252aa0e10f7e83cd2873eee98d2dc87bb27fa64e78b09",
+        "zip_crc32": 2346707019,
+        "csv_bytes": 12780093
+      },
+      "train_074": {
+        "prefix_circles": 64,
+        "quantized_points": 15113,
+        "prefix_sha256": "01d3f9c6844e21da7ca8bb48948e6500fd695b29ab1c01fdf0ed749da1ba01c8",
+        "zip_crc32": 157656798,
+        "csv_bytes": 13438489
+      },
+      "train_076": {
+        "prefix_circles": 64,
+        "quantized_points": 15159,
+        "prefix_sha256": "daf41e9d90f56ce0ae7218bf64a1c7bd21680baf216f89e042685da5806a005b",
+        "zip_crc32": 2632435924,
+        "csv_bytes": 13586337
+      },
+      "train_077": {
+        "prefix_circles": 64,
+        "quantized_points": 10010,
+        "prefix_sha256": "489a06b23b271c6cc21713860638fc941a15bba25e14f637e795a990f059db3e",
+        "zip_crc32": 1077440574,
+        "csv_bytes": 11265413
+      },
+      "train_079": {
+        "prefix_circles": 64,
+        "quantized_points": 15945,
+        "prefix_sha256": "a9f2512a4ca83fdcdc1ed80c8b15e4660a6a2dcdebbdd2bf54f140a2d9713b9a",
+        "zip_crc32": 2469438638,
+        "csv_bytes": 12067669
+      },
+      "train_080": {
+        "prefix_circles": 64,
+        "quantized_points": 12644,
+        "prefix_sha256": "e45119642cebd7011b19c0ab2c7d7194dc4c0b4681a4a0ded4a7b219f2eda808",
+        "zip_crc32": 1217661005,
+        "csv_bytes": 12372710
+      },
+      "train_081": {
+        "prefix_circles": 64,
+        "quantized_points": 12237,
+        "prefix_sha256": "2758b1d488b9e59ef51f281f8e57a97ae2dc943d7668961cf7e17949202db991",
+        "zip_crc32": 2566013536,
+        "csv_bytes": 10049583
+      },
+      "train_083": {
+        "prefix_circles": 64,
+        "quantized_points": 13513,
+        "prefix_sha256": "f6819c9353e00e12070882ea45b1a3026dbe2a6eaba12523da9006ddf9439ad2",
+        "zip_crc32": 1594361511,
+        "csv_bytes": 9365171
+      },
+      "train_084": {
+        "prefix_circles": 64,
+        "quantized_points": 18826,
+        "prefix_sha256": "323fe2df6e571649c825410b65982f51ba84bc9bf0c5ead74fc5eb722763d754",
+        "zip_crc32": 2445620957,
+        "csv_bytes": 13952873
+      },
+      "train_085": {
+        "prefix_circles": 64,
+        "quantized_points": 15714,
+        "prefix_sha256": "de4cfc3d4d37ee7cd1748006c42565ffe4a8362572ecab47c2ffabeb8fb6a1d1",
+        "zip_crc32": 1877166045,
+        "csv_bytes": 12897290
+      },
+      "train_086": {
+        "prefix_circles": 64,
+        "quantized_points": 12139,
+        "prefix_sha256": "5155dc2d9e8e1a2fa487c1a893209b7d25e4c8c73c581632e77db4acf7c91c31",
+        "zip_crc32": 4043612585,
+        "csv_bytes": 11625277
+      },
+      "train_087": {
+        "prefix_circles": 64,
+        "quantized_points": 16490,
+        "prefix_sha256": "968144986e7b9de5cf3aa9bae881107e0d44efebecfe4be823084655a7993531",
+        "zip_crc32": 1259689858,
+        "csv_bytes": 15212014
+      },
+      "train_088": {
+        "prefix_circles": 64,
+        "quantized_points": 15705,
+        "prefix_sha256": "80e57cea445e114381e7fa645d7ee638576cbc957039510f2f40b0ef1f3a0c39",
+        "zip_crc32": 4069389394,
+        "csv_bytes": 13333420
+      },
+      "train_089": {
+        "prefix_circles": 64,
+        "quantized_points": 15303,
+        "prefix_sha256": "ad15ebc13db11ee6c50c7910f41c7fcb5b176d0107af1ee0567677897af53eff",
+        "zip_crc32": 3507346641,
+        "csv_bytes": 14336035
+      },
+      "train_090": {
+        "prefix_circles": 64,
+        "quantized_points": 15037,
+        "prefix_sha256": "f37080622a838bf871803e9f92985e3b61877cb00b8be10c1db04dca0c535067",
+        "zip_crc32": 2135628398,
+        "csv_bytes": 13717661
+      },
+      "train_091": {
+        "prefix_circles": 64,
+        "quantized_points": 13633,
+        "prefix_sha256": "f03bd853923f7962680cbe889f2fcd27716a6f8707a62db95e1ad354f7bcf62c",
+        "zip_crc32": 18870653,
+        "csv_bytes": 10874004
+      },
+      "train_092": {
+        "prefix_circles": 64,
+        "quantized_points": 13245,
+        "prefix_sha256": "948d64dc8e99f87a808ecc210195a2ec624bbea54950ca286af6a2a914d7f255",
+        "zip_crc32": 3583652455,
+        "csv_bytes": 9706216
+      },
+      "train_093": {
+        "prefix_circles": 64,
+        "quantized_points": 13968,
+        "prefix_sha256": "ec51b9d9e0d077ebe5bf0dbc48d7f76d2676be418d44bd6166b5380ef37d73e8",
+        "zip_crc32": 872672014,
+        "csv_bytes": 8755311
+      },
+      "train_094": {
+        "prefix_circles": 64,
+        "quantized_points": 15254,
+        "prefix_sha256": "7a6c7be1e2560387294a0c22307094b4ddef0bfd7c2ede930599b09770b5fbcc",
+        "zip_crc32": 2438539095,
+        "csv_bytes": 12334021
+      },
+      "train_097": {
+        "prefix_circles": 64,
+        "quantized_points": 13973,
+        "prefix_sha256": "01f012c9cac27230d9ddc6168f09a7a1b6208104d60f0ed4c2de791ac23046cc",
+        "zip_crc32": 1096799575,
+        "csv_bytes": 10960382
+      },
+      "train_098": {
+        "prefix_circles": 64,
+        "quantized_points": 19424,
+        "prefix_sha256": "b75fa3f0e9c5ba405b256284bf9033bac1e5e6e539faef16fcb78df235d14e80",
+        "zip_crc32": 2199039232,
+        "csv_bytes": 19543544
+      },
+      "train_099": {
+        "prefix_circles": 64,
+        "quantized_points": 11778,
+        "prefix_sha256": "35d7d4d62df201a3f22ffd9e2aaac835a0fb15d5942812a462212b0c41ec618e",
+        "zip_crc32": 3266141089,
+        "csv_bytes": 8720990
+      },
+      "train_100": {
+        "prefix_circles": 64,
+        "quantized_points": 13533,
+        "prefix_sha256": "3e60bfcb264053c4cc2fcde735eed943b45e0f7d5969a0e25995651179552eb8",
+        "zip_crc32": 1031551713,
+        "csv_bytes": 11874332
+      },
+      "train_101": {
+        "prefix_circles": 64,
+        "quantized_points": 13528,
+        "prefix_sha256": "798ed553635a3d3d4b9532e8756a79171736d4faeab9735393d8b2fef044124b",
+        "zip_crc32": 532680967,
+        "csv_bytes": 9767650
+      },
+      "train_102": {
+        "prefix_circles": 64,
+        "quantized_points": 14570,
+        "prefix_sha256": "f0770b859fc02df46ea2d9edefbf43cc5f4aad80dea73cdde9b8a13e958cca10",
+        "zip_crc32": 4177774202,
+        "csv_bytes": 10079311
+      },
+      "train_104": {
+        "prefix_circles": 64,
+        "quantized_points": 14112,
+        "prefix_sha256": "3da32e5f0d8ee17bfa409cb6f9e19e6660c1d848d675424e8955bec1f733dfea",
+        "zip_crc32": 3335240034,
+        "csv_bytes": 13666166
+      },
+      "train_105": {
+        "prefix_circles": 64,
+        "quantized_points": 14252,
+        "prefix_sha256": "d98738a43fdf99b84f3ca45fef08ef5dba24b2390df25c20fd4130ab336d9e27",
+        "zip_crc32": 4260908370,
+        "csv_bytes": 8836353
+      },
+      "train_106": {
+        "prefix_circles": 64,
+        "quantized_points": 10505,
+        "prefix_sha256": "45d064564ca125d3446d32f81544f0565968af422d93d3f0f246cda23c413988",
+        "zip_crc32": 2580483178,
+        "csv_bytes": 9342207
+      },
+      "train_107": {
+        "prefix_circles": 64,
+        "quantized_points": 17347,
+        "prefix_sha256": "b0c00a1d855199695faa4a3a0ca9860de047b243dbd8bcfa53794066e49f050b",
+        "zip_crc32": 2765505268,
+        "csv_bytes": 16376529
+      },
+      "train_110": {
+        "prefix_circles": 64,
+        "quantized_points": 15963,
+        "prefix_sha256": "825e54175a78ee902ec50a08439b2dfcbea77d665748a17903b7567c974d1d0d",
+        "zip_crc32": 3346985651,
+        "csv_bytes": 12656530
+      },
+      "train_111": {
+        "prefix_circles": 64,
+        "quantized_points": 17445,
+        "prefix_sha256": "756ac31d5e732ef96d57ae8f4b9dd87dd47777ae707974133322194bcb38e584",
+        "zip_crc32": 1985946903,
+        "csv_bytes": 13965628
+      },
+      "train_112": {
+        "prefix_circles": 64,
+        "quantized_points": 16910,
+        "prefix_sha256": "b2a07963a7d78a4efcd2d68ff273e835a83124e8c0ae36414157004a66f19fd1",
+        "zip_crc32": 3165155212,
+        "csv_bytes": 17152739
+      },
+      "train_113": {
+        "prefix_circles": 64,
+        "quantized_points": 10244,
+        "prefix_sha256": "5ef77f801b0a3e00efeaba8a734b11f85417432be34e20e07d223ac21efbe15a",
+        "zip_crc32": 813271684,
+        "csv_bytes": 7138073
+      },
+      "train_114": {
+        "prefix_circles": 64,
+        "quantized_points": 14979,
+        "prefix_sha256": "8bdfee20545018b2ac10cbc1da153ba7ccaf538f679fc65734bf740e6336ec50",
+        "zip_crc32": 4184736433,
+        "csv_bytes": 13791629
+      },
+      "train_115": {
+        "prefix_circles": 64,
+        "quantized_points": 14676,
+        "prefix_sha256": "f633a923e9b974155531965aa8342be5666eee2523c409e6059f6fd2d879f583",
+        "zip_crc32": 2026709872,
+        "csv_bytes": 12005143
+      },
+      "train_116": {
+        "prefix_circles": 64,
+        "quantized_points": 14317,
+        "prefix_sha256": "7028a167f745699a947f50500935d8d5a581aec13a4292dfc3af578bd4178a69",
+        "zip_crc32": 2370376662,
+        "csv_bytes": 8123230
+      },
+      "train_117": {
+        "prefix_circles": 64,
+        "quantized_points": 13690,
+        "prefix_sha256": "8f7471b850cac6f477674909556f2be3a096107180463659401bbf9e1cb9722a",
+        "zip_crc32": 1640094252,
+        "csv_bytes": 10195919
+      },
+      "train_118": {
+        "prefix_circles": 64,
+        "quantized_points": 12727,
+        "prefix_sha256": "3d34803ee021a02b0800d34aab6de45d695ec58213ff0c7db724362f6c8dcfea",
+        "zip_crc32": 3561903746,
+        "csv_bytes": 12213388
+      },
+      "train_119": {
+        "prefix_circles": 64,
+        "quantized_points": 11763,
+        "prefix_sha256": "c9e6f244f02941c132a2ac6b715f32d8d86880143191dc84f40d864db4a0f4b2",
+        "zip_crc32": 2407660501,
+        "csv_bytes": 9260748
+      },
+      "train_121": {
+        "prefix_circles": 64,
+        "quantized_points": 11808,
+        "prefix_sha256": "a96aba0091f4d25e4f0c312dfcacdea577ecb33ed0573114ee8e6ca48739df10",
+        "zip_crc32": 2781989450,
+        "csv_bytes": 12029592
+      },
+      "train_122": {
+        "prefix_circles": 64,
+        "quantized_points": 15244,
+        "prefix_sha256": "c0f35fdb6a64eeb6addf6c7ca641a7ba228867af97b31bf70c43b9ffab18c871",
+        "zip_crc32": 1776050645,
+        "csv_bytes": 8169782
+      },
+      "train_123": {
+        "prefix_circles": 64,
+        "quantized_points": 18841,
+        "prefix_sha256": "1fff2cbbba6b9402af256d5c576c8c07a83ddc09a52d9a4df1aa8cddd3f7f64b",
+        "zip_crc32": 3368301658,
+        "csv_bytes": 18380903
+      },
+      "train_124": {
+        "prefix_circles": 64,
+        "quantized_points": 14100,
+        "prefix_sha256": "c21e26291670deaa546123e3f30c16c13e47a91fb92ca9afecd6626b381554a3",
+        "zip_crc32": 195658468,
+        "csv_bytes": 13665069
+      },
+      "train_125": {
+        "prefix_circles": 64,
+        "quantized_points": 9927,
+        "prefix_sha256": "3c0c789fae967bdfa35055e285261d9415e65cc81a9ae9ad96a2a0f49add05f9",
+        "zip_crc32": 3683606549,
+        "csv_bytes": 12592044
+      },
+      "train_128": {
+        "prefix_circles": 64,
+        "quantized_points": 14305,
+        "prefix_sha256": "cd4bc24e72aab1d87b9d36afa9b4762ad74a5911274f349a4237389620c085d8",
+        "zip_crc32": 3971789135,
+        "csv_bytes": 8125151
+      },
+      "train_129": {
+        "prefix_circles": 64,
+        "quantized_points": 11149,
+        "prefix_sha256": "4c3b3ce68a6cc7860fd463b6e9cd404d0dcd35f9943e95c1188d4ddf7c803e87",
+        "zip_crc32": 1870831141,
+        "csv_bytes": 8705590
+      },
+      "train_130": {
+        "prefix_circles": 64,
+        "quantized_points": 13562,
+        "prefix_sha256": "7efc9eed4fc7dde75fa68e54a9935208c736bf6a7c28a879dbb23d217cfb704d",
+        "zip_crc32": 2882012668,
+        "csv_bytes": 15008510
+      },
+      "train_131": {
+        "prefix_circles": 64,
+        "quantized_points": 21171,
+        "prefix_sha256": "5d4ed02de62ce5fcd44b39e3fd45736167376fa095209be67a3b0e237f118f11",
+        "zip_crc32": 1327233718,
+        "csv_bytes": 17725153
+      },
+      "train_132": {
+        "prefix_circles": 64,
+        "quantized_points": 15150,
+        "prefix_sha256": "eaf499ddad184117ee4ae17c4397baaa68c3d770aed5a566eceeacee1d58991b",
+        "zip_crc32": 1994793756,
+        "csv_bytes": 10957294
+      },
+      "train_133": {
+        "prefix_circles": 64,
+        "quantized_points": 13950,
+        "prefix_sha256": "0167c27d156197565816978e92cc7c7c67f91c6e0fb54bf4e8beab932620fdee",
+        "zip_crc32": 2005286578,
+        "csv_bytes": 10790445
+      },
+      "train_134": {
+        "prefix_circles": 64,
+        "quantized_points": 13826,
+        "prefix_sha256": "dbc2a9eea97b6ca2a5c91fe00bfe05ffd61a334f8041af4ae4094292028f7d66",
+        "zip_crc32": 2139260661,
+        "csv_bytes": 12605680
+      },
+      "train_135": {
+        "prefix_circles": 64,
+        "quantized_points": 13964,
+        "prefix_sha256": "259bed8ca69034923f5573e8f859dc813daa8cca9bd453e24eaba97508bd34dd",
+        "zip_crc32": 2895238713,
+        "csv_bytes": 13924935
+      },
+      "train_136": {
+        "prefix_circles": 64,
+        "quantized_points": 12713,
+        "prefix_sha256": "eef79bebfcb7266660090e61c19440c78019a026a39edc5e875706fafe4d36e2",
+        "zip_crc32": 1103181086,
+        "csv_bytes": 9566668
+      },
+      "train_137": {
+        "prefix_circles": 64,
+        "quantized_points": 19823,
+        "prefix_sha256": "d2f97448b753fc95262f9909c1e581fad0044ae2fafc5e88d46750abc078e27d",
+        "zip_crc32": 3124666376,
+        "csv_bytes": 18085993
+      },
+      "train_138": {
+        "prefix_circles": 64,
+        "quantized_points": 15305,
+        "prefix_sha256": "651f66cb8dc83e6a86edcf9d0b6a95d0066dae7ff8f9136be42e65edf941ce5c",
+        "zip_crc32": 43050036,
+        "csv_bytes": 11961645
+      },
+      "train_139": {
+        "prefix_circles": 64,
+        "quantized_points": 17617,
+        "prefix_sha256": "6651fd54a2091dd57092522a97ebf5de6a8b92c454fa562fbea970845e1a3fb5",
+        "zip_crc32": 400719435,
+        "csv_bytes": 17291763
+      },
+      "train_140": {
+        "prefix_circles": 64,
+        "quantized_points": 14817,
+        "prefix_sha256": "cd56d1e8cd941769bb1084cf3e62ffab9f471449ea5b5af4456a3d78bd3fe383",
+        "zip_crc32": 3412635928,
+        "csv_bytes": 8965674
+      },
+      "train_141": {
+        "prefix_circles": 64,
+        "quantized_points": 14623,
+        "prefix_sha256": "3fa03c7c90ffa3c17f1145da864416507d1e64c5d4be4d89af5ab390f35a4833",
+        "zip_crc32": 3056876833,
+        "csv_bytes": 14340150
+      },
+      "train_142": {
+        "prefix_circles": 64,
+        "quantized_points": 14683,
+        "prefix_sha256": "dc3503b1d5e6970e7a5fc9010eb1c8c32bee2f7efa2070347be0d0578955136d",
+        "zip_crc32": 3043507947,
+        "csv_bytes": 16333080
+      },
+      "train_143": {
+        "prefix_circles": 64,
+        "quantized_points": 11763,
+        "prefix_sha256": "41732283af26fb3d119f929196417705dd92b0535161b739ee9c124e2339bf30",
+        "zip_crc32": 1559348588,
+        "csv_bytes": 5941625
+      },
+      "train_144": {
+        "prefix_circles": 64,
+        "quantized_points": 17099,
+        "prefix_sha256": "1435d0da95a5eba0df981b3baa516a40f5a62d1ea490f711aa0c99714059a5d9",
+        "zip_crc32": 935701543,
+        "csv_bytes": 15254346
+      },
+      "train_145": {
+        "prefix_circles": 64,
+        "quantized_points": 13728,
+        "prefix_sha256": "f00e8aa851ebc3787244a92b25042be5b2b33a60f7d3ac96737131fe0d4a48f3",
+        "zip_crc32": 3356607046,
+        "csv_bytes": 14083588
+      },
+      "train_146": {
+        "prefix_circles": 64,
+        "quantized_points": 13166,
+        "prefix_sha256": "9dc3deb737fe0a56d31b9af57761f1962d2f6a5252261aaa6eae628a6d5d12f6",
+        "zip_crc32": 2336531570,
+        "csv_bytes": 9298485
+      },
+      "train_147": {
+        "prefix_circles": 64,
+        "quantized_points": 10708,
+        "prefix_sha256": "0b1b7d6c52cdb1116bb6a18c67f5cf6b3868f719c4d0e097a52792b4873ff793",
+        "zip_crc32": 778864568,
+        "csv_bytes": 7534002
+      },
+      "train_148": {
+        "prefix_circles": 64,
+        "quantized_points": 12942,
+        "prefix_sha256": "570318ad3d8ca8d156d1b0edbe1f7b0d455c7fdecbe9e5d4808801742b864b34",
+        "zip_crc32": 862457599,
+        "csv_bytes": 13568579
+      },
+      "train_150": {
+        "prefix_circles": 64,
+        "quantized_points": 14715,
+        "prefix_sha256": "341d3f813d78fb429eb3589700293fbf4daaffae7405aa248fc9b2a3e1a24b80",
+        "zip_crc32": 692291605,
+        "csv_bytes": 11890354
+      },
+      "train_151": {
+        "prefix_circles": 64,
+        "quantized_points": 18886,
+        "prefix_sha256": "ff4c08781e694a0bc0a03b6089c574716fa8af90b50fce154b95a36cac574601",
+        "zip_crc32": 1638200333,
+        "csv_bytes": 15117062
+      },
+      "train_152": {
+        "prefix_circles": 64,
+        "quantized_points": 13378,
+        "prefix_sha256": "f075b22fffca6cecad1da674190940e2baad1699174ed90c898be966c6e11501",
+        "zip_crc32": 4287672498,
+        "csv_bytes": 9421526
+      },
+      "train_153": {
+        "prefix_circles": 64,
+        "quantized_points": 19432,
+        "prefix_sha256": "de627e2193fa51300ca79d3024cbd3586aeb25a99a27e4bcabcb42ee76bc8b5c",
+        "zip_crc32": 2462623003,
+        "csv_bytes": 14806697
+      },
+      "train_154": {
+        "prefix_circles": 64,
+        "quantized_points": 13214,
+        "prefix_sha256": "b36c52aba955fb9ea7944d05cd0711a668a6864af10062bb4d63c9b73842d14f",
+        "zip_crc32": 824346425,
+        "csv_bytes": 10667519
+      },
+      "train_155": {
+        "prefix_circles": 64,
+        "quantized_points": 12205,
+        "prefix_sha256": "4d76b50dda3f8589d7776fc428eece53c51ecc363e82651fb3b5a76098730b05",
+        "zip_crc32": 2356677998,
+        "csv_bytes": 11195002
+      },
+      "train_156": {
+        "prefix_circles": 64,
+        "quantized_points": 11336,
+        "prefix_sha256": "8430cda28bfd58545da92387cab7c2c4f15416e777c24e2bbdb55cdddd985bcd",
+        "zip_crc32": 1099905127,
+        "csv_bytes": 10894834
+      },
+      "train_157": {
+        "prefix_circles": 64,
+        "quantized_points": 11880,
+        "prefix_sha256": "99a66fc06849c634071c4e99166fb8d746bed8b81631f7d877d2a4002c1cf5e0",
+        "zip_crc32": 3222180789,
+        "csv_bytes": 9944137
+      },
+      "train_158": {
+        "prefix_circles": 64,
+        "quantized_points": 12611,
+        "prefix_sha256": "1f748d153fa954a44476528850ec9dbfda9fed4e91dca115bdb077efff6bdc35",
+        "zip_crc32": 62120770,
+        "csv_bytes": 9752961
+      },
+      "train_160": {
+        "prefix_circles": 64,
+        "quantized_points": 13278,
+        "prefix_sha256": "2d961ba64d4414dc1e4696fa94d956dde8598bd7043b83bc62044037497efec4",
+        "zip_crc32": 2994172632,
+        "csv_bytes": 11242870
+      },
+      "train_161": {
+        "prefix_circles": 64,
+        "quantized_points": 12711,
+        "prefix_sha256": "9a0831f840914d6a8d2429758aa2f4b0d01543d789e942857892d38302e95759",
+        "zip_crc32": 2251579518,
+        "csv_bytes": 9868873
+      },
+      "train_162": {
+        "prefix_circles": 64,
+        "quantized_points": 12489,
+        "prefix_sha256": "50d6a402d25ff3ec57af9ab7a867d345c5f183c1844714556b73166257911627",
+        "zip_crc32": 421986310,
+        "csv_bytes": 7098919
+      },
+      "train_163": {
+        "prefix_circles": 64,
+        "quantized_points": 12490,
+        "prefix_sha256": "23e134123b3901414489decdf23bce7db797524f3ee1add24f5b52cbfc323c1e",
+        "zip_crc32": 3235941382,
+        "csv_bytes": 12873039
+      },
+      "train_164": {
+        "prefix_circles": 64,
+        "quantized_points": 10444,
+        "prefix_sha256": "31b4a8a70bfa4560fe84a64b040e0ce3314f6a0d3f27d609ba0b5380b56605d0",
+        "zip_crc32": 1568706601,
+        "csv_bytes": 8928513
+      },
+      "train_165": {
+        "prefix_circles": 64,
+        "quantized_points": 16324,
+        "prefix_sha256": "818947847957ae4650f640b686d65811474acffa8616bfd46980aa161586308a",
+        "zip_crc32": 86211314,
+        "csv_bytes": 13835005
+      },
+      "train_166": {
+        "prefix_circles": 64,
+        "quantized_points": 15815,
+        "prefix_sha256": "4dd9db854c603c88f4989141440dc858806a1c5ebfa0aed08a268607dbf368c3",
+        "zip_crc32": 4289287643,
+        "csv_bytes": 13588048
+      },
+      "train_168": {
+        "prefix_circles": 64,
+        "quantized_points": 9763,
+        "prefix_sha256": "b47bf82ce0122f8346488ac2856e0c2833f4b95a18c7f550ee6a63697d4cfc5e",
+        "zip_crc32": 4223296560,
+        "csv_bytes": 7200065
+      },
+      "train_169": {
+        "prefix_circles": 64,
+        "quantized_points": 11878,
+        "prefix_sha256": "180f1f96b241405fcb061e9168975dc0904017b1aa13477808637d07319bb4d8",
+        "zip_crc32": 3421213828,
+        "csv_bytes": 10468757
+      },
+      "train_170": {
+        "prefix_circles": 64,
+        "quantized_points": 12459,
+        "prefix_sha256": "fb34beb2068f65e9cd20f13839ae19a3a586ccd22199373178e299564f4be830",
+        "zip_crc32": 3940887541,
+        "csv_bytes": 11338041
+      },
+      "train_171": {
+        "prefix_circles": 64,
+        "quantized_points": 15258,
+        "prefix_sha256": "1e9a3282589aa9a428195ebe92086f164e1868eaea257a359d5e2d4722937c72",
+        "zip_crc32": 2499994274,
+        "csv_bytes": 13721762
+      },
+      "train_172": {
+        "prefix_circles": 64,
+        "quantized_points": 16588,
+        "prefix_sha256": "920dfdc3dc092c188a140deb150e01cfea3b5571aa591e448dc216ba3bf86f48",
+        "zip_crc32": 1580572288,
+        "csv_bytes": 13633299
+      },
+      "train_173": {
+        "prefix_circles": 64,
+        "quantized_points": 13637,
+        "prefix_sha256": "31b2aef0bb90fda882c93004f12f8bd035ffdbd1dc509b4ca21485cc374a8458",
+        "zip_crc32": 3624124552,
+        "csv_bytes": 12151955
+      },
+      "train_174": {
+        "prefix_circles": 64,
+        "quantized_points": 12390,
+        "prefix_sha256": "991c42200b8905c1abf2004a830985d0db7dff2100a6500ac0d15fead3933bf7",
+        "zip_crc32": 2251605242,
+        "csv_bytes": 9461072
+      },
+      "train_175": {
+        "prefix_circles": 64,
+        "quantized_points": 15469,
+        "prefix_sha256": "c22744749e6ec5cca85b00cceab4461569c1b0839d1e66ea204ef3e69e46fd60",
+        "zip_crc32": 3505641482,
+        "csv_bytes": 8885157
+      },
+      "train_176": {
+        "prefix_circles": 64,
+        "quantized_points": 11401,
+        "prefix_sha256": "ac1c189abb012b97ed8c1b8c748a1f2454d4d822bf31aa7219c19c305ef1ace1",
+        "zip_crc32": 1356399370,
+        "csv_bytes": 11759643
+      },
+      "train_177": {
+        "prefix_circles": 64,
+        "quantized_points": 14300,
+        "prefix_sha256": "55ee6d398fde5e141fd3ec25bf5dcdd5f8b69e74d2a3bb665babc0f063201d9d",
+        "zip_crc32": 4225890398,
+        "csv_bytes": 13963762
+      },
+      "train_178": {
+        "prefix_circles": 64,
+        "quantized_points": 12129,
+        "prefix_sha256": "94c4c1351821fa9fdc9266b4e45af8a83f8e8bc97ca08e5437c6765115054356",
+        "zip_crc32": 574019560,
+        "csv_bytes": 8411912
+      },
+      "train_179": {
+        "prefix_circles": 64,
+        "quantized_points": 17979,
+        "prefix_sha256": "8e61bdcaa744a97143f90390e5d77eaf0660bb6bedd0cadc34ca3e00f2f9a810",
+        "zip_crc32": 1319485248,
+        "csv_bytes": 15675056
+      },
+      "train_180": {
+        "prefix_circles": 64,
+        "quantized_points": 10451,
+        "prefix_sha256": "981fea45253f0339f702b81e7e547e42497dc1e57c79bcd5e03517b63180218d",
+        "zip_crc32": 481227832,
+        "csv_bytes": 11009101
+      },
+      "train_181": {
+        "prefix_circles": 64,
+        "quantized_points": 14202,
+        "prefix_sha256": "39f6aedb1151da2d9b87948a39cd3849ba64abe02404a585e1c213b96669132f",
+        "zip_crc32": 855685235,
+        "csv_bytes": 12364880
+      },
+      "train_182": {
+        "prefix_circles": 64,
+        "quantized_points": 15453,
+        "prefix_sha256": "550b4b49c6ffcb5fcd50d3245fbe23abeb703a8791a8bf29a1f35887b326d19c",
+        "zip_crc32": 3232816302,
+        "csv_bytes": 12633900
+      },
+      "train_183": {
+        "prefix_circles": 64,
+        "quantized_points": 17601,
+        "prefix_sha256": "54c1bdacdbcadc3cfaf595afd240fe33b29f7dd855904297b23511616f215cee",
+        "zip_crc32": 2207373309,
+        "csv_bytes": 12653000
+      },
+      "train_185": {
+        "prefix_circles": 64,
+        "quantized_points": 14142,
+        "prefix_sha256": "8dfbc7f2d59843b60cfa471af9d2f297dbc6fa8ec3ee0bd032c3bbf144632581",
+        "zip_crc32": 148945562,
+        "csv_bytes": 13171600
+      },
+      "train_186": {
+        "prefix_circles": 64,
+        "quantized_points": 16401,
+        "prefix_sha256": "7dc7d40573fe31ae8be1bfbe848e6d8e419ddb912fd0fff478d21241db747729",
+        "zip_crc32": 2353628871,
+        "csv_bytes": 14854028
+      },
+      "train_187": {
+        "prefix_circles": 64,
+        "quantized_points": 16610,
+        "prefix_sha256": "24ba58984e776540232c56e03dd5ca55db47bcb9964cf72f45d493e4d6d27084",
+        "zip_crc32": 2716049381,
+        "csv_bytes": 15786632
+      },
+      "train_188": {
+        "prefix_circles": 64,
+        "quantized_points": 15548,
+        "prefix_sha256": "03ad6ef3cf044aaf64d627b41cb95fc9f8062ef5b8aa78408b220a892f2c5885",
+        "zip_crc32": 3042912888,
+        "csv_bytes": 16055661
+      },
+      "train_189": {
+        "prefix_circles": 64,
+        "quantized_points": 15655,
+        "prefix_sha256": "6fe99b491b2e9fa216e11e030e005fb5aac2d5695e6cf5967e97ac4d72841213",
+        "zip_crc32": 2239066087,
+        "csv_bytes": 11571757
+      },
+      "train_190": {
+        "prefix_circles": 64,
+        "quantized_points": 17568,
+        "prefix_sha256": "7f2fb3e4bb4456ba371c09058e9c546c5fb81bcd1aba02d6b15a44454aa331b7",
+        "zip_crc32": 3536757008,
+        "csv_bytes": 17961866
+      },
+      "train_191": {
+        "prefix_circles": 64,
+        "quantized_points": 15473,
+        "prefix_sha256": "a461e1fe243ebfb985265f6b9f6608ef8576c2ecf2d9c8799e7198128ffb7456",
+        "zip_crc32": 3084982782,
+        "csv_bytes": 10502570
+      },
+      "train_192": {
+        "prefix_circles": 64,
+        "quantized_points": 9508,
+        "prefix_sha256": "b2658bd812fdb45b0181ad812317c831163b285b47997151497d7976194e5206",
+        "zip_crc32": 2138920537,
+        "csv_bytes": 9476489
+      },
+      "train_195": {
+        "prefix_circles": 64,
+        "quantized_points": 17045,
+        "prefix_sha256": "0ad2f1106f4c6ab1d5b1431b08ef5650ba6e3c9368af13da140c9ab423e97c9f",
+        "zip_crc32": 3071235459,
+        "csv_bytes": 16310433
+      },
+      "train_197": {
+        "prefix_circles": 64,
+        "quantized_points": 19864,
+        "prefix_sha256": "df360b4d52c03c510b17799c22ce894a837d6f85d0844ed003dfa41d0e869aee",
+        "zip_crc32": 3937128745,
+        "csv_bytes": 15362290
+      },
+      "train_198": {
+        "prefix_circles": 64,
+        "quantized_points": 12294,
+        "prefix_sha256": "5ea25fa1380d1aef72a35252b60058010ee7fde0de39fd5cf5e8262ac88dc951",
+        "zip_crc32": 1565185923,
+        "csv_bytes": 11509684
+      },
+      "train_199": {
+        "prefix_circles": 64,
+        "quantized_points": 15017,
+        "prefix_sha256": "b785c44521efc0c96a73104fa7f69b4704e4714917ea0d6d23fe6c2546e5c4ac",
+        "zip_crc32": 972150024,
+        "csv_bytes": 14467560
+      },
+      "train_200": {
+        "prefix_circles": 64,
+        "quantized_points": 12078,
+        "prefix_sha256": "c434a19fc8a2e23f1ab65a70c584ef89fbe6ab44e35a9746d44e39801bcebd08",
+        "zip_crc32": 2154376495,
+        "csv_bytes": 12083292
+      }
+    },
+    "candidate_overlap": {
+      "train_011": {
+        "nearest_prefix": "train_164",
+        "jaccard": 4.5394706977166465e-05
+      },
+      "train_088": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_014": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_010": {
+        "nearest_prefix": "train_178",
+        "jaccard": 4.124731892426992e-05
+      },
+      "train_006": {
+        "nearest_prefix": "train_132",
+        "jaccard": 3.237608055168841e-05
+      },
+      "train_187": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_067": {
+        "nearest_prefix": "train_010",
+        "jaccard": 4.02592696968477e-05
+      },
+      "train_072": {
+        "nearest_prefix": "train_182",
+        "jaccard": 3.172790151659369e-05
+      },
+      "train_074": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_058": {
+        "nearest_prefix": "train_019",
+        "jaccard": 3.247807729782397e-05
+      },
+      "train_012": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_157": {
+        "nearest_prefix": "train_155",
+        "jaccard": 4.1521341969772464e-05
+      },
+      "train_080": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_029": {
+        "nearest_prefix": "train_087",
+        "jaccard": 3.130576339104029e-05
+      },
+      "train_064": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_034": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_083": {
+        "nearest_prefix": "train_191",
+        "jaccard": 3.450060376056581e-05
+      },
+      "train_045": {
+        "nearest_prefix": "train_133",
+        "jaccard": 3.599841606969293e-05
+      },
+      "train_062": {
+        "nearest_prefix": "train_070",
+        "jaccard": 3.7733001282922044e-05
+      },
+      "train_199": {
+        "nearest_prefix": "train_114",
+        "jaccard": 6.668000266720011e-05
+      },
+      "train_153": {
+        "nearest_prefix": "train_088",
+        "jaccard": 2.8460837887067395e-05
+      },
+      "train_140": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_166": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_060": {
+        "nearest_prefix": "train_019",
+        "jaccard": 3.3665499596014004e-05
+      },
+      "train_169": {
+        "nearest_prefix": "train_164",
+        "jaccard": 4.480086017651539e-05
+      },
+      "train_044": {
+        "nearest_prefix": "train_181",
+        "jaccard": 3.205539171688678e-05
+      },
+      "train_030": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_197": {
+        "nearest_prefix": "train_110",
+        "jaccard": 2.791268910846871e-05
+      },
+      "train_162": {
+        "nearest_prefix": "train_161",
+        "jaccard": 3.968411444898607e-05
+      },
+      "train_174": {
+        "nearest_prefix": "train_182",
+        "jaccard": 3.5916959988506575e-05
+      },
+      "train_160": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_135": {
+        "nearest_prefix": "train_138",
+        "jaccard": 3.416700833675003e-05
+      },
+      "train_168": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_009": {
+        "nearest_prefix": "train_099",
+        "jaccard": 3.9154267815191856e-05
+      },
+      "train_165": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_115": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_107": {
+        "nearest_prefix": "train_139",
+        "jaccard": 0.0003147083226046405
+      },
+      "train_018": {
+        "nearest_prefix": "train_143",
+        "jaccard": 4.0330711837063925e-05
+      },
+      "train_043": {
+        "nearest_prefix": "train_187",
+        "jaccard": 2.700804839842273e-05
+      },
+      "train_163": {
+        "nearest_prefix": "train_173",
+        "jaccard": 3.8276046849881346e-05
+      },
+      "train_185": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_121": {
+        "nearest_prefix": "train_065",
+        "jaccard": 4.0475997733344126e-05
+      },
+      "train_040": {
+        "nearest_prefix": "train_102",
+        "jaccard": 3.682156270712129e-05
+      },
+      "train_150": {
+        "nearest_prefix": "train_026",
+        "jaccard": 3.654970760233918e-05
+      },
+      "train_020": {
+        "nearest_prefix": "train_136",
+        "jaccard": 3.8669760247486464e-05
+      },
+      "train_118": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_147": {
+        "nearest_prefix": "train_032",
+        "jaccard": 4.402764936380047e-05
+      },
+      "train_179": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_186": {
+        "nearest_prefix": "train_046",
+        "jaccard": 2.948287045226723e-05
+      },
+      "train_089": {
+        "nearest_prefix": "train_198",
+        "jaccard": 3.623713581678504e-05
+      },
+      "train_024": {
+        "nearest_prefix": "none",
+        "jaccard": 0.0
+      },
+      "train_037": {
+        "nearest_prefix": "train_116",
+        "jaccard": 3.295761650517435e-05
+      }
+    }
+  },
+  "archive_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "archive_bytes": 54854162,
+  "sealed_csv_opened": false,
+  "performance_or_labels_viewed_for_selection": false,
+  "houyi": "Not an ancestor of frozen current-route weights; other-route record unavailable and no cross-route unseen-data claim made",
+  "supplemental_audit": {
+    "usage-local-v2.json": "857ddb1a112b65f1a717bc961d6bb766b46a8c423495b82a67ed173e1991cb09",
+    "usage-cloud-v2.json": "61227e039c1bd2b345d885ebbe147923ad0c17c963764d93aa6dae04bcbdbceb"
+  }
+}
