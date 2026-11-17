@@ -1,0 +1,15 @@
+{
+  "kind": "reject-operating-point-diagnostic",
+  "created_at_utc": "2026-11-17T05:51:38.299289+00:00",
+  "learning_protocol_sha256": "2ace27cf4e1dfb4e91fe0891627c8e489ac53cb041c311d55d0c68ae5521111c",
+  "source_sha256": "4bbd1ee5583fd816f0c7a84bcab83f2d33658f963daefec34887f0760c37e17e",
+  "trigger": "Both joint seeds preserve more correct rows but accept more absent-target rows; original offline gate failed",
+  "hypothesis": "The raw row-null operating point may be too permissive; distinguish ranking from offset calibration",
+  "fit_rule": "On training24, find a single joint margin offset retaining at least the binary correct positive-row count; tie-inclusive",
+  "evaluation": "Apply this frozen offset once to validation8, exclude rows with any unknown candidate labels; report all seeds",
+  "budget_seconds": 180,
+  "no_training": true,
+  "no_threshold_search_on_validation": true,
+  "original_gate_kept_failed": true,
+  "no_rollout_permission": true
+}

@@ -1,0 +1,57 @@
+{
+  "format": "b02-competition-learning-integration-v1",
+  "created_at_utc": "2026-11-17T05:35:07.964493+00:00",
+  "learning_protocol_sha256": "2ace27cf4e1dfb4e91fe0891627c8e489ac53cb041c311d55d0c68ae5521111c",
+  "sources": {
+    "experiments/competition_learning/runtime.py": "29bad050962f8279aae8ce56668caad6db66271ba9eb66ed12c9b3ecd4ddfc64",
+    "experiments/competition_learning/replay.py": "f78190b2d42a78ea146fe10bc16529267a75a1141d12bb5fe38f7ffe4e034014",
+    "experiments/competition_learning/features.py": "ff3e99a2c02270f8ae185e96abab932f8fdeacf4f00d619cad9babfde45245e1",
+    "experiments/competition_learning/model.py": "25bca4b72261612cd215face5078e0f490c52a087af8e20958df7104150f16be",
+    "experiments/identity_competition/scoring.py": "c43de2973a160b55b4c9ace8e3a2287a36ea4a032beba4d3eb2c9829f74173b6",
+    "experiments/identity_competition/motion.py": "7f04df6a394c68ffa82b4e73e9952fafddd9835784aa376bf484964ab1f22abf"
+  },
+  "fitting8": [
+    "train_093",
+    "train_177",
+    "train_148",
+    "train_090",
+    "train_106",
+    "train_198",
+    "train_017",
+    "train_094"
+  ],
+  "modes": [
+    "baseline",
+    "old_column_identity",
+    "learned_column",
+    "learned_joint"
+  ],
+  "primary": "default-seed learned_joint minus frozen baseline; other modes diagnose integration; do not choose best seed or mode post hoc",
+  "guards": {
+    "fragmentation_gain_min": 1.0,
+    "weighted_gain_min": 0.2,
+    "point_recall_drop_pp_max": 0.1,
+    "track_recall_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "mixed_ratio_max": 1.0
+  },
+  "default_seed": 20261118,
+  "budget": {
+    "workers": 4,
+    "threads_each": 1,
+    "seconds_each": 1800
+  },
+  "definitions": {
+    "old_column_identity": "frozen old affinity, same column penalty as prior identity-only experiment",
+    "learned_column": "new joint pair head, same strong mature-ID column penalty with cap4 and parent .25 scale; no null intervention",
+    "learned_joint": "replace mature-ID real and null costs by -.25 times learned calibrated logits; keep geometry, original point scores and output gate",
+    "baseline": "original frozen fusion-memory tracker; per-circle unwrapped shadow must match"
+  },
+  "limitations": [
+    "True-anchor supervised rows exclude pure-clutter and identity-ambiguous histories; runtime mature-ID coverage is broader, so full replay can expose distribution shift",
+    "The new head validation files were used by ancestors for training/selection; internal development evidence only"
+  ],
+  "adoption": "Requires offline gate in both seeds before running; no new work16, calibration or sealed test in this phase; no post-hoc winner selection"
+}

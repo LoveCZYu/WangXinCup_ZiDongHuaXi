@@ -1,0 +1,44 @@
+{
+  "kind": "research-only-free-running-calibration-pilot",
+  "created_at_utc": "2026-11-17T05:57:28.536338+00:00",
+  "learning_protocol_sha256": "2ace27cf4e1dfb4e91fe0891627c8e489ac53cb041c311d55d0c68ae5521111c",
+  "sources": {
+    "experiments/competition_learning/model.py": "25bca4b72261612cd215face5078e0f490c52a087af8e20958df7104150f16be",
+    "experiments/competition_learning/features.py": "ff3e99a2c02270f8ae185e96abab932f8fdeacf4f00d619cad9babfde45245e1",
+    "experiments/competition_learning/runtime.py": "29bad050962f8279aae8ce56668caad6db66271ba9eb66ed12c9b3ecd4ddfc64",
+    "experiments/competition_learning/pilot.py": "c3fef1eedb5b9e76d523e4265b60fc88cf3dbd1b6036722fd348228472f10963"
+  },
+  "training_report_sha256": "d44a1ba3178128b0c7e248b648b8b49e443c18e6e91375678947c7571e86f1fa",
+  "calibration_report_sha256": "52bf5c6d3bcc45030063fee8a7de393f07c2388102f33c981f00c07c6025037a",
+  "default_seed": 20261118,
+  "offset": 0.19937188923358917,
+  "head_validation8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "modes": [
+    "baseline",
+    "binary_absolute",
+    "joint_raw",
+    "joint_calibrated"
+  ],
+  "research_only": true,
+  "does_not_override_original_gate": true,
+  "allows_version_promotion": false,
+  "hypothesis": "A single training-fitted null offset may reduce downstream identity pollution; frozen-row improvement may disappear under free-running state changes",
+  "primary": "joint_calibrated minus joint_raw; report every mode against original baseline; no post-hoc mode/seed selection",
+  "counter_evidence_to_check": "Calibrated joint still has more wrong-target selections on present-target rows than binary; track continuity may regress",
+  "budget": {
+    "workers": 4,
+    "threads_each": 1,
+    "seconds_each": 1800
+  },
+  "interpretation": "Head validation scenes selected earlier, upstream ancestors saw them; research/development evidence, not unseen whole-system validation",
+  "stopping": "One complete four-way research replay; no calibration8/new work16/confirmation/sealed read; no threshold search; no adoption based on this pilot"
+}

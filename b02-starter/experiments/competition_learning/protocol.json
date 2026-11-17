@@ -1,0 +1,142 @@
+{
+  "format": "b02-competition-learning-protocol-v1",
+  "created_at_utc": "2026-11-17T05:27:14.487972+00:00",
+  "parent_commit": "91df865",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "artifacts": {
+    "point": "43a6d7f28dc7c26b7123e7f7492c06f9b19850c9c328748f7f0d1ce616f12fda",
+    "prior": "8ebbf73233ba5b2143395a985f2ffb804237d478e5b0ddf6e94780a73e90b32e",
+    "affinity": "8f43e044ac848a0aedc75d91f7208f34f016352f69bd4f5794f3f11333ecdc1d",
+    "head": "755a0088bdca07ed4053ec1ab1e1143850a4530a959db144dab1481a4a648348",
+    "fusion": "ad5b05e94e1efbcca21c228b0a883480f3c7a506bf87765716234c6738460b65"
+  },
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "training24": [
+    "train_098",
+    "train_076",
+    "train_158",
+    "train_090",
+    "train_099",
+    "train_148",
+    "train_094",
+    "train_031",
+    "train_161",
+    "train_191",
+    "train_087",
+    "train_106",
+    "train_002",
+    "train_097",
+    "train_125",
+    "train_110",
+    "train_138",
+    "train_190",
+    "train_177",
+    "train_017",
+    "train_143",
+    "train_102",
+    "train_091",
+    "train_154"
+  ],
+  "validation8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "split_rule": "hash-selected 24 from prior affinity fit48, 8 from its head validation16; no selection from new work16 or sealed29",
+  "collection_sources": {
+    "experiments/competition_learning/features.py": "ff3e99a2c02270f8ae185e96abab932f8fdeacf4f00d619cad9babfde45245e1",
+    "experiments/competition_learning/data.py": "c3988ac88ee79e8d0542dacadf6087bc1ab9ea2de699aa767b715867f10ae055",
+    "experiments/identity_competition/preflight.py": "e581305583e861f91c4e805e5ed1dde1ef05d16e1bf109829111a1875420725c"
+  },
+  "training_sources": {
+    "experiments/competition_learning/features.py": "ff3e99a2c02270f8ae185e96abab932f8fdeacf4f00d619cad9babfde45245e1",
+    "experiments/competition_learning/model.py": "25bca4b72261612cd215face5078e0f490c52a087af8e20958df7104150f16be",
+    "experiments/competition_learning/samples.py": "4036656e78827a4cf7a946bc70ef64e22a0caa96ae74d653010e4fd355b5ac35",
+    "experiments/competition_learning/metrics.py": "7c2092920cdc46b8979918b8627767cbdcefd8f987aeb703d749e8a81792ea8f",
+    "experiments/competition_learning/train.py": "ba39fedae88b16db607dea9a314167ef2a6121d9c4d567d88f726e66a6f5c2d2"
+  },
+  "steps": 1600,
+  "checkpoints": [
+    0,
+    200,
+    600,
+    1200,
+    1600
+  ],
+  "seeds": [
+    20261118,
+    20261119
+  ],
+  "models": [
+    "binary",
+    "joint"
+  ],
+  "default_seed": 20261118,
+  "initialization": "Both retain old 93-feature affinity exactly; 3 publication metadata features start with zero weights; null final layer starts zero",
+  "features": "93 existing affinity features plus log(1+published_count)/5, published_gap/14 capped4, trusted_memory_length/16 capped1; row uses98+same3",
+  "supervision": "past known output majority, >=3 matching outputs and >=.8 purity including clutter; unknown -1 excluded; no current label creates its anchor",
+  "column_target": "prefer prefix dominant published ID when present among positive candidates, otherwise all same-identity candidates; BCE still same-identity",
+  "loss": "Both use same sampled binary edge loss; joint adds .5 row set-CE including learned null and .5 column set-CE including zero-logit unassigned",
+  "batches": {
+    "flat": 512,
+    "rows": 128,
+    "columns": 128,
+    "max_row": 12,
+    "max_column": 32
+  },
+  "checkpoint_rule": "Minimum full head-validation binary loss for binary, minimum BCE+.5rowCE+.5colCE for joint; no scene-rollout or seed selection",
+  "offline_gate": {
+    "wrong_column_ratio_max": 0.95,
+    "positive_row_recall_drop_max": 0.005,
+    "false_accept_ratio_max": 0.95,
+    "both_seeds_required": true,
+    "oversize_column_fraction_max": 0.01,
+    "coverage": "same number of strong competing columns accepted by old affinity max-logit>=0; use score ordering without label-based threshold choice"
+  },
+  "budget": {
+    "collection_workers": 4,
+    "threads_each": 1,
+    "seconds_each_collection": 1800,
+    "seconds_per_model": 240,
+    "gpu_training_runs": 4
+  },
+  "rollout_after_offline_pass": {
+    "modes": [
+      "baseline",
+      "old_column_identity",
+      "learned_column",
+      "learned_joint"
+    ],
+    "primary": "default-seed learned_joint minus frozen baseline; other modes diagnose integration; do not choose best seed or mode post hoc",
+    "data": "same prior fitting8 first; no new validation or sealed test",
+    "guards": {
+      "fragmentation_gain_min": 1.0,
+      "weighted_gain_min": 0.2,
+      "point_recall_drop_pp_max": 0.1,
+      "track_recall_drop_pp_max": 0.1,
+      "continuous_drop_max": 0.3,
+      "timeliness_drop_max": 0.3,
+      "clutter_ratio_max": 1.02,
+      "mixed_ratio_max": 1.0
+    }
+  },
+  "stopping": "If offline gate fails stop rollout, preserve failed experiment. No objective weights or threshold search in this stage.",
+  "limitations": [
+    "Only head scene validation; upstream association used all fit64; this is not independent whole-system validation",
+    "Models change supervision, not a claim that pair MLP can solve all missing-candidate or long-gap errors",
+    "Candidate geometry and original point scores remain frozen; no input labels or future observations enter inference"
+  ],
+  "supersedes_before_any_collection": "0d5db75df323f5570fd7a400052b70abf073a7e670260976fb90d22f30695818",
+  "pre_run_revision": "Implement the already-declared oversized-column coverage guard and require nonempty evaluation denominators; no data collected or results inspected",
+  "pre_run_revisions": [
+    {
+      "previous_protocol_sha256": "7dc1948ec234d996d8ddc01486a8cba87fb3317b11debc81c63b1d7ca0c24af4",
+      "reason": "JSON-safe numeric counters only, before any collection"
+    }
+  ]
+}
