@@ -1,0 +1,145 @@
+{
+  "format": "b02-history-set-study-v1",
+  "created_at_utc": "2026-11-17T07:45:38.850510+00:00",
+  "parent_commit": "4f172cd",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "sample_protocol_sha256": "2ace27cf4e1dfb4e91fe0891627c8e489ac53cb041c311d55d0c68ae5521111c",
+  "prior_report_sha256": "d44a1ba3178128b0c7e248b648b8b49e443c18e6e91375678947c7571e86f1fa",
+  "training24": [
+    "train_098",
+    "train_076",
+    "train_158",
+    "train_090",
+    "train_099",
+    "train_148",
+    "train_094",
+    "train_031",
+    "train_161",
+    "train_191",
+    "train_087",
+    "train_106",
+    "train_002",
+    "train_097",
+    "train_125",
+    "train_110",
+    "train_138",
+    "train_190",
+    "train_177",
+    "train_017",
+    "train_143",
+    "train_102",
+    "train_091",
+    "train_154"
+  ],
+  "validation8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "seeds": [
+    20261118,
+    20261119
+  ],
+  "default_seed": 20261118,
+  "new_sources": {
+    "experiments/set_association/__init__.py": "0b6e4bc252b1f8868c6ff5134383bb9dfb9d35601e35e34bc87c5192b66bcd36",
+    "experiments/set_association/model.py": "166efa73bddae137a911494037935f33eb8b7d7b66d0111a6606fd3b92bf7b32",
+    "experiments/set_association/train.py": "98797ce4655bf32269bc41487040558b7bd2be1c8179cd46f9117807d4bb5d6c"
+  },
+  "reused_sources": {
+    "experiments/competition_learning/model.py": "25bca4b72261612cd215face5078e0f490c52a087af8e20958df7104150f16be",
+    "experiments/competition_learning/features.py": "ff3e99a2c02270f8ae185e96abab932f8fdeacf4f00d619cad9babfde45245e1",
+    "experiments/competition_learning/samples.py": "4036656e78827a4cf7a946bc70ef64e22a0caa96ae74d653010e4fd355b5ac35",
+    "experiments/competition_learning/metrics.py": "7c2092920cdc46b8979918b8627767cbdcefd8f987aeb703d749e8a81792ea8f",
+    "experiments/competition_learning/train.py": "ba39fedae88b16db607dea9a314167ef2a6121d9c4d567d88f726e66a6f5c2d2",
+    "experiments/competition_learning/pilot.py": "c3fef1eedb5b9e76d523e4265b60fc88cf3dbd1b6036722fd348228472f10963",
+    "experiments/competition_learning/reject_calibration.py": "4bbd1ee5583fd816f0c7a84bcab83f2d33658f963daefec34887f0760c37e17e",
+    "experiments/id_recovery/affinity.py": "8dc6ed2025692a11b4329405291756dedb8668dca2fe7fbefc10c1efa3de5313"
+  },
+  "checkpoints": [
+    0,
+    200,
+    600,
+    1200
+  ],
+  "identity": {
+    "hypothesis": "Retained full causal track history improves identity beyond equal continued training of selected-track96.",
+    "steps": 1200,
+    "arms": [
+      "continued96",
+      "full186"
+    ],
+    "initialization": "Each seed starts its own prior binary96 function exactly. Same sampled IDs after resetting RNG after dimension-dependent initialization.",
+    "features": "Full track98 + edge85 + publication metadata3. Existing96 exactly reconstructs from selected full coordinates.",
+    "objective": "Identical previous binary BCE, flat512+rows128x12+columns128x32; AdamW lr.001 wd.001 clip5.",
+    "checkpoint_rule": "minimum full validation known-edge BCE, not behavior metrics or whole-scene score",
+    "gate": {
+      "wrong_ratio_max": 0.95,
+      "recall_drop_max": 0.005,
+      "false_accept_ratio_max": 1.02,
+      "both_seeds": true
+    },
+    "primary": "full186 versus continued96 of same seed; prior frozen96 is context only"
+  },
+  "rejection": {
+    "hypothesis": "Current geometric candidate context improves rejection at preserved training continuation recall.",
+    "steps": 1200,
+    "arms": [
+      "history-uniform",
+      "candidate-uniform",
+      "history-balanced",
+      "candidate-balanced"
+    ],
+    "features": "History101; candidate edge96 encoder32 with masked mean+max+logcount/3. Same166-to32-to1 decoder, context65 zero for history control.",
+    "initialization": "Null last layer zero, each seed freezes its prior binary96 pair logits for every arm; no identity experiment weights.",
+    "supervision": "Only rows with known labels for ALL geometric candidates and a prior reliable identity anchor; no GT mask used as feature.",
+    "objective": "row set-CE including real candidates and null; uniform256 or present128+absent128, AdamW lr.001 wd.001 clip5.",
+    "checkpoint_rule": "minimum balanced validation row CE for all arms",
+    "calibration": "After checkpoint selection fit one scalar null offset on training24 only, preserving prior binary correct positive count incl ties. Validation never fits offset.",
+    "primary": "candidate-balanced versus history-balanced at their training-fitted offsets, both fixed seeds",
+    "gate": {
+      "false_accept_ratio_max": 0.9,
+      "recall_drop_max": 0.005,
+      "present_wrong_ratio_max": 1.05,
+      "total_wrong_ratio_max": 0.95,
+      "both_seeds": true
+    },
+    "secondary": "uniform arms isolate effect of rare-null sampling; do not replace primary after results"
+  },
+  "budget": {
+    "gpu_training_runs": 12,
+    "seconds_per_model": 240,
+    "total_wall_timeout_seconds": 3300,
+    "reuse_cached_samples": true,
+    "no_new_point_training": true
+  },
+  "rollout": {
+    "condition": "Only passing component advances. Failure stops that component, no choosing best secondary arm.",
+    "data": "same internal validation8 only",
+    "default_seed": 20261118,
+    "identity_integration": "Fixed existing column penalty on mature>=3 publishedIDs competing for strong>=.525 point; parent scale .25 cap4; no row/null replacement.",
+    "rejection_integration": "Frozen prior96 real logit costs and new null+trainingoffset at fixed .25 scale; compare both balanced history/candidate arms.",
+    "guards": {
+      "weighted_gain_min": 0.2,
+      "fragmentation_gain_min": 1.0,
+      "point_recall_drop_pp_max": 0.1,
+      "continuous_drop_max": 0.3,
+      "timeliness_drop_max": 0.3,
+      "clutter_ratio_max": 1.02,
+      "mixed_ratio_max": 1.0
+    }
+  },
+  "limitations": [
+    "Head-only internal development, upstream parent used all fit64; validation8 repeatedly exposed.",
+    "Reliable-history sample selection omits pure clutter and ambiguous history rows; full runtime has broader support.",
+    "Unknown candidates are included in set features but containing rows excluded from null supervision and row evaluation.",
+    "No observation/query Transformer or graph network reproduction claimed; this is a minimal capacity test.",
+    "No original calibration8, new work16, confirmation set or sealed29 read; no new official score or v3 claim."
+  ]
+}
