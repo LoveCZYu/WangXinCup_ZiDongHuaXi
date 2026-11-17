@@ -1,0 +1,131 @@
+{
+  "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+  "totals": {
+    "returns_in_next_four_episodes": 1477,
+    "returns_in_next_four_mixed_points": 2552,
+    "never_observed_again_episodes": 61,
+    "never_observed_again_mixed_points": 518,
+    "returns_after_four_episodes": 26,
+    "returns_after_four_mixed_points": 105
+  },
+  "scenes": {
+    "train_010": {
+      "returns_in_next_four_episodes": 139,
+      "returns_in_next_four_mixed_points": 234,
+      "never_observed_again_episodes": 2,
+      "never_observed_again_mixed_points": 42
+    },
+    "train_072": {
+      "returns_in_next_four_episodes": 116,
+      "returns_in_next_four_mixed_points": 201,
+      "never_observed_again_episodes": 2,
+      "never_observed_again_mixed_points": 3
+    },
+    "train_006": {
+      "returns_in_next_four_episodes": 106,
+      "returns_in_next_four_mixed_points": 219,
+      "returns_after_four_episodes": 3,
+      "returns_after_four_mixed_points": 11,
+      "never_observed_again_episodes": 7,
+      "never_observed_again_mixed_points": 149
+    },
+    "train_064": {
+      "returns_in_next_four_episodes": 92,
+      "returns_in_next_four_mixed_points": 145,
+      "never_observed_again_episodes": 2,
+      "never_observed_again_mixed_points": 2,
+      "returns_after_four_episodes": 2,
+      "returns_after_four_mixed_points": 6
+    },
+    "train_011": {
+      "returns_in_next_four_episodes": 57,
+      "returns_in_next_four_mixed_points": 112,
+      "never_observed_again_episodes": 4,
+      "never_observed_again_mixed_points": 129
+    },
+    "train_088": {
+      "returns_in_next_four_episodes": 84,
+      "returns_in_next_four_mixed_points": 144,
+      "returns_after_four_episodes": 2,
+      "returns_after_four_mixed_points": 10,
+      "never_observed_again_episodes": 1,
+      "never_observed_again_mixed_points": 1
+    },
+    "train_014": {
+      "returns_in_next_four_episodes": 122,
+      "returns_in_next_four_mixed_points": 188,
+      "returns_after_four_episodes": 1,
+      "returns_after_four_mixed_points": 5,
+      "never_observed_again_episodes": 8,
+      "never_observed_again_mixed_points": 11
+    },
+    "train_187": {
+      "returns_in_next_four_episodes": 79,
+      "returns_in_next_four_mixed_points": 129,
+      "never_observed_again_episodes": 4,
+      "never_observed_again_mixed_points": 66
+    },
+    "train_067": {
+      "returns_in_next_four_episodes": 103,
+      "returns_in_next_four_mixed_points": 160,
+      "returns_after_four_episodes": 3,
+      "returns_after_four_mixed_points": 14,
+      "never_observed_again_episodes": 1,
+      "never_observed_again_mixed_points": 1
+    },
+    "train_074": {
+      "returns_in_next_four_episodes": 108,
+      "returns_in_next_four_mixed_points": 251,
+      "returns_after_four_episodes": 7,
+      "returns_after_four_mixed_points": 26,
+      "never_observed_again_episodes": 4,
+      "never_observed_again_mixed_points": 5
+    },
+    "train_058": {
+      "returns_in_next_four_episodes": 110,
+      "returns_in_next_four_mixed_points": 181,
+      "never_observed_again_episodes": 4,
+      "never_observed_again_mixed_points": 6,
+      "returns_after_four_episodes": 1,
+      "returns_after_four_mixed_points": 5
+    },
+    "train_012": {
+      "returns_in_next_four_episodes": 79,
+      "returns_in_next_four_mixed_points": 133,
+      "never_observed_again_episodes": 3,
+      "never_observed_again_mixed_points": 6
+    },
+    "train_157": {
+      "returns_in_next_four_episodes": 58,
+      "returns_in_next_four_mixed_points": 97,
+      "returns_after_four_episodes": 2,
+      "returns_after_four_mixed_points": 9,
+      "never_observed_again_episodes": 4,
+      "never_observed_again_mixed_points": 18
+    },
+    "train_080": {
+      "returns_in_next_four_episodes": 59,
+      "returns_in_next_four_mixed_points": 98,
+      "never_observed_again_episodes": 7,
+      "never_observed_again_mixed_points": 62,
+      "returns_after_four_episodes": 2,
+      "returns_after_four_mixed_points": 4
+    },
+    "train_029": {
+      "returns_in_next_four_episodes": 68,
+      "returns_in_next_four_mixed_points": 106,
+      "returns_after_four_episodes": 1,
+      "returns_after_four_mixed_points": 5,
+      "never_observed_again_episodes": 2,
+      "never_observed_again_mixed_points": 4
+    },
+    "train_034": {
+      "returns_in_next_four_episodes": 97,
+      "returns_in_next_four_mixed_points": 154,
+      "returns_after_four_episodes": 2,
+      "returns_after_four_mixed_points": 10,
+      "never_observed_again_episodes": 6,
+      "never_observed_again_mixed_points": 13
+    }
+  }
+}

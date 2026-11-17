@@ -1,0 +1,2088 @@
+{
+  "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+  "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff",
+  "selection": "Longest per scene with a pure active prefix and a raw observation returning within four scans.",
+  "cases": [
+    {
+      "event": {
+        "scene": "train_088",
+        "batch": 11948,
+        "wrong_truth": 16,
+        "expected": 15,
+        "start": 475,
+        "end": 481,
+        "count": 7,
+        "onset": {
+          "frame": 475,
+          "circle": 475,
+          "batch": 11948,
+          "expected": 15,
+          "truth": 16,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 116052,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 6,
+            "silent_or_other": 6
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "other_target": 6,
+            "silent_or_other": 6
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 6,
+            "silent_or_other": 6
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 475,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 476,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 477,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 478,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 479,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 480,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 481,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 482,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 483,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 484,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 485,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 486,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 487,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 475,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 476,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 477,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 478,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 479,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 480,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 481,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 482,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 483,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 484,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 485,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 486,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 487,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 475,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 476,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 477,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 478,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 479,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 480,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 481,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 482,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 483,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 484,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 485,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 486,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 487,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          }
+        ]
+      },
+      "scene": "train_088",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_072",
+        "batch": 1820,
+        "wrong_truth": 7,
+        "expected": 6,
+        "start": 287,
+        "end": 291,
+        "count": 5,
+        "onset": {
+          "frame": 287,
+          "circle": 287,
+          "batch": 1820,
+          "expected": 6,
+          "truth": 7,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 72584,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 4,
+            "correct": 8
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "other_target": 4,
+            "correct": 8
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 4,
+            "correct": 8
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 287,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 288,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 289,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 290,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 291,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 292,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 293,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 294,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 295,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 296,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 297,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 298,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 299,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 287,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 288,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 289,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 290,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 291,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 292,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 293,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 294,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 295,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 296,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 297,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 298,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 299,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 287,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 288,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 289,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 290,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 291,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 292,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 293,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 294,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 295,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 296,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 297,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 298,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 299,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_072",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_006",
+        "batch": 19849,
+        "wrong_truth": 23,
+        "expected": 20,
+        "start": 180,
+        "end": 183,
+        "count": 4,
+        "onset": {
+          "frame": 180,
+          "circle": 180,
+          "batch": 19849,
+          "expected": 20,
+          "truth": 23,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 47453,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "silent_or_other": 12
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "silent_or_other": 12
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 180,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 181,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 182,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 183,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 184,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 185,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 186,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 187,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 188,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 189,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 190,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 191,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 192,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 180,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 181,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 182,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 183,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 184,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 185,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 186,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 187,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 188,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 189,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 190,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 191,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 192,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 180,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 181,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 182,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 183,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 184,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 185,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 186,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 187,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 188,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 189,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 190,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 191,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 192,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_006",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_010",
+        "batch": 23653,
+        "wrong_truth": 32,
+        "expected": 31,
+        "start": 379,
+        "end": 382,
+        "count": 4,
+        "onset": {
+          "frame": 379,
+          "circle": 379,
+          "batch": 23653,
+          "expected": 31,
+          "truth": 32,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 83879,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 379,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 380,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 381,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 382,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 383,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 384,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 385,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 386,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 387,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 388,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 389,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 390,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 391,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 379,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 380,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 381,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 382,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 383,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 384,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 385,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 386,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 387,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 388,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 389,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 390,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 391,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 379,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 380,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 381,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 382,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 383,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 384,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 385,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 386,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 387,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 388,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 389,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 390,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 391,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_010",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_011",
+        "batch": 13395,
+        "wrong_truth": 40,
+        "expected": 42,
+        "start": 262,
+        "end": 266,
+        "count": 4,
+        "onset": {
+          "frame": 262,
+          "circle": 262,
+          "batch": 13395,
+          "expected": 42,
+          "truth": 40,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 49664,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "silent_or_other": 1,
+            "other_target": 3,
+            "correct": 8
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "silent_or_other": 4,
+            "correct": 8
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "silent_or_other": 4,
+            "correct": 8
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 262,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 263,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 264,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 265,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 266,
+            "outcome": "other_target",
+            "true_observed": true
+          },
+          {
+            "circle": 267,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 268,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 269,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 270,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 271,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 272,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 273,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 274,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 262,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 263,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 264,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 265,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 266,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 267,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 268,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 269,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 270,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 271,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 272,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 273,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 274,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 262,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 263,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 264,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 265,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 266,
+            "outcome": "silent_or_other",
+            "true_observed": true
+          },
+          {
+            "circle": 267,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 268,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 269,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 270,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 271,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 272,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 273,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 274,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_011",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_012",
+        "batch": 16525,
+        "wrong_truth": 79,
+        "expected": 80,
+        "start": 233,
+        "end": 236,
+        "count": 4,
+        "onset": {
+          "frame": 233,
+          "circle": 233,
+          "batch": 16525,
+          "expected": 80,
+          "truth": 79,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 32031,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 233,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 234,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 235,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 236,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 237,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 238,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 239,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 240,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 241,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 242,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 243,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 244,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 245,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 233,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 234,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 235,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 236,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 237,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 238,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 239,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 240,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 241,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 242,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 243,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 244,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 245,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 233,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 234,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 235,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 236,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 237,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 238,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 239,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 240,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 241,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 242,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 243,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 244,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 245,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_012",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_014",
+        "batch": 60412,
+        "wrong_truth": 62,
+        "expected": 61,
+        "start": 542,
+        "end": 545,
+        "count": 4,
+        "onset": {
+          "frame": 542,
+          "circle": 542,
+          "batch": 60412,
+          "expected": 61,
+          "truth": 62,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 135465,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 8,
+            "silent_or_other": 1
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "silent_or_other": 4,
+            "correct": 8
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "silent_or_other": 4,
+            "correct": 8
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 542,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 543,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 544,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 545,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 546,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 547,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 548,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 549,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 550,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 551,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 552,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 553,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 554,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 542,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 543,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 544,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 545,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 546,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 547,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 548,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 549,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 550,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 551,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 552,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 553,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 554,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 542,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 543,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 544,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 545,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 546,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 547,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 548,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 549,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 550,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 551,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 552,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 553,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 554,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_014",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    },
+    {
+      "event": {
+        "scene": "train_029",
+        "batch": 34862,
+        "wrong_truth": 10,
+        "expected": 7,
+        "start": 225,
+        "end": 228,
+        "count": 4,
+        "onset": {
+          "frame": 225,
+          "circle": 225,
+          "batch": 34862,
+          "expected": 7,
+          "truth": 10,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "expected_point_absent",
+          "reason": "expected_point_absent",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 56445,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      "variants": {
+        "original": {
+          "onset": "other_target",
+          "follow": {
+            "other_target": 3,
+            "correct": 9
+          }
+        },
+        "veto_onset": {
+          "onset": "silent_or_other",
+          "follow": {
+            "silent_or_other": 3,
+            "correct": 9
+          }
+        },
+        "retain_prior_state": {
+          "onset": "other_target",
+          "follow": {
+            "silent_or_other": 3,
+            "correct": 9
+          }
+        }
+      },
+      "trajectories": {
+        "original": [
+          {
+            "circle": 225,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 226,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 227,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 228,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 229,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 230,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 231,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 232,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 233,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 234,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 235,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 236,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 237,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "veto_onset": [
+          {
+            "circle": 225,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 226,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 227,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 228,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 229,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 230,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 231,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 232,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 233,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 234,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 235,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 236,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 237,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ],
+        "retain_prior_state": [
+          {
+            "circle": 225,
+            "outcome": "other_target",
+            "true_observed": false
+          },
+          {
+            "circle": 226,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 227,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 228,
+            "outcome": "silent_or_other",
+            "true_observed": false
+          },
+          {
+            "circle": 229,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 230,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 231,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 232,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 233,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 234,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 235,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 236,
+            "outcome": "correct",
+            "true_observed": true
+          },
+          {
+            "circle": 237,
+            "outcome": "correct",
+            "true_observed": true
+          }
+        ]
+      },
+      "scene": "train_029",
+      "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+      "cases_sha256": "55ad4081c0f06e3e49f89e4d0ffc1514f5f50d89cee98ecf6217ad82023bb9ff"
+    }
+  ],
+  "totals": {
+    "original": {
+      "other_target": 28,
+      "silent_or_other": 8,
+      "correct": 60
+    },
+    "veto_onset": {
+      "other_target": 16,
+      "silent_or_other": 29,
+      "correct": 51
+    },
+    "retain_prior_state": {
+      "other_target": 16,
+      "silent_or_other": 29,
+      "correct": 51
+    }
+  }
+}

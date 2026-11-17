@@ -1,0 +1,1199 @@
+{
+  "protocol_sha256": "96711df0b0161414594a9226ef2197133e4aadafadefd0dc434dccfd20596491",
+  "all16": {
+    "mixed": 5417,
+    "gaps": {
+      "0": {
+        "starts": {
+          "expected_point_absent": 1615,
+          "unestablished_identity": 119,
+          "missing_candidate": 101,
+          "available_but_not_selected": 234,
+          "ambiguous_dominant": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 3199,
+          "unestablished_identity": 1267,
+          "missing_candidate": 454,
+          "available_but_not_selected": 491,
+          "ambiguous_dominant": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 1615,
+          "continued": 3345,
+          "unestablished_identity": 119,
+          "missing_candidate": 101,
+          "available_but_not_selected": 234,
+          "ambiguous_dominant": 3
+        },
+        "continued_long": 2413,
+        "continued_long_reciprocal": 338
+      },
+      "3": {
+        "starts": {
+          "expected_point_absent": 1564,
+          "unestablished_identity": 66,
+          "missing_candidate": 83,
+          "available_but_not_selected": 228,
+          "ambiguous_dominant": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 3175,
+          "unestablished_identity": 1267,
+          "missing_candidate": 357,
+          "available_but_not_selected": 612,
+          "ambiguous_dominant": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 1564,
+          "continued": 3473,
+          "unestablished_identity": 66,
+          "missing_candidate": 83,
+          "available_but_not_selected": 228,
+          "ambiguous_dominant": 3
+        },
+        "continued_long": 2559,
+        "continued_long_reciprocal": 476
+      },
+      "8": {
+        "starts": {
+          "expected_point_absent": 1563,
+          "unestablished_identity": 66,
+          "missing_candidate": 80,
+          "available_but_not_selected": 225,
+          "ambiguous_dominant": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 3175,
+          "unestablished_identity": 1267,
+          "missing_candidate": 341,
+          "available_but_not_selected": 628,
+          "ambiguous_dominant": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 1563,
+          "continued": 3480,
+          "unestablished_identity": 66,
+          "missing_candidate": 80,
+          "available_but_not_selected": 225,
+          "ambiguous_dominant": 3
+        },
+        "continued_long": 2567,
+        "continued_long_reciprocal": 476
+      }
+    },
+    "per_point_current_state": {
+      "expected_point_absent": 3162,
+      "unestablished_identity": 1267,
+      "missing_candidate": 643,
+      "available_but_not_selected": 339,
+      "ambiguous_dominant": 6
+    },
+    "established_first_details": {
+      "expected_point_absent": 1564,
+      "main_motion_gate": 80,
+      "main_candidate_not_selected": 228,
+      "retired_geometry_or_topk": 1,
+      "main_base_cost": 2
+    },
+    "pure_prefix_first": {
+      "expected_point_absent": 1481,
+      "missing_candidate": 58,
+      "available_but_not_selected": 171
+    },
+    "selected_despite_true_candidate": 228,
+    "with_true_candidate_and_other_owner": 196,
+    "scenes": {
+      "train_010": {
+        "mixed": 964,
+        "starts": {
+          "expected_point_absent": 141,
+          "unestablished_identity": 14,
+          "missing_candidate": 7,
+          "available_but_not_selected": 19
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 276,
+          "unestablished_identity": 592,
+          "missing_candidate": 56,
+          "available_but_not_selected": 40
+        },
+        "decomposition": {
+          "expected_point_absent": 141,
+          "continued": 783,
+          "unestablished_identity": 14,
+          "missing_candidate": 7,
+          "available_but_not_selected": 19
+        },
+        "continued_long": 693,
+        "continued_long_reciprocal": 357
+      },
+      "train_072": {
+        "mixed": 552,
+        "starts": {
+          "expected_point_absent": 118,
+          "available_but_not_selected": 33,
+          "unestablished_identity": 5,
+          "missing_candidate": 10,
+          "ambiguous_dominant": 2
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 204,
+          "available_but_not_selected": 135,
+          "unestablished_identity": 195,
+          "missing_candidate": 13,
+          "ambiguous_dominant": 5
+        },
+        "decomposition": {
+          "expected_point_absent": 118,
+          "continued": 384,
+          "available_but_not_selected": 33,
+          "unestablished_identity": 5,
+          "missing_candidate": 10,
+          "ambiguous_dominant": 2
+        },
+        "continued_long": 307,
+        "continued_long_reciprocal": 47
+      },
+      "train_006": {
+        "mixed": 717,
+        "starts": {
+          "expected_point_absent": 116,
+          "unestablished_identity": 8,
+          "missing_candidate": 11,
+          "available_but_not_selected": 18
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 379,
+          "unestablished_identity": 177,
+          "missing_candidate": 83,
+          "available_but_not_selected": 78
+        },
+        "decomposition": {
+          "expected_point_absent": 116,
+          "continued": 564,
+          "unestablished_identity": 8,
+          "missing_candidate": 11,
+          "available_but_not_selected": 18
+        },
+        "continued_long": 494,
+        "continued_long_reciprocal": 20
+      },
+      "train_064": {
+        "mixed": 324,
+        "starts": {
+          "unestablished_identity": 8,
+          "expected_point_absent": 96,
+          "available_but_not_selected": 29,
+          "missing_candidate": 7
+        },
+        "weighted_from_first_error": {
+          "unestablished_identity": 23,
+          "expected_point_absent": 153,
+          "available_but_not_selected": 91,
+          "missing_candidate": 57
+        },
+        "decomposition": {
+          "unestablished_identity": 8,
+          "continued": 184,
+          "expected_point_absent": 96,
+          "available_but_not_selected": 29,
+          "missing_candidate": 7
+        },
+        "continued_long": 130,
+        "continued_long_reciprocal": 46
+      },
+      "train_011": {
+        "mixed": 250,
+        "starts": {
+          "unestablished_identity": 2,
+          "expected_point_absent": 61,
+          "available_but_not_selected": 4
+        },
+        "weighted_from_first_error": {
+          "unestablished_identity": 5,
+          "expected_point_absent": 241,
+          "available_but_not_selected": 4
+        },
+        "decomposition": {
+          "unestablished_identity": 2,
+          "continued": 183,
+          "expected_point_absent": 61,
+          "available_but_not_selected": 4
+        },
+        "continued_long": 133,
+        "continued_long_reciprocal": 0
+      },
+      "train_088": {
+        "mixed": 180,
+        "starts": {
+          "expected_point_absent": 87,
+          "unestablished_identity": 1,
+          "available_but_not_selected": 18,
+          "missing_candidate": 1
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 155,
+          "unestablished_identity": 1,
+          "available_but_not_selected": 23,
+          "missing_candidate": 1
+        },
+        "decomposition": {
+          "expected_point_absent": 87,
+          "continued": 73,
+          "unestablished_identity": 1,
+          "available_but_not_selected": 18,
+          "missing_candidate": 1
+        },
+        "continued_long": 23,
+        "continued_long_reciprocal": 0
+      },
+      "train_014": {
+        "mixed": 243,
+        "starts": {
+          "expected_point_absent": 131,
+          "available_but_not_selected": 23,
+          "unestablished_identity": 4,
+          "missing_candidate": 6
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 204,
+          "available_but_not_selected": 29,
+          "unestablished_identity": 4,
+          "missing_candidate": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 131,
+          "continued": 79,
+          "available_but_not_selected": 23,
+          "unestablished_identity": 4,
+          "missing_candidate": 6
+        },
+        "continued_long": 10,
+        "continued_long_reciprocal": 0
+      },
+      "train_187": {
+        "mixed": 280,
+        "starts": {
+          "expected_point_absent": 83,
+          "available_but_not_selected": 10,
+          "missing_candidate": 3,
+          "unestablished_identity": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 195,
+          "available_but_not_selected": 14,
+          "missing_candidate": 3,
+          "unestablished_identity": 68
+        },
+        "decomposition": {
+          "expected_point_absent": 83,
+          "continued": 181,
+          "available_but_not_selected": 10,
+          "missing_candidate": 3,
+          "unestablished_identity": 3
+        },
+        "continued_long": 131,
+        "continued_long_reciprocal": 0
+      },
+      "train_067": {
+        "mixed": 198,
+        "starts": {
+          "expected_point_absent": 107,
+          "missing_candidate": 7,
+          "available_but_not_selected": 12,
+          "unestablished_identity": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 175,
+          "missing_candidate": 7,
+          "available_but_not_selected": 12,
+          "unestablished_identity": 4
+        },
+        "decomposition": {
+          "expected_point_absent": 107,
+          "continued": 69,
+          "missing_candidate": 7,
+          "available_but_not_selected": 12,
+          "unestablished_identity": 3
+        },
+        "continued_long": 15,
+        "continued_long_reciprocal": 6
+      },
+      "train_074": {
+        "mixed": 316,
+        "starts": {
+          "expected_point_absent": 119,
+          "ambiguous_dominant": 1,
+          "available_but_not_selected": 14,
+          "unestablished_identity": 1,
+          "missing_candidate": 2
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 282,
+          "ambiguous_dominant": 1,
+          "available_but_not_selected": 30,
+          "unestablished_identity": 1,
+          "missing_candidate": 2
+        },
+        "decomposition": {
+          "expected_point_absent": 119,
+          "continued": 179,
+          "ambiguous_dominant": 1,
+          "available_but_not_selected": 14,
+          "unestablished_identity": 1,
+          "missing_candidate": 2
+        },
+        "continued_long": 124,
+        "continued_long_reciprocal": 0
+      },
+      "train_058": {
+        "mixed": 292,
+        "starts": {
+          "expected_point_absent": 115,
+          "unestablished_identity": 4,
+          "available_but_not_selected": 13,
+          "missing_candidate": 4
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 192,
+          "unestablished_identity": 56,
+          "available_but_not_selected": 39,
+          "missing_candidate": 5
+        },
+        "decomposition": {
+          "expected_point_absent": 115,
+          "continued": 156,
+          "unestablished_identity": 4,
+          "available_but_not_selected": 13,
+          "missing_candidate": 4
+        },
+        "continued_long": 86,
+        "continued_long_reciprocal": 0
+      },
+      "train_012": {
+        "mixed": 148,
+        "starts": {
+          "unestablished_identity": 1,
+          "expected_point_absent": 82,
+          "missing_candidate": 3,
+          "available_but_not_selected": 2
+        },
+        "weighted_from_first_error": {
+          "unestablished_identity": 2,
+          "expected_point_absent": 139,
+          "missing_candidate": 3,
+          "available_but_not_selected": 4
+        },
+        "decomposition": {
+          "unestablished_identity": 1,
+          "continued": 60,
+          "expected_point_absent": 82,
+          "missing_candidate": 3,
+          "available_but_not_selected": 2
+        },
+        "continued_long": 12,
+        "continued_long_reciprocal": 0
+      },
+      "train_157": {
+        "mixed": 211,
+        "starts": {
+          "expected_point_absent": 64,
+          "missing_candidate": 2,
+          "unestablished_identity": 5,
+          "available_but_not_selected": 1
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 124,
+          "missing_candidate": 4,
+          "unestablished_identity": 81,
+          "available_but_not_selected": 2
+        },
+        "decomposition": {
+          "expected_point_absent": 64,
+          "continued": 139,
+          "missing_candidate": 2,
+          "unestablished_identity": 5,
+          "available_but_not_selected": 1
+        },
+        "continued_long": 97,
+        "continued_long_reciprocal": 0
+      },
+      "train_080": {
+        "mixed": 366,
+        "starts": {
+          "available_but_not_selected": 9,
+          "expected_point_absent": 68,
+          "unestablished_identity": 3,
+          "missing_candidate": 5
+        },
+        "weighted_from_first_error": {
+          "available_but_not_selected": 79,
+          "expected_point_absent": 164,
+          "unestablished_identity": 29,
+          "missing_candidate": 94
+        },
+        "decomposition": {
+          "available_but_not_selected": 9,
+          "continued": 281,
+          "expected_point_absent": 68,
+          "unestablished_identity": 3,
+          "missing_candidate": 5
+        },
+        "continued_long": 240,
+        "continued_long_reciprocal": 0
+      },
+      "train_029": {
+        "mixed": 158,
+        "starts": {
+          "expected_point_absent": 71,
+          "available_but_not_selected": 6,
+          "unestablished_identity": 1,
+          "missing_candidate": 8
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 115,
+          "available_but_not_selected": 11,
+          "unestablished_identity": 22,
+          "missing_candidate": 10
+        },
+        "decomposition": {
+          "expected_point_absent": 71,
+          "continued": 72,
+          "available_but_not_selected": 6,
+          "unestablished_identity": 1,
+          "missing_candidate": 8
+        },
+        "continued_long": 36,
+        "continued_long_reciprocal": 0
+      },
+      "train_034": {
+        "mixed": 218,
+        "starts": {
+          "expected_point_absent": 105,
+          "unestablished_identity": 3,
+          "missing_candidate": 7,
+          "available_but_not_selected": 17
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 177,
+          "unestablished_identity": 7,
+          "missing_candidate": 13,
+          "available_but_not_selected": 21
+        },
+        "decomposition": {
+          "expected_point_absent": 105,
+          "continued": 86,
+          "unestablished_identity": 3,
+          "missing_candidate": 7,
+          "available_but_not_selected": 17
+        },
+        "continued_long": 28,
+        "continued_long_reciprocal": 0
+      }
+    }
+  },
+  "other15": {
+    "mixed": 5199,
+    "gaps": {
+      "0": {
+        "starts": {
+          "expected_point_absent": 1509,
+          "unestablished_identity": 116,
+          "missing_candidate": 94,
+          "available_but_not_selected": 217,
+          "ambiguous_dominant": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 3022,
+          "unestablished_identity": 1260,
+          "missing_candidate": 441,
+          "available_but_not_selected": 470,
+          "ambiguous_dominant": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 1509,
+          "continued": 3260,
+          "unestablished_identity": 116,
+          "missing_candidate": 94,
+          "available_but_not_selected": 217,
+          "ambiguous_dominant": 3
+        },
+        "continued_long": 2385,
+        "continued_long_reciprocal": 338
+      },
+      "3": {
+        "starts": {
+          "expected_point_absent": 1459,
+          "unestablished_identity": 63,
+          "missing_candidate": 76,
+          "available_but_not_selected": 211,
+          "ambiguous_dominant": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 2998,
+          "unestablished_identity": 1260,
+          "missing_candidate": 344,
+          "available_but_not_selected": 591,
+          "ambiguous_dominant": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 1459,
+          "continued": 3387,
+          "unestablished_identity": 63,
+          "missing_candidate": 76,
+          "available_but_not_selected": 211,
+          "ambiguous_dominant": 3
+        },
+        "continued_long": 2531,
+        "continued_long_reciprocal": 476
+      },
+      "8": {
+        "starts": {
+          "expected_point_absent": 1458,
+          "unestablished_identity": 63,
+          "missing_candidate": 73,
+          "available_but_not_selected": 209,
+          "ambiguous_dominant": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 2998,
+          "unestablished_identity": 1260,
+          "missing_candidate": 328,
+          "available_but_not_selected": 607,
+          "ambiguous_dominant": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 1458,
+          "continued": 3393,
+          "unestablished_identity": 63,
+          "missing_candidate": 73,
+          "available_but_not_selected": 209,
+          "ambiguous_dominant": 3
+        },
+        "continued_long": 2539,
+        "continued_long_reciprocal": 476
+      }
+    },
+    "per_point_current_state": {
+      "expected_point_absent": 2986,
+      "unestablished_identity": 1260,
+      "missing_candidate": 636,
+      "available_but_not_selected": 311,
+      "ambiguous_dominant": 6
+    },
+    "established_first_details": {
+      "expected_point_absent": 1459,
+      "main_motion_gate": 74,
+      "main_candidate_not_selected": 211,
+      "retired_geometry_or_topk": 1,
+      "main_base_cost": 1
+    },
+    "pure_prefix_first": {
+      "expected_point_absent": 1384,
+      "missing_candidate": 52,
+      "available_but_not_selected": 159
+    },
+    "selected_despite_true_candidate": 211,
+    "with_true_candidate_and_other_owner": 181,
+    "scenes": {
+      "train_010": {
+        "mixed": 964,
+        "starts": {
+          "expected_point_absent": 141,
+          "unestablished_identity": 14,
+          "missing_candidate": 7,
+          "available_but_not_selected": 19
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 276,
+          "unestablished_identity": 592,
+          "missing_candidate": 56,
+          "available_but_not_selected": 40
+        },
+        "decomposition": {
+          "expected_point_absent": 141,
+          "continued": 783,
+          "unestablished_identity": 14,
+          "missing_candidate": 7,
+          "available_but_not_selected": 19
+        },
+        "continued_long": 693,
+        "continued_long_reciprocal": 357
+      },
+      "train_072": {
+        "mixed": 552,
+        "starts": {
+          "expected_point_absent": 118,
+          "available_but_not_selected": 33,
+          "unestablished_identity": 5,
+          "missing_candidate": 10,
+          "ambiguous_dominant": 2
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 204,
+          "available_but_not_selected": 135,
+          "unestablished_identity": 195,
+          "missing_candidate": 13,
+          "ambiguous_dominant": 5
+        },
+        "decomposition": {
+          "expected_point_absent": 118,
+          "continued": 384,
+          "available_but_not_selected": 33,
+          "unestablished_identity": 5,
+          "missing_candidate": 10,
+          "ambiguous_dominant": 2
+        },
+        "continued_long": 307,
+        "continued_long_reciprocal": 47
+      },
+      "train_006": {
+        "mixed": 717,
+        "starts": {
+          "expected_point_absent": 116,
+          "unestablished_identity": 8,
+          "missing_candidate": 11,
+          "available_but_not_selected": 18
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 379,
+          "unestablished_identity": 177,
+          "missing_candidate": 83,
+          "available_but_not_selected": 78
+        },
+        "decomposition": {
+          "expected_point_absent": 116,
+          "continued": 564,
+          "unestablished_identity": 8,
+          "missing_candidate": 11,
+          "available_but_not_selected": 18
+        },
+        "continued_long": 494,
+        "continued_long_reciprocal": 20
+      },
+      "train_064": {
+        "mixed": 324,
+        "starts": {
+          "unestablished_identity": 8,
+          "expected_point_absent": 96,
+          "available_but_not_selected": 29,
+          "missing_candidate": 7
+        },
+        "weighted_from_first_error": {
+          "unestablished_identity": 23,
+          "expected_point_absent": 153,
+          "available_but_not_selected": 91,
+          "missing_candidate": 57
+        },
+        "decomposition": {
+          "unestablished_identity": 8,
+          "continued": 184,
+          "expected_point_absent": 96,
+          "available_but_not_selected": 29,
+          "missing_candidate": 7
+        },
+        "continued_long": 130,
+        "continued_long_reciprocal": 46
+      },
+      "train_011": {
+        "mixed": 250,
+        "starts": {
+          "unestablished_identity": 2,
+          "expected_point_absent": 61,
+          "available_but_not_selected": 4
+        },
+        "weighted_from_first_error": {
+          "unestablished_identity": 5,
+          "expected_point_absent": 241,
+          "available_but_not_selected": 4
+        },
+        "decomposition": {
+          "unestablished_identity": 2,
+          "continued": 183,
+          "expected_point_absent": 61,
+          "available_but_not_selected": 4
+        },
+        "continued_long": 133,
+        "continued_long_reciprocal": 0
+      },
+      "train_088": {
+        "mixed": 180,
+        "starts": {
+          "expected_point_absent": 87,
+          "unestablished_identity": 1,
+          "available_but_not_selected": 18,
+          "missing_candidate": 1
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 155,
+          "unestablished_identity": 1,
+          "available_but_not_selected": 23,
+          "missing_candidate": 1
+        },
+        "decomposition": {
+          "expected_point_absent": 87,
+          "continued": 73,
+          "unestablished_identity": 1,
+          "available_but_not_selected": 18,
+          "missing_candidate": 1
+        },
+        "continued_long": 23,
+        "continued_long_reciprocal": 0
+      },
+      "train_014": {
+        "mixed": 243,
+        "starts": {
+          "expected_point_absent": 131,
+          "available_but_not_selected": 23,
+          "unestablished_identity": 4,
+          "missing_candidate": 6
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 204,
+          "available_but_not_selected": 29,
+          "unestablished_identity": 4,
+          "missing_candidate": 6
+        },
+        "decomposition": {
+          "expected_point_absent": 131,
+          "continued": 79,
+          "available_but_not_selected": 23,
+          "unestablished_identity": 4,
+          "missing_candidate": 6
+        },
+        "continued_long": 10,
+        "continued_long_reciprocal": 0
+      },
+      "train_187": {
+        "mixed": 280,
+        "starts": {
+          "expected_point_absent": 83,
+          "available_but_not_selected": 10,
+          "missing_candidate": 3,
+          "unestablished_identity": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 195,
+          "available_but_not_selected": 14,
+          "missing_candidate": 3,
+          "unestablished_identity": 68
+        },
+        "decomposition": {
+          "expected_point_absent": 83,
+          "continued": 181,
+          "available_but_not_selected": 10,
+          "missing_candidate": 3,
+          "unestablished_identity": 3
+        },
+        "continued_long": 131,
+        "continued_long_reciprocal": 0
+      },
+      "train_067": {
+        "mixed": 198,
+        "starts": {
+          "expected_point_absent": 107,
+          "missing_candidate": 7,
+          "available_but_not_selected": 12,
+          "unestablished_identity": 3
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 175,
+          "missing_candidate": 7,
+          "available_but_not_selected": 12,
+          "unestablished_identity": 4
+        },
+        "decomposition": {
+          "expected_point_absent": 107,
+          "continued": 69,
+          "missing_candidate": 7,
+          "available_but_not_selected": 12,
+          "unestablished_identity": 3
+        },
+        "continued_long": 15,
+        "continued_long_reciprocal": 6
+      },
+      "train_074": {
+        "mixed": 316,
+        "starts": {
+          "expected_point_absent": 119,
+          "ambiguous_dominant": 1,
+          "available_but_not_selected": 14,
+          "unestablished_identity": 1,
+          "missing_candidate": 2
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 282,
+          "ambiguous_dominant": 1,
+          "available_but_not_selected": 30,
+          "unestablished_identity": 1,
+          "missing_candidate": 2
+        },
+        "decomposition": {
+          "expected_point_absent": 119,
+          "continued": 179,
+          "ambiguous_dominant": 1,
+          "available_but_not_selected": 14,
+          "unestablished_identity": 1,
+          "missing_candidate": 2
+        },
+        "continued_long": 124,
+        "continued_long_reciprocal": 0
+      },
+      "train_058": {
+        "mixed": 292,
+        "starts": {
+          "expected_point_absent": 115,
+          "unestablished_identity": 4,
+          "available_but_not_selected": 13,
+          "missing_candidate": 4
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 192,
+          "unestablished_identity": 56,
+          "available_but_not_selected": 39,
+          "missing_candidate": 5
+        },
+        "decomposition": {
+          "expected_point_absent": 115,
+          "continued": 156,
+          "unestablished_identity": 4,
+          "available_but_not_selected": 13,
+          "missing_candidate": 4
+        },
+        "continued_long": 86,
+        "continued_long_reciprocal": 0
+      },
+      "train_012": {
+        "mixed": 148,
+        "starts": {
+          "unestablished_identity": 1,
+          "expected_point_absent": 82,
+          "missing_candidate": 3,
+          "available_but_not_selected": 2
+        },
+        "weighted_from_first_error": {
+          "unestablished_identity": 2,
+          "expected_point_absent": 139,
+          "missing_candidate": 3,
+          "available_but_not_selected": 4
+        },
+        "decomposition": {
+          "unestablished_identity": 1,
+          "continued": 60,
+          "expected_point_absent": 82,
+          "missing_candidate": 3,
+          "available_but_not_selected": 2
+        },
+        "continued_long": 12,
+        "continued_long_reciprocal": 0
+      },
+      "train_157": {
+        "mixed": 211,
+        "starts": {
+          "expected_point_absent": 64,
+          "missing_candidate": 2,
+          "unestablished_identity": 5,
+          "available_but_not_selected": 1
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 124,
+          "missing_candidate": 4,
+          "unestablished_identity": 81,
+          "available_but_not_selected": 2
+        },
+        "decomposition": {
+          "expected_point_absent": 64,
+          "continued": 139,
+          "missing_candidate": 2,
+          "unestablished_identity": 5,
+          "available_but_not_selected": 1
+        },
+        "continued_long": 97,
+        "continued_long_reciprocal": 0
+      },
+      "train_080": {
+        "mixed": 366,
+        "starts": {
+          "available_but_not_selected": 9,
+          "expected_point_absent": 68,
+          "unestablished_identity": 3,
+          "missing_candidate": 5
+        },
+        "weighted_from_first_error": {
+          "available_but_not_selected": 79,
+          "expected_point_absent": 164,
+          "unestablished_identity": 29,
+          "missing_candidate": 94
+        },
+        "decomposition": {
+          "available_but_not_selected": 9,
+          "continued": 281,
+          "expected_point_absent": 68,
+          "unestablished_identity": 3,
+          "missing_candidate": 5
+        },
+        "continued_long": 240,
+        "continued_long_reciprocal": 0
+      },
+      "train_029": {
+        "mixed": 158,
+        "starts": {
+          "expected_point_absent": 71,
+          "available_but_not_selected": 6,
+          "unestablished_identity": 1,
+          "missing_candidate": 8
+        },
+        "weighted_from_first_error": {
+          "expected_point_absent": 115,
+          "available_but_not_selected": 11,
+          "unestablished_identity": 22,
+          "missing_candidate": 10
+        },
+        "decomposition": {
+          "expected_point_absent": 71,
+          "continued": 72,
+          "available_but_not_selected": 6,
+          "unestablished_identity": 1,
+          "missing_candidate": 8
+        },
+        "continued_long": 36,
+        "continued_long_reciprocal": 0
+      }
+    }
+  },
+  "replay": {
+    "eligible_scenes": [
+      "train_010",
+      "train_072",
+      "train_006",
+      "train_064",
+      "train_074",
+      "train_058",
+      "train_080",
+      "train_029",
+      "train_034"
+    ],
+    "eligible_episodes": 17,
+    "selected": [
+      {
+        "scene": "train_080",
+        "batch": 1663,
+        "wrong_truth": 21,
+        "expected": 15,
+        "start": 396,
+        "end": 464,
+        "count": 67,
+        "onset": {
+          "frame": 396,
+          "circle": 396,
+          "batch": 1663,
+          "expected": 15,
+          "truth": 21,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "available_but_not_selected",
+          "reason": "main_candidate_not_selected",
+          "true_point_taken": true,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 74378,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      {
+        "scene": "train_064",
+        "batch": 45853,
+        "wrong_truth": 121,
+        "expected": 41,
+        "start": 422,
+        "end": 477,
+        "count": 50,
+        "onset": {
+          "frame": 422,
+          "circle": 422,
+          "batch": 45853,
+          "expected": 41,
+          "truth": 121,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "missing_candidate",
+          "reason": "main_motion_gate",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 92069,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      {
+        "scene": "train_072",
+        "batch": 16956,
+        "wrong_truth": 118,
+        "expected": 40,
+        "start": 253,
+        "end": 296,
+        "count": 42,
+        "onset": {
+          "frame": 253,
+          "circle": 253,
+          "batch": 16956,
+          "expected": 40,
+          "truth": 118,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "available_but_not_selected",
+          "reason": "main_candidate_not_selected",
+          "true_point_taken": true,
+          "reciprocal": true,
+          "active_before": true,
+          "point": 63876,
+          "internal_same": true
+        },
+        "reciprocal": 1
+      },
+      {
+        "scene": "train_006",
+        "batch": 32015,
+        "wrong_truth": 117,
+        "expected": 32,
+        "start": 376,
+        "end": 414,
+        "count": 39,
+        "onset": {
+          "frame": 376,
+          "circle": 376,
+          "batch": 32015,
+          "expected": 32,
+          "truth": 117,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "available_but_not_selected",
+          "reason": "main_candidate_not_selected",
+          "true_point_taken": true,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 103961,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      {
+        "scene": "train_058",
+        "batch": 54331,
+        "wrong_truth": 6,
+        "expected": 108,
+        "start": 386,
+        "end": 408,
+        "count": 23,
+        "onset": {
+          "frame": 386,
+          "circle": 386,
+          "batch": 54331,
+          "expected": 108,
+          "truth": 6,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "available_but_not_selected",
+          "reason": "main_candidate_not_selected",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 96957,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      {
+        "scene": "train_010",
+        "batch": 3235,
+        "wrong_truth": 89,
+        "expected": 37,
+        "start": 349,
+        "end": 369,
+        "count": 21,
+        "onset": {
+          "frame": 349,
+          "circle": 349,
+          "batch": 3235,
+          "expected": 37,
+          "truth": 89,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "available_but_not_selected",
+          "reason": "main_candidate_not_selected",
+          "true_point_taken": true,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 77362,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      {
+        "scene": "train_074",
+        "batch": 25739,
+        "wrong_truth": 7,
+        "expected": 16,
+        "start": 569,
+        "end": 585,
+        "count": 17,
+        "onset": {
+          "frame": 569,
+          "circle": 569,
+          "batch": 25739,
+          "expected": 16,
+          "truth": 7,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "available_but_not_selected",
+          "reason": "main_candidate_not_selected",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 134624,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      },
+      {
+        "scene": "train_034",
+        "batch": 15029,
+        "wrong_truth": 124,
+        "expected": 122,
+        "start": 144,
+        "end": 150,
+        "count": 7,
+        "onset": {
+          "frame": 144,
+          "circle": 144,
+          "batch": 15029,
+          "expected": 122,
+          "truth": 124,
+          "tied": false,
+          "seen_expected": true,
+          "pure_prefix": true,
+          "category": "missing_candidate",
+          "reason": "main_motion_gate",
+          "true_point_taken": false,
+          "reciprocal": false,
+          "active_before": true,
+          "point": 29355,
+          "internal_same": true
+        },
+        "reciprocal": 0
+      }
+    ],
+    "enabled": true,
+    "case_manifest_sha256": "96c134a79921226e6d2e868e3b7ad2de965b8f619b4f43c864336860b1c97780"
+  }
+}
