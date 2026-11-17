@@ -1,0 +1,2382 @@
+{
+  "protocol_sha256": "8a9ffeedaf4f70b5bd4f51c27a2a140e4434d93760617d620ba1e8c48a327acc",
+  "previous_work_realized_correct_flags": 20,
+  "methods": {
+    "single_score": {
+      "threshold": 3.119479727742285,
+      "development_loso": {
+        "eligible_correct": 131313,
+        "eligible_wrong_target": 83,
+        "contested": 65617,
+        "recoverable": 67,
+        "flags": 23,
+        "correct_flags": 13,
+        "recovered_updates": 1,
+        "unsupported_flags": 0,
+        "unresolved_flags": 9,
+        "possible_distinct_pairs": 64,
+        "recovered_distinct_pairs": 1,
+        "recovered_scenes": 1,
+        "scenes": {
+          "train_152": {
+            "eligible_correct": 15353,
+            "eligible_wrong_target": 14,
+            "contested": 7077,
+            "recoverable": 12,
+            "flags": 8,
+            "correct_flags": 5,
+            "unresolved_flags": 2,
+            "recovered_updates": 1,
+            "threshold": 3.0356520464056365
+          },
+          "train_022": {
+            "eligible_correct": 15662,
+            "eligible_wrong_target": 7,
+            "contested": 8757,
+            "recoverable": 4,
+            "threshold": 3.119479727742285
+          },
+          "train_001": {
+            "eligible_correct": 19529,
+            "eligible_wrong_target": 12,
+            "contested": 9879,
+            "recoverable": 10,
+            "flags": 6,
+            "correct_flags": 3,
+            "unresolved_flags": 3,
+            "threshold": 3.119479727742285
+          },
+          "train_139": {
+            "eligible_correct": 17630,
+            "eligible_wrong_target": 11,
+            "contested": 8402,
+            "recoverable": 11,
+            "flags": 3,
+            "unresolved_flags": 2,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_019": {
+            "eligible_correct": 15131,
+            "eligible_wrong_target": 11,
+            "contested": 8192,
+            "recoverable": 8,
+            "flags": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_172": {
+            "eligible_correct": 16765,
+            "eligible_wrong_target": 12,
+            "contested": 7946,
+            "recoverable": 9,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_093": {
+            "eligible_correct": 14669,
+            "eligible_wrong_target": 10,
+            "contested": 7438,
+            "recoverable": 7,
+            "threshold": 3.119479727742285
+          },
+          "train_155": {
+            "eligible_correct": 16574,
+            "eligible_wrong_target": 6,
+            "contested": 7926,
+            "recoverable": 6,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          }
+        }
+      },
+      "work": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 39,
+        "correct_flags": 28,
+        "recovered_updates": 1,
+        "unsupported_flags": 0,
+        "unresolved_flags": 10,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 1,
+        "recovered_scenes": 1,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 5,
+            "correct_flags": 3,
+            "unresolved_flags": 2,
+            "threshold": 3.119479727742285
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 12,
+            "correct_flags": 9,
+            "unresolved_flags": 3,
+            "threshold": 3.119479727742285
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "threshold": 3.119479727742285
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 5,
+            "correct_flags": 3,
+            "unresolved_flags": 2,
+            "threshold": 3.119479727742285
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 3.119479727742285
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 4,
+            "recovered_updates": 1,
+            "correct_flags": 3,
+            "threshold": 3.119479727742285
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 3.119479727742285
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "threshold": 3.119479727742285
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 3.119479727742285
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.119479727742285
+          }
+        }
+      },
+      "work_posthoc_equal_budget": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 92,
+        "correct_flags": 63,
+        "recovered_updates": 2,
+        "unsupported_flags": 0,
+        "unresolved_flags": 27,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 2,
+        "recovered_scenes": 2,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 6,
+            "correct_flags": 2,
+            "unresolved_flags": 4,
+            "threshold": 2.893944179215362
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 8,
+            "correct_flags": 5,
+            "unresolved_flags": 3,
+            "threshold": 2.893944179215362
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 2.893944179215362
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 19,
+            "correct_flags": 14,
+            "unresolved_flags": 5,
+            "threshold": 2.893944179215362
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "threshold": 2.893944179215362
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 6,
+            "correct_flags": 3,
+            "unresolved_flags": 3,
+            "threshold": 2.893944179215362
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 14,
+            "correct_flags": 10,
+            "unresolved_flags": 4,
+            "threshold": 2.893944179215362
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 5,
+            "correct_flags": 2,
+            "unresolved_flags": 3,
+            "threshold": 2.893944179215362
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 5,
+            "correct_flags": 5,
+            "threshold": 2.893944179215362
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 11,
+            "recovered_updates": 1,
+            "correct_flags": 9,
+            "unresolved_flags": 1,
+            "threshold": 2.893944179215362
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "flags": 4,
+            "correct_flags": 4,
+            "threshold": 2.893944179215362
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": 2.893944179215362
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 1,
+            "recovered_updates": 1,
+            "threshold": 2.893944179215362
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "flags": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 2.893944179215362
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 2.893944179215362
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 5,
+            "correct_flags": 4,
+            "unresolved_flags": 1,
+            "threshold": 2.893944179215362
+          }
+        }
+      },
+      "work_posthoc_previous_realized": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 29,
+        "correct_flags": 20,
+        "recovered_updates": 0,
+        "unsupported_flags": 0,
+        "unresolved_flags": 9,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 0,
+        "recovered_scenes": 0,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 3.186938944454118
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 5,
+            "correct_flags": 3,
+            "unresolved_flags": 2,
+            "threshold": 3.186938944454118
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.186938944454118
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 7,
+            "correct_flags": 5,
+            "unresolved_flags": 2,
+            "threshold": 3.186938944454118
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "threshold": 3.186938944454118
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 3.186938944454118
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 4,
+            "correct_flags": 2,
+            "unresolved_flags": 2,
+            "threshold": 3.186938944454118
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 3.186938944454118
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 3.186938944454118
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 3.186938944454118
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.186938944454118
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.186938944454118
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "threshold": 3.186938944454118
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 3.186938944454118
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "threshold": 3.186938944454118
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 3.186938944454118
+          }
+        }
+      }
+    },
+    "onset_score": {
+      "threshold": -0.2690056950782984,
+      "development_loso": {
+        "eligible_correct": 131313,
+        "eligible_wrong_target": 83,
+        "contested": 65617,
+        "recoverable": 67,
+        "flags": 34,
+        "correct_flags": 12,
+        "recovered_updates": 8,
+        "unsupported_flags": 1,
+        "unresolved_flags": 13,
+        "possible_distinct_pairs": 64,
+        "recovered_distinct_pairs": 8,
+        "recovered_scenes": 4,
+        "scenes": {
+          "train_152": {
+            "eligible_correct": 15353,
+            "eligible_wrong_target": 14,
+            "contested": 7077,
+            "recoverable": 12,
+            "flags": 3,
+            "unresolved_flags": 1,
+            "recovered_updates": 2,
+            "threshold": -0.2690056950782984
+          },
+          "train_022": {
+            "eligible_correct": 15662,
+            "eligible_wrong_target": 7,
+            "contested": 8757,
+            "recoverable": 4,
+            "flags": 4,
+            "correct_flags": 4,
+            "threshold": -0.29235061505229654
+          },
+          "train_001": {
+            "eligible_correct": 19529,
+            "eligible_wrong_target": 12,
+            "contested": 9879,
+            "recoverable": 10,
+            "flags": 7,
+            "unresolved_flags": 3,
+            "correct_flags": 1,
+            "recovered_updates": 3,
+            "threshold": -0.2690056950782984
+          },
+          "train_139": {
+            "eligible_correct": 17630,
+            "eligible_wrong_target": 11,
+            "contested": 8402,
+            "recoverable": 11,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": -0.2690056950782984
+          },
+          "train_019": {
+            "eligible_correct": 15131,
+            "eligible_wrong_target": 11,
+            "contested": 8192,
+            "recoverable": 8,
+            "flags": 5,
+            "unsupported_flags": 1,
+            "unresolved_flags": 2,
+            "correct_flags": 2,
+            "threshold": -0.2690056950782984
+          },
+          "train_172": {
+            "eligible_correct": 16765,
+            "eligible_wrong_target": 12,
+            "contested": 7946,
+            "recoverable": 9,
+            "flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_093": {
+            "eligible_correct": 14669,
+            "eligible_wrong_target": 10,
+            "contested": 7438,
+            "recoverable": 7,
+            "flags": 5,
+            "correct_flags": 1,
+            "recovered_updates": 2,
+            "unresolved_flags": 2,
+            "threshold": -0.2690056950782984
+          },
+          "train_155": {
+            "eligible_correct": 16574,
+            "eligible_wrong_target": 6,
+            "contested": 7926,
+            "recoverable": 6,
+            "flags": 5,
+            "unresolved_flags": 4,
+            "correct_flags": 1,
+            "threshold": -0.2690056950782984
+          }
+        }
+      },
+      "work": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 66,
+        "correct_flags": 24,
+        "recovered_updates": 9,
+        "unsupported_flags": 2,
+        "unresolved_flags": 31,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 9,
+        "recovered_scenes": 7,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 9,
+            "unresolved_flags": 7,
+            "correct_flags": 1,
+            "recovered_updates": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 8,
+            "unresolved_flags": 5,
+            "correct_flags": 3,
+            "threshold": -0.2690056950782984
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 5,
+            "recovered_updates": 1,
+            "correct_flags": 2,
+            "unresolved_flags": 2,
+            "threshold": -0.2690056950782984
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 4,
+            "unresolved_flags": 3,
+            "correct_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 5,
+            "correct_flags": 4,
+            "unresolved_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 6,
+            "unresolved_flags": 3,
+            "correct_flags": 3,
+            "threshold": -0.2690056950782984
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 2,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 3,
+            "unsupported_flags": 1,
+            "correct_flags": 1,
+            "recovered_updates": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 2,
+            "threshold": -0.2690056950782984
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "threshold": -0.2690056950782984
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 6,
+            "recovered_updates": 2,
+            "correct_flags": 4,
+            "threshold": -0.2690056950782984
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": -0.2690056950782984
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": -0.2690056950782984
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 8,
+            "unresolved_flags": 5,
+            "recovered_updates": 2,
+            "unsupported_flags": 1,
+            "threshold": -0.2690056950782984
+          }
+        }
+      },
+      "work_posthoc_equal_budget": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 155,
+        "correct_flags": 63,
+        "recovered_updates": 23,
+        "unsupported_flags": 2,
+        "unresolved_flags": 67,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 22,
+        "recovered_scenes": 10,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 14,
+            "unresolved_flags": 8,
+            "correct_flags": 5,
+            "recovered_updates": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 17,
+            "unresolved_flags": 8,
+            "correct_flags": 9,
+            "threshold": -0.5517481391114756
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 5,
+            "correct_flags": 4,
+            "unresolved_flags": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 13,
+            "unresolved_flags": 6,
+            "correct_flags": 4,
+            "recovered_updates": 3,
+            "threshold": -0.5517481391114756
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 11,
+            "correct_flags": 4,
+            "unresolved_flags": 6,
+            "recovered_updates": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 8,
+            "correct_flags": 7,
+            "unresolved_flags": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 18,
+            "recovered_updates": 3,
+            "unresolved_flags": 11,
+            "correct_flags": 4,
+            "threshold": -0.5517481391114756
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 6,
+            "correct_flags": 3,
+            "unresolved_flags": 2,
+            "recovered_updates": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 9,
+            "correct_flags": 3,
+            "recovered_updates": 4,
+            "unresolved_flags": 1,
+            "unsupported_flags": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 12,
+            "recovered_updates": 4,
+            "correct_flags": 3,
+            "unresolved_flags": 5,
+            "threshold": -0.5517481391114756
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "flags": 5,
+            "unresolved_flags": 2,
+            "correct_flags": 3,
+            "threshold": -0.5517481391114756
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 7,
+            "correct_flags": 3,
+            "unresolved_flags": 4,
+            "threshold": -0.5517481391114756
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 11,
+            "recovered_updates": 3,
+            "correct_flags": 6,
+            "unresolved_flags": 2,
+            "threshold": -0.5517481391114756
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "flags": 2,
+            "recovered_updates": 1,
+            "correct_flags": 1,
+            "threshold": -0.5517481391114756
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 5,
+            "unresolved_flags": 2,
+            "correct_flags": 3,
+            "threshold": -0.5517481391114756
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 12,
+            "unresolved_flags": 8,
+            "correct_flags": 1,
+            "recovered_updates": 2,
+            "unsupported_flags": 1,
+            "threshold": -0.5517481391114756
+          }
+        }
+      },
+      "work_posthoc_previous_realized": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 56,
+        "correct_flags": 20,
+        "recovered_updates": 8,
+        "unsupported_flags": 2,
+        "unresolved_flags": 26,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 8,
+        "recovered_scenes": 6,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 9,
+            "unresolved_flags": 7,
+            "correct_flags": 1,
+            "recovered_updates": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 6,
+            "unresolved_flags": 3,
+            "correct_flags": 3,
+            "threshold": -0.25176427209295205
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 4,
+            "recovered_updates": 1,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 3,
+            "unresolved_flags": 2,
+            "correct_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 4,
+            "correct_flags": 3,
+            "unresolved_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 6,
+            "unresolved_flags": 3,
+            "correct_flags": 3,
+            "threshold": -0.25176427209295205
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 3,
+            "unsupported_flags": 1,
+            "correct_flags": 1,
+            "recovered_updates": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 2,
+            "threshold": -0.25176427209295205
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "threshold": -0.25176427209295205
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 4,
+            "recovered_updates": 2,
+            "correct_flags": 2,
+            "threshold": -0.25176427209295205
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": -0.25176427209295205
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": -0.25176427209295205
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 8,
+            "unresolved_flags": 5,
+            "recovered_updates": 2,
+            "unsupported_flags": 1,
+            "threshold": -0.25176427209295205
+          }
+        }
+      }
+    },
+    "future_advantage": {
+      "threshold": 1.7484669442075857,
+      "development_loso": {
+        "eligible_correct": 131313,
+        "eligible_wrong_target": 83,
+        "contested": 65617,
+        "recoverable": 67,
+        "flags": 17,
+        "correct_flags": 12,
+        "recovered_updates": 1,
+        "unsupported_flags": 1,
+        "unresolved_flags": 3,
+        "possible_distinct_pairs": 64,
+        "recovered_distinct_pairs": 1,
+        "recovered_scenes": 1,
+        "scenes": {
+          "train_152": {
+            "eligible_correct": 15353,
+            "eligible_wrong_target": 14,
+            "contested": 7077,
+            "recoverable": 12,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7484669442075857
+          },
+          "train_022": {
+            "eligible_correct": 15662,
+            "eligible_wrong_target": 7,
+            "contested": 8757,
+            "recoverable": 4,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7484669442075857
+          },
+          "train_001": {
+            "eligible_correct": 19529,
+            "eligible_wrong_target": 12,
+            "contested": 9879,
+            "recoverable": 10,
+            "flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_139": {
+            "eligible_correct": 17630,
+            "eligible_wrong_target": 11,
+            "contested": 8402,
+            "recoverable": 11,
+            "flags": 7,
+            "correct_flags": 6,
+            "unresolved_flags": 1,
+            "threshold": 1.2684438854835354
+          },
+          "train_019": {
+            "eligible_correct": 15131,
+            "eligible_wrong_target": 11,
+            "contested": 8192,
+            "recoverable": 8,
+            "flags": 1,
+            "unsupported_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_172": {
+            "eligible_correct": 16765,
+            "eligible_wrong_target": 12,
+            "contested": 7946,
+            "recoverable": 9,
+            "threshold": 1.7484669442075857
+          },
+          "train_093": {
+            "eligible_correct": 14669,
+            "eligible_wrong_target": 10,
+            "contested": 7438,
+            "recoverable": 7,
+            "flags": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_155": {
+            "eligible_correct": 16574,
+            "eligible_wrong_target": 6,
+            "contested": 7926,
+            "recoverable": 6,
+            "threshold": 1.7484669442075857
+          }
+        }
+      },
+      "work": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 24,
+        "correct_flags": 22,
+        "recovered_updates": 0,
+        "unsupported_flags": 0,
+        "unresolved_flags": 2,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 0,
+        "recovered_scenes": 0,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 4,
+            "unresolved_flags": 1,
+            "correct_flags": 3,
+            "threshold": 1.7484669442075857
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 4,
+            "correct_flags": 4,
+            "threshold": 1.7484669442075857
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "threshold": 1.7484669442075857
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 1.7484669442075857
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "threshold": 1.7484669442075857
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "threshold": 1.7484669442075857
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7484669442075857
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "threshold": 1.7484669442075857
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7484669442075857
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 4,
+            "correct_flags": 4,
+            "threshold": 1.7484669442075857
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 1.7484669442075857
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "threshold": 1.7484669442075857
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7484669442075857
+          }
+        }
+      },
+      "work_posthoc_equal_budget": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 85,
+        "correct_flags": 63,
+        "recovered_updates": 3,
+        "unsupported_flags": 1,
+        "unresolved_flags": 18,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 3,
+        "recovered_scenes": 3,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 14,
+            "correct_flags": 11,
+            "unresolved_flags": 3,
+            "threshold": 0.9411002781694695
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 9,
+            "unresolved_flags": 2,
+            "unsupported_flags": 1,
+            "correct_flags": 5,
+            "recovered_updates": 1,
+            "threshold": 0.9411002781694695
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 8,
+            "correct_flags": 6,
+            "unresolved_flags": 2,
+            "threshold": 0.9411002781694695
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 11,
+            "correct_flags": 9,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.9411002781694695
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 3,
+            "unresolved_flags": 1,
+            "correct_flags": 2,
+            "threshold": 0.9411002781694695
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.9411002781694695
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 5,
+            "correct_flags": 3,
+            "unresolved_flags": 2,
+            "threshold": 0.9411002781694695
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 6,
+            "correct_flags": 3,
+            "unresolved_flags": 3,
+            "threshold": 0.9411002781694695
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 3,
+            "unresolved_flags": 2,
+            "correct_flags": 1,
+            "threshold": 0.9411002781694695
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 0.9411002781694695
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 0.9411002781694695
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.9411002781694695
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 7,
+            "correct_flags": 6,
+            "unresolved_flags": 1,
+            "threshold": 0.9411002781694695
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 0.9411002781694695
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.9411002781694695
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 9,
+            "correct_flags": 8,
+            "recovered_updates": 1,
+            "threshold": 0.9411002781694695
+          }
+        }
+      },
+      "work_posthoc_previous_realized": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 21,
+        "correct_flags": 19,
+        "recovered_updates": 0,
+        "unsupported_flags": 0,
+        "unresolved_flags": 2,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 0,
+        "recovered_scenes": 0,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 4,
+            "unresolved_flags": 1,
+            "correct_flags": 3,
+            "threshold": 1.7883423309350648
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 1.7883423309350648
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "threshold": 1.7883423309350648
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 3,
+            "correct_flags": 3,
+            "threshold": 1.7883423309350648
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7883423309350648
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 1.7883423309350648
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7883423309350648
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "threshold": 1.7883423309350648
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "threshold": 1.7883423309350648
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 1.7883423309350648
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "threshold": 1.7883423309350648
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7883423309350648
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7883423309350648
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 1.7883423309350648
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "threshold": 1.7883423309350648
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 1.7883423309350648
+          }
+        }
+      }
+    },
+    "two_hypothesis_score": {
+      "threshold": 0.6202512080698586,
+      "development_loso": {
+        "eligible_correct": 131313,
+        "eligible_wrong_target": 83,
+        "contested": 65617,
+        "recoverable": 67,
+        "flags": 29,
+        "correct_flags": 16,
+        "recovered_updates": 3,
+        "unsupported_flags": 1,
+        "unresolved_flags": 9,
+        "possible_distinct_pairs": 64,
+        "recovered_distinct_pairs": 3,
+        "recovered_scenes": 2,
+        "scenes": {
+          "train_152": {
+            "eligible_correct": 15353,
+            "eligible_wrong_target": 14,
+            "contested": 7077,
+            "recoverable": 12,
+            "threshold": 0.6202512080698586
+          },
+          "train_022": {
+            "eligible_correct": 15662,
+            "eligible_wrong_target": 7,
+            "contested": 8757,
+            "recoverable": 4,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_001": {
+            "eligible_correct": 19529,
+            "eligible_wrong_target": 12,
+            "contested": 9879,
+            "recoverable": 10,
+            "flags": 5,
+            "recovered_updates": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 2,
+            "threshold": 0.6202512080698586
+          },
+          "train_139": {
+            "eligible_correct": 17630,
+            "eligible_wrong_target": 11,
+            "contested": 8402,
+            "recoverable": 11,
+            "flags": 14,
+            "correct_flags": 10,
+            "unresolved_flags": 4,
+            "threshold": 0.08026364287148735
+          },
+          "train_019": {
+            "eligible_correct": 15131,
+            "eligible_wrong_target": 11,
+            "contested": 8192,
+            "recoverable": 8,
+            "flags": 1,
+            "unsupported_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_172": {
+            "eligible_correct": 16765,
+            "eligible_wrong_target": 12,
+            "contested": 7946,
+            "recoverable": 9,
+            "flags": 2,
+            "recovered_updates": 1,
+            "correct_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_093": {
+            "eligible_correct": 14669,
+            "eligible_wrong_target": 10,
+            "contested": 7438,
+            "recoverable": 7,
+            "flags": 3,
+            "unresolved_flags": 2,
+            "correct_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_155": {
+            "eligible_correct": 16574,
+            "eligible_wrong_target": 6,
+            "contested": 7926,
+            "recoverable": 6,
+            "flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.6202512080698586
+          }
+        }
+      },
+      "work": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 30,
+        "correct_flags": 19,
+        "recovered_updates": 3,
+        "unsupported_flags": 1,
+        "unresolved_flags": 7,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 3,
+        "recovered_scenes": 3,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 3,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "recovered_updates": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 5,
+            "unresolved_flags": 1,
+            "unsupported_flags": 1,
+            "correct_flags": 3,
+            "threshold": 0.6202512080698586
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.6202512080698586
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 5,
+            "correct_flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "threshold": 0.6202512080698586
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "threshold": 0.6202512080698586
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "threshold": 0.6202512080698586
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.6202512080698586
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": 0.6202512080698586
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 0.6202512080698586
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "threshold": 0.6202512080698586
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 3,
+            "correct_flags": 2,
+            "recovered_updates": 1,
+            "threshold": 0.6202512080698586
+          }
+        }
+      },
+      "work_posthoc_equal_budget": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 111,
+        "correct_flags": 63,
+        "recovered_updates": 9,
+        "unsupported_flags": 1,
+        "unresolved_flags": 38,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 9,
+        "recovered_scenes": 8,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 11,
+            "correct_flags": 4,
+            "unresolved_flags": 6,
+            "recovered_updates": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 19,
+            "unresolved_flags": 7,
+            "recovered_updates": 2,
+            "correct_flags": 9,
+            "unsupported_flags": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 8,
+            "correct_flags": 6,
+            "unresolved_flags": 2,
+            "threshold": 0.06164903472316152
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 10,
+            "correct_flags": 6,
+            "unresolved_flags": 3,
+            "recovered_updates": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 7,
+            "unresolved_flags": 3,
+            "correct_flags": 4,
+            "threshold": 0.06164903472316152
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 7,
+            "correct_flags": 3,
+            "unresolved_flags": 4,
+            "threshold": 0.06164903472316152
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 6,
+            "correct_flags": 4,
+            "unresolved_flags": 2,
+            "threshold": 0.06164903472316152
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "flags": 5,
+            "unresolved_flags": 3,
+            "correct_flags": 2,
+            "threshold": 0.06164903472316152
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 7,
+            "correct_flags": 5,
+            "unresolved_flags": 1,
+            "recovered_updates": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "flags": 5,
+            "correct_flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 6,
+            "unresolved_flags": 2,
+            "correct_flags": 3,
+            "recovered_updates": 1,
+            "threshold": 0.06164903472316152
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 8,
+            "recovered_updates": 1,
+            "correct_flags": 5,
+            "unresolved_flags": 2,
+            "threshold": 0.06164903472316152
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 0.06164903472316152
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.06164903472316152
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 7,
+            "correct_flags": 5,
+            "unresolved_flags": 1,
+            "recovered_updates": 1,
+            "threshold": 0.06164903472316152
+          }
+        }
+      },
+      "work_posthoc_previous_realized": {
+        "eligible_correct": 254177,
+        "eligible_wrong_target": 165,
+        "contested": 137602,
+        "recoverable": 137,
+        "flags": 33,
+        "correct_flags": 20,
+        "recovered_updates": 3,
+        "unsupported_flags": 1,
+        "unresolved_flags": 9,
+        "possible_distinct_pairs": 112,
+        "recovered_distinct_pairs": 3,
+        "recovered_scenes": 3,
+        "scenes": {
+          "train_010": {
+            "eligible_correct": 20936,
+            "eligible_wrong_target": 11,
+            "contested": 13541,
+            "recoverable": 9,
+            "flags": 3,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "recovered_updates": 1,
+            "threshold": 0.555198807206469
+          },
+          "train_072": {
+            "eligible_correct": 22432,
+            "eligible_wrong_target": 18,
+            "contested": 10907,
+            "recoverable": 12,
+            "flags": 6,
+            "unresolved_flags": 2,
+            "unsupported_flags": 1,
+            "correct_flags": 3,
+            "threshold": 0.555198807206469
+          },
+          "train_006": {
+            "eligible_correct": 18193,
+            "eligible_wrong_target": 9,
+            "contested": 10861,
+            "recoverable": 8,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.555198807206469
+          },
+          "train_064": {
+            "eligible_correct": 17902,
+            "eligible_wrong_target": 17,
+            "contested": 9410,
+            "recoverable": 12,
+            "flags": 5,
+            "correct_flags": 3,
+            "recovered_updates": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.555198807206469
+          },
+          "train_011": {
+            "eligible_correct": 12688,
+            "eligible_wrong_target": 5,
+            "contested": 5965,
+            "recoverable": 5,
+            "flags": 2,
+            "unresolved_flags": 1,
+            "correct_flags": 1,
+            "threshold": 0.555198807206469
+          },
+          "train_088": {
+            "eligible_correct": 14746,
+            "eligible_wrong_target": 10,
+            "contested": 8243,
+            "recoverable": 9,
+            "flags": 2,
+            "correct_flags": 1,
+            "unresolved_flags": 1,
+            "threshold": 0.555198807206469
+          },
+          "train_014": {
+            "eligible_correct": 16356,
+            "eligible_wrong_target": 13,
+            "contested": 10820,
+            "recoverable": 9,
+            "flags": 3,
+            "correct_flags": 2,
+            "unresolved_flags": 1,
+            "threshold": 0.555198807206469
+          },
+          "train_187": {
+            "eligible_correct": 15179,
+            "eligible_wrong_target": 10,
+            "contested": 6919,
+            "recoverable": 10,
+            "threshold": 0.555198807206469
+          },
+          "train_067": {
+            "eligible_correct": 16169,
+            "eligible_wrong_target": 16,
+            "contested": 9799,
+            "recoverable": 16,
+            "threshold": 0.555198807206469
+          },
+          "train_074": {
+            "eligible_correct": 14633,
+            "eligible_wrong_target": 11,
+            "contested": 9208,
+            "recoverable": 9,
+            "flags": 1,
+            "correct_flags": 1,
+            "threshold": 0.555198807206469
+          },
+          "train_058": {
+            "eligible_correct": 16905,
+            "eligible_wrong_target": 9,
+            "contested": 10393,
+            "recoverable": 8,
+            "threshold": 0.555198807206469
+          },
+          "train_012": {
+            "eligible_correct": 13063,
+            "eligible_wrong_target": 7,
+            "contested": 7143,
+            "recoverable": 5,
+            "flags": 2,
+            "correct_flags": 2,
+            "threshold": 0.555198807206469
+          },
+          "train_157": {
+            "eligible_correct": 13605,
+            "eligible_wrong_target": 7,
+            "contested": 4994,
+            "recoverable": 6,
+            "flags": 4,
+            "correct_flags": 2,
+            "unresolved_flags": 2,
+            "threshold": 0.555198807206469
+          },
+          "train_080": {
+            "eligible_correct": 15120,
+            "eligible_wrong_target": 8,
+            "contested": 5952,
+            "recoverable": 7,
+            "threshold": 0.555198807206469
+          },
+          "train_029": {
+            "eligible_correct": 11250,
+            "eligible_wrong_target": 5,
+            "contested": 4868,
+            "recoverable": 4,
+            "threshold": 0.555198807206469
+          },
+          "train_034": {
+            "eligible_correct": 15000,
+            "eligible_wrong_target": 9,
+            "contested": 8579,
+            "recoverable": 8,
+            "flags": 3,
+            "correct_flags": 2,
+            "recovered_updates": 1,
+            "threshold": 0.555198807206469
+          }
+        }
+      }
+    }
+  },
+  "whole_scene_gate": {
+    "false_budget": true,
+    "distinct_pair_gain": false,
+    "scene_coverage": true
+  },
+  "passed": false
+}
