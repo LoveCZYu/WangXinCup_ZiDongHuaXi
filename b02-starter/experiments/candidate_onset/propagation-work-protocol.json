@@ -1,0 +1,17 @@
+{
+  "format": "whole-scene-identity-propagation-oracle-v1",
+  "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "scenes": [
+    "train_010",
+    "train_072",
+    "train_006",
+    "train_064"
+  ],
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "sources": {
+    "experiments/candidate_onset/propagation.py": "b1f04619f9fb8944006ed1f2f5552110da62b6dda91183d0483438f85f4c5638",
+    "experiments/candidate_onset/propagation_work.py": "71d7cd7d41c95961356b03444cd292d30e39f9d8a4d4051b37073a08d6b84a65"
+  },
+  "scope": "Post-hoc majority-mixing diagnostic on four exposed scenes. Published onset kept. Roll back internal state once per qualifying high-affinity wrong event. Truth triggers the rollback.",
+  "purpose": "Measure coupled scene-level side effects. This intervention cannot run without reference labels."
+}

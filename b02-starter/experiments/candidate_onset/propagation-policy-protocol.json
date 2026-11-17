@@ -1,0 +1,31 @@
+{
+  "format": "development-fitted-state-rollback-v1",
+  "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "scenes": [
+    "train_010",
+    "train_072",
+    "train_006",
+    "train_064"
+  ],
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "sources": {
+    "experiments/candidate_onset/propagation.py": "b1f04619f9fb8944006ed1f2f5552110da62b6dda91183d0483438f85f4c5638",
+    "experiments/candidate_onset/propagation_summary.py": "0b0d3a0f10fcd2432303be3fc8f9df1abb51c9f18a776653533b20507f4d8f19",
+    "experiments/candidate_onset/propagation_work.py": "71d7cd7d41c95961356b03444cd292d30e39f9d8a4d4051b37073a08d6b84a65",
+    "experiments/candidate_onset/propagation_policy.py": "aa335405c92da0dce55b8a057020f35e4e4a339939dfa6c94a3617390c7e469c",
+    "experiments/candidate_onset/propagation_policy_work.py": "da2b8390c61e1393063ca055216d09f8e1e6d2041783cda4d8882bbf33580b44"
+  },
+  "scope": "Fixed comparison on four exposed work scenes, fit on development8 only. Work4 used for prior diagnostic screening; no tuning on these whole-scene results.",
+  "purpose": "Measure coupled scene-level side effects. This intervention cannot run without reference labels.",
+  "model_sha256": "6a392dd81d1d6d0415a8b02d2a0375952c681b5a44344da744ffd71b427476f7",
+  "modes": [
+    "learned_motion",
+    "learned_full"
+  ],
+  "guards": {
+    "mixed_reduction_fraction": 0.2,
+    "point_recall_drop_pp": 0.1,
+    "fragmentation_drop": 0.3,
+    "continuous_drop": 0.3
+  }
+}

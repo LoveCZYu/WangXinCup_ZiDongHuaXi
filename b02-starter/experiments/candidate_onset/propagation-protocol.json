@@ -1,0 +1,30 @@
+{
+  "format": "high-affinity-error-propagation-v1",
+  "source_sha256": "b1f04619f9fb8944006ed1f2f5552110da62b6dda91183d0483438f85f4c5638",
+  "development": {
+    "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+    "scenes": [
+      "train_152",
+      "train_022",
+      "train_001",
+      "train_139",
+      "train_019",
+      "train_172",
+      "train_093",
+      "train_155"
+    ]
+  },
+  "work": {
+    "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+    "scenes": [
+      "train_010",
+      "train_072",
+      "train_006",
+      "train_064"
+    ]
+  },
+  "cohort": "Combined tracker; first qualifying (output ID, pure past identity, assigned truth) event, strong point score >=.525, affinity logit >= log(9); positive controls use the same filters.",
+  "sampling": "At most 12 chronological evenly spaced published errors per scene with 4 future scans available; up to 36 evenly spaced correct controls. Uses previously exposed scenes only.",
+  "counterfactuals": "One-shot oracle veto leaves point occupied; motion-only uses old position advanced to current update time and old velocity; full rollback restores track and association history, preserves public output. Neither intervention consumes truth in production.",
+  "readout": "Separate onset vs next 4 scans; correct old-ID continuation, other-target outputs, outages, and predicted residual. Compare identical support observed in raw scans."
+}

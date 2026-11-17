@@ -1,0 +1,578 @@
+{
+  "protocol_sha256": "36b74bf14d8920eb864fd3a0cfa86c3e6f7dde15695fa26b3d809d15894bf75b",
+  "groups": {
+    "development": {
+      "totals": {
+        "correct_edges": 131313,
+        "correct_events": 1218,
+        "wrong_edges": 83,
+        "wrong_events": 81
+      },
+      "replayed": 79,
+      "paired": 79,
+      "correct_edge_available": 16,
+      "wrong_written_to_memory": 75,
+      "comparisons": {
+        "original": {
+          "onset_other_target": 79,
+          "onset_observed": 17,
+          "onset_miss_with_target_observed": 17,
+          "follow_other_target": 75,
+          "follow_observed": 244,
+          "follow_miss_with_target_observed": 60,
+          "follow_correct": 184,
+          "has_follow_on_other_target": 33,
+          "recoveries": 59,
+          "follow_silent": 57
+        },
+        "veto": {
+          "onset_silent": 79,
+          "onset_observed": 17,
+          "onset_miss_with_target_observed": 17,
+          "follow_other_target": 56,
+          "follow_observed": 244,
+          "follow_miss_with_target_observed": 34,
+          "follow_correct": 210,
+          "has_follow_on_other_target": 30,
+          "recoveries": 67,
+          "follow_silent": 50
+        },
+        "restore_motion": {
+          "onset_other_target": 79,
+          "onset_observed": 17,
+          "onset_miss_with_target_observed": 17,
+          "follow_other_target": 60,
+          "follow_observed": 244,
+          "follow_miss_with_target_observed": 42,
+          "follow_correct": 202,
+          "has_follow_on_other_target": 30,
+          "recoveries": 63,
+          "follow_silent": 53,
+          "follow_non_target": 1
+        },
+        "restore_state": {
+          "onset_other_target": 79,
+          "onset_observed": 17,
+          "onset_miss_with_target_observed": 17,
+          "follow_other_target": 56,
+          "follow_observed": 244,
+          "follow_miss_with_target_observed": 34,
+          "follow_correct": 210,
+          "has_follow_on_other_target": 30,
+          "recoveries": 67,
+          "follow_silent": 50
+        }
+      },
+      "effects": {
+        "veto": {
+          "same_wrong": 66,
+          "wrong_to_silent_cases": 4,
+          "fewer_wrong": 9,
+          "more_wrong": 4
+        },
+        "restore_motion": {
+          "same_wrong": 70,
+          "wrong_to_silent_cases": 3,
+          "fewer_wrong": 7,
+          "more_wrong": 2
+        },
+        "restore_state": {
+          "same_wrong": 66,
+          "wrong_to_silent_cases": 4,
+          "fewer_wrong": 9,
+          "more_wrong": 4
+        }
+      },
+      "scenes": {
+        "train_019": {
+          "original": {
+            "other_target": 13,
+            "observed": 35,
+            "miss_with_target_observed": 8,
+            "correct": 27,
+            "silent": 4
+          },
+          "veto": {
+            "other_target": 7,
+            "observed": 35,
+            "miss_with_target_observed": 2,
+            "correct": 33,
+            "silent": 4
+          },
+          "restore_motion": {
+            "other_target": 7,
+            "observed": 35,
+            "miss_with_target_observed": 2,
+            "correct": 33,
+            "silent": 4
+          },
+          "restore_state": {
+            "other_target": 7,
+            "observed": 35,
+            "miss_with_target_observed": 2,
+            "correct": 33,
+            "silent": 4
+          }
+        },
+        "train_152": {
+          "original": {
+            "other_target": 7,
+            "observed": 40,
+            "miss_with_target_observed": 4,
+            "correct": 36,
+            "silent": 5
+          },
+          "veto": {
+            "other_target": 6,
+            "observed": 40,
+            "miss_with_target_observed": 3,
+            "correct": 37,
+            "silent": 5
+          },
+          "restore_motion": {
+            "other_target": 7,
+            "observed": 40,
+            "miss_with_target_observed": 4,
+            "correct": 36,
+            "silent": 5
+          },
+          "restore_state": {
+            "other_target": 6,
+            "observed": 40,
+            "miss_with_target_observed": 3,
+            "correct": 37,
+            "silent": 5
+          }
+        },
+        "train_022": {
+          "original": {
+            "silent": 11,
+            "observed": 15,
+            "miss_with_target_observed": 1,
+            "other_target": 3,
+            "correct": 14
+          },
+          "veto": {
+            "silent": 10,
+            "observed": 15,
+            "miss_with_target_observed": 0,
+            "other_target": 3,
+            "correct": 15
+          },
+          "restore_motion": {
+            "silent": 12,
+            "observed": 15,
+            "miss_with_target_observed": 2,
+            "other_target": 3,
+            "correct": 13
+          },
+          "restore_state": {
+            "silent": 10,
+            "observed": 15,
+            "miss_with_target_observed": 0,
+            "other_target": 3,
+            "correct": 15
+          }
+        },
+        "train_172": {
+          "original": {
+            "silent": 10,
+            "observed": 33,
+            "miss_with_target_observed": 6,
+            "correct": 27,
+            "other_target": 7
+          },
+          "veto": {
+            "other_target": 5,
+            "observed": 33,
+            "miss_with_target_observed": 1,
+            "correct": 32,
+            "silent": 7
+          },
+          "restore_motion": {
+            "other_target": 10,
+            "observed": 33,
+            "miss_with_target_observed": 5,
+            "correct": 28,
+            "silent": 6
+          },
+          "restore_state": {
+            "other_target": 5,
+            "observed": 33,
+            "miss_with_target_observed": 1,
+            "correct": 32,
+            "silent": 7
+          }
+        },
+        "train_001": {
+          "original": {
+            "correct": 20,
+            "observed": 41,
+            "miss_with_target_observed": 21,
+            "other_target": 17,
+            "silent": 11
+          },
+          "veto": {
+            "correct": 27,
+            "observed": 41,
+            "miss_with_target_observed": 14,
+            "other_target": 14,
+            "silent": 7
+          },
+          "restore_motion": {
+            "correct": 27,
+            "observed": 41,
+            "miss_with_target_observed": 14,
+            "other_target": 12,
+            "silent": 9
+          },
+          "restore_state": {
+            "correct": 27,
+            "observed": 41,
+            "miss_with_target_observed": 14,
+            "other_target": 14,
+            "silent": 7
+          }
+        },
+        "train_093": {
+          "original": {
+            "silent": 9,
+            "observed": 33,
+            "miss_with_target_observed": 15,
+            "correct": 18,
+            "other_target": 13
+          },
+          "veto": {
+            "silent": 11,
+            "observed": 33,
+            "miss_with_target_observed": 13,
+            "correct": 20,
+            "other_target": 9
+          },
+          "restore_motion": {
+            "silent": 11,
+            "observed": 33,
+            "miss_with_target_observed": 13,
+            "correct": 20,
+            "other_target": 9
+          },
+          "restore_state": {
+            "silent": 11,
+            "observed": 33,
+            "miss_with_target_observed": 13,
+            "correct": 20,
+            "other_target": 9
+          }
+        },
+        "train_139": {
+          "original": {
+            "correct": 28,
+            "observed": 28,
+            "miss_with_target_observed": 0,
+            "other_target": 10,
+            "silent": 2
+          },
+          "veto": {
+            "correct": 27,
+            "observed": 28,
+            "miss_with_target_observed": 1,
+            "other_target": 11,
+            "silent": 2
+          },
+          "restore_motion": {
+            "correct": 27,
+            "observed": 28,
+            "miss_with_target_observed": 1,
+            "other_target": 11,
+            "silent": 2
+          },
+          "restore_state": {
+            "correct": 27,
+            "observed": 28,
+            "miss_with_target_observed": 1,
+            "other_target": 11,
+            "silent": 2
+          }
+        },
+        "train_155": {
+          "original": {
+            "other_target": 5,
+            "observed": 19,
+            "miss_with_target_observed": 5,
+            "silent": 5,
+            "correct": 14
+          },
+          "veto": {
+            "correct": 19,
+            "observed": 19,
+            "miss_with_target_observed": 0,
+            "silent": 4,
+            "other_target": 1
+          },
+          "restore_motion": {
+            "correct": 18,
+            "observed": 19,
+            "miss_with_target_observed": 1,
+            "non_target": 1,
+            "silent": 4,
+            "other_target": 1
+          },
+          "restore_state": {
+            "correct": 19,
+            "observed": 19,
+            "miss_with_target_observed": 0,
+            "silent": 4,
+            "other_target": 1
+          }
+        }
+      }
+    },
+    "work": {
+      "totals": {
+        "correct_edges": 79463,
+        "correct_events": 694,
+        "wrong_edges": 55,
+        "wrong_events": 46
+      },
+      "replayed": 36,
+      "paired": 36,
+      "correct_edge_available": 10,
+      "wrong_written_to_memory": 32,
+      "comparisons": {
+        "original": {
+          "onset_other_target": 36,
+          "onset_observed": 11,
+          "onset_miss_with_target_observed": 11,
+          "follow_correct": 81,
+          "follow_observed": 111,
+          "follow_miss_with_target_observed": 30,
+          "has_follow_on_other_target": 18,
+          "recoveries": 23,
+          "follow_other_target": 41,
+          "follow_silent": 22
+        },
+        "veto": {
+          "onset_silent": 36,
+          "onset_observed": 11,
+          "onset_miss_with_target_observed": 11,
+          "follow_correct": 100,
+          "follow_observed": 111,
+          "follow_miss_with_target_observed": 11,
+          "has_follow_on_other_target": 12,
+          "recoveries": 29,
+          "follow_other_target": 20,
+          "follow_silent": 24
+        },
+        "restore_motion": {
+          "onset_other_target": 36,
+          "onset_observed": 11,
+          "onset_miss_with_target_observed": 11,
+          "follow_correct": 98,
+          "follow_observed": 111,
+          "follow_miss_with_target_observed": 13,
+          "has_follow_on_other_target": 13,
+          "recoveries": 29,
+          "follow_other_target": 18,
+          "follow_silent": 27,
+          "follow_non_target": 1
+        },
+        "restore_state": {
+          "onset_other_target": 36,
+          "onset_observed": 11,
+          "onset_miss_with_target_observed": 11,
+          "follow_correct": 100,
+          "follow_observed": 111,
+          "follow_miss_with_target_observed": 11,
+          "has_follow_on_other_target": 12,
+          "recoveries": 29,
+          "follow_other_target": 20,
+          "follow_silent": 24
+        }
+      },
+      "effects": {
+        "veto": {
+          "same_wrong": 29,
+          "wrong_to_silent_cases": 3,
+          "fewer_wrong": 7
+        },
+        "restore_motion": {
+          "same_wrong": 29,
+          "wrong_to_silent_cases": 3,
+          "fewer_wrong": 7
+        },
+        "restore_state": {
+          "same_wrong": 29,
+          "wrong_to_silent_cases": 3,
+          "fewer_wrong": 7
+        }
+      },
+      "scenes": {
+        "train_010": {
+          "original": {
+            "correct": 11,
+            "observed": 12,
+            "miss_with_target_observed": 1,
+            "other_target": 7,
+            "silent": 2
+          },
+          "veto": {
+            "correct": 11,
+            "observed": 12,
+            "miss_with_target_observed": 1,
+            "other_target": 7,
+            "silent": 2
+          },
+          "restore_motion": {
+            "correct": 11,
+            "observed": 12,
+            "miss_with_target_observed": 1,
+            "other_target": 4,
+            "silent": 5
+          },
+          "restore_state": {
+            "correct": 11,
+            "observed": 12,
+            "miss_with_target_observed": 1,
+            "other_target": 7,
+            "silent": 2
+          }
+        },
+        "train_072": {
+          "original": {
+            "other_target": 14,
+            "observed": 43,
+            "miss_with_target_observed": 13,
+            "correct": 30,
+            "silent": 4
+          },
+          "veto": {
+            "other_target": 4,
+            "observed": 43,
+            "miss_with_target_observed": 4,
+            "correct": 39,
+            "silent": 5
+          },
+          "restore_motion": {
+            "other_target": 4,
+            "observed": 43,
+            "miss_with_target_observed": 4,
+            "correct": 39,
+            "silent": 5
+          },
+          "restore_state": {
+            "other_target": 4,
+            "observed": 43,
+            "miss_with_target_observed": 4,
+            "correct": 39,
+            "silent": 5
+          }
+        },
+        "train_006": {
+          "original": {
+            "correct": 16,
+            "observed": 20,
+            "miss_with_target_observed": 4,
+            "other_target": 6,
+            "silent": 6
+          },
+          "veto": {
+            "correct": 20,
+            "observed": 20,
+            "miss_with_target_observed": 0,
+            "other_target": 2,
+            "silent": 6
+          },
+          "restore_motion": {
+            "correct": 20,
+            "observed": 20,
+            "miss_with_target_observed": 0,
+            "other_target": 3,
+            "silent": 5
+          },
+          "restore_state": {
+            "correct": 20,
+            "observed": 20,
+            "miss_with_target_observed": 0,
+            "other_target": 2,
+            "silent": 6
+          }
+        },
+        "train_064": {
+          "original": {
+            "silent": 10,
+            "observed": 36,
+            "miss_with_target_observed": 12,
+            "other_target": 14,
+            "correct": 24
+          },
+          "veto": {
+            "silent": 11,
+            "observed": 36,
+            "miss_with_target_observed": 6,
+            "correct": 30,
+            "other_target": 7
+          },
+          "restore_motion": {
+            "silent": 12,
+            "observed": 36,
+            "miss_with_target_observed": 8,
+            "correct": 28,
+            "other_target": 7,
+            "non_target": 1
+          },
+          "restore_state": {
+            "silent": 11,
+            "observed": 36,
+            "miss_with_target_observed": 6,
+            "correct": 30,
+            "other_target": 7
+          }
+        }
+      }
+    }
+  },
+  "screen": {
+    "status": "diagnostic_only",
+    "feature_names": [
+      "affinity",
+      "detector_score",
+      "residual",
+      "rowsize",
+      "track_age",
+      "track_gap",
+      "memory_size",
+      "memory_recency",
+      "velocity_innovation",
+      "signal_innovation"
+    ],
+    "development_leave_one_scene_out": {
+      "errors": 81,
+      "controls": 288,
+      "flagged_errors": 52,
+      "flagged_controls": 4,
+      "auc": 0.9905264060356653,
+      "old_affinity": false,
+      "old_affinity_flagged_errors": 14,
+      "old_affinity_flagged_controls": 5
+    },
+    "work": {
+      "errors": 46,
+      "controls": 144,
+      "flagged_errors": 21,
+      "flagged_controls": 3,
+      "auc": 0.9627113526570048,
+      "old_affinity": false
+    },
+    "work_old_affinity": {
+      "errors": 46,
+      "controls": 144,
+      "flagged_errors": 6,
+      "flagged_controls": 2,
+      "auc": 0.8810386473429952,
+      "old_affinity": true
+    },
+    "threshold": 2.011097756587326,
+    "threshold_selection": "99th percentile of fit controls, strict above",
+    "scope": "Enriched sampled rows, flag rates do not estimate deployment precision."
+  }
+}
