@@ -1,0 +1,48 @@
+{
+  "scene": "train_010",
+  "protocol_sha256": "4533e153cae20c4e5fea3792bc73a99985b050e1a204441a0b81b06e35daa0a7",
+  "policy_sha256": "e87156df9acf90f94422205995daf940e118dbc1426f6eba175bcc06d06e1d0a",
+  "variants": {
+    "original": {
+      "mixed": 603,
+      "continued": 425,
+      "actions": [
+        {
+          "circle": 262,
+          "batch": 3239,
+          "kind": "correct"
+        },
+        {
+          "circle": 300,
+          "batch": 8577,
+          "kind": "unresolved"
+        }
+      ],
+      "matched_target_points": 24303
+    },
+    "omit_262": {
+      "mixed": 603,
+      "continued": 425,
+      "actions": [
+        {
+          "circle": 300,
+          "batch": 8577,
+          "kind": "unresolved"
+        }
+      ],
+      "matched_target_points": 24303
+    },
+    "omit_300": {
+      "mixed": 964,
+      "continued": 783,
+      "actions": [
+        {
+          "circle": 262,
+          "batch": 3239,
+          "kind": "correct"
+        }
+      ],
+      "matched_target_points": 24305
+    }
+  }
+}

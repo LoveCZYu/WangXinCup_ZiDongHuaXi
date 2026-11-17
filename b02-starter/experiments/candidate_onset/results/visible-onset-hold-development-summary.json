@@ -1,0 +1,117 @@
+{
+  "protocol_sha256": "4533e153cae20c4e5fea3792bc73a99985b050e1a204441a0b81b06e35daa0a7",
+  "policy_sha256": "e87156df9acf90f94422205995daf940e118dbc1426f6eba175bcc06d06e1d0a",
+  "development_loso": {
+    "eligible": {
+      "unresolved": 70,
+      "correct": 399,
+      "clutter": 19,
+      "visible_unsupported": 1,
+      "visible_supported": 13
+    },
+    "flags": {
+      "unresolved": 4,
+      "clutter": 6,
+      "visible_supported": 5,
+      "correct": 9
+    }
+  },
+  "scenes": {
+    "train_152": {
+      "eligible": {
+        "unresolved": 20,
+        "correct": 51,
+        "clutter": 2,
+        "visible_unsupported": 1
+      },
+      "flags": {
+        "unresolved": 1,
+        "clutter": 1
+      }
+    },
+    "train_022": {
+      "eligible": {
+        "unresolved": 9,
+        "correct": 26,
+        "clutter": 5,
+        "visible_supported": 1
+      },
+      "flags": {
+        "visible_supported": 1,
+        "unresolved": 1,
+        "clutter": 2,
+        "correct": 1
+      }
+    },
+    "train_001": {
+      "eligible": {
+        "visible_supported": 6,
+        "correct": 72,
+        "unresolved": 8,
+        "clutter": 2
+      },
+      "flags": {
+        "visible_supported": 3
+      }
+    },
+    "train_139": {
+      "eligible": {
+        "correct": 70,
+        "unresolved": 9,
+        "clutter": 2,
+        "visible_supported": 1
+      },
+      "flags": {
+        "clutter": 1
+      }
+    },
+    "train_019": {
+      "eligible": {
+        "correct": 47,
+        "clutter": 1,
+        "unresolved": 4
+      },
+      "flags": {
+        "correct": 1,
+        "unresolved": 1
+      }
+    },
+    "train_172": {
+      "eligible": {
+        "clutter": 4,
+        "correct": 57,
+        "unresolved": 6,
+        "visible_supported": 1
+      },
+      "flags": {
+        "correct": 1,
+        "clutter": 1
+      }
+    },
+    "train_093": {
+      "eligible": {
+        "correct": 23,
+        "clutter": 1,
+        "unresolved": 6,
+        "visible_supported": 1
+      },
+      "flags": {
+        "correct": 2,
+        "unresolved": 1,
+        "visible_supported": 1
+      }
+    },
+    "train_155": {
+      "eligible": {
+        "correct": 53,
+        "clutter": 2,
+        "unresolved": 8,
+        "visible_supported": 3
+      },
+      "flags": {
+        "clutter": 1,
+        "correct": 4
+      }
+    }
+  }
+}
