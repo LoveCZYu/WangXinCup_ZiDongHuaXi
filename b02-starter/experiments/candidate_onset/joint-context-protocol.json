@@ -1,0 +1,39 @@
+{
+  "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "scenes": [
+    "train_010",
+    "train_072",
+    "train_006",
+    "train_064",
+    "train_011",
+    "train_088",
+    "train_014",
+    "train_187",
+    "train_067",
+    "train_074",
+    "train_058",
+    "train_012",
+    "train_157",
+    "train_080",
+    "train_029",
+    "train_034"
+  ],
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "guards": {
+    "mixed_reduction_fraction": 0.2,
+    "point_recall_drop_pp": 0.1,
+    "fragmentation_drop": 0.3,
+    "continuous_drop": 0.3,
+    "weighted_drop": 0.0
+  },
+  "false_flag_budget_per_10000": 2.5,
+  "previous_census_sha256": "36542debc9fe1230516a5136d0343f6e62f832f409f0adb74c72867cfaf71d9f",
+  "joint_cost_protocol_sha256": "bdfacfa3c3f7f7f39d663a445aaf5b5fe83a20b3424d731bc050e18ed4b06d80",
+  "calibration_sha256": "36355095538f14a05de4b6fe8f0ee0569a8f5db8e1d833a3d01b32f373e08a7f",
+  "sources": {
+    "experiments/candidate_onset/joint_context_hold.py": "d529840e5868e455a23c3eae596a8db44eb71c17f651d137052d23869ff9a895",
+    "experiments/candidate_onset/joint_cost_replay.py": "881fbbaea302b42d96be2c23fc211f7694743e0e1b32ab70c8398ccf44d8beca"
+  },
+  "intervention": "Keep the unmatched receiver's pre-transfer short local-neighborhood context on each single-point joint-cost transfer. No truth, scene ID, refit or threshold change in the policy.",
+  "scope": "Use the same previously exposed work16. Report the focal train_034 separately and aggregate all16 and the other15. No sealed scenes."
+}

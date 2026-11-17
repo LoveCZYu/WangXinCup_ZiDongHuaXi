@@ -1,0 +1,1530 @@
+{
+  "joint-event": {
+    "protocol_sha256": "107f426297905f1bed88fc8303710256aa54d2e6874bbf103e750b54f121c61b",
+    "modes": {
+      "all_association": {
+        "pair_mixed": 2,
+        "scene_mixed": 211,
+        "post_onset_counts": {
+          "36024": {
+            "126": 1,
+            "24": 62
+          },
+          "21247": {
+            "24": 1,
+            "126": 24
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "joint": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "memory": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "motion": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "short": {
+        "pair_mixed": 3,
+        "scene_mixed": 212,
+        "post_onset_counts": {
+          "36024": {
+            "126": 1,
+            "24": 61
+          },
+          "21247": {
+            "24": 2,
+            "126": 24
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": false,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "support": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "veto": {
+        "pair_mixed": 3,
+        "scene_mixed": 212,
+        "post_onset_counts": {
+          "36024": {
+            "126": 1,
+            "24": 62
+          },
+          "21247": {
+            "24": 1,
+            "126": 24
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": false,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "joint-event-narrow": {
+    "protocol_sha256": "4242abb792158797930c464e8237b4fb4393c7dcb021b54b3ff7a4ca4af998cb",
+    "modes": {
+      "donor_both": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "donor_context": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "donor_points": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "receiver_both": {
+        "pair_mixed": 3,
+        "scene_mixed": 212,
+        "post_onset_counts": {
+          "36024": {
+            "126": 1,
+            "24": 61
+          },
+          "21247": {
+            "24": 2,
+            "126": 24
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": false,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "receiver_context": {
+        "pair_mixed": 1,
+        "scene_mixed": 210,
+        "post_onset_counts": {
+          "36024": {
+            "24": 62
+          },
+          "21247": {
+            "24": 1,
+            "126": 24
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      },
+      "receiver_points": {
+        "pair_mixed": 85,
+        "scene_mixed": 294,
+        "post_onset_counts": {
+          "36024": {
+            "24": 2,
+            "126": 24
+          },
+          "21247": {
+            "126": 1,
+            "24": 61
+          }
+        },
+        "onset": [
+          {
+            "circle": 337,
+            "tracks": {
+              "36024": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 338,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              },
+              "21247": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          },
+          {
+            "circle": 339,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [],
+                "internal_truth": null,
+                "correct_observed": false,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 340,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": false
+              }
+            }
+          },
+          {
+            "circle": 341,
+            "tracks": {
+              "36024": {
+                "published_truth": [
+                  126
+                ],
+                "internal_truth": 126,
+                "correct_observed": true,
+                "trusted_update": true
+              },
+              "21247": {
+                "published_truth": [
+                  24
+                ],
+                "internal_truth": 24,
+                "correct_observed": true,
+                "trusted_update": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

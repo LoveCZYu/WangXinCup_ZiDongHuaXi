@@ -1,0 +1,28 @@
+{
+  "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "calibration_sha256": "36355095538f14a05de4b6fe8f0ee0569a8f5db8e1d833a3d01b32f373e08a7f",
+  "reference_sha256": "e682789396bdc214aa23265ef518ec5292e5ede10bb852d3d2d6a6d27f012da3",
+  "sources": {
+    "experiments/candidate_onset/joint_event.py": "5ea087fbaf9b883ecd77d5aa791de3b3ab55a73646c7e3804b6bd00d2febdbe2",
+    "experiments/candidate_onset/joint_cost_replay.py": "881fbbaea302b42d96be2c23fc211f7694743e0e1b32ab70c8398ccf44d8beca",
+    "experiments/candidate_onset/propagation.py": "b1f04619f9fb8944006ed1f2f5552110da62b6dda91183d0483438f85f4c5638",
+    "experiments/candidate_onset/joint_event_narrow.py": "bfe33a9daf4b81651000e68909c56944f3cd414240f73d24acf3cc9ffb664197"
+  },
+  "fixture": {
+    "scene": "train_034",
+    "circle": 337,
+    "pair": [
+      36024,
+      21247
+    ],
+    "point": 65652,
+    "truths": [
+      24,
+      126
+    ],
+    "reproduced_pair_mixed": 85
+  },
+  "scope": "Only the previously exposed train_034 scene. Each branch starts from the former joint-cost replay.",
+  "primary": "At circle 337 only, copy the donor or receiver observation history, context history, or both from the veto arm. Leave publication, motion, support, and trusted memory as in the with-transfer arm."
+}
