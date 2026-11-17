@@ -1,0 +1,482 @@
+{
+  "protocol_sha256": "a04cd053498336866a33954b23dd525971fe5573e1829ba8f09c56c56cff0b42",
+  "scopes": {
+    "development": {
+      "precursor": {
+        "tested": 64,
+        "improved": 2,
+        "harmed": 2,
+        "wrong_reduction": 10,
+        "correct_gain": 5,
+        "onset_prevented": 4,
+        "onset_became_correct": 1,
+        "scenes_improved": 2,
+        "scenes": {
+          "train_152": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 1,
+            "wrong_reduction": 2,
+            "correct_gain": -2,
+            "onset_prevented": 1,
+            "onset_became_correct": 0
+          },
+          "train_022": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_001": {
+            "tested": 8,
+            "improved": 1,
+            "harmed": 0,
+            "wrong_reduction": 6,
+            "correct_gain": 7,
+            "onset_prevented": 1,
+            "onset_became_correct": 1
+          },
+          "train_139": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_019": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_172": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 1,
+            "wrong_reduction": 1,
+            "correct_gain": -1,
+            "onset_prevented": 1,
+            "onset_became_correct": 0
+          },
+          "train_093": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_155": {
+            "tested": 8,
+            "improved": 1,
+            "harmed": 0,
+            "wrong_reduction": 1,
+            "correct_gain": 1,
+            "onset_prevented": 1,
+            "onset_became_correct": 0
+          }
+        }
+      },
+      "control": {
+        "tested": 64,
+        "improved": 0,
+        "harmed": 0,
+        "wrong_reduction": 0,
+        "correct_gain": 2,
+        "onset_prevented": 0,
+        "onset_became_correct": 0,
+        "scenes_improved": 0,
+        "scenes": {
+          "train_152": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_022": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 2,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_001": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_139": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_019": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_172": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_093": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_155": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          }
+        }
+      },
+      "eligible_precursors": 423,
+      "eligible_controls": 65403,
+      "scored_writes": 148907
+    },
+    "work": {
+      "precursor": {
+        "tested": 120,
+        "improved": 5,
+        "harmed": 0,
+        "wrong_reduction": 10,
+        "correct_gain": 7,
+        "onset_prevented": 5,
+        "onset_became_correct": 1,
+        "scenes_improved": 4,
+        "scenes": {
+          "train_010": {
+            "tested": 8,
+            "improved": 1,
+            "harmed": 0,
+            "wrong_reduction": 3,
+            "correct_gain": 0,
+            "onset_prevented": 1,
+            "onset_became_correct": 0
+          },
+          "train_072": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 2,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_006": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 4,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_064": {
+            "tested": 8,
+            "improved": 2,
+            "harmed": 0,
+            "wrong_reduction": 3,
+            "correct_gain": 1,
+            "onset_prevented": 2,
+            "onset_became_correct": 1
+          },
+          "train_011": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_088": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_014": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_187": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_067": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_074": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_058": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_012": {
+            "tested": 8,
+            "improved": 1,
+            "harmed": 0,
+            "wrong_reduction": 3,
+            "correct_gain": 0,
+            "onset_prevented": 1,
+            "onset_became_correct": 0
+          },
+          "train_157": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_080": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_029": {
+            "tested": 8,
+            "improved": 1,
+            "harmed": 0,
+            "wrong_reduction": 1,
+            "correct_gain": 0,
+            "onset_prevented": 1,
+            "onset_became_correct": 0
+          }
+        }
+      },
+      "control": {
+        "tested": 120,
+        "improved": 0,
+        "harmed": 0,
+        "wrong_reduction": 0,
+        "correct_gain": 0,
+        "onset_prevented": 0,
+        "onset_became_correct": 0,
+        "scenes_improved": 0,
+        "scenes": {
+          "train_010": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_072": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_006": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_064": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_011": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_088": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_014": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_187": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_067": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_074": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_058": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_012": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_157": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_080": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          },
+          "train_029": {
+            "tested": 8,
+            "improved": 0,
+            "harmed": 0,
+            "wrong_reduction": 0,
+            "correct_gain": 0,
+            "onset_prevented": 0,
+            "onset_became_correct": 0
+          }
+        }
+      },
+      "eligible_precursors": 779,
+      "eligible_controls": 127522,
+      "scored_writes": 272601
+    }
+  },
+  "checks": {
+    "scenes": false,
+    "fraction": false,
+    "benefits": true
+  }
+}

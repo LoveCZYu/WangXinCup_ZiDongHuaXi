@@ -1,0 +1,89 @@
+{
+  "development": {
+    "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+    "scenes": [
+      "train_152",
+      "train_022",
+      "train_001",
+      "train_139",
+      "train_019",
+      "train_172",
+      "train_093",
+      "train_155"
+    ]
+  },
+  "work": {
+    "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+    "scenes": [
+      "train_010",
+      "train_072",
+      "train_006",
+      "train_064",
+      "train_011",
+      "train_088",
+      "train_014",
+      "train_187",
+      "train_067",
+      "train_074",
+      "train_058",
+      "train_012",
+      "train_157",
+      "train_080",
+      "train_029"
+    ]
+  },
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "guards": {
+    "mixed_reduction_fraction": 0.2,
+    "point_recall_drop_pp": 0.1,
+    "fragmentation_drop": 0.3,
+    "continuous_drop": 0.3,
+    "weighted_drop": 0.0
+  },
+  "full_scenes": [
+    "train_010",
+    "train_072",
+    "train_006",
+    "train_064",
+    "train_011",
+    "train_088",
+    "train_014",
+    "train_187",
+    "train_067",
+    "train_074",
+    "train_058",
+    "train_012",
+    "train_157",
+    "train_080",
+    "train_029",
+    "train_034"
+  ],
+  "sources": {
+    "experiments/candidate_onset/context_prevalence.py": "9e6d302cd94abb5c9228bea0c64f6199f75f702479198f66ff9ae53703663b82",
+    "experiments/candidate_onset/joint_event.py": "5ea087fbaf9b883ecd77d5aa791de3b3ab55a73646c7e3804b6bd00d2febdbe2"
+  },
+  "previous_census_sha256": "36542debc9fe1230516a5136d0343f6e62f832f409f0adb74c72867cfaf71d9f",
+  "horizon": 6,
+  "precursor_scans": 3,
+  "cases_per_scene": 8,
+  "prevalence": {
+    "min_scenes": 5,
+    "min_benefit_fraction": 0.15,
+    "improvement_outweighs_harm": true
+  },
+  "policy": {
+    "delta_quantiles": [
+      0.95,
+      0.98,
+      0.99
+    ],
+    "affinity_quantiles": [
+      0.2,
+      0.35,
+      0.5
+    ],
+    "max_dev_hold_rate": 0.01
+  },
+  "scope": "Development8 plus previously exposed other15. If recurrence passes the gate, run one frozen variant on work16. No sealed data.",
+  "method": "Choose the largest context change among correct writes one to three scans before each de-duplicated other-target hit. Use at most eight evenly-spaced cases per scene and controls with similar change and confidence. Branch preserves publication and all state except the selected short-context write."
+}
