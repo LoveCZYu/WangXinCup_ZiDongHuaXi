@@ -1,0 +1,82 @@
+{
+  "format": "conservative-zero-candidate-backup-v1",
+  "created_at_utc": "2026-11-17T09:31:15.522821+00:00",
+  "parent_commit": "986a268",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "earlier_failed_protocol_sha256": "d6f63fe22961091dbf34edf4cf212106d3476478ac2ddfd17d60fa568ca9fb31",
+  "training4": [
+    "train_098",
+    "train_076",
+    "train_158",
+    "train_090"
+  ],
+  "development8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "sources": {
+    "experiments/candidate_onset/__init__.py": "2c0d053969417c36e1931a8a8b1d7753e6ba871fa3df39e5dda7808c1e8957cc",
+    "experiments/candidate_onset/audit.py": "7773368c34e9179cc54e1b03bf650fe606391d0b0e49a7bb9cb1b99affb1c69b",
+    "experiments/candidate_onset/backup_compare.py": "017154b8d12e86d886b4fcfe20533aec377cb02986c16e78204e0aa834fc3a2f",
+    "experiments/candidate_onset/backup_study.py": "42391a30a2a8084b7e415946a732bf591fd8e24df101fea9c193cfa48533a347",
+    "experiments/candidate_onset/case_diagnostic.py": "db15944ffccf2181c18282158ccbc32aa797bf240d1e5719f273cc259213e6eb",
+    "experiments/candidate_onset/collect.py": "8e010e4a614f933b70721354e8df1166266edd75194755075a0c07f403da57d9",
+    "experiments/candidate_onset/compare.py": "045ceae2d3c7dc40d6c63a77edcc30b7c4cb36518a046c36186fb9cad94834a2",
+    "experiments/candidate_onset/fallback.py": "d417d2cb3ecc250dc0f9b117fb51ca45ce254c5b6ed61ef83224379ae93dc439",
+    "experiments/candidate_onset/fallback_repro.py": "01c308bc42fec46d7b60876a2672ec23fbba31e78e1644c42ab952891f09197a",
+    "experiments/candidate_onset/minimize.py": "1689c8d6ccab27a307e28869afffa610960059fd625a7b7825aa347092c241c8",
+    "experiments/candidate_onset/observe.py": "49ba69603bd9532da509e08a3249ce8257d4f2c04993f744436917159551abc3",
+    "experiments/candidate_onset/policy.py": "99567950238fea32ba1484012f8f8adaa490bde7a52a9defccf87b16c7cb8a1e",
+    "experiments/candidate_onset/policy_repro.py": "31d9653a74383f4a20fd446f93b330396617cab25277ec3b6fbc4c244905e921",
+    "experiments/candidate_onset/repro.py": "0a428f4f72ce1f6085752c40d3cebfc130fc3ca8862e9ace8605edd8f6a788b2",
+    "experiments/candidate_onset/study.py": "687d5f9f37042fcabc56f7a6ae3cf5f3b9fdc4e387b2290b1f99e108bb1025a3",
+    "experiments/candidate_onset/summarize.py": "c5a301fc581982da96dc4885c6375db12006a19939ba8da4469392c4287ada3b"
+  },
+  "modes": [
+    "baseline",
+    "backup_motion",
+    "backup_guarded"
+  ],
+  "primary": "backup_guarded minus baseline",
+  "trigger": "Unconditional qualified rebase repairs cases but training4 regresses 83.89→80.10 and fragments worsen. Preserve this failure; attempt missing-candidate supplementation only, not overwrite accepted main matches.",
+  "qualification": {
+    "min_published": 3,
+    "min_memory": 4,
+    "last_physical_observation_not_trusted": true,
+    "trusted_latest_age_max": 3,
+    "min_memory_span": 3,
+    "fit_mean_squared_normalized_residual_max": 0.5
+  },
+  "additional_qualification": "Confirmed stage only, original no match AND empty original candidate row; high-score>=.525 free points only. Other original confirmed matches/occupied points invariant in current stage.",
+  "intervention": "Temporarily use past trusted fitted position for backup candidate construction; original radii remain. Unaccepted attempts restore original position. Only accepted backup rebases feed normal physical update; original current input points only.",
+  "guarded": "Old frozen affinity93; strength=clip(logit,-6,6)-1.2*normalized_distance_squared. Require strength>=logit(.95) and row/column margin>=.25; reject ambiguity. Real cost=logit(.95)-strength for accepted proposal, all other real cost1, null cost0. No threshold search.",
+  "secondary": "backup_motion uses the same supplemental motion geometry but original scorer, diagnoses need for identity guard; never substitute after failed primary.",
+  "guards": {
+    "fragmentation_gain_min": 1.0,
+    "weighted_gain_min": 0.2,
+    "point_drop_pp_max": 0.1,
+    "track_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "mixed_ratio_max": 1.0,
+    "strict_drop_pp_max": 0.1
+  },
+  "prerequisite": "Actual guarded deployable policy produces deterministic GREEN on original and one-track/one-point train098 circle14 case; invariant/rollback/ambiguity tests pass.",
+  "staging": "Training4 first. Only if primary passes every frozen guard continue same frozen three-way on development8.",
+  "budget": {
+    "workers": 4,
+    "threads_each": 1,
+    "seconds_per_worker": 1200
+  },
+  "data_role": "All parent fit64, four actual training and eight already-exposed development scenes. No original calibration8/work16/confirmation/formal29 in this study.",
+  "new_training": false,
+  "version_promoted": false
+}

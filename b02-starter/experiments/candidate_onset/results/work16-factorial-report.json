@@ -1,0 +1,1795 @@
+{
+  "protocol_sha256": "537000eb12bb8828f98bc392649ebbea2c6371eda79c9db1844f183f7728fba2",
+  "original_gate": {
+    "fragmentation": true,
+    "weighted": true,
+    "point": true,
+    "track": true,
+    "continuous": true,
+    "timeliness": true,
+    "clutter": true,
+    "mixed": false,
+    "strict_recall": true,
+    "weighted_interval_positive": true
+  },
+  "aggregate": {
+    "baseline": {
+      "metrics": {
+        "point_recall": 94.28864933663695,
+        "track_recall": 91.56983793353962,
+        "clutter_outputs": 16332,
+        "clutter_score": 94.7241075206988,
+        "split_tracks": 1110,
+        "fragmentation_score": 67.64135736416071,
+        "timeliness_score": 82.64506011500261,
+        "delay_median": 2.0,
+        "delay_p90": 9,
+        "unmatched_tracks": 1,
+        "dominant_id_coverage": 84.45529502294004,
+        "continuous_score": 86.53479955837756,
+        "unknown_outputs": 10779,
+        "weighted_total": 84.30760553963995
+      },
+      "mixed_points": 5264,
+      "short_ids": 664
+    },
+    "column": {
+      "metrics": {
+        "point_recall": 94.26054483959439,
+        "track_recall": 91.54384676575987,
+        "clutter_outputs": 16264,
+        "clutter_score": 94.74607425401943,
+        "split_tracks": 1090,
+        "fragmentation_score": 68.16262465451796,
+        "timeliness_score": 82.71824359644538,
+        "delay_median": 2.0,
+        "delay_p90": 9,
+        "unmatched_tracks": 1,
+        "dominant_id_coverage": 84.32412846003481,
+        "continuous_score": 86.40443773004212,
+        "unknown_outputs": 10781,
+        "weighted_total": 84.394822651331
+      },
+      "mixed_points": 5379,
+      "short_ids": 615
+    },
+    "backup": {
+      "metrics": {
+        "point_recall": 94.5858463168572,
+        "track_recall": 91.79966789659431,
+        "clutter_outputs": 16318,
+        "clutter_score": 94.72863008344127,
+        "split_tracks": 1077,
+        "fragmentation_score": 69.04529454738659,
+        "timeliness_score": 82.64506011500261,
+        "delay_median": 2.0,
+        "delay_p90": 9,
+        "unmatched_tracks": 1,
+        "dominant_id_coverage": 85.64893072837033,
+        "continuous_score": 87.74381185474411,
+        "unknown_outputs": 10855,
+        "weighted_total": 84.89959668074908
+      },
+      "mixed_points": 5337,
+      "short_ids": 628
+    },
+    "combined": {
+      "metrics": {
+        "point_recall": 94.55321925707216,
+        "track_recall": 91.77019175112979,
+        "clutter_outputs": 16250,
+        "clutter_score": 94.75059681676191,
+        "split_tracks": 1057,
+        "fragmentation_score": 69.5530525669124,
+        "timeliness_score": 82.71824359644538,
+        "delay_median": 2.0,
+        "delay_p90": 9,
+        "unmatched_tracks": 1,
+        "dominant_id_coverage": 85.49587268352954,
+        "continuous_score": 87.59121334741913,
+        "unknown_outputs": 10857,
+        "weighted_total": 84.97861910917051
+      },
+      "mixed_points": 5417,
+      "short_ids": 588
+    }
+  },
+  "scenes": {
+    "train_011": {
+      "mixed": {
+        "baseline": 249,
+        "column": 250,
+        "backup": 249,
+        "combined": 250
+      },
+      "interaction": 0
+    },
+    "train_088": {
+      "mixed": {
+        "baseline": 191,
+        "column": 222,
+        "backup": 179,
+        "combined": 180
+      },
+      "interaction": -30
+    },
+    "train_014": {
+      "mixed": {
+        "baseline": 264,
+        "column": 245,
+        "backup": 260,
+        "combined": 243
+      },
+      "interaction": 2
+    },
+    "train_010": {
+      "mixed": {
+        "baseline": 505,
+        "column": 966,
+        "backup": 505,
+        "combined": 964
+      },
+      "interaction": -2
+    },
+    "train_006": {
+      "mixed": {
+        "baseline": 920,
+        "column": 721,
+        "backup": 920,
+        "combined": 717
+      },
+      "interaction": -4
+    },
+    "train_187": {
+      "mixed": {
+        "baseline": 277,
+        "column": 281,
+        "backup": 277,
+        "combined": 280
+      },
+      "interaction": -1
+    },
+    "train_067": {
+      "mixed": {
+        "baseline": 167,
+        "column": 202,
+        "backup": 164,
+        "combined": 198
+      },
+      "interaction": -1
+    },
+    "train_072": {
+      "mixed": {
+        "baseline": 354,
+        "column": 471,
+        "backup": 442,
+        "combined": 552
+      },
+      "interaction": -7
+    },
+    "train_074": {
+      "mixed": {
+        "baseline": 509,
+        "column": 314,
+        "backup": 507,
+        "combined": 316
+      },
+      "interaction": 4
+    },
+    "train_058": {
+      "mixed": {
+        "baseline": 296,
+        "column": 287,
+        "backup": 297,
+        "combined": 292
+      },
+      "interaction": 4
+    },
+    "train_012": {
+      "mixed": {
+        "baseline": 130,
+        "column": 152,
+        "backup": 127,
+        "combined": 148
+      },
+      "interaction": -1
+    },
+    "train_157": {
+      "mixed": {
+        "baseline": 272,
+        "column": 213,
+        "backup": 271,
+        "combined": 211
+      },
+      "interaction": -1
+    },
+    "train_080": {
+      "mixed": {
+        "baseline": 358,
+        "column": 353,
+        "backup": 370,
+        "combined": 366
+      },
+      "interaction": 1
+    },
+    "train_029": {
+      "mixed": {
+        "baseline": 202,
+        "column": 157,
+        "backup": 202,
+        "combined": 158
+      },
+      "interaction": 1
+    },
+    "train_064": {
+      "mixed": {
+        "baseline": 302,
+        "column": 324,
+        "backup": 305,
+        "combined": 324
+      },
+      "interaction": -3
+    },
+    "train_034": {
+      "mixed": {
+        "baseline": 268,
+        "column": 221,
+        "backup": 262,
+        "combined": 218
+      },
+      "interaction": 3
+    }
+  },
+  "cases": {
+    "train_010": {
+      "baseline": {
+        "mixed_points": 505,
+        "top_mixed_tracks": [
+          {
+            "batch": 16587,
+            "truth_counts": {
+              "30": 134,
+              "89": 161,
+              "37": 1,
+              "91": 1
+            },
+            "first_truth": 30,
+            "first_different_truth": {
+              "circle": 251,
+              "point": 56149,
+              "truth": 89
+            },
+            "mixed_points": 136
+          },
+          {
+            "batch": 7571,
+            "truth_counts": {
+              "3": 323,
+              "4": 6,
+              "70": 54
+            },
+            "first_truth": 3,
+            "first_different_truth": {
+              "circle": 91,
+              "point": 18187,
+              "truth": 4
+            },
+            "mixed_points": 60
+          },
+          {
+            "batch": 62662,
+            "truth_counts": {
+              "27": 147,
+              "26": 1,
+              "42": 39,
+              "40": 1
+            },
+            "first_truth": 27,
+            "first_different_truth": {
+              "circle": 540,
+              "point": 115651,
+              "truth": 26
+            },
+            "mixed_points": 41
+          },
+          {
+            "batch": 3235,
+            "truth_counts": {
+              "37": 489,
+              "38": 14,
+              "89": 1
+            },
+            "first_truth": 37,
+            "first_different_truth": {
+              "circle": 68,
+              "point": 13172,
+              "truth": 38
+            },
+            "mixed_points": 15
+          },
+          {
+            "batch": 15252,
+            "truth_counts": {
+              "125": 565,
+              "126": 15
+            },
+            "first_truth": 125,
+            "first_different_truth": {
+              "circle": 113,
+              "point": 23253,
+              "truth": 126
+            },
+            "mixed_points": 15
+          },
+          {
+            "batch": 13978,
+            "truth_counts": {
+              "4": 487,
+              "3": 11
+            },
+            "first_truth": 4,
+            "first_different_truth": {
+              "circle": 117,
+              "point": 24214,
+              "truth": 3
+            },
+            "mixed_points": 11
+          },
+          {
+            "batch": 13756,
+            "truth_counts": {
+              "24": 376,
+              "25": 10
+            },
+            "first_truth": 24,
+            "first_different_truth": {
+              "circle": 121,
+              "point": 25218,
+              "truth": 25
+            },
+            "mixed_points": 10
+          },
+          {
+            "batch": 59422,
+            "truth_counts": {
+              "70": 7,
+              "3": 194,
+              "4": 2
+            },
+            "first_truth": 70,
+            "first_different_truth": {
+              "circle": 425,
+              "point": 94033,
+              "truth": 3
+            },
+            "mixed_points": 9
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              30,
+              89
+            ],
+            "mixed_points": 134
+          },
+          {
+            "truth": [
+              3,
+              70
+            ],
+            "mixed_points": 61
+          },
+          {
+            "truth": [
+              27,
+              42
+            ],
+            "mixed_points": 39
+          },
+          {
+            "truth": [
+              37,
+              38
+            ],
+            "mixed_points": 20
+          },
+          {
+            "truth": [
+              3,
+              4
+            ],
+            "mixed_points": 19
+          },
+          {
+            "truth": [
+              24,
+              25
+            ],
+            "mixed_points": 18
+          },
+          {
+            "truth": [
+              125,
+              126
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              9,
+              10
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              26,
+              27
+            ],
+            "mixed_points": 15
+          },
+          {
+            "truth": [
+              137,
+              138
+            ],
+            "mixed_points": 14
+          }
+        ]
+      },
+      "column": {
+        "mixed_points": 966,
+        "top_mixed_tracks": [
+          {
+            "batch": 16588,
+            "truth_counts": {
+              "30": 134,
+              "89": 89,
+              "91": 1,
+              "37": 190,
+              "38": 4
+            },
+            "first_truth": 30,
+            "first_different_truth": {
+              "circle": 251,
+              "point": 56149,
+              "truth": 89
+            },
+            "mixed_points": 228
+          },
+          {
+            "batch": 8579,
+            "truth_counts": {
+              "31": 225,
+              "32": 2,
+              "96": 248
+            },
+            "first_truth": 31,
+            "first_different_truth": {
+              "circle": 237,
+              "point": 53245,
+              "truth": 32
+            },
+            "mixed_points": 227
+          },
+          {
+            "batch": 23662,
+            "truth_counts": {
+              "96": 138,
+              "32": 15,
+              "31": 305
+            },
+            "first_truth": 96,
+            "first_different_truth": {
+              "circle": 295,
+              "point": 65738,
+              "truth": 32
+            },
+            "mixed_points": 153
+          },
+          {
+            "batch": 3235,
+            "truth_counts": {
+              "37": 306,
+              "38": 11,
+              "89": 71,
+              "91": 1
+            },
+            "first_truth": 37,
+            "first_different_truth": {
+              "circle": 132,
+              "point": 28017,
+              "truth": 38
+            },
+            "mixed_points": 83
+          },
+          {
+            "batch": 62668,
+            "truth_counts": {
+              "27": 150,
+              "26": 1,
+              "42": 39
+            },
+            "first_truth": 27,
+            "first_different_truth": {
+              "circle": 540,
+              "point": 115651,
+              "truth": 26
+            },
+            "mixed_points": 40
+          },
+          {
+            "batch": 15253,
+            "truth_counts": {
+              "125": 565,
+              "126": 20
+            },
+            "first_truth": 125,
+            "first_different_truth": {
+              "circle": 113,
+              "point": 23253,
+              "truth": 126
+            },
+            "mixed_points": 20
+          },
+          {
+            "batch": 7583,
+            "truth_counts": {
+              "137": 480,
+              "138": 11
+            },
+            "first_truth": 137,
+            "first_different_truth": {
+              "circle": 77,
+              "point": 15051,
+              "truth": 138
+            },
+            "mixed_points": 11
+          },
+          {
+            "batch": 70918,
+            "truth_counts": {
+              "74": 160,
+              "71": 10
+            },
+            "first_truth": 74,
+            "first_different_truth": {
+              "circle": 519,
+              "point": 112638,
+              "truth": 71
+            },
+            "mixed_points": 10
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              31,
+              96
+            ],
+            "mixed_points": 363
+          },
+          {
+            "truth": [
+              37,
+              89
+            ],
+            "mixed_points": 160
+          },
+          {
+            "truth": [
+              30,
+              37
+            ],
+            "mixed_points": 134
+          },
+          {
+            "truth": [
+              27,
+              42
+            ],
+            "mixed_points": 39
+          },
+          {
+            "truth": [
+              125,
+              126
+            ],
+            "mixed_points": 21
+          },
+          {
+            "truth": [
+              137,
+              138
+            ],
+            "mixed_points": 20
+          },
+          {
+            "truth": [
+              3,
+              4
+            ],
+            "mixed_points": 18
+          },
+          {
+            "truth": [
+              31,
+              32
+            ],
+            "mixed_points": 17
+          },
+          {
+            "truth": [
+              37,
+              38
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              71,
+              74
+            ],
+            "mixed_points": 15
+          }
+        ]
+      },
+      "backup": {
+        "mixed_points": 505,
+        "top_mixed_tracks": [
+          {
+            "batch": 16583,
+            "truth_counts": {
+              "30": 134,
+              "89": 161,
+              "37": 1,
+              "91": 1
+            },
+            "first_truth": 30,
+            "first_different_truth": {
+              "circle": 251,
+              "point": 56149,
+              "truth": 89
+            },
+            "mixed_points": 136
+          },
+          {
+            "batch": 7569,
+            "truth_counts": {
+              "3": 330,
+              "4": 6,
+              "70": 54
+            },
+            "first_truth": 3,
+            "first_different_truth": {
+              "circle": 91,
+              "point": 18187,
+              "truth": 4
+            },
+            "mixed_points": 60
+          },
+          {
+            "batch": 42128,
+            "truth_counts": {
+              "27": 297,
+              "26": 6,
+              "42": 39,
+              "40": 1
+            },
+            "first_truth": 27,
+            "first_different_truth": {
+              "circle": 324,
+              "point": 71655,
+              "truth": 26
+            },
+            "mixed_points": 46
+          },
+          {
+            "batch": 3235,
+            "truth_counts": {
+              "37": 491,
+              "38": 14,
+              "89": 1
+            },
+            "first_truth": 37,
+            "first_different_truth": {
+              "circle": 68,
+              "point": 13172,
+              "truth": 38
+            },
+            "mixed_points": 15
+          },
+          {
+            "batch": 15248,
+            "truth_counts": {
+              "125": 565,
+              "126": 15
+            },
+            "first_truth": 125,
+            "first_different_truth": {
+              "circle": 113,
+              "point": 23253,
+              "truth": 126
+            },
+            "mixed_points": 15
+          },
+          {
+            "batch": 13752,
+            "truth_counts": {
+              "24": 376,
+              "25": 10
+            },
+            "first_truth": 24,
+            "first_different_truth": {
+              "circle": 121,
+              "point": 25218,
+              "truth": 25
+            },
+            "mixed_points": 10
+          },
+          {
+            "batch": 59395,
+            "truth_counts": {
+              "70": 7,
+              "3": 199,
+              "4": 3
+            },
+            "first_truth": 70,
+            "first_different_truth": {
+              "circle": 425,
+              "point": 94033,
+              "truth": 3
+            },
+            "mixed_points": 10
+          },
+          {
+            "batch": 13974,
+            "truth_counts": {
+              "4": 497,
+              "3": 9
+            },
+            "first_truth": 4,
+            "first_different_truth": {
+              "circle": 117,
+              "point": 24214,
+              "truth": 3
+            },
+            "mixed_points": 9
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              30,
+              89
+            ],
+            "mixed_points": 134
+          },
+          {
+            "truth": [
+              3,
+              70
+            ],
+            "mixed_points": 61
+          },
+          {
+            "truth": [
+              27,
+              42
+            ],
+            "mixed_points": 39
+          },
+          {
+            "truth": [
+              37,
+              38
+            ],
+            "mixed_points": 20
+          },
+          {
+            "truth": [
+              3,
+              4
+            ],
+            "mixed_points": 18
+          },
+          {
+            "truth": [
+              24,
+              25
+            ],
+            "mixed_points": 18
+          },
+          {
+            "truth": [
+              125,
+              126
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              9,
+              10
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              137,
+              138
+            ],
+            "mixed_points": 14
+          },
+          {
+            "truth": [
+              26,
+              27
+            ],
+            "mixed_points": 14
+          }
+        ]
+      },
+      "combined": {
+        "mixed_points": 964,
+        "top_mixed_tracks": [
+          {
+            "batch": 16584,
+            "truth_counts": {
+              "30": 134,
+              "89": 89,
+              "91": 1,
+              "37": 190,
+              "38": 4
+            },
+            "first_truth": 30,
+            "first_different_truth": {
+              "circle": 251,
+              "point": 56149,
+              "truth": 89
+            },
+            "mixed_points": 228
+          },
+          {
+            "batch": 8577,
+            "truth_counts": {
+              "31": 225,
+              "32": 2,
+              "96": 248
+            },
+            "first_truth": 31,
+            "first_different_truth": {
+              "circle": 237,
+              "point": 53245,
+              "truth": 32
+            },
+            "mixed_points": 227
+          },
+          {
+            "batch": 23653,
+            "truth_counts": {
+              "96": 138,
+              "32": 15,
+              "31": 305
+            },
+            "first_truth": 96,
+            "first_different_truth": {
+              "circle": 295,
+              "point": 65738,
+              "truth": 32
+            },
+            "mixed_points": 153
+          },
+          {
+            "batch": 3235,
+            "truth_counts": {
+              "37": 307,
+              "38": 11,
+              "89": 71,
+              "91": 1
+            },
+            "first_truth": 37,
+            "first_different_truth": {
+              "circle": 132,
+              "point": 28017,
+              "truth": 38
+            },
+            "mixed_points": 83
+          },
+          {
+            "batch": 42127,
+            "truth_counts": {
+              "27": 298,
+              "26": 5,
+              "42": 39
+            },
+            "first_truth": 27,
+            "first_different_truth": {
+              "circle": 370,
+              "point": 81626,
+              "truth": 26
+            },
+            "mixed_points": 44
+          },
+          {
+            "batch": 15249,
+            "truth_counts": {
+              "125": 565,
+              "126": 20
+            },
+            "first_truth": 125,
+            "first_different_truth": {
+              "circle": 113,
+              "point": 23253,
+              "truth": 126
+            },
+            "mixed_points": 20
+          },
+          {
+            "batch": 7581,
+            "truth_counts": {
+              "137": 480,
+              "138": 11
+            },
+            "first_truth": 137,
+            "first_different_truth": {
+              "circle": 77,
+              "point": 15051,
+              "truth": 138
+            },
+            "mixed_points": 11
+          },
+          {
+            "batch": 70878,
+            "truth_counts": {
+              "74": 160,
+              "71": 10
+            },
+            "first_truth": 74,
+            "first_different_truth": {
+              "circle": 519,
+              "point": 112638,
+              "truth": 71
+            },
+            "mixed_points": 10
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              31,
+              96
+            ],
+            "mixed_points": 363
+          },
+          {
+            "truth": [
+              37,
+              89
+            ],
+            "mixed_points": 160
+          },
+          {
+            "truth": [
+              30,
+              37
+            ],
+            "mixed_points": 134
+          },
+          {
+            "truth": [
+              27,
+              42
+            ],
+            "mixed_points": 39
+          },
+          {
+            "truth": [
+              125,
+              126
+            ],
+            "mixed_points": 21
+          },
+          {
+            "truth": [
+              137,
+              138
+            ],
+            "mixed_points": 20
+          },
+          {
+            "truth": [
+              3,
+              4
+            ],
+            "mixed_points": 19
+          },
+          {
+            "truth": [
+              31,
+              32
+            ],
+            "mixed_points": 17
+          },
+          {
+            "truth": [
+              37,
+              38
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              71,
+              74
+            ],
+            "mixed_points": 15
+          }
+        ]
+      }
+    },
+    "train_072": {
+      "baseline": {
+        "mixed_points": 354,
+        "top_mixed_tracks": [
+          {
+            "batch": 16963,
+            "truth_counts": {
+              "40": 134,
+              "118": 44
+            },
+            "first_truth": 40,
+            "first_different_truth": {
+              "circle": 250,
+              "point": 63205,
+              "truth": 118
+            },
+            "mixed_points": 44
+          },
+          {
+            "batch": 47910,
+            "truth_counts": {
+              "59": 28,
+              "75": 182
+            },
+            "first_truth": 59,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87242,
+              "truth": 75
+            },
+            "mixed_points": 28
+          },
+          {
+            "batch": 44773,
+            "truth_counts": {
+              "75": 43,
+              "59": 22
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87245,
+              "truth": 59
+            },
+            "mixed_points": 22
+          },
+          {
+            "batch": 1820,
+            "truth_counts": {
+              "6": 478,
+              "7": 18
+            },
+            "first_truth": 6,
+            "first_different_truth": {
+              "circle": 52,
+              "point": 13121,
+              "truth": 7
+            },
+            "mixed_points": 18
+          },
+          {
+            "batch": 1814,
+            "truth_counts": {
+              "7": 493,
+              "6": 17
+            },
+            "first_truth": 7,
+            "first_different_truth": {
+              "circle": 27,
+              "point": 6957,
+              "truth": 6
+            },
+            "mixed_points": 17
+          },
+          {
+            "batch": 15566,
+            "truth_counts": {
+              "52": 428,
+              "53": 10
+            },
+            "first_truth": 52,
+            "first_different_truth": {
+              "circle": 107,
+              "point": 27239,
+              "truth": 53
+            },
+            "mixed_points": 10
+          },
+          {
+            "batch": 37634,
+            "truth_counts": {
+              "75": 10,
+              "40": 358
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 254,
+              "point": 64138,
+              "truth": 40
+            },
+            "mixed_points": 10
+          },
+          {
+            "batch": 73787,
+            "truth_counts": {
+              "38": 24,
+              "39": 2,
+              "79": 7
+            },
+            "first_truth": 38,
+            "first_different_truth": {
+              "circle": 526,
+              "point": 130291,
+              "truth": 39
+            },
+            "mixed_points": 9
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              59,
+              75
+            ],
+            "mixed_points": 50
+          },
+          {
+            "truth": [
+              40,
+              118
+            ],
+            "mixed_points": 46
+          },
+          {
+            "truth": [
+              6,
+              7
+            ],
+            "mixed_points": 35
+          },
+          {
+            "truth": [
+              52,
+              53
+            ],
+            "mixed_points": 15
+          },
+          {
+            "truth": [
+              54,
+              55
+            ],
+            "mixed_points": 14
+          },
+          {
+            "truth": [
+              150,
+              151
+            ],
+            "mixed_points": 12
+          },
+          {
+            "truth": [
+              36,
+              37
+            ],
+            "mixed_points": 10
+          },
+          {
+            "truth": [
+              40,
+              75
+            ],
+            "mixed_points": 10
+          },
+          {
+            "truth": [
+              102,
+              104
+            ],
+            "mixed_points": 10
+          },
+          {
+            "truth": [
+              132,
+              134
+            ],
+            "mixed_points": 9
+          }
+        ]
+      },
+      "column": {
+        "mixed_points": 471,
+        "top_mixed_tracks": [
+          {
+            "batch": 19032,
+            "truth_counts": {
+              "1": 69,
+              "137": 5,
+              "138": 262
+            },
+            "first_truth": 1,
+            "first_different_truth": {
+              "circle": 189,
+              "point": 48635,
+              "truth": 137
+            },
+            "mixed_points": 74
+          },
+          {
+            "batch": 16958,
+            "truth_counts": {
+              "40": 134,
+              "118": 42
+            },
+            "first_truth": 40,
+            "first_different_truth": {
+              "circle": 253,
+              "point": 63876,
+              "truth": 118
+            },
+            "mixed_points": 42
+          },
+          {
+            "batch": 21268,
+            "truth_counts": {
+              "68": 57,
+              "30": 31
+            },
+            "first_truth": 68,
+            "first_different_truth": {
+              "circle": 194,
+              "point": 50130,
+              "truth": 30
+            },
+            "mixed_points": 31
+          },
+          {
+            "batch": 47909,
+            "truth_counts": {
+              "59": 28,
+              "75": 182
+            },
+            "first_truth": 59,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87242,
+              "truth": 75
+            },
+            "mixed_points": 28
+          },
+          {
+            "batch": 1820,
+            "truth_counts": {
+              "6": 488,
+              "7": 22
+            },
+            "first_truth": 6,
+            "first_different_truth": {
+              "circle": 52,
+              "point": 13121,
+              "truth": 7
+            },
+            "mixed_points": 22
+          },
+          {
+            "batch": 44772,
+            "truth_counts": {
+              "75": 43,
+              "59": 22
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87245,
+              "truth": 59
+            },
+            "mixed_points": 22
+          },
+          {
+            "batch": 15565,
+            "truth_counts": {
+              "52": 431,
+              "53": 15
+            },
+            "first_truth": 52,
+            "first_different_truth": {
+              "circle": 107,
+              "point": 27239,
+              "truth": 53
+            },
+            "mixed_points": 15
+          },
+          {
+            "batch": 37633,
+            "truth_counts": {
+              "75": 10,
+              "40": 358
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 254,
+              "point": 64138,
+              "truth": 40
+            },
+            "mixed_points": 10
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              1,
+              138
+            ],
+            "mixed_points": 69
+          },
+          {
+            "truth": [
+              59,
+              75
+            ],
+            "mixed_points": 50
+          },
+          {
+            "truth": [
+              40,
+              118
+            ],
+            "mixed_points": 43
+          },
+          {
+            "truth": [
+              30,
+              68
+            ],
+            "mixed_points": 31
+          },
+          {
+            "truth": [
+              6,
+              7
+            ],
+            "mixed_points": 29
+          },
+          {
+            "truth": [
+              54,
+              55
+            ],
+            "mixed_points": 18
+          },
+          {
+            "truth": [
+              52,
+              53
+            ],
+            "mixed_points": 17
+          },
+          {
+            "truth": [
+              15,
+              17
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              150,
+              151
+            ],
+            "mixed_points": 15
+          },
+          {
+            "truth": [
+              16,
+              18
+            ],
+            "mixed_points": 12
+          }
+        ]
+      },
+      "backup": {
+        "mixed_points": 442,
+        "top_mixed_tracks": [
+          {
+            "batch": 24685,
+            "truth_counts": {
+              "75": 95,
+              "40": 358
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 254,
+              "point": 64138,
+              "truth": 40
+            },
+            "mixed_points": 95
+          },
+          {
+            "batch": 16961,
+            "truth_counts": {
+              "40": 135,
+              "118": 44
+            },
+            "first_truth": 40,
+            "first_different_truth": {
+              "circle": 250,
+              "point": 63205,
+              "truth": 118
+            },
+            "mixed_points": 44
+          },
+          {
+            "batch": 47890,
+            "truth_counts": {
+              "59": 28,
+              "75": 182
+            },
+            "first_truth": 59,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87242,
+              "truth": 75
+            },
+            "mixed_points": 28
+          },
+          {
+            "batch": 48676,
+            "truth_counts": {
+              "75": 23,
+              "59": 22
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87245,
+              "truth": 59
+            },
+            "mixed_points": 22
+          },
+          {
+            "batch": 1820,
+            "truth_counts": {
+              "6": 478,
+              "7": 18
+            },
+            "first_truth": 6,
+            "first_different_truth": {
+              "circle": 52,
+              "point": 13121,
+              "truth": 7
+            },
+            "mixed_points": 18
+          },
+          {
+            "batch": 1814,
+            "truth_counts": {
+              "7": 493,
+              "6": 17
+            },
+            "first_truth": 7,
+            "first_different_truth": {
+              "circle": 27,
+              "point": 6957,
+              "truth": 6
+            },
+            "mixed_points": 17
+          },
+          {
+            "batch": 15564,
+            "truth_counts": {
+              "52": 428,
+              "53": 10
+            },
+            "first_truth": 52,
+            "first_different_truth": {
+              "circle": 107,
+              "point": 27239,
+              "truth": 53
+            },
+            "mixed_points": 10
+          },
+          {
+            "batch": 73742,
+            "truth_counts": {
+              "38": 24,
+              "39": 2,
+              "79": 7
+            },
+            "first_truth": 38,
+            "first_different_truth": {
+              "circle": 526,
+              "point": 130291,
+              "truth": 39
+            },
+            "mixed_points": 9
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              40,
+              75
+            ],
+            "mixed_points": 95
+          },
+          {
+            "truth": [
+              59,
+              75
+            ],
+            "mixed_points": 50
+          },
+          {
+            "truth": [
+              40,
+              118
+            ],
+            "mixed_points": 46
+          },
+          {
+            "truth": [
+              6,
+              7
+            ],
+            "mixed_points": 35
+          },
+          {
+            "truth": [
+              54,
+              55
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              52,
+              53
+            ],
+            "mixed_points": 15
+          },
+          {
+            "truth": [
+              150,
+              151
+            ],
+            "mixed_points": 12
+          },
+          {
+            "truth": [
+              36,
+              37
+            ],
+            "mixed_points": 10
+          },
+          {
+            "truth": [
+              102,
+              104
+            ],
+            "mixed_points": 10
+          },
+          {
+            "truth": [
+              132,
+              134
+            ],
+            "mixed_points": 9
+          }
+        ]
+      },
+      "combined": {
+        "mixed_points": 552,
+        "top_mixed_tracks": [
+          {
+            "batch": 24683,
+            "truth_counts": {
+              "75": 95,
+              "40": 358
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 254,
+              "point": 64138,
+              "truth": 40
+            },
+            "mixed_points": 95
+          },
+          {
+            "batch": 19029,
+            "truth_counts": {
+              "1": 69,
+              "137": 5,
+              "138": 262
+            },
+            "first_truth": 1,
+            "first_different_truth": {
+              "circle": 189,
+              "point": 48635,
+              "truth": 137
+            },
+            "mixed_points": 74
+          },
+          {
+            "batch": 16956,
+            "truth_counts": {
+              "40": 135,
+              "118": 42
+            },
+            "first_truth": 40,
+            "first_different_truth": {
+              "circle": 253,
+              "point": 63876,
+              "truth": 118
+            },
+            "mixed_points": 42
+          },
+          {
+            "batch": 21264,
+            "truth_counts": {
+              "68": 57,
+              "30": 31
+            },
+            "first_truth": 68,
+            "first_different_truth": {
+              "circle": 194,
+              "point": 50130,
+              "truth": 30
+            },
+            "mixed_points": 31
+          },
+          {
+            "batch": 47889,
+            "truth_counts": {
+              "59": 28,
+              "75": 182
+            },
+            "first_truth": 59,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87242,
+              "truth": 75
+            },
+            "mixed_points": 28
+          },
+          {
+            "batch": 1820,
+            "truth_counts": {
+              "6": 488,
+              "7": 22
+            },
+            "first_truth": 6,
+            "first_different_truth": {
+              "circle": 52,
+              "point": 13121,
+              "truth": 7
+            },
+            "mixed_points": 22
+          },
+          {
+            "batch": 48675,
+            "truth_counts": {
+              "75": 23,
+              "59": 22
+            },
+            "first_truth": 75,
+            "first_different_truth": {
+              "circle": 342,
+              "point": 87245,
+              "truth": 59
+            },
+            "mixed_points": 22
+          },
+          {
+            "batch": 15563,
+            "truth_counts": {
+              "52": 431,
+              "53": 15
+            },
+            "first_truth": 52,
+            "first_different_truth": {
+              "circle": 107,
+              "point": 27239,
+              "truth": 53
+            },
+            "mixed_points": 15
+          }
+        ],
+        "truth_pairs": [
+          {
+            "truth": [
+              40,
+              75
+            ],
+            "mixed_points": 95
+          },
+          {
+            "truth": [
+              1,
+              138
+            ],
+            "mixed_points": 69
+          },
+          {
+            "truth": [
+              59,
+              75
+            ],
+            "mixed_points": 50
+          },
+          {
+            "truth": [
+              40,
+              118
+            ],
+            "mixed_points": 43
+          },
+          {
+            "truth": [
+              30,
+              68
+            ],
+            "mixed_points": 31
+          },
+          {
+            "truth": [
+              6,
+              7
+            ],
+            "mixed_points": 29
+          },
+          {
+            "truth": [
+              52,
+              53
+            ],
+            "mixed_points": 17
+          },
+          {
+            "truth": [
+              54,
+              55
+            ],
+            "mixed_points": 17
+          },
+          {
+            "truth": [
+              15,
+              17
+            ],
+            "mixed_points": 16
+          },
+          {
+            "truth": [
+              150,
+              151
+            ],
+            "mixed_points": 15
+          }
+        ]
+      }
+    }
+  }
+}

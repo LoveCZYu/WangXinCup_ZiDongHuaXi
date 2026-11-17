@@ -1,0 +1,19 @@
+{
+  "kind": "past-only-oracle-history-motion-diagnostic",
+  "source_sha256": "76c4693e1edfa03fcd2cd11fd2dc274dfed44f4c78cb91d7ead0bf82206fa804",
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "training4": [
+    "train_098",
+    "train_076",
+    "train_158",
+    "train_090"
+  ],
+  "predictors": [
+    "original velocity-gain .35 with raw positions",
+    "past16 OLS"
+  ],
+  "budget_seconds": 180,
+  "selection": false,
+  "new_training": false,
+  "scope": "fixed real training4 only, no development/calibration/work16/sealed reads"
+}

@@ -1,0 +1,77 @@
+{
+  "format": "past-trusted-physical-rebase-four-way-v1",
+  "created_at_utc": "2026-11-17T09:16:26.884575+00:00",
+  "parent_commit": "986a268",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+  "capture_protocol_sha256": "b0a840b380abdf805f22adf3dbedd0712914242439d1cdec5ee185439afb86cb",
+  "training4": [
+    "train_098",
+    "train_076",
+    "train_158",
+    "train_090"
+  ],
+  "development8": [
+    "train_152",
+    "train_022",
+    "train_001",
+    "train_139",
+    "train_019",
+    "train_172",
+    "train_093",
+    "train_155"
+  ],
+  "sources": {
+    "experiments/candidate_onset/__init__.py": "2c0d053969417c36e1931a8a8b1d7753e6ba871fa3df39e5dda7808c1e8957cc",
+    "experiments/candidate_onset/audit.py": "7773368c34e9179cc54e1b03bf650fe606391d0b0e49a7bb9cb1b99affb1c69b",
+    "experiments/candidate_onset/case_diagnostic.py": "db15944ffccf2181c18282158ccbc32aa797bf240d1e5719f273cc259213e6eb",
+    "experiments/candidate_onset/collect.py": "8e010e4a614f933b70721354e8df1166266edd75194755075a0c07f403da57d9",
+    "experiments/candidate_onset/compare.py": "045ceae2d3c7dc40d6c63a77edcc30b7c4cb36518a046c36186fb9cad94834a2",
+    "experiments/candidate_onset/minimize.py": "1689c8d6ccab27a307e28869afffa610960059fd625a7b7825aa347092c241c8",
+    "experiments/candidate_onset/observe.py": "49ba69603bd9532da509e08a3249ce8257d4f2c04993f744436917159551abc3",
+    "experiments/candidate_onset/policy.py": "99567950238fea32ba1484012f8f8adaa490bde7a52a9defccf87b16c7cb8a1e",
+    "experiments/candidate_onset/policy_repro.py": "31d9653a74383f4a20fd446f93b330396617cab25277ec3b6fbc4c244905e921",
+    "experiments/candidate_onset/repro.py": "0a428f4f72ce1f6085752c40d3cebfc130fc3ca8862e9ace8605edd8f6a788b2",
+    "experiments/candidate_onset/study.py": "687d5f9f37042fcabc56f7a6ae3cf5f3b9fdc4e387b2290b1f99e108bb1025a3",
+    "experiments/candidate_onset/summarize.py": "c5a301fc581982da96dc4885c6375db12006a19939ba8da4469392c4287ada3b"
+  },
+  "modes": [
+    "baseline",
+    "position",
+    "velocity",
+    "both"
+  ],
+  "primary": "position minus baseline",
+  "selection": "Position chosen before whole-scene results: targeted training16 repair count15 vs velocity13/both14. Development32 targeted diagnostics already exposed; no claim of fresh validation.",
+  "hypothesis": "An accepted but untrusted recent observation can displace physical position while trusted memory remains clean. A past-only linear-fit rebase may restore next candidate without widening all gates.",
+  "intervention": "Before confirmed-stage assignment, rebase physical position at its existing last_scan from trusted-memory OLS; velocity/time/hits remain unchanged in primary arm. Apply to ALL qualifying IDs, not diagnostic chosen ID.",
+  "qualification": {
+    "min_published": 3,
+    "min_memory": 4,
+    "last_physical_observation_not_trusted": true,
+    "trusted_latest_age_max": 3,
+    "min_memory_span": 3,
+    "fit_mean_squared_normalized_residual_max": 0.5
+  },
+  "fixed": "Frozen weights, .525/.05 output policy, all existing candidate radii/costs/dummy/recovery rules; no current labels/future, no point synthesis, no new GPU training, no threshold sweep.",
+  "prerequisite": "Original and minimized real train098-circle14 failures reproduced RED twice; actual conditional position policy repairs original and minimal GREEN twice.",
+  "guards": {
+    "fragmentation_gain_min": 1.0,
+    "weighted_gain_min": 0.2,
+    "point_drop_pp_max": 0.1,
+    "track_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "mixed_ratio_max": 1.0,
+    "strict_drop_pp_max": 0.1
+  },
+  "staging": "Fixed four training files first; only if primary all guards pass run same frozen four-way on development8. Secondary arms diagnose position/velocity interaction, never replace failed primary after results.",
+  "budget": {
+    "workers": 4,
+    "threads_each": 1,
+    "seconds_per_worker": 1200
+  },
+  "data_role": "All parent fit64, four actual training and eight already-exposed development scenes. No original calibration8/work16/confirmation/formal29 in this study.",
+  "version": "No automatic promotion from fitting/development results; retain exact prior artifacts."
+}

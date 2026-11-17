@@ -1,0 +1,352 @@
+{
+  "protocol_sha256": "ae0797fbfbf54965ebc8e93f0a92af93963ae5e2fabcfbfec922c6edc286ea28",
+  "prediction": {
+    "cv035_all": {
+      "count": 74420,
+      "gate_coverage": 0.9811744154797097,
+      "base_cost_coverage": 0.9828675087342112,
+      "residual_norm_quantiles": [
+        0.2653910866022593,
+        0.6338275994683454,
+        0.7947161002934053,
+        1.16534462879307
+      ],
+      "squared_error_axis_share": [
+        0.1966756883186217,
+        0.7693036631936185,
+        0.03402064848776812
+      ]
+    },
+    "cv035_strong": {
+      "count": 71400,
+      "gate_coverage": 0.9836694677871148,
+      "base_cost_coverage": 0.9873809523809524,
+      "residual_norm_quantiles": [
+        0.26248353488924947,
+        0.6213117707809868,
+        0.7727658064354737,
+        1.1211560720117975
+      ],
+      "squared_error_axis_share": [
+        0.18789320136938867,
+        0.7778025886301079,
+        0.0343042100005085
+      ]
+    },
+    "ols16_all": {
+      "count": 74420,
+      "gate_coverage": 0.883243751679656,
+      "base_cost_coverage": 0.8924885783391562,
+      "residual_norm_quantiles": [
+        0.28542153108032026,
+        1.1183930903676935,
+        1.5864987122561798,
+        3.1771589757901473
+      ],
+      "squared_error_axis_share": [
+        0.6468637171813372,
+        0.1534690233747752,
+        0.19966725944391137
+      ]
+    },
+    "ols16_strong": {
+      "count": 71400,
+      "gate_coverage": 0.8840336134453781,
+      "base_cost_coverage": 0.8947619047619048,
+      "residual_norm_quantiles": [
+        0.2837787202308495,
+        1.1103072596523547,
+        1.57235719630685,
+        3.0898716284449903
+      ],
+      "squared_error_axis_share": [
+        0.6338434752122832,
+        0.15337364139942242,
+        0.21278288338831697
+      ]
+    }
+  },
+  "scenes": {
+    "train_098": {
+      "cv035_all": {
+        "count": 12659,
+        "gate_coverage": 0.9788292914132238,
+        "base_cost_coverage": 0.9789872817758116,
+        "residual_norm_quantiles": [
+          0.2728808280310673,
+          0.6566105674239703,
+          0.823785907999042,
+          1.2061244580093173
+        ],
+        "squared_error_axis_share": [
+          0.2195495520761407,
+          0.7496724574717589,
+          0.030777990452100813
+        ]
+      },
+      "cv035_strong": {
+        "count": 12001,
+        "gate_coverage": 0.9835013748854262,
+        "base_cost_coverage": 0.9870844096325306,
+        "residual_norm_quantiles": [
+          0.2677162932462863,
+          0.6363169171971338,
+          0.7889723163243366,
+          1.127367806585852
+        ],
+        "squared_error_axis_share": [
+          0.19963944035364414,
+          0.7671554264725156,
+          0.03320513317384074
+        ]
+      },
+      "ols16_all": {
+        "count": 12659,
+        "gate_coverage": 0.88474603049214,
+        "base_cost_coverage": 0.8950154040603523,
+        "residual_norm_quantiles": [
+          0.3154893271721736,
+          1.0953748354060797,
+          1.7081318955869695,
+          3.665464297815915
+        ],
+        "squared_error_axis_share": [
+          0.7115929970919769,
+          0.1346522222377539,
+          0.15375478067026996
+        ]
+      },
+      "ols16_strong": {
+        "count": 12001,
+        "gate_coverage": 0.8858428464294642,
+        "base_cost_coverage": 0.8984251312390634,
+        "residual_norm_quantiles": [
+          0.31074023566872466,
+          1.0799262025987932,
+          1.6715349399871924,
+          3.5380065819182582
+        ],
+        "squared_error_axis_share": [
+          0.6898845104616695,
+          0.1352217747665895,
+          0.17489371477174076
+        ]
+      }
+    },
+    "train_076": {
+      "cv035_all": {
+        "count": 20378,
+        "gate_coverage": 0.9870448522916871,
+        "base_cost_coverage": 0.9884679556384336,
+        "residual_norm_quantiles": [
+          0.26213291985910275,
+          0.6022013132304177,
+          0.7446228354971456,
+          1.063099807724172
+        ],
+        "squared_error_axis_share": [
+          0.24703151109273971,
+          0.7139948908931123,
+          0.03897359801414771
+        ]
+      },
+      "cv035_strong": {
+        "count": 19752,
+        "gate_coverage": 0.9892162818955043,
+        "base_cost_coverage": 0.9924058323207776,
+        "residual_norm_quantiles": [
+          0.25945083565128896,
+          0.5894238325655323,
+          0.7246572182586124,
+          1.0271639065589655
+        ],
+        "squared_error_axis_share": [
+          0.24771759824109885,
+          0.7130993576992,
+          0.039183044059699454
+        ]
+      },
+      "ols16_all": {
+        "count": 20378,
+        "gate_coverage": 0.874178035135931,
+        "base_cost_coverage": 0.8823731475120228,
+        "residual_norm_quantiles": [
+          0.28923290114573974,
+          1.1908300774060838,
+          1.6476307230176908,
+          3.557637388618795
+        ],
+        "squared_error_axis_share": [
+          0.6815796910782094,
+          0.14692237028033164,
+          0.1714979386414583
+        ]
+      },
+      "ols16_strong": {
+        "count": 19752,
+        "gate_coverage": 0.8768226002430134,
+        "base_cost_coverage": 0.8859356014580801,
+        "residual_norm_quantiles": [
+          0.286208488437687,
+          1.171863178011621,
+          1.6223449748516248,
+          3.5089791918438418
+        ],
+        "squared_error_axis_share": [
+          0.6779965939609274,
+          0.1474730041768336,
+          0.17453040186223664
+        ]
+      }
+    },
+    "train_158": {
+      "cv035_all": {
+        "count": 24449,
+        "gate_coverage": 0.979099349666653,
+        "base_cost_coverage": 0.9811444230847888,
+        "residual_norm_quantiles": [
+          0.2555217348298286,
+          0.6379821179906762,
+          0.7997529232988958,
+          1.1846292941920138
+        ],
+        "squared_error_axis_share": [
+          0.17334749771142233,
+          0.7937495678256196,
+          0.03290293446295556
+        ]
+      },
+      "cv035_strong": {
+        "count": 23565,
+        "gate_coverage": 0.9809887545088054,
+        "base_cost_coverage": 0.9845109272225758,
+        "residual_norm_quantiles": [
+          0.2541193642492469,
+          0.6307745792366735,
+          0.7860118457005463,
+          1.1575499796113233
+        ],
+        "squared_error_axis_share": [
+          0.16816387742459063,
+          0.7982774405018476,
+          0.03355868207355648
+        ]
+      },
+      "ols16_all": {
+        "count": 24449,
+        "gate_coverage": 0.8728373348603214,
+        "base_cost_coverage": 0.8832672092928137,
+        "residual_norm_quantiles": [
+          0.2766275612120427,
+          1.182217869608614,
+          1.6323220441738016,
+          3.021386847383262
+        ],
+        "squared_error_axis_share": [
+          0.6267597300278042,
+          0.1472471835129283,
+          0.2259930864592725
+        ]
+      },
+      "ols16_strong": {
+        "count": 23565,
+        "gate_coverage": 0.8726925525143221,
+        "base_cost_coverage": 0.8844048376830045,
+        "residual_norm_quantiles": [
+          0.27716423081250957,
+          1.18117573051927,
+          1.6213212285016356,
+          2.92951572555509
+        ],
+        "squared_error_axis_share": [
+          0.6215791269814822,
+          0.14095676431900964,
+          0.2374641086995139
+        ]
+      }
+    },
+    "train_090": {
+      "cv035_all": {
+        "count": 16934,
+        "gate_coverage": 0.9788591000354316,
+        "base_cost_coverage": 0.981516475729302,
+        "residual_norm_quantiles": [
+          0.2773287798916729,
+          0.6509887018830073,
+          0.815691532082504,
+          1.2013285058195224
+        ],
+        "squared_error_axis_share": [
+          0.15845773652662717,
+          0.8086123495321679,
+          0.03292991394120634
+        ]
+      },
+      "cv035_strong": {
+        "count": 16082,
+        "gate_coverage": 0.9809103345355056,
+        "base_cost_coverage": 0.9856361149110807,
+        "residual_norm_quantiles": [
+          0.2740632463157111,
+          0.6400279744163929,
+          0.8004405446707423,
+          1.1556047708584614
+        ],
+        "squared_error_axis_share": [
+          0.1436377738701108,
+          0.8253694939354761,
+          0.03099273219441092
+        ]
+      },
+      "ols16_all": {
+        "count": 16934,
+        "gate_coverage": 0.9080548009920869,
+        "base_cost_coverage": 0.916085980866895,
+        "residual_norm_quantiles": [
+          0.2760804244624431,
+          0.9522169092975431,
+          1.3899308939429107,
+          2.3323059532154375
+        ],
+        "squared_error_axis_share": [
+          0.5419050262412107,
+          0.20190890390700328,
+          0.2561860698517827
+        ]
+      },
+      "ols16_strong": {
+        "count": 16082,
+        "gate_coverage": 0.9081581892799403,
+        "base_cost_coverage": 0.9180450192762094,
+        "residual_norm_quantiles": [
+          0.2746132538133389,
+          0.9511892350396101,
+          1.385275370297979,
+          2.274319870944714
+        ],
+        "squared_error_axis_share": [
+          0.508118900864172,
+          0.21298055750504136,
+          0.2789005416307783
+        ]
+      }
+    }
+  },
+  "contiguous_second_difference": {
+    "count": 71387,
+    "median_abs": [
+      0.12096118927001953,
+      0.27156925201416016,
+      0.04140281677246094
+    ],
+    "q95_abs": [
+      0.4434685707092284,
+      1.0712245166301724,
+      0.17134952545166016
+    ]
+  },
+  "scope": "Uses true past identity association for diagnostics, never deployable tracking scores. Predictor inputs are past only; current label solely groups/evaluates. Oracle updates ignore actual gate rejection.",
+  "limitations": "Second differences mix measurement variation and real acceleration; these data alone do not separate sensor noise from target manoeuvres.",
+  "new_training": false,
+  "independent_validation": false
+}

@@ -1,0 +1,2589 @@
+{
+  "protocol_sha256": "4824f180de76947cbf96d027ecf34169354ee0f2dd292e67c4cac3f30e1a29f3",
+  "findings": {
+    "audit-0/fixtures/train_098-00.pkl": {
+      "scene": "train_098",
+      "circle": 14,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 6,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": true
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 7,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 7,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 7,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "64": 8
+      },
+      "trusted_labels": {
+        "64": 6
+      },
+      "trusted_count": 6,
+      "last_trusted_scan": 13,
+      "last_physical_scan": 14,
+      "physical_residual_norm": [
+        1.1920656856104186
+      ],
+      "backup_residual_norm": [
+        0.09837205932804388
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_098-01.pkl": {
+      "scene": "train_098",
+      "circle": 43,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_candidate_not_selected",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_candidate_not_selected",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "45": 8
+      },
+      "trusted_labels": {
+        "45": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 41,
+      "last_physical_scan": 43,
+      "physical_residual_norm": [
+        1.0672262953209275
+      ],
+      "backup_residual_norm": [
+        0.40568504902460845
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_098-02.pkl": {
+      "scene": "train_098",
+      "circle": 43,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "48": 7,
+        "0": 1
+      },
+      "trusted_labels": {
+        "48": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 43,
+      "last_physical_scan": 43,
+      "physical_residual_norm": [
+        1.0149367438493078
+      ],
+      "backup_residual_norm": [
+        0.47782187918000907
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_098-03.pkl": {
+      "scene": "train_098",
+      "circle": 53,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "45": 8
+      },
+      "trusted_labels": {
+        "45": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 53,
+      "last_physical_scan": 53,
+      "physical_residual_norm": [
+        1.02701463982064
+      ],
+      "backup_residual_norm": [
+        0.21868877731292524
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_076-00.pkl": {
+      "scene": "train_076",
+      "circle": 24,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "46": 7,
+        "43": 1
+      },
+      "trusted_labels": {
+        "46": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 24,
+      "last_physical_scan": 24,
+      "physical_residual_norm": [
+        1.0786636946938175
+      ],
+      "backup_residual_norm": [
+        0.4006222526703483
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_076-01.pkl": {
+      "scene": "train_076",
+      "circle": 24,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "43": 8
+      },
+      "trusted_labels": {
+        "43": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 24,
+      "last_physical_scan": 24,
+      "physical_residual_norm": [
+        1.0746171852680193
+      ],
+      "backup_residual_norm": [
+        0.40038740860917565
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_076-02.pkl": {
+      "scene": "train_076",
+      "circle": 32,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "12": 8
+      },
+      "trusted_labels": {
+        "12": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 32,
+      "last_physical_scan": 32,
+      "physical_residual_norm": [
+        1.2409509301268937
+      ],
+      "backup_residual_norm": [
+        0.6632304266795291
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_076-03.pkl": {
+      "scene": "train_076",
+      "circle": 32,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "11": 8
+      },
+      "trusted_labels": {
+        "11": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 32,
+      "last_physical_scan": 32,
+      "physical_residual_norm": [
+        1.190888939967452
+      ],
+      "backup_residual_norm": [
+        0.6470948864298325
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_158-00.pkl": {
+      "scene": "train_158",
+      "circle": 34,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 10,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 10,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 11,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 10,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 10,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "141": 8
+      },
+      "trusted_labels": {
+        "141": 5
+      },
+      "trusted_count": 5,
+      "last_trusted_scan": 34,
+      "last_physical_scan": 34,
+      "physical_residual_norm": [
+        1.0471924296639052
+      ],
+      "backup_residual_norm": [
+        1.0392318155094384
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_158-01.pkl": {
+      "scene": "train_158",
+      "circle": 47,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "31": 8
+      },
+      "trusted_labels": {
+        "31": 7
+      },
+      "trusted_count": 7,
+      "last_trusted_scan": 47,
+      "last_physical_scan": 47,
+      "physical_residual_norm": [
+        1.0981349662292255
+      ],
+      "backup_residual_norm": [
+        0.6514757680976583
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_158-02.pkl": {
+      "scene": "train_158",
+      "circle": 47,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "32": 8
+      },
+      "trusted_labels": {
+        "32": 7
+      },
+      "trusted_count": 7,
+      "last_trusted_scan": 47,
+      "last_physical_scan": 47,
+      "physical_residual_norm": [
+        1.0982531736553844
+      ],
+      "backup_residual_norm": [
+        0.655074478027191
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_158-03.pkl": {
+      "scene": "train_158",
+      "circle": 52,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 13,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 14,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 14,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 14,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "141": 8
+      },
+      "trusted_labels": {
+        "141": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 52,
+      "last_physical_scan": 52,
+      "physical_residual_norm": [
+        1.0811586595357252
+      ],
+      "backup_residual_norm": [
+        0.40519891585594875
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_090-00.pkl": {
+      "scene": "train_090",
+      "circle": 45,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "88": 8
+      },
+      "trusted_labels": {
+        "88": 9
+      },
+      "trusted_count": 9,
+      "last_trusted_scan": 45,
+      "last_physical_scan": 45,
+      "physical_residual_norm": [
+        1.0384169652533939
+      ],
+      "backup_residual_norm": [
+        0.9022442943486569
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_090-01.pkl": {
+      "scene": "train_090",
+      "circle": 53,
+      "reason": "main_base_cost",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 12,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "55": 8
+      },
+      "trusted_labels": {
+        "55": 13
+      },
+      "trusted_count": 13,
+      "last_trusted_scan": 52,
+      "last_physical_scan": 53,
+      "physical_residual_norm": [
+        0.9350670776299849
+      ],
+      "backup_residual_norm": [
+        0.46384755442439535
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_090-02.pkl": {
+      "scene": "train_090",
+      "circle": 60,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 12,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 13,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "15": 8
+      },
+      "trusted_labels": {
+        "15": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 60,
+      "last_physical_scan": 60,
+      "physical_residual_norm": [
+        1.2054807533869563
+      ],
+      "backup_residual_norm": [
+        0.5008470829042829
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_090-03.pkl": {
+      "scene": "train_090",
+      "circle": 63,
+      "reason": "main_base_cost",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "9": 8
+      },
+      "trusted_labels": {
+        "9": 6
+      },
+      "trusted_count": 6,
+      "last_trusted_scan": 63,
+      "last_physical_scan": 63,
+      "physical_residual_norm": [
+        0.8689755641452939
+      ],
+      "backup_residual_norm": [
+        0.5982150432835998
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_152-00.pkl": {
+      "scene": "train_152",
+      "circle": 17,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "66": 8
+      },
+      "trusted_labels": {
+        "66": 9
+      },
+      "trusted_count": 9,
+      "last_trusted_scan": 17,
+      "last_physical_scan": 17,
+      "physical_residual_norm": [
+        1.0871825043662393
+      ],
+      "backup_residual_norm": [
+        0.5887122776045074
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_152-01.pkl": {
+      "scene": "train_152",
+      "circle": 17,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "68": 8
+      },
+      "trusted_labels": {
+        "68": 9
+      },
+      "trusted_count": 9,
+      "last_trusted_scan": 17,
+      "last_physical_scan": 17,
+      "physical_residual_norm": [
+        1.1085841551530282
+      ],
+      "backup_residual_norm": [
+        0.5637711058349157
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_152-02.pkl": {
+      "scene": "train_152",
+      "circle": 32,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 10,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 11,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 11,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 11,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "127": 8
+      },
+      "trusted_labels": {
+        "127": 5
+      },
+      "trusted_count": 5,
+      "last_trusted_scan": 31,
+      "last_physical_scan": 32,
+      "physical_residual_norm": [
+        1.041827482398679
+      ],
+      "backup_residual_norm": [
+        0.14221840117321657
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_152-03.pkl": {
+      "scene": "train_152",
+      "circle": 34,
+      "reason": "main_base_cost",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "30": 6
+      },
+      "trusted_labels": {
+        "30": 4
+      },
+      "trusted_count": 4,
+      "last_trusted_scan": 34,
+      "last_physical_scan": 34,
+      "physical_residual_norm": [
+        0.9813338196957707
+      ],
+      "backup_residual_norm": [
+        1.2479090565637303
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_022-00.pkl": {
+      "scene": "train_022",
+      "circle": 27,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "6": 8
+      },
+      "trusted_labels": {
+        "6": 6
+      },
+      "trusted_count": 6,
+      "last_trusted_scan": 26,
+      "last_physical_scan": 27,
+      "physical_residual_norm": [
+        1.0832935464526883
+      ],
+      "backup_residual_norm": [
+        0.21175375978000197
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_022-01.pkl": {
+      "scene": "train_022",
+      "circle": 27,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "8": 8
+      },
+      "trusted_labels": {
+        "8": 4
+      },
+      "trusted_count": 4,
+      "last_trusted_scan": 26,
+      "last_physical_scan": 27,
+      "physical_residual_norm": [
+        1.0725683576583738
+      ],
+      "backup_residual_norm": [
+        0.17686963268466108
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_022-02.pkl": {
+      "scene": "train_022",
+      "circle": 42,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "39": 8
+      },
+      "trusted_labels": {
+        "39": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 41,
+      "last_physical_scan": 42,
+      "physical_residual_norm": [
+        1.2305614498729933
+      ],
+      "backup_residual_norm": [
+        0.341001397531899
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_022-03.pkl": {
+      "scene": "train_022",
+      "circle": 42,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "41": 8
+      },
+      "trusted_labels": {
+        "41": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 41,
+      "last_physical_scan": 42,
+      "physical_residual_norm": [
+        1.2336786658265744
+      ],
+      "backup_residual_norm": [
+        0.359392193389372
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_001-00.pkl": {
+      "scene": "train_001",
+      "circle": 42,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 6,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 6,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 7,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 7,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 7,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "5": 8
+      },
+      "trusted_labels": {
+        "5": 13
+      },
+      "trusted_count": 13,
+      "last_trusted_scan": 41,
+      "last_physical_scan": 42,
+      "physical_residual_norm": [
+        1.252100908860793
+      ],
+      "backup_residual_norm": [
+        0.21512387432593336
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_001-01.pkl": {
+      "scene": "train_001",
+      "circle": 70,
+      "reason": "retired_point_score",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 11,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {},
+      "trusted_labels": {},
+      "trusted_count": 0,
+      "last_trusted_scan": null,
+      "last_physical_scan": null,
+      "physical_residual_norm": [],
+      "backup_residual_norm": [],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_001-02.pkl": {
+      "scene": "train_001",
+      "circle": 83,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 18,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 18,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_candidate_not_selected",
+          "output_count": 18,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_candidate_not_selected",
+          "output_count": 18,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_candidate_not_selected",
+          "output_count": 18,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "65": 7,
+        "64": 1
+      },
+      "trusted_labels": {
+        "65": 7
+      },
+      "trusted_count": 7,
+      "last_trusted_scan": 83,
+      "last_physical_scan": 83,
+      "physical_residual_norm": [
+        1.0773747520631358
+      ],
+      "backup_residual_norm": [
+        0.8536345525319123
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_001-03.pkl": {
+      "scene": "train_001",
+      "circle": 87,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "108": 8
+      },
+      "trusted_labels": {
+        "108": 5
+      },
+      "trusted_count": 5,
+      "last_trusted_scan": 85,
+      "last_physical_scan": 87,
+      "physical_residual_norm": [
+        1.0896195296291702
+      ],
+      "backup_residual_norm": [
+        1.091274047214885
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_139-00.pkl": {
+      "scene": "train_139",
+      "circle": 39,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "11": 8
+      },
+      "trusted_labels": {
+        "11": 10
+      },
+      "trusted_count": 10,
+      "last_trusted_scan": 39,
+      "last_physical_scan": 39,
+      "physical_residual_norm": [
+        1.2036536164960654
+      ],
+      "backup_residual_norm": [
+        0.6716504200132143
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_139-01.pkl": {
+      "scene": "train_139",
+      "circle": 40,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "38": 8
+      },
+      "trusted_labels": {
+        "38": 14
+      },
+      "trusted_count": 14,
+      "last_trusted_scan": 40,
+      "last_physical_scan": 40,
+      "physical_residual_norm": [
+        1.1255092110598668
+      ],
+      "backup_residual_norm": [
+        0.33313369385611735
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_139-02.pkl": {
+      "scene": "train_139",
+      "circle": 64,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "68": 8
+      },
+      "trusted_labels": {
+        "68": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 63,
+      "last_physical_scan": 64,
+      "physical_residual_norm": [
+        1.3656033377836492
+      ],
+      "backup_residual_norm": [
+        0.8120459821808292
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_139-03.pkl": {
+      "scene": "train_139",
+      "circle": 69,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 16,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "20": 7,
+        "0": 1
+      },
+      "trusted_labels": {
+        "20": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 68,
+      "last_physical_scan": 69,
+      "physical_residual_norm": [
+        1.1016033062734627
+      ],
+      "backup_residual_norm": [
+        0.1442018609237306
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_019-00.pkl": {
+      "scene": "train_019",
+      "circle": 30,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 7,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 7,
+          "selected_points_changed": true
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 7,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 7,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 7,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "68": 6
+      },
+      "trusted_labels": {
+        "68": 3
+      },
+      "trusted_count": 3,
+      "last_trusted_scan": 29,
+      "last_physical_scan": 30,
+      "physical_residual_norm": [
+        1.1860328125550623
+      ],
+      "backup_residual_norm": [],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_019-01.pkl": {
+      "scene": "train_019",
+      "circle": 71,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 11,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "64": 6
+      },
+      "trusted_labels": {
+        "64": 2
+      },
+      "trusted_count": 2,
+      "last_trusted_scan": 68,
+      "last_physical_scan": 71,
+      "physical_residual_norm": [
+        1.353955776810964
+      ],
+      "backup_residual_norm": [],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_019-02.pkl": {
+      "scene": "train_019",
+      "circle": 93,
+      "reason": "retired_point_score",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 15,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "retired_point_score",
+          "output_count": 15,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {},
+      "trusted_labels": {},
+      "trusted_count": 0,
+      "last_trusted_scan": null,
+      "last_physical_scan": null,
+      "physical_residual_norm": [],
+      "backup_residual_norm": [],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-0/fixtures/train_019-03.pkl": {
+      "scene": "train_019",
+      "circle": 95,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 17,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 17,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 18,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 17,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 18,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "64": 8
+      },
+      "trusted_labels": {
+        "64": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 94,
+      "last_physical_scan": 95,
+      "physical_residual_norm": [
+        1.2209449196775097
+      ],
+      "backup_residual_norm": [
+        0.19218880912673456
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_172-00.pkl": {
+      "scene": "train_172",
+      "circle": 18,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "22": 8
+      },
+      "trusted_labels": {
+        "22": 8
+      },
+      "trusted_count": 8,
+      "last_trusted_scan": 18,
+      "last_physical_scan": 18,
+      "physical_residual_norm": [
+        1.106115125565284
+      ],
+      "backup_residual_norm": [
+        0.5838528484045966
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_172-01.pkl": {
+      "scene": "train_172",
+      "circle": 26,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "67": 8
+      },
+      "trusted_labels": {
+        "67": 5
+      },
+      "trusted_count": 5,
+      "last_trusted_scan": 24,
+      "last_physical_scan": 26,
+      "physical_residual_norm": [
+        1.1940175000678388
+      ],
+      "backup_residual_norm": [
+        0.9642848223458168
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_172-02.pkl": {
+      "scene": "train_172",
+      "circle": 28,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 10,
+          "selected_points_changed": true
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 10,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "67": 8
+      },
+      "trusted_labels": {
+        "67": 6
+      },
+      "trusted_count": 6,
+      "last_trusted_scan": 28,
+      "last_physical_scan": 28,
+      "physical_residual_norm": [
+        1.1166649691875477
+      ],
+      "backup_residual_norm": [
+        0.9182360830167987
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-1/fixtures/train_172-03.pkl": {
+      "scene": "train_172",
+      "circle": 41,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 14,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 14,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 15,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 14,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 15,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "67": 8
+      },
+      "trusted_labels": {
+        "67": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 40,
+      "last_physical_scan": 41,
+      "physical_residual_norm": [
+        1.4720192780384695
+      ],
+      "backup_residual_norm": [
+        0.5417143004573955
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_093-00.pkl": {
+      "scene": "train_093",
+      "circle": 43,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "112": 8
+      },
+      "trusted_labels": {
+        "112": 7
+      },
+      "trusted_count": 7,
+      "last_trusted_scan": 42,
+      "last_physical_scan": 43,
+      "physical_residual_norm": [
+        1.0605515152784182
+      ],
+      "backup_residual_norm": [
+        0.07204937129852976
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_093-01.pkl": {
+      "scene": "train_093",
+      "circle": 43,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 5,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 6,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "114": 8
+      },
+      "trusted_labels": {
+        "114": 7
+      },
+      "trusted_count": 7,
+      "last_trusted_scan": 42,
+      "last_physical_scan": 43,
+      "physical_residual_norm": [
+        1.0677353292459777
+      ],
+      "backup_residual_norm": [
+        0.15731531706439464
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_093-02.pkl": {
+      "scene": "train_093",
+      "circle": 46,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 8,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 9,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "40": 8
+      },
+      "trusted_labels": {
+        "40": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 45,
+      "last_physical_scan": 46,
+      "physical_residual_norm": [
+        1.0042917813005556
+      ],
+      "backup_residual_norm": [
+        0.2508748825406871
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-2/fixtures/train_093-03.pkl": {
+      "scene": "train_093",
+      "circle": 52,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 9,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 10,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 10,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 10,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "40": 8
+      },
+      "trusted_labels": {
+        "40": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 50,
+      "last_physical_scan": 52,
+      "physical_residual_norm": [
+        1.1082359397111812
+      ],
+      "backup_residual_norm": [
+        0.32672336231288335
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_155-00.pkl": {
+      "scene": "train_155",
+      "circle": 90,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 22,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 22,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 23,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 23,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 23,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "146": 8
+      },
+      "trusted_labels": {
+        "146": 8
+      },
+      "trusted_count": 8,
+      "last_trusted_scan": 90,
+      "last_physical_scan": 90,
+      "physical_residual_norm": [
+        1.0252464487146302
+      ],
+      "backup_residual_norm": [
+        0.3184398355327842
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_155-01.pkl": {
+      "scene": "train_155",
+      "circle": 91,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 23,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_base_cost",
+          "output_count": 23,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "85": 7,
+        "81": 1
+      },
+      "trusted_labels": {
+        "85": 6
+      },
+      "trusted_count": 6,
+      "last_trusted_scan": 89,
+      "last_physical_scan": 90,
+      "physical_residual_norm": [
+        1.7739882284702748
+      ],
+      "backup_residual_norm": [
+        1.000467397075287
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_155-02.pkl": {
+      "scene": "train_155",
+      "circle": 94,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 25,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 25,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 25,
+          "selected_points_changed": false
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 25,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 25,
+          "selected_points_changed": false
+        }
+      },
+      "short_history_labels": {
+        "89": 8
+      },
+      "trusted_labels": {
+        "89": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 92,
+      "last_physical_scan": 92,
+      "physical_residual_norm": [
+        2.844188202991516
+      ],
+      "backup_residual_norm": [
+        3.8877389400394113
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "audit-3/fixtures/train_155-03.pkl": {
+      "scene": "train_155",
+      "circle": 116,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 22,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 22,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 23,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 22,
+          "selected_points_changed": false
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 23,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "59": 8
+      },
+      "trusted_labels": {
+        "59": 16
+      },
+      "trusted_count": 16,
+      "last_trusted_scan": 116,
+      "last_physical_scan": 116,
+      "physical_residual_norm": [
+        1.1698962856718473
+      ],
+      "backup_residual_norm": [
+        0.8528614941248894
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    },
+    "minimal/train_098-00.pkl": {
+      "scene": "train_098",
+      "circle": 14,
+      "reason": "main_motion_gate",
+      "tests": {
+        "baseline": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 0,
+          "selected_points_changed": false
+        },
+        "zero_neural_correction": {
+          "correct_same_id": false,
+          "reason": "main_motion_gate",
+          "output_count": 0,
+          "selected_points_changed": false
+        },
+        "memory_position": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 1,
+          "selected_points_changed": true
+        },
+        "memory_velocity": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 1,
+          "selected_points_changed": true
+        },
+        "memory_both": {
+          "correct_same_id": true,
+          "reason": "correct_output",
+          "output_count": 1,
+          "selected_points_changed": true
+        }
+      },
+      "short_history_labels": {
+        "64": 8
+      },
+      "trusted_labels": {
+        "64": 6
+      },
+      "trusted_count": 6,
+      "last_trusted_scan": 13,
+      "last_physical_scan": 14,
+      "physical_residual_norm": [
+        1.1920656856104186
+      ],
+      "backup_residual_norm": [
+        0.09837205932804388
+      ],
+      "caveat": "Targeted past-only position/velocity tests are diagnostic sufficient interventions; not a deployable policy for selecting which ID to change."
+    }
+  },
+  "training": false,
+  "independent_validation": false
+}

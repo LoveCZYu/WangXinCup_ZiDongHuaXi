@@ -1,0 +1,92 @@
+{
+  "format": "work16-post-hoc-factorial-v1",
+  "created_at_utc": "2026-11-17T10:23:27.550111+00:00",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "previous_study_protocol_sha256": "8c5d88deaf4bfa88fedf515d299aa43d524621dde266e3c82141fd6e9077bf42",
+  "development_report_sha256": "f8e724596ad659cf9a84dcd2b807165e5acb0f140b59049b23a321a6b9b022a9",
+  "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+  "work16": [
+    "train_011",
+    "train_088",
+    "train_014",
+    "train_010",
+    "train_006",
+    "train_187",
+    "train_067",
+    "train_072",
+    "train_074",
+    "train_058",
+    "train_012",
+    "train_157",
+    "train_080",
+    "train_029",
+    "train_064",
+    "train_034"
+  ],
+  "modes": [
+    "baseline",
+    "column",
+    "backup",
+    "combined"
+  ],
+  "primary": "Explain observed mixed-track regression using the complete 2x2. Retain the original validation verdict.",
+  "sources": {
+    "experiments/candidate_onset/__init__.py": "2c0d053969417c36e1931a8a8b1d7753e6ba871fa3df39e5dda7808c1e8957cc",
+    "experiments/candidate_onset/audit.py": "7773368c34e9179cc54e1b03bf650fe606391d0b0e49a7bb9cb1b99affb1c69b",
+    "experiments/candidate_onset/backup_compare.py": "017154b8d12e86d886b4fcfe20533aec377cb02986c16e78204e0aa834fc3a2f",
+    "experiments/candidate_onset/backup_study.py": "42391a30a2a8084b7e415946a732bf591fd8e24df101fea9c193cfa48533a347",
+    "experiments/candidate_onset/case_diagnostic.py": "db15944ffccf2181c18282158ccbc32aa797bf240d1e5719f273cc259213e6eb",
+    "experiments/candidate_onset/collect.py": "8e010e4a614f933b70721354e8df1166266edd75194755075a0c07f403da57d9",
+    "experiments/candidate_onset/compare.py": "045ceae2d3c7dc40d6c63a77edcc30b7c4cb36518a046c36186fb9cad94834a2",
+    "experiments/candidate_onset/fallback.py": "d417d2cb3ecc250dc0f9b117fb51ca45ce254c5b6ed61ef83224379ae93dc439",
+    "experiments/candidate_onset/fallback_repro.py": "01c308bc42fec46d7b60876a2672ec23fbba31e78e1644c42ab952891f09197a",
+    "experiments/candidate_onset/minimize.py": "1689c8d6ccab27a307e28869afffa610960059fd625a7b7825aa347092c241c8",
+    "experiments/candidate_onset/mixed.py": "ee9c957031ea46a54b0cda842232f50b51d111ec014f45f3961506b2de91adae",
+    "experiments/candidate_onset/mixed_compare.py": "403651f78c77be27099a0659ae6611cefabaa8771195b6cab3ad36769137f7e4",
+    "experiments/candidate_onset/mixed_study.py": "a0f6f44aa718e8385b191c63bcc87aa8a417bc880fe0693c958195b7436e6f49",
+    "experiments/candidate_onset/observe.py": "49ba69603bd9532da509e08a3249ce8257d4f2c04993f744436917159551abc3",
+    "experiments/candidate_onset/outcome_collect.py": "3d6f54e1b8a830af9015a132c3da5927c7ae47d1d6354fa3887bc4a7569771ce",
+    "experiments/candidate_onset/outcomes.py": "731adf5b5610c6418f0a376212e54904e527d6dd30bb075185d4e84fd39af58f",
+    "experiments/candidate_onset/policy.py": "99567950238fea32ba1484012f8f8adaa490bde7a52a9defccf87b16c7cb8a1e",
+    "experiments/candidate_onset/policy_repro.py": "31d9653a74383f4a20fd446f93b330396617cab25277ec3b6fbc4c244905e921",
+    "experiments/candidate_onset/repro.py": "0a428f4f72ce1f6085752c40d3cebfc130fc3ca8862e9ace8605edd8f6a788b2",
+    "experiments/candidate_onset/study.py": "687d5f9f37042fcabc56f7a6ae3cf5f3b9fdc4e387b2290b1f99e108bb1025a3",
+    "experiments/candidate_onset/summarize.py": "c5a301fc581982da96dc4885c6375db12006a19939ba8da4469392c4287ada3b",
+    "experiments/candidate_onset/work_compare.py": "0313af71676e6360c209dcfe4e18c93d9d761bbf47558e777073365b25b4976f",
+    "experiments/candidate_onset/work_study.py": "2b167c787f053e4aefea5926c874a05182ef2703f7dd68f20c7d3260de80654f",
+    "experiments/identity_competition/scoring.py": "c43de2973a160b55b4c9ace8e3a2287a36ea4a032beba4d3eb2c9829f74173b6",
+    "experiments/candidate_onset/work_factorial.py": "7e5e357579898a5441e6661587e762712dd84bd72179f6582107d64ae3907fb9"
+  },
+  "guards": {
+    "fragmentation_gain_min": 1.0,
+    "weighted_gain_min": 0.2,
+    "point_drop_pp_max": 0.1,
+    "track_drop_pp_max": 0.1,
+    "continuous_drop_max": 0.3,
+    "timeliness_drop_max": 0.3,
+    "clutter_ratio_max": 1.02,
+    "mixed_ratio_max": 1.0,
+    "strict_drop_pp_max": 0.1
+  },
+  "bootstrap": {
+    "resamples": 10000,
+    "seed": 20261117,
+    "unit": "paired scene mean deltas",
+    "limitation": "Already-exposed work data, independence not guaranteed; interval is not for pooled official score."
+  },
+  "additional_guard": "95% bootstrap interval of paired scene-mean weighted gain must have positive lower endpoint.",
+  "budget": {
+    "workers": 4,
+    "threads_each": 1,
+    "seconds_per_worker": 1800
+  },
+  "fixed": "No new training, thresholds, predictor parameters or seed selection; same combined formula as passing training4/development8.",
+  "scope": "Post-hoc diagnostic on the same exposed work16. No parameter or arm selection.",
+  "stopping": "One frozen pair on all16, preserve every scene and failures; no automatic v3 or official score claim.",
+  "parent_work_protocol_sha256": "13b3d7bc951e14d455e6fb8eea117b43b751136306abbbbac70870ce9838d501",
+  "original_report_sha256": "a13885864377893624c41e895afa1acee3e6cd081d93dd2276274061469e4ed8",
+  "case_scenes": [
+    "train_010",
+    "train_072"
+  ]
+}
