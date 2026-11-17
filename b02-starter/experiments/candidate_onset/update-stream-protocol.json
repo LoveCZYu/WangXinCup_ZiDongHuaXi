@@ -1,0 +1,82 @@
+{
+  "format": "b02-published-update-census-v1",
+  "parent_freeze_sha256": "9abb40f8f5db3af51779b63c40035af827064d04fd02c0cd6b26f4330cd32218",
+  "development": {
+    "data_sha256": "acb43dcf2071b108e32afd9bd977a13ee3eff75db420e21dc122a84b614bc0fc",
+    "scenes": [
+      "train_152",
+      "train_022",
+      "train_001",
+      "train_139",
+      "train_019",
+      "train_172",
+      "train_093",
+      "train_155"
+    ]
+  },
+  "work": {
+    "data_sha256": "eb5e7d4cffcaa1be4145621faa60cdaa0f3138aede791b55b40866da2a70b92f",
+    "scenes": [
+      "train_010",
+      "train_072",
+      "train_006",
+      "train_064",
+      "train_011",
+      "train_088",
+      "train_014",
+      "train_187",
+      "train_067",
+      "train_074",
+      "train_058",
+      "train_012",
+      "train_157",
+      "train_080",
+      "train_029",
+      "train_034"
+    ]
+  },
+  "sources": {
+    "experiments/candidate_onset/update_stream.py": "42efb0cc4217b462e12a3f0a657d57eec097cede1ada7395d0ef52b50abe66ca",
+    "experiments/candidate_onset/propagation.py": "b1f04619f9fb8944006ed1f2f5552110da62b6dda91183d0483438f85f4c5638",
+    "experiments/candidate_onset/propagation_summary.py": "0b0d3a0f10fcd2432303be3fc8f9df1abb51c9f18a776653533b20507f4d8f19",
+    "experiments/candidate_onset/propagation_work.py": "71d7cd7d41c95961356b03444cd292d30e39f9d8a4d4051b37073a08d6b84a65",
+    "experiments/candidate_onset/screen-model.json": "6a392dd81d1d6d0415a8b02d2a0375952c681b5a44344da744ffd71b427476f7"
+  },
+  "focal": [
+    "train_010",
+    "train_072",
+    "train_006",
+    "train_064"
+  ],
+  "population": "Every previously active mature published scored high-affinity update; classification by pure previous truth history. Ambiguous updates separately counted.",
+  "strata": {
+    "age_scans": [
+      25,
+      100
+    ],
+    "motion_residual_squared": [
+      0.05,
+      0.25
+    ],
+    "elapsed_scans": [
+      1,
+      2
+    ]
+  },
+  "fit": {
+    "hard_weight": 3,
+    "hard_old_risk_quantile": 0.99,
+    "hard_residual": 0.25,
+    "risk_budget_per_10000": 2.5,
+    "minimum_scene_controls": 4000,
+    "positive_unit": "Per output ID and wrong match type within scene; target and clutter are distinct."
+  },
+  "guards": {
+    "mixed_reduction_fraction": 0.2,
+    "point_recall_drop_pp": 0.1,
+    "fragmentation_drop": 0.3,
+    "continuous_drop": 0.3,
+    "weighted_drop": 0.0
+  },
+  "stopping": "One fixed threshold fitted on development8. Evaluate whole-stream on work16 and paired dynamics on focal4. Extend paired evaluation to the remaining work scenes only if one focal arm passes all guards. No formal sealed scenes."
+}

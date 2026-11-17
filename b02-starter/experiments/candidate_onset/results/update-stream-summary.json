@@ -1,0 +1,1143 @@
+{
+  "protocol_sha256": "36542debc9fe1230516a5136d0343f6e62f832f409f0adb74c72867cfaf71d9f",
+  "policy_sha256": "299d80ed3d1dd2f693af92cc72284eedc2048b647cf5a1336c1232b88de15ab6",
+  "work16_diagnostic_frontier": {
+    "old": [
+      {
+        "target_recall_fraction": 0.01,
+        "wrong": 2,
+        "correct": 155,
+        "unresolved": 31
+      },
+      {
+        "target_recall_fraction": 0.05,
+        "wrong": 9,
+        "correct": 641,
+        "unresolved": 197
+      },
+      {
+        "target_recall_fraction": 0.1,
+        "wrong": 17,
+        "correct": 1705,
+        "unresolved": 467
+      },
+      {
+        "target_recall_fraction": 0.25,
+        "wrong": 42,
+        "correct": 7722,
+        "unresolved": 1569
+      },
+      {
+        "target_recall_fraction": 0.5,
+        "wrong": 83,
+        "correct": 29825,
+        "unresolved": 4545
+      }
+    ],
+    "refit": [
+      {
+        "target_recall_fraction": 0.01,
+        "wrong": 2,
+        "correct": 123,
+        "unresolved": 34
+      },
+      {
+        "target_recall_fraction": 0.05,
+        "wrong": 9,
+        "correct": 582,
+        "unresolved": 155
+      },
+      {
+        "target_recall_fraction": 0.1,
+        "wrong": 17,
+        "correct": 773,
+        "unresolved": 201
+      },
+      {
+        "target_recall_fraction": 0.25,
+        "wrong": 42,
+        "correct": 1979,
+        "unresolved": 514
+      },
+      {
+        "target_recall_fraction": 0.5,
+        "wrong": 83,
+        "correct": 4930,
+        "unresolved": 1360
+      }
+    ]
+  },
+  "screen": {
+    "development": {
+      "total": {
+        "unresolved": 11337,
+        "correct": 131313,
+        "other_target": 83,
+        "clutter": 51
+      },
+      "total_correct_strata": [
+        7627,
+        90,
+        25,
+        7480,
+        99,
+        42,
+        2533,
+        111,
+        43,
+        20812,
+        286,
+        109,
+        20226,
+        375,
+        122,
+        6742,
+        285,
+        113,
+        29132,
+        462,
+        171,
+        24824,
+        517,
+        191,
+        8379,
+        401,
+        116
+      ],
+      "old_flagged": {
+        "unresolved": 2112,
+        "correct": 16715,
+        "other_target": 44,
+        "clutter": 22
+      },
+      "old_flagged_correct_strata": [
+        1,
+        2,
+        0,
+        0,
+        0,
+        7,
+        0,
+        1,
+        3,
+        90,
+        23,
+        66,
+        143,
+        45,
+        71,
+        59,
+        57,
+        81,
+        5757,
+        301,
+        163,
+        5967,
+        365,
+        179,
+        2908,
+        313,
+        113
+      ],
+      "old_budget_flagged": {
+        "unresolved": 2,
+        "correct": 15,
+        "other_target": 0,
+        "clutter": 0
+      },
+      "old_budget_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        4,
+        1,
+        0,
+        4,
+        0,
+        0,
+        5
+      ],
+      "refit_flagged": {
+        "unresolved": 4,
+        "correct": 11,
+        "other_target": 0,
+        "clutter": 0
+      },
+      "refit_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hard": {
+        "unresolved": 2019,
+        "correct": 19667,
+        "other_target": 17,
+        "clutter": 29
+      },
+      "hard_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2533,
+        111,
+        43,
+        2,
+        0,
+        0,
+        1,
+        0,
+        2,
+        6742,
+        285,
+        113,
+        317,
+        56,
+        69,
+        337,
+        86,
+        74,
+        8379,
+        401,
+        116
+      ]
+    },
+    "work16": {
+      "total": {
+        "unresolved": 25178,
+        "correct": 254177,
+        "other_target": 165,
+        "clutter": 147
+      },
+      "total_correct_strata": [
+        14682,
+        148,
+        51,
+        14133,
+        239,
+        68,
+        4702,
+        210,
+        64,
+        42200,
+        618,
+        195,
+        38908,
+        758,
+        252,
+        12664,
+        612,
+        211,
+        59374,
+        910,
+        343,
+        46879,
+        931,
+        343,
+        13866,
+        632,
+        184
+      ],
+      "old_flagged": {
+        "unresolved": 4748,
+        "correct": 31446,
+        "other_target": 86,
+        "clutter": 69
+      },
+      "old_flagged_correct_strata": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        6,
+        0,
+        1,
+        9,
+        214,
+        52,
+        127,
+        178,
+        74,
+        134,
+        107,
+        123,
+        153,
+        12050,
+        633,
+        336,
+        11262,
+        616,
+        324,
+        4380,
+        479,
+        178
+      ],
+      "old_budget_flagged": {
+        "unresolved": 6,
+        "correct": 21,
+        "other_target": 0,
+        "clutter": 0
+      },
+      "old_budget_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        5,
+        1,
+        0,
+        5,
+        0,
+        0,
+        8
+      ],
+      "refit_flagged": {
+        "unresolved": 5,
+        "correct": 20,
+        "other_target": 0,
+        "clutter": 1
+      },
+      "refit_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hard": {
+        "unresolved": 4340,
+        "correct": 34711,
+        "other_target": 45,
+        "clutter": 70
+      },
+      "hard_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4702,
+        210,
+        64,
+        1,
+        0,
+        7,
+        2,
+        0,
+        5,
+        12664,
+        612,
+        211,
+        516,
+        123,
+        165,
+        468,
+        116,
+        163,
+        13866,
+        632,
+        184
+      ]
+    },
+    "work4": {
+      "total": {
+        "unresolved": 7992,
+        "correct": 79463,
+        "other_target": 55,
+        "clutter": 56
+      },
+      "total_correct_strata": [
+        4087,
+        39,
+        16,
+        4252,
+        72,
+        17,
+        1420,
+        61,
+        19,
+        12814,
+        206,
+        53,
+        11913,
+        224,
+        79,
+        3899,
+        185,
+        57,
+        18983,
+        272,
+        107,
+        15478,
+        269,
+        117,
+        4556,
+        206,
+        62
+      ],
+      "old_flagged": {
+        "unresolved": 1548,
+        "correct": 9845,
+        "other_target": 30,
+        "clutter": 22
+      },
+      "old_flagged_correct_strata": [
+        1,
+        1,
+        0,
+        2,
+        1,
+        3,
+        0,
+        0,
+        3,
+        52,
+        18,
+        32,
+        57,
+        25,
+        38,
+        31,
+        33,
+        38,
+        3795,
+        189,
+        105,
+        3583,
+        159,
+        106,
+        1357,
+        156,
+        60
+      ],
+      "old_budget_flagged": {
+        "unresolved": 2,
+        "correct": 5,
+        "other_target": 0,
+        "clutter": 0
+      },
+      "old_budget_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        3,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "refit_flagged": {
+        "unresolved": 1,
+        "correct": 5,
+        "other_target": 0,
+        "clutter": 1
+      },
+      "refit_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hard": {
+        "unresolved": 1585,
+        "correct": 10998,
+        "other_target": 15,
+        "clutter": 22
+      },
+      "hard_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1420,
+        61,
+        19,
+        1,
+        0,
+        1,
+        0,
+        0,
+        2,
+        3899,
+        185,
+        57,
+        203,
+        35,
+        51,
+        161,
+        25,
+        54,
+        4556,
+        206,
+        62
+      ]
+    },
+    "remaining_work12": {
+      "total": {
+        "unresolved": 17186,
+        "correct": 174714,
+        "other_target": 110,
+        "clutter": 91
+      },
+      "total_correct_strata": [
+        10595,
+        109,
+        35,
+        9881,
+        167,
+        51,
+        3282,
+        149,
+        45,
+        29386,
+        412,
+        142,
+        26995,
+        534,
+        173,
+        8765,
+        427,
+        154,
+        40391,
+        638,
+        236,
+        31401,
+        662,
+        226,
+        9310,
+        426,
+        122
+      ],
+      "old_flagged": {
+        "unresolved": 3200,
+        "correct": 21601,
+        "other_target": 56,
+        "clutter": 47
+      },
+      "old_flagged_correct_strata": [
+        1,
+        1,
+        2,
+        0,
+        1,
+        3,
+        0,
+        1,
+        6,
+        162,
+        34,
+        95,
+        121,
+        49,
+        96,
+        76,
+        90,
+        115,
+        8255,
+        444,
+        231,
+        7679,
+        457,
+        218,
+        3023,
+        323,
+        118
+      ],
+      "old_budget_flagged": {
+        "unresolved": 4,
+        "correct": 16,
+        "other_target": 0,
+        "clutter": 0
+      },
+      "old_budget_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        0,
+        4,
+        0,
+        0,
+        8
+      ],
+      "refit_flagged": {
+        "unresolved": 4,
+        "correct": 15,
+        "other_target": 0,
+        "clutter": 0
+      },
+      "refit_flagged_correct_strata": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hard": {
+        "unresolved": 2755,
+        "correct": 23713,
+        "other_target": 30,
+        "clutter": 48
+      },
+      "hard_correct_strata": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3282,
+        149,
+        45,
+        0,
+        0,
+        6,
+        2,
+        0,
+        3,
+        8765,
+        427,
+        154,
+        313,
+        88,
+        114,
+        307,
+        91,
+        109,
+        9310,
+        426,
+        122
+      ]
+    }
+  },
+  "replay": {
+    "census": {
+      "metrics": {
+        "point_recall": 95.02996122664787,
+        "track_recall": 92.51343567950452,
+        "clutter_outputs": 3873,
+        "clutter_score": 95.98478094092766,
+        "split_tracks": 308,
+        "fragmentation_score": 66.7134621144055,
+        "timeliness_score": 84.69811320754717,
+        "delay_median": 2.0,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.4360073208965,
+        "continuous_score": 86.2856947139933,
+        "unknown_outputs": 3233,
+        "weighted_total": 84.89196280513332
+      },
+      "delta": {
+        "point_recall": 0.0,
+        "track_recall": 0.0,
+        "clutter_outputs": 0,
+        "clutter_score": 0.0,
+        "split_tracks": 0,
+        "fragmentation_score": 0.0,
+        "timeliness_score": 0.0,
+        "delay_median": 0.0,
+        "delay_p90": 0,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 0.0,
+        "continuous_score": 0.0,
+        "unknown_outputs": 0,
+        "weighted_total": 0.0
+      },
+      "operations": {
+        "eligible_correct": 79463,
+        "eligible_unresolved": 7992,
+        "eligible_clutter": 56,
+        "eligible_other_target": 55
+      },
+      "mixed": 2557,
+      "clutter": 3873,
+      "checks": {
+        "mixed": false,
+        "point_recall": true,
+        "fragmentation": true,
+        "continuity": true,
+        "weighted": true
+      },
+      "scenes": {
+        "train_010": {
+          "operations": {
+            "eligible_correct": 20936,
+            "eligible_unresolved": 2174,
+            "eligible_clutter": 14,
+            "eligible_other_target": 11
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 964,
+          "clutter": 642
+        },
+        "train_072": {
+          "operations": {
+            "eligible_correct": 22432,
+            "eligible_clutter": 18,
+            "eligible_unresolved": 2140,
+            "eligible_other_target": 18
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 552,
+          "clutter": 1523
+        },
+        "train_006": {
+          "operations": {
+            "eligible_correct": 18193,
+            "eligible_other_target": 9,
+            "eligible_unresolved": 1990,
+            "eligible_clutter": 8
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 717,
+          "clutter": 818
+        },
+        "train_064": {
+          "operations": {
+            "eligible_correct": 17902,
+            "eligible_other_target": 17,
+            "eligible_unresolved": 1688,
+            "eligible_clutter": 16
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 324,
+          "clutter": 890
+        }
+      }
+    },
+    "motion": {
+      "metrics": {
+        "point_recall": 95.02996122664787,
+        "track_recall": 92.51343567950452,
+        "clutter_outputs": 3873,
+        "clutter_score": 95.98478094092766,
+        "split_tracks": 308,
+        "fragmentation_score": 66.7134621144055,
+        "timeliness_score": 84.69811320754717,
+        "delay_median": 2.0,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.4360073208965,
+        "continuous_score": 86.2856947139933,
+        "unknown_outputs": 3233,
+        "weighted_total": 84.89196280513332
+      },
+      "delta": {
+        "point_recall": 0.0,
+        "track_recall": 0.0,
+        "clutter_outputs": 0,
+        "clutter_score": 0.0,
+        "split_tracks": 0,
+        "fragmentation_score": 0.0,
+        "timeliness_score": 0.0,
+        "delay_median": 0.0,
+        "delay_p90": 0,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 0.0,
+        "continuous_score": 0.0,
+        "unknown_outputs": 0,
+        "weighted_total": 0.0
+      },
+      "operations": {
+        "eligible_correct": 79462,
+        "eligible_unresolved": 7992,
+        "eligible_clutter": 56,
+        "eligible_other_target": 55,
+        "rollback_correct": 6,
+        "rollback_clutter": 1,
+        "rollback_unresolved": 1
+      },
+      "mixed": 2557,
+      "clutter": 3873,
+      "checks": {
+        "mixed": false,
+        "point_recall": true,
+        "fragmentation": true,
+        "continuity": true,
+        "weighted": true
+      },
+      "scenes": {
+        "train_010": {
+          "operations": {
+            "eligible_correct": 20936,
+            "eligible_unresolved": 2174,
+            "eligible_clutter": 14,
+            "eligible_other_target": 11
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 964,
+          "clutter": 642
+        },
+        "train_072": {
+          "operations": {
+            "eligible_correct": 22432,
+            "eligible_clutter": 18,
+            "eligible_unresolved": 2140,
+            "rollback_correct": 1,
+            "eligible_other_target": 18,
+            "rollback_clutter": 1
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 552,
+          "clutter": 1523
+        },
+        "train_006": {
+          "operations": {
+            "eligible_correct": 18193,
+            "eligible_other_target": 9,
+            "eligible_unresolved": 1990,
+            "eligible_clutter": 8,
+            "rollback_correct": 1
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 717,
+          "clutter": 818
+        },
+        "train_064": {
+          "operations": {
+            "eligible_correct": 17901,
+            "eligible_other_target": 17,
+            "eligible_unresolved": 1688,
+            "eligible_clutter": 16,
+            "rollback_correct": 4,
+            "rollback_unresolved": 1
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 324,
+          "clutter": 890
+        }
+      }
+    },
+    "full": {
+      "metrics": {
+        "point_recall": 95.02996122664787,
+        "track_recall": 92.51343567950452,
+        "clutter_outputs": 3873,
+        "clutter_score": 95.98478094092766,
+        "split_tracks": 308,
+        "fragmentation_score": 66.7134621144055,
+        "timeliness_score": 84.69811320754717,
+        "delay_median": 2.0,
+        "delay_p90": 8,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 84.4360073208965,
+        "continuous_score": 86.2856947139933,
+        "unknown_outputs": 3233,
+        "weighted_total": 84.89196280513332
+      },
+      "delta": {
+        "point_recall": 0.0,
+        "track_recall": 0.0,
+        "clutter_outputs": 0,
+        "clutter_score": 0.0,
+        "split_tracks": 0,
+        "fragmentation_score": 0.0,
+        "timeliness_score": 0.0,
+        "delay_median": 0.0,
+        "delay_p90": 0,
+        "unmatched_tracks": 0,
+        "dominant_id_coverage": 0.0,
+        "continuous_score": 0.0,
+        "unknown_outputs": 0,
+        "weighted_total": 0.0
+      },
+      "operations": {
+        "eligible_correct": 79459,
+        "eligible_unresolved": 7990,
+        "eligible_clutter": 56,
+        "eligible_other_target": 55,
+        "rollback_correct": 5,
+        "rollback_clutter": 1,
+        "rollback_unresolved": 1
+      },
+      "mixed": 2557,
+      "clutter": 3873,
+      "checks": {
+        "mixed": false,
+        "point_recall": true,
+        "fragmentation": true,
+        "continuity": true,
+        "weighted": true
+      },
+      "scenes": {
+        "train_010": {
+          "operations": {
+            "eligible_correct": 20936,
+            "eligible_unresolved": 2174,
+            "eligible_clutter": 14,
+            "eligible_other_target": 11
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 964,
+          "clutter": 642
+        },
+        "train_072": {
+          "operations": {
+            "eligible_correct": 22432,
+            "eligible_clutter": 18,
+            "eligible_unresolved": 2140,
+            "rollback_correct": 1,
+            "eligible_other_target": 18,
+            "rollback_clutter": 1
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 552,
+          "clutter": 1523
+        },
+        "train_006": {
+          "operations": {
+            "eligible_correct": 18193,
+            "eligible_other_target": 9,
+            "eligible_unresolved": 1990,
+            "eligible_clutter": 8,
+            "rollback_correct": 1
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 717,
+          "clutter": 818
+        },
+        "train_064": {
+          "operations": {
+            "eligible_correct": 17898,
+            "eligible_other_target": 17,
+            "eligible_unresolved": 1686,
+            "eligible_clutter": 16,
+            "rollback_correct": 3,
+            "rollback_unresolved": 1
+          },
+          "delta": {
+            "weighted_total": 0.0,
+            "point_recall": 0.0,
+            "fragmentation_score": 0.0,
+            "continuous_score": 0.0
+          },
+          "mixed": 324,
+          "clutter": 890
+        }
+      }
+    }
+  }
+}
