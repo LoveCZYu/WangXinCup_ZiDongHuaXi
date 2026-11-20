@@ -6,6 +6,8 @@
 
 > 11.16 主办方口径已由用户确认：A 榜输入是官方收发程序附带的五包，结果 ZIP 只上传五个航迹 DAT。代码包和结果包分别上传，详见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。
 
+> **11.20 最新高分版本（MasterTracker V14 + Houyi-Dense-v3）**：本地 `dev_30` 严格无泄漏总分 **94.76**、官网 A 榜实测 **90.62**（第 29 名），已通过 `--tracker master` 接入统一 CLI。完整复现、从零训练脚本与一键打包说明见 [experiments/master_v14/README.md](experiments/master_v14/README.md)。
+
 从这里运行当前点模型。权重、参数配置及本地回放／官方联调使用同一套加载逻辑。当前推荐、完整开发集结果与限制统一记录在 [CURRENT.md](CURRENT.md)。
 
 ## 队友首次运行

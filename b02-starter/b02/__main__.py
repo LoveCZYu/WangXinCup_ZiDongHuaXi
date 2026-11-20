@@ -45,8 +45,9 @@ def main():
     local.add_argument("data", type=Path, help="训练 ZIP、单个 CSV 或 CSV 目录")
     local.add_argument("--out", required=True, type=Path)
     local.add_argument("--config", type=Path)
-    local.add_argument("--tracker", choices=("baseline", "point-scorer", "track-mt3"), default="baseline")
+    local.add_argument("--tracker", choices=("baseline", "point-scorer", "master", "track-mt3"), default="baseline")
     local.add_argument("--checkpoint", type=Path, help="配套模型权重，点模型默认使用配置中的文件")
+    local.add_argument("--houyi-dir", type=Path, help="master 跟踪器使用的 HouyiBypassV2 目录（默认读 B02_HOUYI_DIR）")
     local.add_argument("--profile", type=Path, help="点模型配置，默认 profiles/current.json")
     local.add_argument("--upstream", type=Path, help="prepare_upstream.py 生成的三维适配上游目录")
     local.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
@@ -80,9 +81,10 @@ def main():
     official.add_argument("--port", type=int, default=9902)
     official.add_argument("--config", type=Path)
     official.add_argument("--original", action="store_true", help="运行官方首点示例以排查收发环境")
-    official.add_argument("--tracker", choices=("baseline", "point-scorer"), default="baseline")
+    official.add_argument("--tracker", choices=("baseline", "point-scorer", "master"), default="baseline")
     official.add_argument("--profile", type=Path, help="点模型配置，默认 profiles/current.json")
     official.add_argument("--checkpoint", type=Path, help="可选的同一份推理权重文件")
+    official.add_argument("--houyi-dir", type=Path, help="master 跟踪器使用的 HouyiBypassV2 目录（默认读 B02_HOUYI_DIR）")
     official.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
 
     args = parser.parse_args()
@@ -100,7 +102,12 @@ def main():
         config = load_config(args.config)
         handler = partial(process_circle, config=config)
         replay_config = asdict(config)
-        if args.tracker == "point-scorer":
+        if args.tracker == "master":
+            if args.config or args.profile or getattr(args, "upstream", None) or getattr(args, "original", False):
+                parser.error("master 跟踪器不接受 --config、--profile、--upstream 或 --original")
+            from .master_tracker import load_tracker
+            handler, replay_config = load_tracker(args.checkpoint, args.device, houyi_dir=args.houyi_dir)
+        elif args.tracker == "point-scorer":
             if args.config or getattr(args,"upstream",None) or getattr(args,"original",False):
                 parser.error("point-scorer 使用 --profile，不接受基线 --config、--upstream 或 --original")
             from .point_tracker import load_tracker

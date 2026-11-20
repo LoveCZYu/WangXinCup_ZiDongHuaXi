@@ -1,0 +1,49 @@
+{
+  "name": "v3_T1.15_e1=0.975",
+  "temperature": 1.15,
+  "overrides": {
+    "early_birth_1_score": 0.975
+  },
+  "checkpoint": "output/houyi_dense_170/houyi-dense-v3-e02.pt",
+  "metrics": {
+    "point_recall": 96.72490446131957,
+    "track_recall": 95.29622860951996,
+    "clutter_outputs": 4411,
+    "clutter_score": 99.27528612315044,
+    "split_tracks": 765,
+    "fragmentation_score": 88.86264336428181,
+    "timeliness_score": 96.76406335335882,
+    "delay_median": 2.0,
+    "delay_p90": 3,
+    "unmatched_tracks": 0,
+    "dominant_id_coverage": 93.53301039013826,
+    "continuous_score": 95.59138817138198,
+    "unknown_outputs": 21250,
+    "id_switches": 1808,
+    "weighted_total": 94.76001617297555
+  },
+  "diag": {
+    "ni": {
+      "1": 2897,
+      "2": 625,
+      "3": 119,
+      "4": 17,
+      "5": 4
+    },
+    "short_sec_ids(<=3pts)": 611,
+    "az_wrap_splits": 7,
+    "gap_bins": {
+      "gap=1(cont)": 1327,
+      "gap=2-3": 234,
+      "gap=4-10": 243,
+      "gap=11-25": 4
+    },
+    "delay_bins": {
+      "3-5": 512,
+      "<=2(100pt)": 3063,
+      "6-12": 83,
+      ">12(0pt)": 4
+    },
+    "unmatched_count": 0
+  }
+}
