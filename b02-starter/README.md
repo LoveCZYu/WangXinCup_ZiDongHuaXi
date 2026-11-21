@@ -6,7 +6,7 @@
 
 > 11.16 主办方口径已由用户确认：A 榜输入是官方收发程序附带的五包，结果 ZIP 只上传五个航迹 DAT。代码包和结果包分别上传，详见 [A 榜提交说明](docs/A_BOARD_SUBMISSION.md)。
 
-> **11.20 最新高分版本（MasterTracker V14 + Houyi-Dense-v3）**：本地 `dev_30` 严格无泄漏总分 **94.76**、官网 A 榜实测 **90.62**（第 29 名），已通过 `--tracker master` 接入统一 CLI。完整复现、从零训练脚本与一键打包说明见 [experiments/master_v14/README.md](experiments/master_v14/README.md)。
+> **11.21 最新高分版本（MasterTracker V19.5）**：严格 170 场景无泄漏 `dev_30` 总分 **96.7147**（`Frag=94.13`, `Clu=99.34`），高杂波/噪声 `STRESS` 压力测试 **94.4637**（较 V17 提升 **+3.87**），RTX 5070 实测均值 **178.6 ms/圈**、峰值显存 **224.6 MB**，已集成至 `python -m b02 --tracker master`。完整 V18-A/B/C + V19.5 原理、三阶段训练与官方打包指南见 [experiments/master_v19/README.md](experiments/master_v19/README.md)（历史 V14 A 榜 **90.62** 基线见 [experiments/master_v14/README.md](experiments/master_v14/README.md)）。
 
 从这里运行当前点模型。权重、参数配置及本地回放／官方联调使用同一套加载逻辑。当前推荐、完整开发集结果与限制统一记录在 [CURRENT.md](CURRENT.md)。
 

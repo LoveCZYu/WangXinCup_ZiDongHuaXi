@@ -24,6 +24,7 @@ os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 import torch
+from torch import nn
 from torch.nn import functional as F
 
 PHI_0_RAD = math.radians(0.23)
@@ -48,8 +49,10 @@ DEFAULT_TRACKER_PARAMS = {
     "max_dormant": 30,
     "birth_score_min": 0.08,
     "early_birth_1_score": 0.975,
-    "early_birth_2_score": 0.55,
+    "early_birth_2_score": 0.65,
     "safe_zone_mult": 2.8,
+    "eb1_safe_mult": 2.8,
+    "eb2_safe_mult": 0.0,
     "sibling_sep_az": 0.022,
     "sibling_sep_r": 0.018,
     "enter_score": 0.50,
@@ -86,6 +89,25 @@ DEFAULT_TRACKER_PARAMS = {
     "link_conf_to_newborn": True,
     "l0_include_newborn": True,
     "allow_any_age_cn_co1": True,
+    "aff_bipartite_w": 1.00,
+    "aff_mc_add": 0.55,
+    "aff_tent_w": 0.45,
+    "aff_neutral": 0.35,
+    "use_imm": True,
+    "imm_strength": 1.0,
+    "ctx_w": 0.25,
+    "ctx_mode": "nll",
+    "ctx_mc_add": 0.18,
+    "ctx_all_edges": True,
+    "perm_sep_daz": 0.022,
+    "perm_sep_dr": 0.020,
+    "adapt_form_sigmas": True,
+    "form_outlier_reject": True,
+    "form_outlier_min_cons": 3,
+    "form_outlier_thr_az": 0.0045,
+    "form_outlier_thr_el": 0.0070,
+    "form_outlier_thr_r": 0.0045,
+    "form_outlier_margin": 0.15,
 }
 
 
@@ -140,9 +162,10 @@ class TrackState:
         "last_scan", "real_last_scan", "birth_scan", "hits", "strong_hits",
         "emitted", "score_sum", "max_score", "last_score",
         "in_protected_birth", "amp_ema", "hist_cart",
+        "omega", "mu_ct", "use_imm", "imm_strength",
     )
 
-    def __init__(self, batch, p, score, scan, in_protected=False):
+    def __init__(self, batch, p, score, scan, in_protected=False, use_imm=True, imm_strength=1.0):
         self.batch = batch
         self.az = p["Azimuth"]
         self.raw_el = p["Elevation"]
@@ -167,12 +190,37 @@ class TrackState:
         self.amp_ema = p["Amp"]
         self.hist_cart = deque(maxlen=8)
         self.hist_cart.append((scan, self.x, self.y, self.z, score))
+        self.omega = 0.0
+        self.mu_ct = 0.10
+        self.use_imm = use_imm
+        self.imm_strength = imm_strength
+
+    def _predict_ct_xy(self, dt: float):
+        w = self.omega
+        if abs(w) < 1e-3:
+            return self.x + self.vx * dt, self.y + self.vy * dt
+        wd = w * dt
+        if abs(wd) > 1.2:
+            wd = math.copysign(1.2, wd)
+            w = wd / max(1e-6, dt)
+        s = math.sin(wd)
+        c = math.cos(wd)
+        dx = (s / w) * self.vx - ((1.0 - c) / w) * self.vy
+        dy = ((1.0 - c) / w) * self.vx + (s / w) * self.vy
+        return self.x + dx, self.y + dy
 
     def predict_sph(self, scan: int):
         dt = scan - self.last_scan
         if dt <= 0 or self.hits < 2:
             return self.az, self.el, self.r
-        return from_cart(self.x + self.vx * dt, self.y + self.vy * dt, self.z + self.vz * dt)
+        xcv = self.x + self.vx * dt
+        ycv = self.y + self.vy * dt
+        z = self.z + self.vz * dt
+        if (not self.use_imm) or self.hits < 4 or self.imm_strength <= 0.0 or abs(self.omega) < 0.005 or self.mu_ct < 0.10:
+            return from_cart(xcv, ycv, z)
+        xct, yct = self._predict_ct_xy(float(dt))
+        w_ct = min(0.95, self.mu_ct * self.imm_strength)
+        return from_cart((1.0 - w_ct) * xcv + w_ct * xct, (1.0 - w_ct) * ycv + w_ct * yct, z)
 
     def robust_vel_cart(self):
         if len(self.hist_cart) < 2:
@@ -199,6 +247,20 @@ class TrackState:
     def update(self, p, score, scan, vel_gain=0.35):
         dt = max(1, scan - self.last_scan)
         naz, raw_el, nr = p["Azimuth"], p["Elevation"], p["Distance"]
+        if self.use_imm and self.hits >= 4 and dt <= 3:
+            ix, iy, _ = to_cart(naz, self.el, nr)
+            xcv = self.x + self.vx * dt
+            ycv = self.y + self.vy * dt
+            xct, yct = self._predict_ct_xy(float(dt))
+            e_cv = (ix - xcv) ** 2 + (iy - ycv) ** 2
+            e_ct = (ix - xct) ** 2 + (iy - yct) ** 2
+            p_ct_pred = 0.06 * (1.0 - self.mu_ct) + 0.88 * self.mu_ct
+            sig2 = (0.0045 ** 2) * dt
+            ll_diff = max(-6.0, min(6.0, (e_cv - e_ct) / (2.0 * sig2)))
+            num_ct = p_ct_pred * math.exp(ll_diff)
+            self.mu_ct = max(0.05, min(0.95, num_ct / ((1.0 - p_ct_pred) + num_ct)))
+
+        ovx, ovy = self.vx, self.vy
         self.raw_el = raw_el
         nx, ny, nz = to_cart(naz, raw_el, nr)
         g = 1.0 if self.hits == 1 else (0.6 if self.hits == 2 else vel_gain)
@@ -207,6 +269,17 @@ class TrackState:
         self.vx = (1.0 - eff_g) * self.vx + eff_g * ((nx - self.x) / dt)
         self.vy = (1.0 - eff_g) * self.vy + eff_g * ((ny - self.y) / dt)
         self.vz = (1.0 - eff_g) * self.vz + eff_g * ((nz - self.z) / dt)
+        if self.use_imm:
+            v1_sq = ovx * ovx + ovy * ovy
+            v2_sq = self.vx * self.vx + self.vy * self.vy
+            if self.hits >= 3 and dt <= 3 and v1_sq > 0.0035 ** 2 and v2_sq > 0.0035 ** 2:
+                d_ang = math.atan2(ovx * self.vy - ovy * self.vx, ovx * self.vx + ovy * self.vy) / dt
+                if abs(d_ang) < 0.35:
+                    self.omega = 0.70 * self.omega + 0.30 * d_ang
+                else:
+                    self.omega *= 0.85
+            elif dt > 3:
+                self.omega *= 0.75
         self.x, self.y, self.z = nx, ny, nz
         self.az, self.el, self.r = naz, raw_el, nr
         self.amp = p["Amp"]
@@ -229,6 +302,7 @@ class FormLink:
         "d_az", "d_el", "d_r", "d_amp", "v_daz", "v_del", "v_dr",
         "co_obs", "consistent_obs", "last_co_scan", "amp_std_ema",
         "pos_step_ema", "consec_partial",
+        "az_std_ema", "el_std_ema", "r_std_ema", "consec_split",
     )
 
     def __init__(self, t1: TrackState, t2: TrackState, scan: int):
@@ -245,6 +319,10 @@ class FormLink:
         self.amp_std_ema = 0.004
         self.pos_step_ema = 0.0015
         self.consec_partial = 0
+        self.az_std_ema = 0.0008
+        self.el_std_ema = 0.0006
+        self.r_std_ema = 0.0007
+        self.consec_split = 0
 
     def predict(self, scan: int):
         dt = min(5, max(0, scan - self.last_co_scan))
@@ -264,7 +342,10 @@ class FormLink:
         new_damp = t1.amp - t2.amp
 
         pdaz, pdel, pdr, pdamp = self.predict(scan)
-        step_err = math.sqrt((new_daz - pdaz) ** 2 + (new_del - pdel) ** 2 + (new_dr - pdr) ** 2) / dt
+        e_az_abs = abs(new_daz - pdaz)
+        e_el_abs = abs(new_del - pdel)
+        e_r_abs = abs(new_dr - pdr)
+        step_err = math.sqrt(e_az_abs * e_az_abs + e_el_abs * e_el_abs + e_r_abs * e_r_abs) / dt
         amp_err = abs(new_damp - pdamp)
 
         if self.consistent_obs >= 2:
@@ -275,6 +356,11 @@ class FormLink:
             self.consistent_obs += 1
         else:
             self.consistent_obs = max(0, self.consistent_obs - 1)
+
+        if self.co_obs >= 1:
+            self.az_std_ema = 0.80 * self.az_std_ema + 0.20 * e_az_abs
+            self.el_std_ema = 0.80 * self.el_std_ema + 0.20 * e_el_abs
+            self.r_std_ema = 0.80 * self.r_std_ema + 0.20 * e_r_abs
 
         if self.co_obs >= 1 and dt <= 6 and step_err < 0.0040:
             av = 0.20
@@ -294,17 +380,760 @@ class FormLink:
         self.last_co_scan = scan
 
 
+class TrackLongMemory:
+    """24-scan rolling identity & signal statistics per track (beyond 8-scan Houyi window)."""
+    __slots__ = ("amps", "snrs", "els", "speeds", "matched_flags", "emitted_count")
+
+    def __init__(self, p):
+        self.amps = deque([float(p["Amp"])], maxlen=24)
+        self.snrs = deque([float(p["SNR"])], maxlen=24)
+        self.els = deque([float(p["Elevation"])], maxlen=24)
+        self.speeds = deque(maxlen=20)
+        self.matched_flags = deque([1], maxlen=24)
+        self.emitted_count = 0
+
+    def record_hit(self, p, speed_xy: float):
+        self.amps.append(float(p["Amp"]))
+        self.snrs.append(float(p["SNR"]))
+        self.els.append(float(p["Elevation"]))
+        if speed_xy > 0.0:
+            self.speeds.append(speed_xy)
+        self.matched_flags.append(1)
+
+    def record_miss(self):
+        self.matched_flags.append(0)
+
+    def amp_z(self, amp: float) -> float:
+        arr = self.amps
+        n = len(arr)
+        m = sum(arr) / n
+        if n < 3:
+            return (amp - m) / 0.12
+        var = sum((x - m) ** 2 for x in arr) / n
+        std = max(0.025, math.sqrt(var))
+        return max(-6.0, min(6.0, (amp - m) / std))
+
+    def snr_z(self, snr: float) -> float:
+        arr = self.snrs
+        n = len(arr)
+        m = sum(arr) / n
+        if n < 3:
+            return (snr - m) / 0.12
+        var = sum((x - m) ** 2 for x in arr) / n
+        std = max(0.025, math.sqrt(var))
+        return max(-6.0, min(6.0, (snr - m) / std))
+
+    def miss_rate(self) -> float:
+        n = len(self.matched_flags)
+        return 1.0 - (sum(self.matched_flags) / n) if n else 0.0
+
+
+class FastNumpyConflictNet:
+    """Calibrated float32 NumPy ContextualConflictNet (~0.1 ms/scan CPU, exact PyTorch parity)."""
+
+    def __init__(self, ckpt_path):
+        ckpt = torch.load(Path(ckpt_path), map_location="cpu", weights_only=False)
+        sd = ckpt["state_dict"]
+        def npw(k):
+            return sd[k].detach().cpu().numpy().astype(np.float32)
+        self.in_w, self.in_b = npw("in_norm.weight"), npw("in_norm.bias")
+        self.fc1_w, self.fc1_b = npw("fc1.weight").T, npw("fc1.bias")
+        self.b1_ln1_w, self.b1_ln1_b = npw("block1.0.weight"), npw("block1.0.bias")
+        self.b1_fc1_w, self.b1_fc1_b = npw("block1.3.weight").T, npw("block1.3.bias")
+        self.b1_ln2_w, self.b1_ln2_b = npw("block1.4.weight"), npw("block1.4.bias")
+        self.b1_fc2_w, self.b1_fc2_b = npw("block1.6.weight").T, npw("block1.6.bias")
+        self.h_ln_w, self.h_ln_b = npw("head.0.weight"), npw("head.0.bias")
+        self.h_fc1_w, self.h_fc1_b = npw("head.2.weight").T, npw("head.2.bias")
+        self.h_fc2_w, self.h_fc2_b = npw("head.4.weight").T, npw("head.4.bias")
+        self.temp = float(np.clip(sd["temp"].item(), 0.3, 5.0))
+
+    @staticmethod
+    def _ln(x, w, b):
+        m = x.mean(axis=-1, keepdims=True)
+        v = ((x - m) ** 2).mean(axis=-1, keepdims=True)
+        return (x - m) / np.sqrt(v + 1e-5) * w + b
+
+    @staticmethod
+    def _silu(x):
+        return x / (1.0 + np.exp(-np.clip(x, -30.0, 30.0)))
+
+    def predict_probs(self, X: np.ndarray) -> np.ndarray:
+        h = self._ln(X, self.in_w, self.in_b) @ self.fc1_w + self.fc1_b
+        r = self._silu(self._ln(h, self.b1_ln1_w, self.b1_ln1_b)) @ self.b1_fc1_w + self.b1_fc1_b
+        r = self._silu(self._ln(r, self.b1_ln2_w, self.b1_ln2_b)) @ self.b1_fc2_w + self.b1_fc2_b
+        h = h + r
+        u = self._silu(self._ln(h, self.h_ln_w, self.h_ln_b)) @ self.h_fc1_w + self.h_fc1_b
+        logits = (self._silu(u) @ self.h_fc2_w + self.h_fc2_b).squeeze(-1) / self.temp
+        return 1.0 / (1.0 + np.exp(-np.clip(logits, -30.0, 30.0)))
+
+
+def _build_conflict_edge_features(tracker, memories: dict, track_ids, cand_pts, cand_scores,
+                                  scan: int, gate_scale: float, occupied: set,
+                                  min_pt_score: float = 0.0, long_scale=None):
+    """Build 34-dim competitor-aware conflict graph features for gated (track, det) edges."""
+    if not track_ids or not cand_pts:
+        return []
+    raw_edges = []
+    by_track = {}
+    by_det = {}
+    form_co = {}
+    form_sibs = {}
+    for (b1, b2), lk in tracker.form_links.items():
+        if lk.consistent_obs >= 1:
+            if lk.consistent_obs > form_co.get(b1, 0):
+                form_co[b1] = lk.consistent_obs
+            if lk.consistent_obs > form_co.get(b2, 0):
+                form_co[b2] = lk.consistent_obs
+            form_sibs.setdefault(b1, set()).add(b2)
+            form_sibs.setdefault(b2, set()).add(b1)
+
+    for bid in track_ids:
+        t = tracker.tracks[bid]
+        dt = scan - t.last_scan
+        real_dt = scan - t.real_last_scan
+        paz, pel, pr = t.predict_sph(scan)
+        if t.hits == 1:
+            eff_scale = max(gate_scale, 1.75)
+        elif long_scale is not None and dt >= 3:
+            eff_scale = long_scale
+        else:
+            eff_scale = gate_scale
+        rad = min(1.0 + 0.22 * max(0, dt - 1), 2.15) * eff_scale
+        rad_sq = rad * rad
+        g_az = max(tracker.gate_az, 0.008 / max(pr, 0.08))
+        v_xy = math.hypot(t.vx, t.vy)
+        mem = memories.get(bid)
+        t_form_co = min(1.0, form_co.get(bid, 0) / 20.0)
+        in_form = 1.0 if bid in form_sibs else 0.0
+        rkeys = tracker.track_recent_keys.get(bid)
+
+        for ci, p in enumerate(cand_pts):
+            if ci in occupied or cand_scores[ci] < min_pt_score:
+                continue
+            if abs(p["Distance"] - pr) > tracker.gate_r * rad * 1.15:
+                continue
+            d_sq = tracker._norm_dist_sq(paz, pel, pr, p["Azimuth"], p["Elevation"], p["Distance"], pr)
+            if d_sq > rad_sq or abs(p["Elevation"] - pel) > 0.25:
+                continue
+            d_az_n = abs(wrap_az(p["Azimuth"] - paz)) / (g_az * rad)
+            d_el_n = abs(p["Elevation"] - pel) / (tracker.gate_el * rad)
+            d_r_n = abs(p["Distance"] - pr) / (tracker.gate_r * rad)
+            dr_fine = min(3.0, abs(p["Distance"] - pr) / (0.005 * rad))
+            dsq_n = d_sq / rad_sq
+
+            cos_h = 1.0
+            spd_rat = 1.0
+            if t.hits >= 4 and v_xy > 0.004:
+                cx, cy, _ = to_cart(p["Azimuth"], t.el, p["Distance"])
+                dx, dy = (cx - t.x) / max(1, dt), (cy - t.y) / max(1, dt)
+                d_xy = math.hypot(dx, dy)
+                if d_xy > 0.003:
+                    cos_h = (t.vx * dx + t.vy * dy) / (v_xy * d_xy)
+                    spd_rat = min(3.0, d_xy / v_xy)
+
+            p_aff = tracker._get_pair_aff(bid, ci)
+            has_aff = 1.0 if p_aff is not None else 0.0
+            p_aff_val = p_aff if p_aff is not None else 0.5
+            p_aff_max = p_aff_val
+            p_aff_last1 = p_aff_val
+            if rkeys and tracker._cur_aff:
+                orig_i = tracker._cand_orig_idx[ci]
+                row = tracker._cur_aff.get(orig_i)
+                if row:
+                    vals = [row[k] for k in rkeys if k in row]
+                    if vals:
+                        p_aff_max = max(vals)
+                        p_aff_last1 = vals[-1]
+
+            amp_z = abs(mem.amp_z(p["Amp"])) if mem is not None else 0.0
+            snr_z = abs(mem.snr_z(p["SNR"])) if mem is not None else 0.0
+            miss_r = mem.miss_rate() if mem is not None else 0.0
+
+            e_idx = len(raw_edges)
+            raw_edges.append({
+                "bid": bid, "ci": ci,
+                "dt": min(10.0, float(dt)) / 10.0,
+                "real_dt": min(15.0, float(real_dt)) / 15.0,
+                "d_az_n": d_az_n, "d_el_n": d_el_n, "d_r_n": d_r_n,
+                "dsq_n": dsq_n, "dr_fine": dr_fine,
+                "cos_h": cos_h, "spd_rat": spd_rat,
+                "mu_ct": float(getattr(t, "mu_ct", 0.1)),
+                "omega": min(0.35, abs(float(getattr(t, "omega", 0.0)))) / 0.35,
+                "sc": float(cand_scores[ci]),
+                "p_aff": p_aff_val, "has_aff": has_aff,
+                "p_aff_max": p_aff_max, "p_aff_last1": p_aff_last1,
+                "hits_log": min(1.0, math.log1p(t.hits) / 5.5),
+                "strong_n": min(1.0, t.strong_hits / 10.0),
+                "amp_z": amp_z / 6.0, "snr_z": snr_z / 6.0,
+                "miss_r": miss_r, "in_form": in_form, "form_co": t_form_co,
+            })
+            by_track.setdefault(bid, []).append(e_idx)
+            by_det.setdefault(ci, []).append(e_idx)
+
+    if not raw_edges:
+        return []
+
+    out = []
+    for e_idx, e in enumerate(raw_edges):
+        bid = e["bid"]
+        ci = e["ci"]
+        t_list = by_track[bid]
+        d_list = by_det[ci]
+        n_ct = len(d_list)
+        n_cd = len(t_list)
+        is_conflict = (n_ct >= 2 or n_cd >= 2)
+
+        bo_dsq, bo_dr, bo_paff, bo_amp, bo_is_sib = 2.0, 3.0, 0.0, 1.0, 0.0
+        if n_ct >= 2:
+            sibs = form_sibs.get(bid, ())
+            best_score = 1e9
+            for oi in d_list:
+                if oi == e_idx:
+                    continue
+                oe = raw_edges[oi]
+                cs = oe["dsq_n"] + 0.4 * min(1.0, oe["dr_fine"] ** 2) + (1.0 - oe["p_aff"])
+                if cs < best_score:
+                    best_score = cs
+                    bo_dsq, bo_dr, bo_paff, bo_amp = oe["dsq_n"], oe["dr_fine"], oe["p_aff"], oe["amp_z"]
+                    bo_is_sib = 1.0 if oe["bid"] in sibs else 0.0
+
+        bd_dsq, bd_paff = 2.0, 0.0
+        if n_cd >= 2:
+            best_score = 1e9
+            for oi in t_list:
+                if oi == e_idx:
+                    continue
+                oe = raw_edges[oi]
+                cs = oe["dsq_n"] + 0.4 * min(1.0, oe["dr_fine"] ** 2) + (1.0 - oe["p_aff"])
+                if cs < best_score:
+                    best_score = cs
+                    bd_dsq, bd_paff = oe["dsq_n"], oe["p_aff"]
+
+        feat = np.array([
+            e["dt"], e["real_dt"], e["d_az_n"], e["d_el_n"], e["d_r_n"],
+            e["dsq_n"], e["dr_fine"], e["cos_h"], e["spd_rat"], e["mu_ct"], e["omega"],
+            e["sc"], e["p_aff"], e["has_aff"], e["p_aff_max"], e["p_aff_last1"],
+            e["hits_log"], e["strong_n"], e["amp_z"], e["snr_z"], e["miss_r"], e["in_form"], e["form_co"],
+            min(1.0, (n_ct - 1) / 4.0), min(1.0, (n_cd - 1) / 4.0),
+            bo_dsq, max(-2.0, min(2.0, bo_dsq - e["dsq_n"])), max(-3.0, min(3.0, bo_dr - e["dr_fine"])),
+            bo_paff, e["p_aff"] - bo_paff, max(-1.0, min(1.0, bo_amp - e["amp_z"])),
+            bo_is_sib, max(-2.0, min(2.0, bd_dsq - e["dsq_n"])), e["p_aff"] - bd_paff,
+        ], dtype=np.float32)
+        out.append((bid, ci, feat, is_conflict))
+    return out
+
+
+SEQ_LEN = 24
+SEQ_DIM = 12
+EDGE_DIM_V18 = 40
+MAX_COMP_EDGES = 24
+
+
+class TrackSeqMemory:
+    """24-scan rolling trajectory & signal sequence memory per track (V18-C)."""
+    __slots__ = ("amps", "snrs", "els", "matched_flags", "seq_rows")
+
+    def __init__(self, p, score: float, scan: int):
+        self.amps = deque([float(p["Amp"])], maxlen=SEQ_LEN)
+        self.snrs = deque([float(p["SNR"])], maxlen=SEQ_LEN)
+        self.els = deque([float(p["Elevation"])], maxlen=SEQ_LEN)
+        self.matched_flags = deque([1], maxlen=SEQ_LEN)
+        self.seq_rows = deque([(
+            scan, float(p["Azimuth"]), float(p["Elevation"]), float(p["Distance"]),
+            0.0, 0.0, 0.0, 0.1, float(p["Amp"]), float(p["SNR"]), float(score), 1.0,
+        )], maxlen=SEQ_LEN)
+
+    def record_hit(self, t, p, score: float, scan: int):
+        self.amps.append(float(p["Amp"]))
+        self.snrs.append(float(p["SNR"]))
+        self.els.append(float(p["Elevation"]))
+        self.matched_flags.append(1)
+        self.seq_rows.append((
+            scan, float(p["Azimuth"]), float(p["Elevation"]), float(p["Distance"]),
+            float(t.vx), float(t.vy), float(getattr(t, "omega", 0.0)), float(getattr(t, "mu_ct", 0.1)),
+            float(p["Amp"]), float(p["SNR"]), float(score), 1.0,
+        ))
+
+    def record_miss(self, t, scan: int):
+        self.matched_flags.append(0)
+        self.seq_rows.append((
+            scan, float(t.az), float(t.el), float(t.r),
+            float(t.vx), float(t.vy), float(getattr(t, "omega", 0.0)), float(getattr(t, "mu_ct", 0.1)),
+            float(t.amp), float(t.snr), 0.0, 0.0,
+        ))
+
+    def amp_z(self, amp: float) -> float:
+        arr = self.amps
+        n = len(arr)
+        m = sum(arr) / n
+        if n < 3:
+            return (amp - m) / 0.12
+        var = sum((x - m) ** 2 for x in arr) / n
+        return max(-6.0, min(6.0, (amp - m) / max(0.025, math.sqrt(var))))
+
+    def snr_z(self, snr: float) -> float:
+        arr = self.snrs
+        n = len(arr)
+        m = sum(arr) / n
+        if n < 3:
+            return (snr - m) / 0.12
+        var = sum((x - m) ** 2 for x in arr) / n
+        return max(-6.0, min(6.0, (snr - m) / max(0.025, math.sqrt(var))))
+
+    def miss_rate(self) -> float:
+        n = len(self.matched_flags)
+        return 1.0 - (sum(self.matched_flags) / n) if n else 0.0
+
+    def to_seq_tensor(self, scan: int, ref_az: float, ref_el: float, ref_r: float) -> np.ndarray:
+        """Build right-aligned (SEQ_LEN, SEQ_DIM) float32 sequence relative to current predicted state."""
+        out = np.zeros((SEQ_LEN, SEQ_DIM), dtype=np.float32)
+        rows = self.seq_rows
+        n = len(rows)
+        off = SEQ_LEN - n
+        for k, (sc, az, el, r, vx, vy, om, mu, amp, snr, sc_p, is_r) in enumerate(rows):
+            dt = min(30.0, float(max(0, scan - sc))) / 24.0
+            daz = max(-5.0, min(5.0, wrap_az(az - ref_az) * 35.0))
+            del_ = max(-5.0, min(5.0, (el - ref_el) * 12.0))
+            dr = max(-5.0, min(5.0, (r - ref_r) * 50.0))
+            out[off + k] = (
+                dt, daz, del_, dr,
+                max(-5.0, min(5.0, vx * 40.0)),
+                max(-5.0, min(5.0, vy * 40.0)),
+                max(-3.0, min(3.0, om * 5.0)),
+                mu, amp, snr, sc_p, is_r,
+            )
+        return out
+
+
+def _build_rel_mat(bids, cis) -> np.ndarray:
+    e = len(bids)
+    rel = np.zeros((e, e), dtype=np.int8)
+    for i in range(e):
+        rel[i, i] = 3
+        for j in range(i + 1, e):
+            if bids[i] == bids[j]:
+                rel[i, j] = rel[j, i] = 1
+            elif cis[i] == cis[j]:
+                rel[i, j] = rel[j, i] = 2
+    return rel
+
+
+def _build_v18_conflict_graph(tracker, memories: dict, track_ids, cand_pts, cand_scores,
+                              scan: int, gate_scale: float, occupied: set,
+                              cur_motion=None, min_pt_score: float = 0.0, long_scale=None):
+    """Build 40-dim competitor+motion edges, 24-scan track sequences, and conflict components."""
+    if not track_ids or not cand_pts:
+        return [], {}, []
+
+    raw_edges = []
+    by_track = {}
+    by_det = {}
+    form_co = {}
+    form_sibs = {}
+    for (b1, b2), lk in tracker.form_links.items():
+        if lk.consistent_obs >= 1:
+            if lk.consistent_obs > form_co.get(b1, 0):
+                form_co[b1] = lk.consistent_obs
+            if lk.consistent_obs > form_co.get(b2, 0):
+                form_co[b2] = lk.consistent_obs
+            form_sibs.setdefault(b1, set()).add(b2)
+            form_sibs.setdefault(b2, set()).add(b1)
+
+    track_seqs = {}
+    for bid in track_ids:
+        t = tracker.tracks[bid]
+        dt = scan - t.last_scan
+        real_dt = scan - t.real_last_scan
+        paz, pel, pr = t.predict_sph(scan)
+        if t.hits == 1:
+            eff_scale = max(gate_scale, 1.75)
+        elif long_scale is not None and dt >= 3:
+            eff_scale = long_scale
+        else:
+            eff_scale = gate_scale
+        rad = min(1.0 + 0.22 * max(0, dt - 1), 2.15) * eff_scale
+        rad_sq = rad * rad
+        g_az = max(tracker.gate_az, 0.008 / max(pr, 0.08))
+        v_xy = math.hypot(t.vx, t.vy)
+        mem = memories.get(bid)
+        t_form_co = min(1.0, form_co.get(bid, 0) / 20.0)
+        in_form = 1.0 if bid in form_sibs else 0.0
+        rkeys = tracker.track_recent_keys.get(bid)
+
+        for ci, p in enumerate(cand_pts):
+            if ci in occupied or cand_scores[ci] < min_pt_score:
+                continue
+            if abs(p["Distance"] - pr) > tracker.gate_r * rad * 1.15:
+                continue
+            d_sq = tracker._norm_dist_sq(paz, pel, pr, p["Azimuth"], p["Elevation"], p["Distance"], pr)
+            if d_sq > rad_sq or abs(p["Elevation"] - pel) > 0.25:
+                continue
+
+            if bid not in track_seqs:
+                if mem is not None:
+                    track_seqs[bid] = mem.to_seq_tensor(scan, paz, pel, pr)
+                else:
+                    track_seqs[bid] = np.zeros((SEQ_LEN, SEQ_DIM), dtype=np.float32)
+
+            d_az_n = abs(wrap_az(p["Azimuth"] - paz)) / (g_az * rad)
+            d_el_n = abs(p["Elevation"] - pel) / (tracker.gate_el * rad)
+            d_r_n = abs(p["Distance"] - pr) / (tracker.gate_r * rad)
+            dr_fine = min(3.0, abs(p["Distance"] - pr) / (0.005 * rad))
+            dsq_n = d_sq / rad_sq
+
+            cos_h = 1.0
+            spd_rat = 1.0
+            if t.hits >= 4 and v_xy > 0.004:
+                cx, cy, _ = to_cart(p["Azimuth"], t.el, p["Distance"])
+                dx, dy = (cx - t.x) / max(1, dt), (cy - t.y) / max(1, dt)
+                d_xy = math.hypot(dx, dy)
+                if d_xy > 0.003:
+                    cos_h = (t.vx * dx + t.vy * dy) / (v_xy * d_xy)
+                    spd_rat = min(3.0, d_xy / v_xy)
+
+            p_aff = tracker._get_pair_aff(bid, ci)
+            has_aff = 1.0 if p_aff is not None else 0.0
+            p_aff_val = p_aff if p_aff is not None else 0.5
+            p_aff_max = p_aff_val
+            p_aff_last1 = p_aff_val
+            orig_i = tracker._cand_orig_idx[ci]
+            if rkeys and tracker._cur_aff:
+                row = tracker._cur_aff.get(orig_i)
+                if row:
+                    vals = [row[k] for k in rkeys if k in row]
+                    if vals:
+                        p_aff_max = max(vals)
+                        p_aff_last1 = vals[-1]
+
+            has_mot = 0.0
+            b_daz_n, b_del_n, b_dr_n, b_dsq = 1.0, 1.0, 1.0, 1.5
+            if cur_motion is not None and orig_i < len(cur_motion) and 1 <= real_dt <= 4:
+                mv = cur_motion[orig_i]
+                vaz_pred = float(mv[0]) / 50.0
+                vel_pred = float(mv[1]) / 15.0
+                vr_pred = float(mv[2]) / 80.0
+                pred_prev_az = (p["Azimuth"] - vaz_pred * real_dt) % 1.0
+                pred_prev_el = p["Elevation"] - vel_pred * real_dt
+                pred_prev_r = p["Distance"] - vr_pred * real_dt
+                b_daz_n = min(3.0, abs(wrap_az(pred_prev_az - t.az)) / (0.006 * max(1, real_dt)))
+                b_del_n = min(3.0, abs(pred_prev_el - t.raw_el) / (0.025 * max(1, real_dt)))
+                b_dr_n = min(3.0, abs(pred_prev_r - t.r) / (0.005 * max(1, real_dt)))
+                b_dsq = min(4.0, 0.45 * b_daz_n * b_daz_n + 0.15 * b_del_n * b_del_n + 0.40 * b_dr_n * b_dr_n)
+                has_mot = 1.0
+
+            amp_z = abs(mem.amp_z(p["Amp"])) if mem is not None else 0.0
+            snr_z = abs(mem.snr_z(p["SNR"])) if mem is not None else 0.0
+            miss_r = mem.miss_rate() if mem is not None else 0.0
+
+            e_idx = len(raw_edges)
+            raw_edges.append({
+                "bid": bid, "ci": ci,
+                "dt": min(10.0, float(dt)) / 10.0,
+                "real_dt": min(15.0, float(real_dt)) / 15.0,
+                "d_az_n": d_az_n, "d_el_n": d_el_n, "d_r_n": d_r_n,
+                "dsq_n": dsq_n, "dr_fine": dr_fine,
+                "cos_h": cos_h, "spd_rat": spd_rat,
+                "mu_ct": float(getattr(t, "mu_ct", 0.1)),
+                "omega": min(0.35, abs(float(getattr(t, "omega", 0.0)))) / 0.35,
+                "sc": float(cand_scores[ci]),
+                "p_aff": p_aff_val, "has_aff": has_aff,
+                "p_aff_max": p_aff_max, "p_aff_last1": p_aff_last1,
+                "hits_log": min(1.0, math.log1p(t.hits) / 5.5),
+                "strong_n": min(1.0, t.strong_hits / 10.0),
+                "amp_z": amp_z / 6.0, "snr_z": snr_z / 6.0,
+                "miss_r": miss_r, "in_form": in_form, "form_co": t_form_co,
+                "has_mot": has_mot, "b_daz_n": b_daz_n, "b_del_n": b_del_n, "b_dr_n": b_dr_n, "b_dsq": b_dsq,
+            })
+            by_track.setdefault(bid, []).append(e_idx)
+            by_det.setdefault(ci, []).append(e_idx)
+
+    if not raw_edges:
+        return [], {}, []
+
+    edges = []
+    for e_idx, e in enumerate(raw_edges):
+        bid = e["bid"]
+        ci = e["ci"]
+        t_list = by_track[bid]
+        d_list = by_det[ci]
+        n_ct, n_cd = len(d_list), len(t_list)
+        is_conflict = (n_ct >= 2 or n_cd >= 2)
+
+        bo_dsq, bo_dr, bo_paff, bo_amp, bo_is_sib, bo_bdsq = 2.0, 3.0, 0.0, 1.0, 0.0, 3.0
+        if n_ct >= 2:
+            sibs = form_sibs.get(bid, ())
+            best_s = 1e9
+            for oi in d_list:
+                if oi == e_idx:
+                    continue
+                oe = raw_edges[oi]
+                cs = oe["dsq_n"] + 0.4 * min(1.0, oe["dr_fine"] ** 2) + (1.0 - oe["p_aff"])
+                if cs < best_s:
+                    best_s = cs
+                    bo_dsq, bo_dr, bo_paff, bo_amp = oe["dsq_n"], oe["dr_fine"], oe["p_aff"], oe["amp_z"]
+                    bo_is_sib = 1.0 if oe["bid"] in sibs else 0.0
+                    bo_bdsq = oe["b_dsq"]
+
+        bd_dsq, bd_paff = 2.0, 0.0
+        if n_cd >= 2:
+            best_s = 1e9
+            for oi in t_list:
+                if oi == e_idx:
+                    continue
+                oe = raw_edges[oi]
+                cs = oe["dsq_n"] + 0.4 * min(1.0, oe["dr_fine"] ** 2) + (1.0 - oe["p_aff"])
+                if cs < best_s:
+                    best_s = cs
+                    bd_dsq, bd_paff = oe["dsq_n"], oe["p_aff"]
+
+        feat = np.array([
+            e["dt"], e["real_dt"], e["d_az_n"], e["d_el_n"], e["d_r_n"],
+            e["dsq_n"], e["dr_fine"], e["cos_h"], e["spd_rat"], e["mu_ct"], e["omega"],
+            e["sc"], e["p_aff"], e["has_aff"], e["p_aff_max"], e["p_aff_last1"],
+            e["hits_log"], e["strong_n"], e["amp_z"], e["snr_z"], e["miss_r"], e["in_form"], e["form_co"],
+            min(1.0, (n_ct - 1) / 4.0), min(1.0, (n_cd - 1) / 4.0),
+            bo_dsq, max(-2.0, min(2.0, bo_dsq - e["dsq_n"])), max(-3.0, min(3.0, bo_dr - e["dr_fine"])),
+            bo_paff, e["p_aff"] - bo_paff, max(-1.0, min(1.0, bo_amp - e["amp_z"])),
+            bo_is_sib, max(-2.0, min(2.0, bd_dsq - e["dsq_n"])), e["p_aff"] - bd_paff,
+            e["has_mot"], e["b_daz_n"], e["b_del_n"], e["b_dr_n"], e["b_dsq"],
+            max(-3.0, min(3.0, bo_bdsq - e["b_dsq"])),
+        ], dtype=np.float32)
+        edges.append((bid, ci, feat, is_conflict))
+
+    n_e = len(edges)
+    visited = [False] * n_e
+    components = []
+    for i in range(n_e):
+        if visited[i]:
+            continue
+        comp = []
+        stack = [i]
+        visited[i] = True
+        while stack:
+            u = stack.pop()
+            comp.append(u)
+            b_u, c_u = edges[u][0], edges[u][1]
+            for v in by_track[b_u]:
+                if not visited[v]:
+                    visited[v] = True
+                    stack.append(v)
+            for v in by_det[c_u]:
+                if not visited[v]:
+                    visited[v] = True
+                    stack.append(v)
+        components.append(comp)
+
+    return edges, track_seqs, components
+
+
+class BipartiteEdgeAttnLayer(nn.Module):
+    """Multi-head edge self-attention with relation bias (peer/same_track/same_det/self)."""
+
+    def __init__(self, d_model: int = 128, n_heads: int = 4, dropout: float = 0.10):
+        super().__init__()
+        self.d_model = d_model
+        self.n_heads = n_heads
+        self.d_head = d_model // n_heads
+        self.ln1 = nn.LayerNorm(d_model)
+        self.qkv = nn.Linear(d_model, d_model * 3)
+        self.out_proj = nn.Linear(d_model, d_model)
+        self.rel_bias = nn.Embedding(4, n_heads)
+        self.drop = nn.Dropout(dropout)
+        self.ln2 = nn.LayerNorm(d_model)
+        self.ffn = nn.Sequential(
+            nn.Linear(d_model, d_model * 2),
+            nn.SiLU(),
+            nn.Dropout(dropout),
+            nn.Linear(d_model * 2, d_model),
+        )
+
+    def forward(self, x: torch.Tensor, rel_mat: torch.Tensor, pad_mask: torch.Tensor) -> torch.Tensor:
+        bsz, ne, d_m = x.shape
+        h = self.ln1(x)
+        qkv = self.qkv(h).view(bsz, ne, 3, self.n_heads, self.d_head)
+        q = qkv[:, :, 0].transpose(1, 2)
+        k = qkv[:, :, 1].transpose(1, 2)
+        v = qkv[:, :, 2].transpose(1, 2)
+        scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(self.d_head)
+        scores = scores + self.rel_bias(rel_mat).permute(0, 3, 1, 2)
+        scores = scores.masked_fill(~pad_mask[:, None, None, :], -1e4)
+        attn = self.drop(torch.softmax(scores, dim=-1))
+        ctx = torch.matmul(attn, v).transpose(1, 2).contiguous().view(bsz, ne, d_m)
+        x = x + self.drop(self.out_proj(ctx))
+        x = x + self.drop(self.ffn(self.ln2(x)))
+        return x
+
+
+class TrackSeqCrossAttnNet(nn.Module):
+    """V18-C calibrated sequence + bipartite conflict-component attention associator."""
+
+    def __init__(self, edge_dim: int = EDGE_DIM_V18, seq_dim: int = SEQ_DIM,
+                 trk_dim: int = 64, d_model: int = 128, n_layers: int = 2, n_heads: int = 4):
+        super().__init__()
+        self.seq_in = nn.Sequential(nn.LayerNorm(seq_dim), nn.Linear(seq_dim, trk_dim), nn.SiLU())
+        self.gru = nn.GRU(trk_dim, trk_dim, num_layers=1, batch_first=True)
+        self.edge_in = nn.Sequential(nn.LayerNorm(edge_dim), nn.Linear(edge_dim, d_model), nn.SiLU())
+        self.fuse = nn.Sequential(
+            nn.Linear(d_model + trk_dim, d_model),
+            nn.LayerNorm(d_model),
+            nn.SiLU(),
+        )
+        self.layers = nn.ModuleList([BipartiteEdgeAttnLayer(d_model, n_heads) for _ in range(n_layers)])
+        self.head = nn.Sequential(
+            nn.LayerNorm(d_model), nn.SiLU(), nn.Linear(d_model, 64), nn.SiLU(), nn.Linear(64, 1)
+        )
+        self.temp = nn.Parameter(torch.tensor(1.0))
+
+    def encode_tracks(self, seqs: torch.Tensor) -> torch.Tensor:
+        _, hn = self.gru(self.seq_in(seqs))
+        return hn[-1]
+
+    def forward(self, edge_feats: torch.Tensor, edge_seqs: torch.Tensor,
+                rel_mat: torch.Tensor, pad_mask: torch.Tensor) -> torch.Tensor:
+        bsz, ne, slen, sdim = edge_seqs.shape
+        h_trk = self.encode_tracks(edge_seqs.view(bsz * ne, slen, sdim)).view(bsz, ne, -1)
+        h_e = self.edge_in(edge_feats)
+        x = self.fuse(torch.cat((h_e, h_trk), dim=-1))
+        for layer in self.layers:
+            x = layer(x, rel_mat, pad_mask)
+        return self.head(x).squeeze(-1) / self.temp.clamp(0.3, 5.0)
+
+
+class FastSeqCrossAttnScorer:
+    """Fast GPU/CPU inference wrapper for TrackSeqCrossAttnNet (~0.4 ms/scan)."""
+
+    def __init__(self, ckpt_path, device: str = "cuda"):
+        ckpt = torch.load(Path(ckpt_path), map_location="cpu", weights_only=False)
+        self.device = torch.device(device if (device == "cuda" and torch.cuda.is_available()) else "cpu")
+        self.model = TrackSeqCrossAttnNet(
+            edge_dim=ckpt.get("edge_dim", EDGE_DIM_V18),
+            seq_dim=ckpt.get("seq_dim", SEQ_DIM),
+        ).to(self.device)
+        self.model.load_state_dict(ckpt["state_dict"])
+        self.model.eval()
+
+    @torch.inference_mode()
+    def score_graph(self, edges, track_seqs, components, score_all: bool = True):
+        if not edges or not components:
+            return {}, set()
+        sel_comps = [c for c in components if score_all or len(c) >= 2]
+        if not sel_comps:
+            return {}, set()
+        capped = [
+            c if len(c) <= MAX_COMP_EDGES else sorted(c, key=lambda ei: edges[ei][2][5])[:MAX_COMP_EDGES]
+            for c in sel_comps
+        ]
+        bsz = len(capped)
+        max_e = max(len(c) for c in capped)
+        ef = np.zeros((bsz, max_e, EDGE_DIM_V18), dtype=np.float32)
+        es = np.zeros((bsz, max_e, SEQ_LEN, SEQ_DIM), dtype=np.float32)
+        rm = np.zeros((bsz, max_e, max_e), dtype=np.int64)
+        pm = np.zeros((bsz, max_e), dtype=bool)
+        for b, comp in enumerate(capped):
+            bids = [edges[ei][0] for ei in comp]
+            cis = [edges[ei][1] for ei in comp]
+            ne = len(comp)
+            for k, ei in enumerate(comp):
+                ef[b, k] = edges[ei][2]
+                es[b, k] = track_seqs[bids[k]]
+            rm[b, :ne, :ne] = _build_rel_mat(bids, cis)
+            pm[b, :ne] = True
+        logits = self.model(
+            torch.from_numpy(ef).to(self.device),
+            torch.from_numpy(es).to(self.device),
+            torch.from_numpy(rm).to(self.device),
+            torch.from_numpy(pm).to(self.device),
+        )
+        probs = torch.sigmoid(logits).cpu().numpy()
+        pmap, cset = {}, set()
+        for b, comp in enumerate(capped):
+            is_c = len(comp) >= 2
+            for k, ei in enumerate(comp):
+                bid, ci, _, _ = edges[ei]
+                pmap[(bid, ci)] = float(probs[b, k])
+                if is_c:
+                    cset.add((bid, ci))
+        return pmap, cset
+
+
 class MasterTracker:
-    def __init__(self, **overrides):
+    def __init__(self, conflict_net: FastNumpyConflictNet = None, seq_scorer: FastSeqCrossAttnScorer = None, **overrides):
         params = {**DEFAULT_TRACKER_PARAMS, **overrides}
         for k, v in params.items():
             setattr(self, k, v)
+        self.conflict_net = conflict_net
+        self.seq_scorer = seq_scorer
         self.scan = 0
         self.next_id = 1
         self.tracks: dict[int, TrackState] = {}
         self.dormant: dict[int, TrackState] = {}
         self.form_links: dict[tuple[int, int], FormLink] = {}
         self.group_full_obs: dict[tuple[int, ...], int] = {}
+        self.track_recent_keys: dict[int, deque] = {}
+        self.memories: dict[int, TrackLongMemory] = {}
+        self.seq_memories: dict[int, TrackSeqMemory] = {}
+        self._eb2_safe: dict[int, bool] = {}
+        self._cur_aff: dict = {}
+        self._cur_motion = None
+        self._cand_orig_idx: list[int] = []
+
+    def _compute_ctx_scores(self, track_ids, cand_pts, cand_scores, scan, gate_scale, occupied,
+                            min_pt_score=0.0, long_scale=None):
+        if self.ctx_w <= 0.0 or not track_ids or not cand_pts:
+            return {}, set()
+        if self.seq_scorer is not None:
+            edges, track_seqs, comps = _build_v18_conflict_graph(
+                self, self.seq_memories, track_ids, cand_pts, cand_scores, scan,
+                gate_scale=gate_scale, occupied=occupied, cur_motion=self._cur_motion,
+                min_pt_score=min_pt_score, long_scale=long_scale,
+            )
+            return self.seq_scorer.score_graph(edges, track_seqs, comps, score_all=self.ctx_all_edges)
+        if self.conflict_net is None:
+            return {}, set()
+        edge_feats = _build_conflict_edge_features(
+            self, self.memories, track_ids, cand_pts, cand_scores, scan,
+            gate_scale=gate_scale, occupied=occupied, min_pt_score=min_pt_score, long_scale=long_scale,
+        )
+        if not edge_feats:
+            return {}, set()
+        sel = edge_feats if self.ctx_all_edges else [ef for ef in edge_feats if ef[3]]
+        if not sel:
+            return {}, set()
+        X = np.stack([ef[2] for ef in sel], axis=0)
+        probs = self.conflict_net.predict_probs(X)
+        pmap, cset = {}, set()
+        for (bid, ci, _, is_conf), pr in zip(sel, probs):
+            pmap[(bid, ci)] = float(pr)
+            if is_conf:
+                cset.add((bid, ci))
+        return pmap, cset
+
+    def active_hist_keys(self) -> set[tuple[int, int]]:
+        keys = set()
+        for dq in self.track_recent_keys.values():
+            keys.update(dq)
+        return keys
+
+    def _get_pair_aff(self, bid: int, cand_ci: int):
+        keys = self.track_recent_keys.get(bid)
+        if not keys or not self._cur_aff:
+            return None
+        orig_i = self._cand_orig_idx[cand_ci]
+        row = self._cur_aff.get(orig_i)
+        if not row:
+            return None
+        w_sum = 0.0
+        p_sum = 0.0
+        w = 1.0
+        for hc, hp in reversed(keys):
+            val = row.get((hc, hp))
+            if val is not None:
+                p_sum += w * val
+                w_sum += w
+            w *= 0.65
+        if w_sum <= 0.0:
+            return None
+        return p_sum / w_sum
 
     def _norm_dist_sq(self, az1, el1, r1, az2, el2, r2, r_ref):
         g_az = max(self.gate_az, 0.008 / max(r_ref, 0.08))
@@ -375,16 +1204,35 @@ class MasterTracker:
                 groups.append(comp)
         return groups
 
-    def _pair_template_err(self, p1, p2, pdaz, pdel, pdr, pdamp, astd):
+    def _perm_sigmas(self, lk: FormLink):
+        if not self.adapt_form_sigmas:
+            return 0.0015, 0.0005, 0.0012
+        sig_az = max(0.0015, min(0.0035, getattr(lk, "az_std_ema", 0.0008) * 3.0))
+        sig_el = max(0.0005, min(0.0030, getattr(lk, "el_std_ema", 0.0006) * 3.0))
+        sig_r = max(0.0012, min(0.0030, getattr(lk, "r_std_ema", 0.0007) * 3.0))
+        return sig_az, sig_el, sig_r
+
+    def _pair_template_err(self, p1, p2, pdaz, pdel, pdr, pdamp, astd, lk=None):
         da = abs(wrap_az((p1["Azimuth"] - p2["Azimuth"]) - pdaz))
         de = abs((p1["Elevation"] - p2["Elevation"]) - pdel)
         dr = abs((p1["Distance"] - p2["Distance"]) - pdr)
-        if da > 0.0042 or de > 0.0036 or dr > 0.0040:
-            return None
-        e_az = da / 0.0014
-        e_el = de / 0.0005
-        e_r = dr / 0.0010
-        err = e_az * e_az + e_el * e_el + e_r * e_r
+        if self.adapt_form_sigmas and lk is not None:
+            sig_az = max(0.0014, min(0.0035, getattr(lk, "az_std_ema", 0.0008) * 3.0))
+            sig_el = max(0.0005, min(0.0030, getattr(lk, "el_std_ema", 0.0006) * 3.0))
+            sig_r = max(0.0010, min(0.0030, getattr(lk, "r_std_ema", 0.0007) * 3.0))
+            if da > max(0.0042, sig_az * 3.5) or de > max(0.0036, sig_el * 4.5) or dr > max(0.0040, sig_r * 3.5):
+                return None
+            e_az = da / sig_az
+            e_el = de / sig_el
+            e_r = dr / sig_r
+            err = min(40.0, e_az * e_az) + min(80.0, e_el * e_el) + min(40.0, e_r * e_r)
+        else:
+            if da > 0.0042 or de > 0.0036 or dr > 0.0040:
+                return None
+            e_az = da / 0.0014
+            e_el = de / 0.0005
+            e_r = dr / 0.0010
+            err = e_az * e_az + e_el * e_el + e_r * e_r
         if self.form_use_amp:
             damp = abs((p1["Amp"] - p2["Amp"]) - pdamp)
             if astd < 0.012 and damp > 0.035:
@@ -611,12 +1459,20 @@ class MasterTracker:
 
     def _solve_bipartite(self, track_ids, cand_pts, cand_scores, scan, gate_scale=1.0,
                          max_cost=1.20, occupied=None, min_pt_score=0.0, is_tentative=False,
-                         long_scale=None):
+                         long_scale=None, ctx_pmap=None, ctx_cset=None):
         if not track_ids or not cand_pts:
             return {}
         if (not is_tentative) and self.mc_add > 0.0:
             max_cost = max_cost + self.mc_add
+        aff_w = (self.aff_tent_w if is_tentative else self.aff_bipartite_w) if self._cur_aff else 0.0
+        if (not is_tentative) and aff_w > 0.0 and self.aff_mc_add > 0.0:
+            max_cost = max_cost + self.aff_mc_add
+        use_ctx = (not is_tentative) and (self.ctx_w > 0.0) and bool(ctx_pmap)
+        if use_ctx and self.ctx_mc_add > 0.0:
+            max_cost = max_cost + self.ctx_mc_add
         occupied = occupied or set()
+        ctx_pmap = ctx_pmap or {}
+        ctx_cset = ctx_cset or set()
         t_edges = []
         used_cands = {}
         for bid in track_ids:
@@ -653,6 +1509,18 @@ class MasterTracker:
                     if self.r_cost_w > 0.0 and (not is_tentative):
                         dr_norm = (p["Distance"] - pr) / (self.r_sigma * rad)
                         cost += self.r_cost_w * min(1.0, dr_norm * dr_norm)
+                    if aff_w > 0.0:
+                        p_aff = self._get_pair_aff(bid, ci)
+                        cost += aff_w * ((1.0 - p_aff) if p_aff is not None else self.aff_neutral)
+                    if use_ctx:
+                        p_ctx = ctx_pmap.get((bid, ci))
+                        if p_ctx is not None and (self.ctx_all_edges or (bid, ci) in ctx_cset):
+                            if self.ctx_mode == "nll":
+                                cost += self.ctx_w * min(3.5, -math.log(max(1e-3, p_ctx)))
+                            else:
+                                cost += self.ctx_w * (1.0 - p_ctx)
+                        elif self.ctx_mc_add > 0.0:
+                            cost += self.ctx_w * 0.15
                     if use_head:
                         cx, cy, _ = to_cart(p["Azimuth"], t.el, p["Distance"])
                         dx = (cx - t.x) / max(1, dt)
@@ -720,7 +1588,7 @@ class MasterTracker:
         return pruned
 
     def _optimize_formation_matches(self, form_groups, matches, cand_pts, cand_scores, scan, occupied,
-                                    allow_co1=False):
+                                    allow_co1=False, allow_guard=True):
         suppressed = set()
         centroid_coasts = []
 
@@ -731,6 +1599,54 @@ class MasterTracker:
             k = len(grp)
             matched_b = [b for b in grp if b in matches]
             missed_b = [b for b in grp if b not in matches]
+
+            if allow_guard and self.form_outlier_reject and len(matched_b) == 2:
+                b0, b1 = matched_b[0], matched_b[1]
+                key = (min(b0, b1), max(b0, b1))
+                lk = self.form_links.get(key)
+                if (lk is not None and lk.consistent_obs >= self.form_outlier_min_cons
+                        and abs(lk.d_az) < 0.010 and abs(lk.d_r) < 0.009
+                        and lk.pos_step_ema < 0.0025 and getattr(lk, "consec_split", 0) < 2):
+                    pdaz, pdel, pdr, _ = lk.predict(scan)
+                    sgn = 1.0 if b0 < b1 else -1.0
+                    tdaz, tdel, tdr = sgn * pdaz, sgn * pdel, sgn * pdr
+                    sig_az, sig_el, sig_r = self._perm_sigmas(lk)
+                    thr_az = max(self.form_outlier_thr_az, sig_az * 4.5)
+                    thr_el = max(self.form_outlier_thr_el, sig_el * 5.0)
+                    thr_r = max(self.form_outlier_thr_r, sig_r * 4.5)
+                    p0, p1 = cand_pts[matches[b0]], cand_pts[matches[b1]]
+                    daz01 = wrap_az(p0["Azimuth"] - p1["Azimuth"])
+                    del01 = p0["Elevation"] - p1["Elevation"]
+                    dr01 = p0["Distance"] - p1["Distance"]
+                    ok_a = (abs(wrap_az(daz01 - tdaz)) <= thr_az
+                            and abs(del01 - tdel) <= thr_el
+                            and abs(dr01 - tdr) <= thr_r)
+                    ok_b = (abs(wrap_az(-daz01 - tdaz)) <= thr_az
+                            and abs(-del01 - tdel) <= thr_el
+                            and abs(-dr01 - tdr) <= thr_r)
+                    if ok_a or ok_b:
+                        lk.consec_split = 0
+                    else:
+                        lk.consec_split += 1
+                        pred0 = self.tracks[b0].predict_sph(scan)
+                        pred1 = self.tracks[b1].predict_sph(scan)
+                        errs = []
+                        for ck in (matches[b0], matches[b1]):
+                            pk = cand_pts[ck]
+                            kin_k = min(
+                                self._norm_dist_sq(pred0[0], pred0[1], pred0[2], pk["Azimuth"], pk["Elevation"], pk["Distance"], pred0[2]),
+                                self._norm_dist_sq(pred1[0], pred1[1], pred1[2], pk["Azimuth"], pk["Elevation"], pk["Distance"], pred1[2]),
+                            )
+                            aff_k = max(self._get_pair_aff(b0, ck) or 0.5, self._get_pair_aff(b1, ck) or 0.5)
+                            errs.append(kin_k + 0.6 * (1.0 - cand_scores[ck]) + 1.0 * (1.0 - aff_k))
+                        worst = 0 if errs[0] > errs[1] else 1
+                        best = 1 - worst
+                        if errs[worst] >= errs[best] + self.form_outlier_margin:
+                            b_drop = matched_b[worst]
+                            ci_drop = matches.pop(b_drop)
+                            occupied.discard(ci_drop)
+                            matched_b = [matched_b[best]]
+                            missed_b = missed_b + [b_drop]
 
             if len(matched_b) >= 2:
                 m = len(matched_b)
@@ -743,10 +1659,18 @@ class MasterTracker:
                             lk = self.form_links.get(key)
                             if lk is None:
                                 continue
+                            if self.perm_sep_daz > 0.0:
+                                p_i = cand_pts[m_pts[i]]
+                                p_j = cand_pts[m_pts[j]]
+                                if (abs(wrap_az(p_i["Azimuth"] - p_j["Azimuth"])) > self.perm_sep_daz
+                                        or abs(p_i["Distance"] - p_j["Distance"]) > self.perm_sep_dr):
+                                    continue
                             if self._link_ready(key[0], key[1], lk, allow_co1=allow_co1):
                                 pdaz, pdel, pdr, pdamp = lk.predict(scan)
                                 sgn = 1.0 if matched_b[i] < matched_b[j] else -1.0
-                                links.append((i, j, sgn * pdaz, sgn * pdel, sgn * pdr, sgn * pdamp, lk.amp_std_ema))
+                                s_az, s_el, s_r = self._perm_sigmas(lk)
+                                links.append((i, j, sgn * pdaz, sgn * pdel, sgn * pdr, sgn * pdamp,
+                                              lk.amp_std_ema, s_az, s_el, s_r))
                     if links:
                         preds = [self.tracks[b].predict_sph(scan) for b in matched_b]
                         best_perm = tuple(range(m))
@@ -758,12 +1682,12 @@ class MasterTracker:
                                 paz, pel, pr = preds[i]
                                 u_c += 0.05 * self._norm_dist_sq(paz, pel, pr, p["Azimuth"], p["Elevation"], p["Distance"], pr)
                             p_c = 0.0
-                            for i, j, pdaz, pdel, pdr, pdamp, astd in links:
+                            for i, j, pdaz, pdel, pdr, pdamp, astd, s_az, s_el, s_r in links:
                                 p1 = cand_pts[m_pts[perm[i]]]
                                 p2 = cand_pts[m_pts[perm[j]]]
-                                e_az = (wrap_az(p1["Azimuth"] - p2["Azimuth"]) - pdaz) / 0.0015
-                                e_el = ((p1["Elevation"] - p2["Elevation"]) - pdel) / 0.0005
-                                e_r = ((p1["Distance"] - p2["Distance"]) - pdr) / 0.0012
+                                e_az = (wrap_az(p1["Azimuth"] - p2["Azimuth"]) - pdaz) / s_az
+                                e_el = ((p1["Elevation"] - p2["Elevation"]) - pdel) / s_el
+                                e_r = ((p1["Distance"] - p2["Distance"]) - pdr) / s_r
                                 pc = min(40.0, e_az * e_az) + min(80.0, e_el * e_el) + min(40.0, e_r * e_r)
                                 if self.form_use_amp:
                                     sig_a = max(self.amp_sig_floor, astd * 2.5)
@@ -777,7 +1701,7 @@ class MasterTracker:
                         for i in range(m):
                             matches[matched_b[i]] = m_pts[best_perm[i]]
 
-                if missed_b:
+                if allow_guard and missed_b:
                     for bm in list(missed_b):
                         best_ci = None
                         best_err = 25.0
@@ -792,7 +1716,7 @@ class MasterTracker:
                             for ci, p in enumerate(cand_pts):
                                 if ci in occupied or cand_scores[ci] < 0.05:
                                     continue
-                                e = self._pair_template_err(p, ph, sgn * pdaz, sgn * pdel, sgn * pdr, sgn * pdamp, lk.amp_std_ema)
+                                e = self._pair_template_err(p, ph, sgn * pdaz, sgn * pdel, sgn * pdr, sgn * pdamp, lk.amp_std_ema, lk=lk)
                                 if e is not None and e < best_err:
                                     best_err = e
                                     best_ci = ci
@@ -802,7 +1726,7 @@ class MasterTracker:
                             matched_b.append(bm)
                             missed_b.remove(bm)
 
-            elif len(matched_b) == 1 and k >= 2:
+            if allow_guard and len(matched_b) == 1 and k >= 2:
                 b_hit = matched_b[0]
                 ci = matches[b_hit]
                 p = cand_pts[ci]
@@ -826,10 +1750,10 @@ class MasterTracker:
                     for ci2, p2 in enumerate(cand_pts):
                         if ci2 in occupied or cand_scores[ci2] < 0.05:
                             continue
-                        eA = self._pair_template_err(p2, p, sgn_mh * pdaz, sgn_mh * pdel, sgn_mh * pdr, sgn_mh * pdamp, lk.amp_std_ema)
+                        eA = self._pair_template_err(p2, p, sgn_mh * pdaz, sgn_mh * pdel, sgn_mh * pdr, sgn_mh * pdamp, lk.amp_std_ema, lk=lk)
                         if eA is not None and eA < best_err:
                             best_err, best_ci2, best_swap = eA, ci2, False
-                        eB = self._pair_template_err(p, p2, sgn_mh * pdaz, sgn_mh * pdel, sgn_mh * pdr, sgn_mh * pdamp, lk.amp_std_ema)
+                        eB = self._pair_template_err(p, p2, sgn_mh * pdaz, sgn_mh * pdel, sgn_mh * pdr, sgn_mh * pdamp, lk.amp_std_ema, lk=lk)
                         if eB is not None and eB < best_err:
                             best_err, best_ci2, best_swap = eB, ci2, True
                     if best_ci2 is not None:
@@ -862,18 +1786,49 @@ class MasterTracker:
 
         return suppressed, centroid_coasts
 
-    def __call__(self, points, scores):
+    def _update_seq_memories(self, prev_tracks, points, scores, outputs):
+        if self.seq_scorer is None:
+            return
+        out_by_bid = {o["BatchID"]: o for o in outputs}
+        pt_by_pid = {p["PntID"]: (p, s) for p, s in zip(points, scores)}
+        for bid, t in self.tracks.items():
+            if bid not in prev_tracks:
+                p_init = {"Azimuth": t.az, "Elevation": t.raw_el, "Distance": t.r, "Amp": t.amp, "SNR": t.snr}
+                self.seq_memories[bid] = TrackSeqMemory(p_init, t.last_score, self.scan)
+            elif t.real_last_scan == self.scan:
+                o = out_by_bid.get(bid)
+                if o is not None and o["PntID"] in pt_by_pid:
+                    p_h, sc_h = pt_by_pid[o["PntID"]]
+                else:
+                    p_h = {"Azimuth": t.az, "Elevation": t.raw_el, "Distance": t.r, "Amp": t.amp, "SNR": t.snr}
+                    sc_h = t.last_score
+                self.seq_memories[bid].record_hit(t, p_h, sc_h, self.scan)
+            else:
+                self.seq_memories[bid].record_miss(t, self.scan)
+        if self.scan % 25 == 0:
+            alive = set(self.tracks.keys()) | set(self.dormant.keys())
+            self.seq_memories = {b: m for b, m in self.seq_memories.items() if b in alive}
+
+    def __call__(self, points, scores, pair_aff=None, cur_motion=None):
+        self._cur_motion = cur_motion
+        prev_tracks = set(self.tracks.keys())
         self.scan += 1
         scan = self.scan
+        self._cur_aff = pair_aff or {}
         if not points:
+            self._cand_orig_idx = []
+            self._update_seq_memories(prev_tracks, (), (), ())
             return []
 
         cand_pts = []
         cand_scores = []
-        for p, s in zip(points, scores):
+        cand_orig = []
+        for idx_p, (p, s) in enumerate(zip(points, scores)):
             if s >= self.min_cand_score:
                 cand_pts.append(p)
                 cand_scores.append(s)
+                cand_orig.append(idx_p)
+        self._cand_orig_idx = cand_orig
 
         occupied = set()
         confirmed = [b for b, t in self.tracks.items() if self._is_confirmed(t)]
@@ -908,17 +1863,27 @@ class MasterTracker:
                 matches.update(l0_cn)
 
         rem_confirmed = [b for b in confirmed if b not in matches]
+        ctx_pmap, ctx_cset = self._compute_ctx_scores(
+            rem_confirmed, cand_pts, cand_scores, scan, gate_scale=1.0, occupied=occupied
+        )
         conf_m = self._solve_bipartite(rem_confirmed, cand_pts, cand_scores, scan,
-                                       gate_scale=1.0, max_cost=1.18, occupied=occupied)
+                                       gate_scale=1.0, max_cost=1.18, occupied=occupied,
+                                       ctx_pmap=ctx_pmap, ctx_cset=ctx_cset)
         matches.update(conf_m)
         occupied.update(conf_m.values())
 
         missed_conf = [b for b in confirmed if b not in matches]
         if missed_conf and self.rescue_scale > 1.0:
+            ctx_pmap2, ctx_cset2 = self._compute_ctx_scores(
+                missed_conf, cand_pts, cand_scores, scan,
+                gate_scale=self.rescue_scale, occupied=occupied,
+                min_pt_score=self.rescue_min_score, long_scale=self.rescue_long_scale,
+            )
             resc_m = self._solve_bipartite(missed_conf, cand_pts, cand_scores, scan,
                                            gate_scale=self.rescue_scale, max_cost=1.35,
                                            occupied=occupied, min_pt_score=self.rescue_min_score,
-                                           long_scale=self.rescue_long_scale)
+                                           long_scale=self.rescue_long_scale,
+                                           ctx_pmap=ctx_pmap2, ctx_cset=ctx_cset2)
             matches.update(resc_m)
             occupied.update(resc_m.values())
 
@@ -1018,7 +1983,7 @@ class MasterTracker:
             tent_groups = self._active_formation_groups(list(tent_m.keys()), allow_co1=True)
             if tent_groups:
                 self._optimize_formation_matches(tent_groups, matches, cand_pts, cand_scores, scan, occupied,
-                                                 allow_co1=True)
+                                                 allow_co1=True, allow_guard=False)
 
         # Coasting
         coasted_pair_set = set()
@@ -1078,14 +2043,20 @@ class MasterTracker:
 
         for bid, t in list(self.tracks.items()):
             if bid in coasted_pair_set or bid in reconnected_active_ids:
+                if bid in self.memories:
+                    self.memories[bid].record_miss()
                 continue
             ci = matches.get(bid)
             real_elapsed = scan - t.real_last_scan
             if ci is None:
+                if bid in self.memories:
+                    self.memories[bid].record_miss()
                 if not self._is_confirmed(t):
                     max_m = self.max_missed_tent if t.max_score >= 0.15 else 1
                     if real_elapsed >= max_m:
                         del self.tracks[bid]
+                        self.memories.pop(bid, None)
+                        self._eb2_safe.pop(bid, None)
                 else:
                     lim = self.form_max_missed if bid in form_alive_set else self.max_missed_conf
                     if real_elapsed > lim:
@@ -1093,6 +2064,8 @@ class MasterTracker:
                             rvx, rvy, rvz = t.robust_vel_cart()
                             t.vx, t.vy, t.vz = rvx, rvy, rvz
                             self.dormant[bid] = t
+                        else:
+                            self.memories.pop(bid, None)
                         del self.tracks[bid]
                 continue
 
@@ -1100,6 +2073,10 @@ class MasterTracker:
             sc = cand_scores[ci]
             was_emitted = t.emitted
             t.update(p, sc, scan)
+            if bid in self.memories:
+                self.memories[bid].record_hit(p, math.hypot(t.vx, t.vy))
+            else:
+                self.memories[bid] = TrackLongMemory(p)
 
             if (not was_emitted) and t.hits >= self.confirm_hits and self.use_tsa:
                 best_db, best_src, best_llr = None, None, 0.0
@@ -1142,6 +2119,8 @@ class MasterTracker:
                     if best_src == "active":
                         reconnected_active_ids.add(best_db)
                     del self.tracks[bid]
+                    self.memories.pop(bid, None)
+                    self._eb2_safe.pop(bid, None)
                     d_tr.x, d_tr.y, d_tr.z = t.x, t.y, t.z
                     d_tr.az, d_tr.el, d_tr.raw_el, d_tr.r = t.az, t.el, t.raw_el, t.r
                     d_tr.vx, d_tr.vy, d_tr.vz = t.vx, t.vy, t.vz
@@ -1155,6 +2134,8 @@ class MasterTracker:
                     self.tracks[best_db] = d_tr
                     t = d_tr
                     bid = best_db
+                    if bid in self.memories:
+                        self.memories[bid].record_hit(p, math.hypot(t.vx, t.vy))
 
             should_emit = False
             if t.emitted:
@@ -1165,7 +2146,7 @@ class MasterTracker:
                     t.emitted = True
                     if sc >= self.maintain_score:
                         should_emit = True
-                elif (self.early_birth_2_score is not None and (not t.in_protected_birth)
+                elif (self.early_birth_2_score is not None and self._eb2_safe.get(bid, not t.in_protected_birth)
                       and t.hits == 2 and sc >= self.early_birth_2_score):
                     t.emitted = True
                     should_emit = True
@@ -1197,7 +2178,10 @@ class MasterTracker:
         unmatched.sort(key=lambda ci: -cand_scores[ci])
         unmatched = unmatched[:200]
 
-        safe_rad_sq = self.safe_zone_mult * self.safe_zone_mult
+        eb1_mult = self.eb1_safe_mult if self.eb1_safe_mult is not None else self.safe_zone_mult
+        eb2_mult = self.eb2_safe_mult if self.eb2_safe_mult is not None else self.safe_zone_mult
+        eb1_rad_sq = eb1_mult * eb1_mult
+        eb2_rad_sq = eb2_mult * eb2_mult
         born_this_scan = []
         for idx_u, ci in enumerate(unmatched):
             p = cand_pts[ci]
@@ -1212,16 +2196,22 @@ class MasterTracker:
             if in_prot and sc < 0.85:
                 continue
 
-            in_safe = not in_prot
-            if in_safe:
+            in_safe_eb1 = not in_prot
+            in_safe_eb2 = not in_prot
+            if not in_prot:
+                max_m = max(eb1_mult, eb2_mult)
                 for aaz, ael, ar in conf_active_pos:
-                    if abs(p["Distance"] - ar) > self.gate_r * self.safe_zone_mult:
+                    if abs(p["Distance"] - ar) > self.gate_r * max_m:
                         continue
-                    if self._norm_dist_sq(aaz, ael, ar, p["Azimuth"], p["Elevation"], p["Distance"], ar) <= safe_rad_sq:
-                        in_safe = False
+                    d_sq = self._norm_dist_sq(aaz, ael, ar, p["Azimuth"], p["Elevation"], p["Distance"], ar)
+                    if in_safe_eb1 and d_sq <= eb1_rad_sq:
+                        in_safe_eb1 = False
+                    if in_safe_eb2 and eb2_mult > 0.0 and d_sq <= eb2_rad_sq:
+                        in_safe_eb2 = False
+                    if (not in_safe_eb1) and (not in_safe_eb2):
                         break
             has_sibling = False
-            if in_safe:
+            if in_safe_eb1:
                 for idx_u2, ci2 in enumerate(unmatched):
                     if idx_u2 == idx_u or cand_scores[ci2] < 0.15:
                         continue
@@ -1233,11 +2223,14 @@ class MasterTracker:
 
             bid = self.next_id
             self.next_id += 1
-            t = TrackState(bid, p, sc, scan, in_protected=(not in_safe))
+            t = TrackState(bid, p, sc, scan, in_protected=(not in_safe_eb2),
+                           use_imm=self.use_imm, imm_strength=self.imm_strength)
             self.tracks[bid] = t
+            self.memories[bid] = TrackLongMemory(p)
+            self._eb2_safe[bid] = in_safe_eb2
             born_this_scan.append(bid)
 
-            if (self.early_birth_1_score is not None and in_safe and (not has_sibling)
+            if (self.early_birth_1_score is not None and in_safe_eb1 and (not has_sibling)
                     and sc >= self.early_birth_1_score):
                 t.emitted = True
                 outputs.append(_out(p, bid))
@@ -1309,14 +2302,143 @@ class MasterTracker:
                         elif ta.last_score >= 0.60 and tb.last_score >= 0.60:
                             self.form_links[key] = FormLink(ta, tb, scan)
 
+        # Record matched/born (CircleID, PntID) observations for neural cross-scan pair affinity
+        pt_by_coord = {(p["Azimuth"], p["Distance"], p["Elevation"]): (int(p["CircleID"]), int(p["PntID"]))
+                       for p in points}
+        for bid, t in self.tracks.items():
+            if t.real_last_scan == scan:
+                key = pt_by_coord.get((t.az, t.r, t.raw_el))
+                if key is not None:
+                    dq = self.track_recent_keys.get(bid)
+                    if dq is None:
+                        dq = deque(maxlen=5)
+                        self.track_recent_keys[bid] = dq
+                    if not dq or dq[-1] != key:
+                        dq.append(key)
+        if scan % 20 == 0:
+            alive = set(self.tracks.keys()) | set(self.dormant.keys())
+            self.track_recent_keys = {b: d for b, d in self.track_recent_keys.items() if b in alive}
+            self.memories = {b: m for b, m in self.memories.items() if b in alive}
+            self._eb2_safe = {b: v for b, v in self._eb2_safe.items() if b in self.tracks}
+
+        self._update_seq_memories(prev_tracks, points, scores, outputs)
         return outputs
 
 
+class HouyiPairHead(nn.Module):
+    """Lightweight neural cross-scan pair affinity head on top of Houyi (encoded + direct)."""
+
+    def __init__(self, in_dim: int = 1024, emb_dim: int = 64, geom_dim: int = 8):
+        super().__init__()
+        self.proj = nn.Sequential(
+            nn.Linear(in_dim, 256),
+            nn.LayerNorm(256),
+            nn.SiLU(),
+            nn.Linear(256, emb_dim),
+        )
+        self.pair_mlp = nn.Sequential(
+            nn.Linear(emb_dim * 4 + geom_dim, 128),
+            nn.LayerNorm(128),
+            nn.SiLU(),
+            nn.Linear(128, 64),
+            nn.SiLU(),
+            nn.Linear(64, 1),
+        )
+        self.log_scale = nn.Parameter(torch.tensor(2.3))
+        self.center = nn.Parameter(torch.tensor(0.5))
+
+    def embed(self, encoded: torch.Tensor, direct: torch.Tensor) -> torch.Tensor:
+        h = torch.cat((encoded.float(), direct.float()), dim=-1)
+        return F.normalize(self.proj(h), dim=-1)
+
+    def score_pairs(self, z_cur: torch.Tensor, z_hist: torch.Tensor, geom: torch.Tensor):
+        cos = (z_cur * z_hist).sum(dim=-1)
+        cos_logit = self.log_scale.exp().clamp(max=40.0) * (cos - self.center.clamp(-1.0, 1.0))
+        feat = torch.cat((z_cur, z_hist, z_cur * z_hist, (z_cur - z_hist).abs(), geom), dim=-1)
+        pair_logit = self.pair_mlp(feat).squeeze(-1)
+        return pair_logit, cos_logit
+
+
+class BackwardMotionHead(nn.Module):
+    """CenterTrack-style per-scan backward velocity residual head (v_az*50, v_el*15, v_r*80)."""
+
+    def __init__(self, in_dim: int = 1024, hidden: int = 256):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(in_dim, hidden),
+            nn.LayerNorm(hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, 64),
+            nn.SiLU(),
+            nn.Linear(64, 3),
+        )
+
+    def forward(self, encoded: torch.Tensor, direct: torch.Tensor) -> torch.Tensor:
+        h = torch.cat((encoded.float(), direct.float()), dim=-1)
+        return self.net(h)
+
+
+def _rel_geom_common(f_cur: np.ndarray, f_hist: np.ndarray, max_scans: float, norm_div: float) -> np.ndarray:
+    dt = np.clip(f_cur[:, 0] - f_hist[:, 0], 1e-4, max_scans + 3.0)
+    d_az = f_cur[:, 4] - f_hist[:, 4]
+    d_az = np.where(d_az > 0.5, d_az - 1.0, np.where(d_az < -0.5, d_az + 1.0, d_az))
+    d_el = f_cur[:, 5] - f_hist[:, 5]
+    d_r = f_cur[:, 3] - f_hist[:, 3]
+    d_amp = f_cur[:, 7] - f_hist[:, 7]
+    d_snr = f_cur[:, 8] - f_hist[:, 8]
+    dt_scan = np.clip(dt * 7.0, 0.5, max_scans)
+    return np.column_stack((
+        dt_scan / norm_div,
+        np.clip(d_az * 50.0, -5.0, 5.0),
+        np.clip(d_el * 15.0, -5.0, 5.0),
+        np.clip(d_r * 80.0, -5.0, 5.0),
+        np.clip(d_amp * 8.0, -5.0, 5.0),
+        np.clip(d_snr * 8.0, -5.0, 5.0),
+        np.clip((d_az / dt_scan) * 80.0, -5.0, 5.0),
+        np.clip((d_r / dt_scan) * 120.0, -5.0, 5.0),
+    )).astype(np.float32)
+
+
+def rel_geom_np(f_cur: np.ndarray, f_hist: np.ndarray) -> np.ndarray:
+    """8-dim scale-normalized relative kinematics & signal deltas for 8-scan models."""
+    return _rel_geom_common(f_cur, f_hist, max_scans=8.0, norm_div=7.0)
+
+
+def rel_geom_12s_np(f_cur: np.ndarray, f_hist: np.ndarray) -> np.ndarray:
+    """8-dim scale-normalized relative kinematics & signal deltas for 12-scan V18 models."""
+    return _rel_geom_common(f_cur, f_hist, max_scans=12.0, norm_div=11.0)
+
+
+def _fuse_aff(a1: dict, a2: dict) -> dict:
+    if not a1:
+        return a2
+    if not a2:
+        return a1
+    out = {}
+    for oi in set(a1.keys()) | set(a2.keys()):
+        d1 = a1.get(oi)
+        d2 = a2.get(oi)
+        if d1 and d2:
+            m = {}
+            for k in set(d1.keys()) | set(d2.keys()):
+                if k in d1 and k in d2:
+                    m[k] = 0.5 * (d1[k] + d2[k])
+                else:
+                    m[k] = d1.get(k, d2.get(k))
+            out[oi] = m
+        elif d1:
+            out[oi] = d1
+        else:
+            out[oi] = d2
+    return out
+
+
 class HouyiScorer:
-    """Fast bf16 SDPA Houyi v2 point scorer (single model or logit-averaged ensemble)."""
+    """Fast bf16 SDPA Houyi v2 point scorer + V18 Joint Pair/Motion Heads + 50%-Overlap Azimuth TTA."""
 
     def __init__(self, houyi_package: Path, checkpoint_path, device: str = "cuda",
-                 weights=None, temperature: float = 1.0):
+                 weights=None, temperature: float = 1.0, pair_checkpoint=None,
+                 use_az_tta: bool = True):
         houyi_package = Path(houyi_package)
         code_dir = str((houyi_package / "code").resolve())
         if code_dir not in sys.path:
@@ -1336,6 +2458,7 @@ class HouyiScorer:
             s = sum(weights)
             self.weights = [w / s for w in weights]
         self.temperature = float(temperature)
+        self.use_az_tta = bool(use_az_tta)
 
         model_dir = houyi_package / "Model"
         config = json.loads((model_dir / "model_config.json").read_text(encoding="utf-8-sig"))
@@ -1354,10 +2477,15 @@ class HouyiScorer:
         )
         encoder._attn_implementation = "sdpa"
         self.device = torch.device(device if (device == "cuda" and torch.cuda.is_available()) else "cpu")
-        self.models = []
-        for cp in ckpt_paths:
-            ckpt = torch.load(cp, map_location="cpu", weights_only=True)
-            state_dict = ckpt["model"] if isinstance(ckpt, dict) and "model" in ckpt else ckpt
+
+        def _load_bert(cp_path: Path):
+            ckpt = torch.load(cp_path, map_location="cpu", weights_only=False)
+            if isinstance(ckpt, dict) and "model" in ckpt:
+                state_dict = ckpt["model"]
+            elif isinstance(ckpt, dict) and "model_state" in ckpt:
+                state_dict = ckpt["model_state"]
+            else:
+                state_dict = ckpt
             out_dim = state_dict["regressor.8.weight"].shape[0]
             model = BertCCModel(
                 len(indices) + self.augmenter.n_aug_features + self.extra,
@@ -1374,7 +2502,51 @@ class HouyiScorer:
             last.attention.self._forward_hooks.clear()
             last._forward_hooks.clear()
             model.to(self.device).eval()
-            self.models.append(model)
+            return model, ckpt
+
+        self.models = []
+        self.model_scans = []
+        loaded_ckpts = []
+        for cp in ckpt_paths:
+            m, ck = _load_bert(cp)
+            self.models.append(m)
+            sc_n = int(ck.get("scan_count", SCAN_COUNT)) if isinstance(ck, dict) else SCAN_COUNT
+            self.model_scans.append(sc_n)
+            loaded_ckpts.append((cp.resolve(), ck))
+
+        # Optional cross-scan pair affinity + backward motion heads (V17 pair_head or V18 joint heads)
+        self.pair_model = None
+        self.pair_head = None
+        self.motion_head = None
+        self.pair_scan = SCAN_COUNT
+        self.pair_use_12s_geom = False
+        if pair_checkpoint:
+            p_path = Path(pair_checkpoint)
+            if p_path.is_file():
+                resolved_p = p_path.resolve()
+                reused = next((i for i, (rp, _) in enumerate(loaded_ckpts) if rp == resolved_p), None)
+                if reused is not None:
+                    self.pair_model = self.models[reused]
+                    p_ckpt = loaded_ckpts[reused][1]
+                else:
+                    self.pair_model, p_ckpt = _load_bert(p_path)
+                if isinstance(p_ckpt, dict):
+                    pair_sd = p_ckpt.get("pair_head_state") or p_ckpt.get("pair_head")
+                    if pair_sd is not None:
+                        head = HouyiPairHead(in_dim=1024, emb_dim=64, geom_dim=8).to(self.device)
+                        head.load_state_dict(pair_sd, strict=True)
+                        head.eval()
+                        self.pair_head = head
+                        self.pair_scan = int(p_ckpt.get("scan_count", SCAN_COUNT))
+                        self.pair_use_12s_geom = (self.pair_scan >= 12 or "pair_head_state" in p_ckpt)
+                    mot_sd = p_ckpt.get("motion_head_state")
+                    if mot_sd is not None:
+                        mhead = BackwardMotionHead(in_dim=1024, hidden=256).to(self.device)
+                        mhead.load_state_dict(mot_sd, strict=True)
+                        mhead.eval()
+                        self.motion_head = mhead
+
+        self.max_scan_count = max(self.model_scans + ([self.pair_scan] if self.pair_head is not None else []))
 
         self.splitter = HorizontalCoordPaddedFanSplitter.generate_fully_covering_splitter(
             r_max=data["max_value"]["r"],
@@ -1384,16 +2556,19 @@ class HouyiScorer:
         )
         self.corners = self.splitter.circumrect_corners
         self.time_scale = data["normalization_factor"]["time"] * 1000.0
+        self.half_az_shift = 0.5 / len(self.splitter.fan_azims)
 
-    def _sectors(self, points, history):
+    def _sectors(self, points, history, return_meta: bool = False, az_shift: float = 0.0):
         if not points:
-            return []
-        cloud = np.asarray(
-            [[p[k] for k in ("Time", "Azimuth", "Elevation", "Distance", "Amp", "SNR")]
-             for scan in (*history, points) for p in scan],
+            return ([], None, None, 0) if return_meta else []
+        cloud = [p for scan in (*history, points) for p in scan]
+        arr = np.asarray(
+            [[p[k] for k in ("Time", "Azimuth", "Elevation", "Distance", "Amp", "SNR")] for p in cloud],
             dtype=np.float64,
         )
-        time_col, azimuth, elevation, radius, amp, snr = cloud.T
+        time_col, azimuth, elevation, radius, amp, snr = arr.T
+        if az_shift != 0.0:
+            azimuth = (azimuth + az_shift) % 1.0
         first_current = len(cloud) - len(points)
         angle = (azimuth - 0.5) * TWO_PI
         deltas = angle[:, None] - self.splitter.fan_azims
@@ -1414,81 +2589,298 @@ class HouyiScorer:
                 r, azimuth[members], elevation[members], np.zeros(len(members)),
                 amp[members], snr[members], np.full(len(members), 0.5),
             )).astype(np.float32)
-            sectors.append((features, np.flatnonzero(local), members[local] - first_current))
+            if return_meta:
+                sectors.append((features, np.flatnonzero(local), members[local] - first_current, members))
+            else:
+                sectors.append((features, np.flatnonzero(local), members[local] - first_current))
+        if return_meta:
+            cids = np.asarray([int(p["CircleID"]) for p in cloud], dtype=np.int32)
+            pids = np.asarray([int(p["PntID"]) for p in cloud], dtype=np.int32)
+            return sectors, cids, pids, first_current
         return sectors
 
-    def forward_sector_batch(self, subset, model_idx: int = 0):
-        """Differentiable forward pass for a mini-batch of sectors (used by training & evaluation)."""
-        count = max(len(v) for v, _, _ in subset)
+    def _encode_batch(self, subset):
+        count = max(len(s[0]) for s in subset)
         input_data = np.zeros((len(subset), count, 10), dtype=np.float32)
         valid = np.zeros((len(subset), count), dtype=bool)
-        for idx, (vals, _, _) in enumerate(subset):
+        for idx, s in enumerate(subset):
+            vals = s[0]
             input_data[idx, :len(vals)] = vals
             valid[idx, :len(vals)] = True
         raw = torch.from_numpy(input_data).to(self.device)
         mask = torch.from_numpy(valid).to(self.device)
         inputs = F.pad(torch.cat((raw, self.augmenter.augment(raw)), dim=-1), (0, self.extra))
+        return inputs, mask
+
+    @staticmethod
+    def _forward_model(model, inputs: torch.Tensor, mask: torch.Tensor):
+        hidden = model.input_embedding(inputs)
+        attention = (~mask[:, None, None]).to(hidden.dtype) * -10000.0
+        encoded = model.bert_encoder(hidden, attention_mask=attention, return_dict=True).last_hidden_state
+        direct = model.point_classifier_input_emb(inputs)
+        combined = model.point_classifier_concat_emb(torch.cat((encoded, direct), dim=-1))
+        logits = model.point_classifier(combined).float()
+        return encoded, direct, logits
+
+    def forward_sector_batch(self, subset, model_idx: int = 0):
+        """Differentiable forward pass for a mini-batch of sectors (used by training scripts)."""
+        inputs, mask = self._encode_batch(subset)
         model = self.models[model_idx]
         with torch.autocast(self.device.type, dtype=torch.bfloat16, enabled=self.device.type == "cuda"):
-            hidden = model.input_embedding(inputs)
-            attention = (~mask[:, None, None]).to(hidden.dtype) * -10000.0
-            encoded = model.bert_encoder(hidden, attention_mask=attention, return_dict=True).last_hidden_state
-            direct = model.point_classifier_input_emb(inputs)
-            combined = model.point_classifier_concat_emb(torch.cat((encoded, direct), dim=-1))
-            logits = model.point_classifier(combined)
-        return logits.float()
+            _, _, logits = self._forward_model(model, inputs, mask)
+        return logits
+
+    def _eval_point_logits_for_window(self, points, hist_slice, model_indices, az_shift: float = 0.0):
+        """Evaluate weighted logit_diff for all models sharing one causal window length."""
+        sectors = self._sectors(points, hist_slice, az_shift=az_shift)
+        out_ld = np.zeros(len(points), dtype=np.float32)
+        bs = 2 if len(hist_slice) >= 9 else SECTOR_BATCH
+        for start in range(0, len(sectors), bs):
+            subset = sectors[start:start + bs]
+            inputs, mask = self._encode_batch(subset)
+            with torch.autocast(self.device.type, dtype=torch.bfloat16, enabled=self.device.type == "cuda"):
+                ld_sum = None
+                for mi in model_indices:
+                    _, _, logits = self._forward_model(self.models[mi], inputs, mask)
+                    ld = (logits[..., 1] - logits[..., 0]) * self.weights[mi]
+                    ld_sum = ld if ld_sum is None else (ld_sum + ld)
+            ld_np = ld_sum.cpu().numpy()
+            for idx, (_, rows, point_indices) in enumerate(subset):
+                out_ld[point_indices] = ld_np[idx, rows]
+        return out_ld
+
+    def _eval_pair_window_single(self, points, h_pair, pair_win_models, active_hist_keys,
+                                 cand_thresh: float, need_motion: bool, az_shift: float = 0.0):
+        sectors, cids, pids, first_current = self._sectors(points, h_pair, return_meta=True, az_shift=az_shift)
+        active_mask = np.zeros(first_current, dtype=bool)
+        if active_hist_keys and first_current > 0:
+            for hi in range(first_current):
+                if (int(cids[hi]), int(pids[hi])) in active_hist_keys:
+                    active_mask[hi] = True
+        need_pairs = bool(np.any(active_mask))
+
+        win_ld = np.zeros(len(points), dtype=np.float32)
+        mot_out = np.zeros((len(points), 3), dtype=np.float32) if (need_motion and self.motion_head is not None) else None
+        aff_dict = {}
+
+        if self.pair_use_12s_geom:
+            geom_fn, dr_win, daz_win, cand_ld_thr = rel_geom_12s_np, 0.036, 0.042, -3.3
+        else:
+            geom_fn, dr_win, daz_win = rel_geom_np, 0.032, 0.038
+            cand_ld_thr = math.log(max(1e-4, cand_thresh) / max(1e-4, 1.0 - cand_thresh)) * self.temperature
+
+        bs = 2 if len(h_pair) >= 9 else SECTOR_BATCH
+        for start in range(0, len(sectors), bs):
+            subset = sectors[start:start + bs]
+            inputs, mask = self._encode_batch(subset)
+            pair_enc = pair_dir = pair_ld = ld_sum = None
+            with torch.autocast(self.device.type, dtype=torch.bfloat16, enabled=self.device.type == "cuda"):
+                for mi in pair_win_models:
+                    model = self.models[mi]
+                    enc, dir_e, logits = self._forward_model(model, inputs, mask)
+                    raw_ld = logits[..., 1] - logits[..., 0]
+                    w = self.weights[mi]
+                    ld_sum = (raw_ld * w) if ld_sum is None else (ld_sum + raw_ld * w)
+                    if (need_pairs or mot_out is not None) and model is self.pair_model:
+                        pair_enc, pair_dir, pair_ld = enc, dir_e, raw_ld
+                if (need_pairs or mot_out is not None) and pair_enc is None:
+                    pair_enc, pair_dir, p_logits = self._forward_model(self.pair_model, inputs, mask)
+                    pair_ld = p_logits[..., 1] - p_logits[..., 0]
+
+            if ld_sum is not None:
+                ld_np = ld_sum.cpu().numpy()
+                for idx, (_, cur_rows, pt_idx, _) in enumerate(subset):
+                    win_ld[pt_idx] = ld_np[idx, cur_rows]
+
+            if mot_out is not None:
+                mot_all = self.motion_head(pair_enc, pair_dir).cpu().numpy()
+                for idx, (_, cur_rows, pt_idx, _) in enumerate(subset):
+                    mot_out[pt_idx] = mot_all[idx, cur_rows]
+
+            if need_pairs:
+                z_all = self.pair_head.embed(pair_enc, pair_dir)
+                pair_ld_np = pair_ld.cpu().numpy()
+                for idx, (feats, cur_rows, pt_idx, members) in enumerate(subset):
+                    c_ld = pair_ld_np[idx, cur_rows]
+                    act_cur = c_ld >= cand_ld_thr
+                    if not np.any(act_cur):
+                        continue
+                    hist_ok = pair_ld_np[idx, :len(members)] >= cand_ld_thr
+                    hist_rows = np.flatnonzero(
+                        (members < first_current) & active_mask[np.minimum(members, first_current - 1)] & hist_ok
+                    )
+                    if not len(hist_rows):
+                        continue
+                    h_r = feats[hist_rows, 3]
+                    h_az = feats[hist_rows, 4]
+                    pc_list, ph_list, orig_ci_list = [], [], []
+                    for cr, oi in zip(cur_rows[act_cur], pt_idx[act_cur]):
+                        dr = np.abs(h_r - feats[cr, 3])
+                        daz = np.abs(h_az - feats[cr, 4])
+                        daz = np.minimum(daz, 1.0 - daz)
+                        near = hist_rows[(dr < dr_win) & (daz < daz_win)]
+                        for hr in near:
+                            pc_list.append(cr)
+                            ph_list.append(hr)
+                            orig_ci_list.append(int(oi))
+                    if pc_list:
+                        pc_a = np.asarray(pc_list, dtype=np.int64)
+                        ph_a = np.asarray(ph_list, dtype=np.int64)
+                        gm = torch.from_numpy(geom_fn(feats[pc_a], feats[ph_a])).to(self.device)
+                        pl, _ = self.pair_head.score_pairs(z_all[idx, pc_a], z_all[idx, ph_a], gm)
+                        pp = torch.sigmoid(pl).cpu().numpy()
+                        h_mem = members[ph_a]
+                        h_cids = cids[h_mem]
+                        h_pids = pids[h_mem]
+                        for oi, hc, hp, pv in zip(orig_ci_list, h_cids, h_pids, pp):
+                            d = aff_dict.get(oi)
+                            if d is None:
+                                d = {}
+                                aff_dict[oi] = d
+                            d[(int(hc), int(hp))] = float(pv)
+
+        return win_ld, aff_dict, mot_out
 
     @torch.inference_mode()
     def scores(self, points, history):
         if not points:
             return []
-        sectors = self._sectors(points, history)
-        out = np.empty(len(points), dtype=np.float32)
-        for start in range(0, len(sectors), SECTOR_BATCH):
-            subset = sectors[start:start + SECTOR_BATCH]
-            count = max(len(v) for v, _, _ in subset)
-            input_data = np.zeros((len(subset), count, 10), dtype=np.float32)
-            valid = np.zeros((len(subset), count), dtype=bool)
-            for idx, (vals, _, _) in enumerate(subset):
-                input_data[idx, :len(vals)] = vals
-                valid[idx, :len(vals)] = True
-            raw = torch.from_numpy(input_data).to(self.device)
-            mask = torch.from_numpy(valid).to(self.device)
-            inputs = F.pad(torch.cat((raw, self.augmenter.augment(raw)), dim=-1), (0, self.extra))
-            with torch.autocast(self.device.type, dtype=torch.bfloat16, enabled=self.device.type == "cuda"):
-                logit_diff_sum = None
-                for model, w in zip(self.models, self.weights):
-                    hidden = model.input_embedding(inputs)
-                    attention = (~mask[:, None, None]).to(hidden.dtype) * -10000.0
-                    encoded = model.bert_encoder(hidden, attention_mask=attention, return_dict=True).last_hidden_state
-                    direct = model.point_classifier_input_emb(inputs)
-                    combined = model.point_classifier_concat_emb(torch.cat((encoded, direct), dim=-1))
-                    logits = model.point_classifier(combined).float()
-                    ld = (logits[..., 1] - logits[..., 0]) * w
-                    logit_diff_sum = ld if logit_diff_sum is None else (logit_diff_sum + ld)
-            if self.temperature != 1.0:
-                logit_diff_sum = logit_diff_sum / self.temperature
-            probs = torch.sigmoid(logit_diff_sum).cpu().numpy()
-            for idx, (_, rows, point_indices) in enumerate(subset):
-                out[point_indices] = probs[idx, rows]
-        return out.tolist()
+        hist_list = list(history)
+        by_sc = defaultdict(list)
+        for mi, sc_n in enumerate(self.model_scans):
+            by_sc[sc_n].append(mi)
+        shifts = (0.0, self.half_az_shift) if self.use_az_tta else (0.0,)
+        total_ld = np.zeros(len(points), dtype=np.float32)
+        for sc_n, m_idxs in by_sc.items():
+            h_sub = hist_list[-(sc_n - 1):] if sc_n > 1 else []
+            ld_acc = None
+            for sh in shifts:
+                ld_s = self._eval_point_logits_for_window(points, h_sub, m_idxs, az_shift=sh)
+                ld_acc = ld_s if ld_acc is None else (ld_acc + ld_s)
+            total_ld += ld_acc / len(shifts)
+        if self.temperature != 1.0:
+            total_ld = total_ld / self.temperature
+        probs = 1.0 / (1.0 + np.exp(-np.clip(total_ld, -30.0, 30.0)))
+        return probs.tolist()
+
+    @torch.inference_mode()
+    def score_and_affinity(self, points, history, active_hist_keys=None, cand_thresh: float = 0.035,
+                           return_motion: bool = False):
+        """Return (probs_list, pair_aff_dict[, cur_motion]) with 50%-overlap Azimuth TTA."""
+        if not points:
+            return ([], {}, None) if return_motion else ([], {})
+        if self.pair_head is None or self.pair_model is None or not history:
+            probs = self.scores(points, history)
+            return (probs, {}, None) if return_motion else (probs, {})
+        hist_list = list(history)
+        by_sc = defaultdict(list)
+        for mi, sc_n in enumerate(self.model_scans):
+            by_sc[sc_n].append(mi)
+        shifts = (0.0, self.half_az_shift) if self.use_az_tta else (0.0,)
+
+        total_ld = np.zeros(len(points), dtype=np.float32)
+        for sc_n, m_idxs in by_sc.items():
+            if sc_n != self.pair_scan:
+                h_sub = hist_list[-(sc_n - 1):] if sc_n > 1 else []
+                ld_acc = None
+                for sh in shifts:
+                    ld_s = self._eval_point_logits_for_window(points, h_sub, m_idxs, az_shift=sh)
+                    ld_acc = ld_s if ld_acc is None else (ld_acc + ld_s)
+                total_ld += ld_acc / len(shifts)
+
+        h_pair = hist_list[-(self.pair_scan - 1):] if self.pair_scan > 1 else []
+        pair_win_models = by_sc.get(self.pair_scan, [])
+        need_motion = bool(return_motion and self.motion_head is not None)
+        ld_p_acc = None
+        aff_acc = None
+        mot_acc = None
+        for sh in shifts:
+            w_ld, w_aff, w_mot = self._eval_pair_window_single(
+                points, h_pair, pair_win_models, active_hist_keys,
+                cand_thresh=cand_thresh, need_motion=need_motion, az_shift=sh,
+            )
+            ld_p_acc = w_ld if ld_p_acc is None else (ld_p_acc + w_ld)
+            aff_acc = w_aff if aff_acc is None else _fuse_aff(aff_acc, w_aff)
+            if w_mot is not None:
+                mot_acc = w_mot if mot_acc is None else (mot_acc + w_mot)
+
+        total_ld += ld_p_acc / len(shifts)
+        cur_motion = (mot_acc / len(shifts)) if mot_acc is not None else None
+        if self.temperature != 1.0:
+            total_ld = total_ld / self.temperature
+        out = 1.0 / (1.0 + np.exp(-np.clip(total_ld, -30.0, 30.0)))
+        if return_motion:
+            return out.tolist(), (aff_acc or {}), cur_motion
+        return out.tolist(), (aff_acc or {})
 
 
 DEFAULT_TEMPERATURE = 1.15
+DEFAULT_ENSEMBLE_TEMPERATURE = 0.90
+DEFAULT_V18_ENSEMBLE_WEIGHTS = (0.30, 0.70)
+
+
+def resolve_conflict_checkpoint():
+    """Locate calibrated ContextualConflictNet V17 checkpoint if available."""
+    c_env = os.environ.get("B02_CONFLICT_CHECKPOINT")
+    if c_env is not None:
+        return Path(c_env) if c_env.strip() else None
+    starter_root = Path(__file__).resolve().parents[1]
+    workspace = Path(__file__).resolve().parents[3]
+    cands = [
+        starter_root / "assets" / "contextual_conflict_v17.pt",
+        workspace / "output" / "houyi_pair_170" / "contextual_conflict_v17.pt",
+    ]
+    return next((p for p in cands if p.is_file()), None)
+
+
+def resolve_seq_checkpoint():
+    """Locate V18-C TrackSeqCrossAttnNet checkpoint if available."""
+    s_env = os.environ.get("B02_SEQ_CHECKPOINT")
+    if s_env is not None:
+        return Path(s_env) if s_env.strip() else None
+    starter_root = Path(__file__).resolve().parents[1]
+    workspace = Path(__file__).resolve().parents[3]
+    cands = [
+        starter_root / "assets" / "track_seq_cross_attn_v18.pt",
+        workspace / "output" / "houyi_v18_170" / "track_seq_cross_attn_v18.pt",
+    ]
+    return next((p for p in cands if p.is_file()), None)
 
 
 def build_circle_handler(houyi_package: Path, checkpoint_path, device: str = "cuda",
-                         weights=None, temperature: float = DEFAULT_TEMPERATURE, **tracker_overrides):
+                         weights=None, temperature: float = DEFAULT_TEMPERATURE,
+                         pair_checkpoint=None, conflict_checkpoint=None,
+                         seq_checkpoint=None, use_az_tta: bool = True, **tracker_overrides):
     """Build a stateful (points, state) -> list[dict] handler compatible with b02 replay and official TCP client."""
     scorer = HouyiScorer(houyi_package, checkpoint_path, device=device,
-                         weights=weights, temperature=temperature)
+                         weights=weights, temperature=temperature,
+                         pair_checkpoint=pair_checkpoint, use_az_tta=use_az_tta)
+    seq_scorer = (
+        FastSeqCrossAttnScorer(seq_checkpoint, device=device)
+        if seq_checkpoint and Path(seq_checkpoint).is_file() else None
+    )
+    conflict_net = (
+        FastNumpyConflictNet(conflict_checkpoint)
+        if (seq_scorer is None and conflict_checkpoint and Path(conflict_checkpoint).is_file()) else None
+    )
+    eff_overrides = dict(tracker_overrides)
+    if seq_scorer is None and conflict_net is not None:
+        eff_overrides.setdefault("ctx_w", 0.35)
+        eff_overrides.setdefault("ctx_mc_add", 0.25)
 
     def handle(points, state):
         if not state:
-            state["history"] = deque(maxlen=SCAN_COUNT - 1)
-            state["tracker"] = MasterTracker(**tracker_overrides)
+            state["history"] = deque(maxlen=max(1, scorer.max_scan_count - 1))
+            state["tracker"] = MasterTracker(conflict_net=conflict_net, seq_scorer=seq_scorer, **eff_overrides)
         history = state["history"]
         tracker = state["tracker"]
+        if scorer.pair_head is not None:
+            probs, pair_aff, cur_motion = scorer.score_and_affinity(
+                points, history, active_hist_keys=tracker.active_hist_keys(),
+                cand_thresh=max(0.035, tracker.min_cand_score), return_motion=True,
+            )
+            history.append(points)
+            return tracker(points, probs, pair_aff=pair_aff, cur_motion=cur_motion)
         probs = scorer.scores(points, history)
         history.append(points)
         return tracker(points, probs)
@@ -1497,7 +2889,7 @@ def build_circle_handler(houyi_package: Path, checkpoint_path, device: str = "cu
 
 
 def resolve_default_paths():
-    """Locate HouyiBypassV2 package and default Houyi-Dense-v3 checkpoint via env vars or workspace layout."""
+    """Locate HouyiBypassV2 package, point checkpoint(s) (V18+v3 or V17 fallback), and pair checkpoint."""
     starter_root = Path(__file__).resolve().parents[1]
     workspace = Path(__file__).resolve().parents[3]
     houyi_env = os.environ.get("B02_HOUYI_DIR")
@@ -1509,37 +2901,112 @@ def resolve_default_paths():
             workspace / "智能体应用赛题B02--目标检测跟踪--后羿基础模型" / "HouyiV2-publish" / "HouyiBypassV2",
         ]
         houyi_pkg = next((p for p in h_cands if p.is_dir()), h_cands[-1])
+
+    p_v18 = next((p for p in (
+        starter_root / "assets" / "houyi-v18-joint-12scan.pt",
+        workspace / "output" / "houyi_v18_170" / "houyi-v18-joint-12scan.pt",
+    ) if p.is_file()), None)
+
     ckpt_env = os.environ.get("B02_CHECKPOINT")
     if ckpt_env:
-        ckpt_path = Path(ckpt_env)
+        parts = [Path(s.strip()) for s in ckpt_env.split(",") if s.strip()]
+        ckpt_path = parts[0] if len(parts) == 1 else parts
     else:
-        candidates = [
+        c8 = [
             starter_root / "assets" / "houyi-dense-v3-e02.pt",
             workspace / "output" / "houyi_dense_170" / "houyi-dense-v3-e02.pt",
             workspace / "output" / "houyi_dense_170" / "houyi-dense-e02.pt",
         ]
-        ckpt_path = next((p for p in candidates if p.is_file()), candidates[0])
-    return houyi_pkg, ckpt_path
+        p8 = next((p for p in c8 if p.is_file()), c8[0])
+        if p8.is_file() and p_v18 is not None:
+            ckpt_path = [p8, p_v18]
+        else:
+            c12 = [
+                starter_root / "assets" / "houyi-v4-12scan-e02.pt",
+                workspace / "output" / "houyi_v4_12scan_170" / "houyi-v4-12scan-e02.pt",
+            ]
+            p12 = next((p for p in c12 if p.is_file()), None)
+            ckpt_path = [p8, p12] if (p8.is_file() and p12 is not None) else p8
+
+    pair_env = os.environ.get("B02_PAIR_CHECKPOINT")
+    if pair_env is not None:
+        pair_path = Path(pair_env) if pair_env.strip() else None
+    elif p_v18 is not None:
+        pair_path = p_v18
+    else:
+        p_cands = [
+            starter_root / "assets" / "houyi-pair-e02.pt",
+            workspace / "output" / "houyi_pair_170" / "houyi-pair-e02.pt",
+        ]
+        pair_path = next((p for p in p_cands if p.is_file()), None)
+    return houyi_pkg, ckpt_path, pair_path
 
 
-def load_tracker(checkpoint=None, device: str = "auto", temperature: float = DEFAULT_TEMPERATURE,
-                 houyi_dir=None, **tracker_overrides):
+def load_tracker(checkpoint=None, device: str = "auto", temperature=None,
+                 houyi_dir=None, pair_checkpoint="auto", conflict_checkpoint="auto",
+                 seq_checkpoint="auto", weights=None, use_az_tta: bool = True, **tracker_overrides):
     """CLI/submission loader returning (handler, config_dict)."""
-    default_houyi, default_ckpt = resolve_default_paths()
+    default_houyi, default_ckpt, default_pair = resolve_default_paths()
     houyi_pkg = Path(houyi_dir) if houyi_dir else default_houyi
-    ckpt_path = Path(checkpoint) if checkpoint else default_ckpt
+    if checkpoint is None:
+        ckpt_path = default_ckpt
+    elif isinstance(checkpoint, (list, tuple)):
+        ckpt_path = [Path(p) for p in checkpoint]
+    else:
+        s = str(checkpoint)
+        parts = [Path(x.strip()) for x in s.split(",") if x.strip()]
+        ckpt_path = parts[0] if len(parts) == 1 else parts
+    pair_path = default_pair if pair_checkpoint == "auto" else (Path(pair_checkpoint) if pair_checkpoint else None)
+    conflict_path = resolve_conflict_checkpoint() if conflict_checkpoint == "auto" else (Path(conflict_checkpoint) if conflict_checkpoint else None)
+    seq_path = resolve_seq_checkpoint() if seq_checkpoint == "auto" else (Path(seq_checkpoint) if seq_checkpoint else None)
+
+    is_ens = isinstance(ckpt_path, (list, tuple)) and len(ckpt_path) > 1
+    if weights is None:
+        w_env = os.environ.get("B02_WEIGHTS")
+        if w_env:
+            eff_weights = [float(x) for x in w_env.split(",") if x.strip()]
+        elif is_ens and len(ckpt_path) == 2 and "v18" in ckpt_path[1].name.lower():
+            eff_weights = list(DEFAULT_V18_ENSEMBLE_WEIGHTS)
+        else:
+            eff_weights = None
+    else:
+        eff_weights = list(weights)
+
+    if temperature is None:
+        t_env = os.environ.get("B02_TEMPERATURE")
+        temp = float(t_env) if t_env else (DEFAULT_ENSEMBLE_TEMPERATURE if is_ens else DEFAULT_TEMPERATURE)
+    else:
+        temp = float(temperature)
+
+    tta_env = os.environ.get("B02_AZ_TTA")
+    eff_tta = use_az_tta if tta_env is None else (tta_env.strip().lower() not in ("0", "false", "no", ""))
+
     if device == "auto":
         dev = "cuda" if torch.cuda.is_available() else "cpu"
     else:
         dev = device
     handler = build_circle_handler(houyi_pkg, ckpt_path, device=dev,
-                                   temperature=temperature, **tracker_overrides)
+                                   weights=eff_weights, temperature=temp, pair_checkpoint=pair_path,
+                                   conflict_checkpoint=conflict_path, seq_checkpoint=seq_path,
+                                   use_az_tta=eff_tta, **tracker_overrides)
+    if is_ens and seq_path and pair_path and "v18" in pair_path.name.lower():
+        t_name = "master-v19.5-v18joint-tta-seqattn-outlier"
+    elif is_ens and pair_path and conflict_path:
+        t_name = "master-v17-multiwindow-imm-pair-conflict"
+    else:
+        t_name = "master-legacy"
     cfg = {
-        "tracker": "master-v14",
-        "checkpoint": str(ckpt_path),
+        "tracker": t_name,
+        "checkpoint": [str(p) for p in ckpt_path] if is_ens else str(ckpt_path),
+        "weights": eff_weights,
+        "pair_checkpoint": str(pair_path) if pair_path else None,
+        "seq_checkpoint": str(seq_path) if seq_path else None,
+        "conflict_checkpoint": str(conflict_path) if (not seq_path and conflict_path) else None,
         "houyi_package": str(houyi_pkg),
         "device": dev,
-        "temperature": temperature,
+        "temperature": temp,
+        "use_az_tta": eff_tta,
         "params": {**DEFAULT_TRACKER_PARAMS, **tracker_overrides},
     }
+    return handler, cfg
     return handler, cfg

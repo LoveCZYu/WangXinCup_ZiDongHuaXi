@@ -1,0 +1,57 @@
+{
+  "name": "master-v19.5-v18joint-tta-seqattn-outlier",
+  "protocol": "170 non-dev scenes trained / 30 dev scenes held-out (zero leakage)",
+  "ensemble": {
+    "models": [
+      "houyi-dense-v3-e02.pt (8-scan)",
+      "houyi-v18-joint-12scan.pt (12-scan)"
+    ],
+    "weights": [0.30, 0.70],
+    "temperature": 0.90,
+    "use_az_tta": true,
+    "pair_head": "houyi-v18-joint-12scan.pt (12-scan SupCon PairHead + BackwardMotionHead)",
+    "seq_associator": "track_seq_cross_attn_v18.pt (24-scan GRU + Bipartite Conflict-Component Self-Attention)"
+  },
+  "tracker_params": {
+    "ctx_w": 0.25,
+    "ctx_mode": "nll",
+    "ctx_mc_add": 0.18,
+    "adapt_form_sigmas": true,
+    "form_outlier_reject": true,
+    "form_outlier_min_cons": 3,
+    "form_outlier_thr_az": 0.0045,
+    "form_outlier_thr_el": 0.0070,
+    "form_outlier_thr_r": 0.0045,
+    "form_outlier_margin": 0.15
+  },
+  "dev_30": {
+    "weighted_total": 96.7147,
+    "track_recall": 96.27,
+    "clutter_score": 99.34,
+    "fragmentation_score": 94.13,
+    "timeliness_score": 98.24,
+    "continuous_score": 97.13,
+    "id_switches": 937
+  },
+  "stress_test": {
+    "weighted_total": 94.4637,
+    "track_recall": 96.46,
+    "clutter_score": 98.21,
+    "fragmentation_score": 85.20,
+    "timeliness_score": 97.91,
+    "continuous_score": 95.41,
+    "id_switches": 1319
+  },
+  "live_gpu_verification": {
+    "device": "RTX 5070 Laptop (bf16 SDPA)",
+    "train_015_live_total": 95.9078,
+    "train_015_cached_diff": -0.0000,
+    "train_123_live_total": 96.9436,
+    "train_123_cached_diff": -0.0000,
+    "mean_ms_per_circle": 178.6,
+    "p95_ms_per_circle": 202.1,
+    "max_ms_per_circle": 393.7,
+    "peak_vram_mb": 224.6,
+    "packet_reset_deterministic": true
+  }
+}
